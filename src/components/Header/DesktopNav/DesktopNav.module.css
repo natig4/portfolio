@@ -1,0 +1,45 @@
+.nav {
+  display: flex;
+  font-size: 1.8rem;
+  font-family: "Header-font", sans-serif;
+  align-items: center;
+
+  &:dir(rtl) {
+    font-size: 2rem;
+  }
+}
+
+.nav > li {
+  position: relative;
+
+  &:not(:first-child) {
+    padding-left: 1rem;
+  }
+
+  &:not(:last-child) {
+    padding-right: 1rem;
+  }
+}
+
+.nav:dir(rtl) > li {
+  padding: 0 1rem;
+  padding-left: 1rem;
+  &:first-child {
+    padding-right: 0;
+  }
+}
+
+.nav > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  right: 0;
+  width: 0.2rem;
+  height: 60%;
+  background-color: var(--white);
+}
+
+.nav:dir(rtl) > li:not(:last-child)::after {
+  right: auto;
+  left: 0;
+}

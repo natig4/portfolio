@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "title": "נתי גורביץ' | מהנדס תוכנה Full-Stack",
+    "description": "מפתח באיכות גבוהה עם רקע ייחודי בניהול בקרת איכות"
+  },
+  "manifest": {
+    "name": "נתי גורביץ' | מהנדס תוכנה | פולסטאק"
+  },
+  "localeSwitcher": {
+    "label": "שפה",
+    "locale": "{locale, select, he {עברית 🇮🇱} en {אנגלית 🇺🇸} other {Unknown}}"
+  },
+  "links": {
+    "home": "בית",
+    "about": "אודות",
+    "projects": "פרויקטים",
+    "experience": "ניסיון",
+    "articles": "מאמרים",
+    "contact": "צור קשר",
+    "accessibility": "נגישות",
+    "terms": "תנאי שימוש",
+    "privacy": "מדיניות פרטיות",
+    "hebrew": "עברית",
+    "english": "אנגלית",
+    "createdBy": "נוצר ע\"י נתי גורביץ'"
+  },
+  "home": {
+    "title": "מהנדס תוכנה Full-Stack",
+    "subtitle": "מפתח באיכות גבוהה עם רקע ייחודי בניהול בקרת איכות",
+    "viewProjects": "צפה בפרויקטים",
+    "contactMe": "צור קשר",
+    "location": "יאסור, מחוז הצפון, ישראל"
+  },
+  "about": {
+    "title": "אודותיי",
+    "description": "מהנדס תוכנה Full-Stack אוטודידקט עם למעלה מ-8 שנות ניסיון, כולל יותר מ-5 שנים בהובלת בקרת איכות וניהול פרויקטים, ולמעלה מ-3 שנים בפיתוח. מתמחה בטכנולוגיות ווב מודרניות עם גישת פיתוח ייחודית המבוססת על איכות. הוכחת הצלחה בבניית יישומים עם תנועה גבוהה המשרתים יותר מ-100,000 משתמשים יומיים ובתחזוקת פלטפורמות SaaS ברמה ארגונית. לומד באופן מתמיד עם מומחיות שנרכשה באמצעות ניסיון מעשי והשכלה מקוונת מובנית.",
+    "skills": "מיומנויות טכניות",
+    "skillCategories": {
+      "frontend": "צד לקוח",
+      "backend": "צד שרת",
+      "database": "מסדי נתונים",
+      "devops": "DevOps"
+    },
+    "stats": {
+      "years": "8+ שנים",
+      "yearsDesc": "ניסיון תעשייתי כולל בפיתוח ובקרת איכות",
+      "users": "+300K",
+      "usersDesc": "משתמשים יומיים ביישומים שפותחו ותוחזקו",
+      "bugs": "אפס",
+      "bugsDesc": "באגים קריטיים בייצור בפרויקטים עיקריים של בקרת איכות"
+    }
+  },
+  "projects": {
+    "title": "הפרויקטים שלי",
+    "code": "קוד",
+    "private": "פרטי",
+    "liveDemo": "הדגמה חיה",
+    "projects": [
+      {
+        "title": "פלטפורמת מסחר אלקטרוני",
+        "description": "פלטפורמת מסחר אלקטרוני מלאה שנבנתה עם React, Node.js ו-MongoDB. התכונות כוללות אימות משתמשים, קטלוג מוצרים, עגלת קניות ועיבוד תשלומים.",
+        "technologies": ["React", "Node.js", "MongoDB", "Stripe", "Redux"]
+      },
+      {
+        "title": "אפליקציית ניהול משימות",
+        "description": "אפליקציית ניהול משימות עם גרירה והשלכה ועדכונים בזמן אמת באמצעות WebSockets. המשתמשים יכולים ליצור פרויקטים, להקצות משימות ולעקוב אחר התקדמות.",
+        "technologies": [
+          "Angular",
+          "TypeScript",
+          "NestJS",
+          "PostgreSQL",
+          "Socket.io"
+        ]
+      },
+      {
+        "title": "מערכת תכנון משאבים ארגונית",
+        "description": "מערכת ERP מקיפה לעסקים קטנים עם מודולים לניהול מלאי, קשרי לקוחות ודיווח פיננסי.",
+        "technologies": [
+          "C#",
+          ".NET Core",
+          "SQL Server",
+          "WPF",
+          "Entity Framework"
+        ]
+      },
+      {
+        "title": "לוח מחוונים אנליטי",
+        "description": "לוח מחוונים אנליטי אינטראקטיבי לניטור ביצועי שיווק. כולל חזותיות נתונים בזמן אמת ודוחות ניתנים להתאמה אישית.",
+        "technologies": ["React", "D3.js", "Node.js", "GraphQL", "Firebase"]
+      },
+      {
+        "title": "אפליקציית נדל\"ן לנייד",
+        "description": "אפליקציה חוצת-פלטפורמות לנייד עבור רישומי נדל\"ן עם תכונות כמו חיפוש נכסים, סיורים וירטואליים וקביעת פגישות.",
+        "technologies": ["React Native", "Firebase", "Google Maps API", "Redux"]
+      }
+    ]
+  },
+  "experience": {
+    "title": "ניסיון מקצועי",
+    "companies": [
+      {
+        "company": "פרילנס",
+        "position": "מהנדס תוכנה",
+        "period": "2024 - היום",
+        "description": [
+          "תכנון ופיתוח יישומי ווב מלאים באמצעות Next.js ותבניות React מודרניות.",
+          "בניה ותחזוקה של יישומי שולחן עבודה ארגוניים באמצעות WPF ו-.NET framework.",
+          "יישום זרימות עבודה אוטומטיות לפריסה באמצעות צינורות CI/CD של GitHub Actions.",
+          "הובלת הצלחת הפרויקט דרך תקשורת יעילה עם לקוחות ואספקה בזמן."
+        ]
+      },
+      {
+        "company": "Outbrain",
+        "position": "מהנדס תוכנה",
+        "period": "2022 - 2024",
+        "description": [
+          "פיתוח ותחזוקה של יישומי ווב עם תנועה גבוהה באמצעות Angular ו-React.",
+          "הובלת סשנים של הדרכה טכנית ליותר מ-50 מפתחים ב-RxJS.",
+          "יצירת רכיבים מורכבים המשמשים יותר מ-10 צוותים, תוך הפחתת זמן הפיתוח.",
+          "בניית מיקרוסרוויסים בעלי יכולת הרחבה באמצעות Node.js, NestJS ו-Scala."
+        ]
+      },
+      {
+        "company": "Nova",
+        "position": "מהנדס בדיקות QA ידני",
+        "period": "2018 - 2021",
+        "description": [
+          "בניית מסגרת בדיקות רגרסיה למערכות זמן אמת מוטמעות.",
+          "הובלת QA עבור 3+ פרויקטי פלטפורמה עיקריים ללא באגים קריטיים בייצור."
+        ]
+      },
+      {
+        "company": "myThings",
+        "position": "ראש צוות QA & PM",
+        "period": "2016 - 2018",
+        "description": [
+          "ניהול צוות של 5 אנשים המספק 50+ פרויקטים בשנה.",
+          "הקמה ותחזוקה של סטנדרטים ותהליכי בקרת איכות בכל החברה."
+        ]
+      },
+      {
+        "company": "בזק",
+        "position": "נציג שירות טכני בכיר",
+        "period": "2010 - 2015",
+        "description": [
+          "שימש כיועץ לאתגרים טכניים מורכבים, תוך שיפור יכולות פתרון הבעיות של הצוות."
+        ]
+      }
+    ]
+  },
+  "articles": {
+    "title": "מאמרים אחרונים",
+    "followMe": "עקוב אחריי ב-Medium",
+    "forMore": "לעוד מאמרים על פיתוח תוכנה והנדסת איכות",
+    "articles": [
+      {
+        "title": "פיתוח ממוקד-איכות: לקחים מהובלת בקרת איכות",
+        "date": "10 במאי, 2025",
+        "excerpt": "חקירה כיצד הרקע שלי בהובלת בקרת איכות עיצב את הגישה שלי לפיתוח תוכנה והפרקטיקות שאני מיישם כדי להבטיח קוד באיכות גבוהה."
+      },
+      {
+        "title": "המעבר מבקרת איכות לפיתוח: מסע אישי",
+        "date": "22 באפריל, 2025",
+        "excerpt": "החוויה שלי במעבר מקריירה בהבטחת איכות לפיתוח Full-Stack, כולל אתגרים שניצבו בפני ולקחים שנלמדו."
+      },
+      {
+        "title": "בניית יישומי React בביצועים גבוהים",
+        "date": "15 במרץ, 2025",
+        "excerpt": "תובנות טכניות על אופטימיזציה של יישומי React לביצועים ויכולת הרחבה, עם דוגמאות מהעולם האמיתי מהעבודה שלי."
+      }
+    ]
+  },
+  "marketing": {
+    "title": "ביצועי שיווק",
+    "subtitle": "הדגשת ביצועי קמפיין",
+    "description": "הצגת מדדי הצמיחה של קמפיין שיווקי אחרון שניהלתי, שהניב שיפורים משמעותיים במדדי ביצוע מרכזיים.",
+    "metrics": {
+      "registrations": "הרשמות משתמשים",
+      "homepage": "משתמשים בדף הבית",
+      "activity": "פעילות באתר",
+      "users": "משתמשים פעילים"
+    },
+    "chartCaption": "מדדי ביצוע לאורך תקופה של 3 חודשים המציגים צמיחה עקבית"
+  },
+  "contact": {
+    "title": "צור קשר",
+    "info": "פרטי התקשרות",
+    "email": "אימייל",
+    "phone": "טלפון",
+    "location": "מיקום",
+    "linkedin": "לינקדאין",
+    "sendMessage": "שלח לי הודעה",
+    "form": {
+      "name": "שם",
+      "email": "אימייל",
+      "message": "הודעה",
+      "namePlaceholder": "השם שלך",
+      "emailPlaceholder": "האימייל שלך",
+      "messagePlaceholder": "ההודעה שלך",
+      "send": "שלח הודעה"
+    }
+  },
+  "footer": {
+    "rights": "כל הזכויות שמורות."
+  },
+  "404": {
+    "header": "חטופים עדיין לא חזרו",
+    "secondary-header": "כמו כן נראה שהגעת לעמוד לא קיים",
+    "link1": "לחץ ",
+    "cta": "כאן",
+    "link2": "בכדי לעבור לעמוד הבית"
+  },
+  "error": {
+    "header": "שגיאה",
+    "description": "מצטערים, נראה שנתקלנו בתקלה",
+    "link1": "לחץ ",
+    "cta": "כאן",
+    "link2": "בכדי לעבור לעמוד הבית"
+  }
+}

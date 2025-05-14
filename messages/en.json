@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "title": "Nati Gurevich | Full-Stack Software Engineer",
+    "description": "Quality-first developer with a unique QA leadership background"
+  },
+  "manifest": {
+    "name": "Nati Gurevich | Full-Stack Software Engineer"
+  },
+  "localeSwitcher": {
+    "label": "Language",
+    "locale": "{locale, select, he {🇮🇱 HEBREW} en {🇺🇸 ENGLISH} other {Unknown}}"
+  },
+  "links": {
+    "home": "Home",
+    "projects": "Projects",
+    "experience": "Experience",
+    "articles": "Articles",
+    "contact": "Contact",
+    "about": "About",
+    "accessibility": "Accessibility",
+    "terms": "Terms of use",
+    "privacy": "Privacy policy",
+    "hebrew": "Hebrew",
+    "english": "English",
+    "createdBy": "Created by Nati Gurevich"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "articles": "Articles",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Full-Stack Software Engineer",
+    "subtitle": "Quality-first developer with a unique QA leadership background",
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me",
+    "location": "Yasur, Northern District, Israel"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Self-taught Full-Stack Software Engineer with 8+ years of experience, including 5+ years in QA and project management leadership, and 3+ years in development. I specialize in modern web technologies with a unique quality-first development approach. I have a proven track record of building high-traffic applications serving 100K+ daily users and maintaining enterprise-grade SaaS platforms. I am a continuous learner with expertise gained through hands-on experience and structured online education.",
+    "skills": "Technical Skills",
+    "skillCategories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps"
+    },
+    "stats": {
+      "years": "8+ Years",
+      "yearsDesc": "Total industry experience across development and QA",
+      "users": "300K+",
+      "usersDesc": "Daily users of applications developed and maintained",
+      "bugs": "Zero",
+      "bugsDesc": "Critical production bugs across major QA projects"
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "code": "Code",
+    "private": "Private",
+    "liveDemo": "Live Demo",
+    "projects": [
+      {
+        "title": "E-Commerce Platform",
+        "description": "A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment processing.",
+        "technologies": ["React", "Node.js", "MongoDB", "Stripe", "Redux"]
+      },
+      {
+        "title": "Task Management App",
+        "description": "A drag-and-drop task management application with real-time updates using WebSockets. Users can create projects, assign tasks, and track progress.",
+        "technologies": [
+          "Angular",
+          "TypeScript",
+          "NestJS",
+          "PostgreSQL",
+          "Socket.io"
+        ]
+      },
+      {
+        "title": "Enterprise Resource Planning System",
+        "description": "A comprehensive ERP system for small businesses with modules for inventory management, customer relationships, and financial reporting.",
+        "technologies": [
+          "C#",
+          ".NET Core",
+          "SQL Server",
+          "WPF",
+          "Entity Framework"
+        ]
+      },
+      {
+        "title": "Analytics Dashboard",
+        "description": "Interactive analytics dashboard for marketing performance monitoring. Features real-time data visualization and customizable reports.",
+        "technologies": ["React", "D3.js", "Node.js", "GraphQL", "Firebase"]
+      },
+      {
+        "title": "Real Estate Mobile App",
+        "description": "Cross-platform mobile application for real estate listings with features like property search, virtual tours, and appointment scheduling.",
+        "technologies": ["React Native", "Firebase", "Google Maps API", "Redux"]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "companies": [
+      {
+        "company": "Freelance",
+        "position": "Software Engineer",
+        "period": "2024 - Present",
+        "description": [
+          "Designed and developed full-stack web applications using Next.js and modern React patterns.",
+          "Built and maintained enterprise desktop applications using WPF and .NET framework.",
+          "Implemented automated deployment workflows using GitHub Actions CI/CD pipelines.",
+          "Drove project success through effective client communication and timely delivery."
+        ]
+      },
+      {
+        "company": "Outbrain",
+        "position": "Software Engineer",
+        "period": "2022 - 2024",
+        "description": [
+          "Developed and maintained high-traffic web applications using Angular and React.",
+          "Led technical training sessions for 50+ developers on RxJS.",
+          "Created complex components used by 10+ teams, reducing development time.",
+          "Built scalable microservices using Node.js, NestJS, and Scala."
+        ]
+      },
+      {
+        "company": "Nova",
+        "position": "QA Manual Test Engineer",
+        "period": "2018 - 2021",
+        "description": [
+          "Built regression testing framework for embedded real-time systems.",
+          "Led QA for 3+ major platform projects with zero critical production bugs."
+        ]
+      },
+      {
+        "company": "myThings",
+        "position": "QA & PM Team Leader",
+        "period": "2016 - 2018",
+        "description": [
+          "Managed 5-person team delivering 50+ projects annually.",
+          "Established and maintained company-wide QA standards and processes."
+        ]
+      },
+      {
+        "company": "Bezeq",
+        "position": "Senior Technical Service Representative",
+        "period": "2010 - 2015",
+        "description": [
+          "Acted as a consultant for complex technical challenges, enhancing team problem-solving capabilities."
+        ]
+      }
+    ]
+  },
+  "articles": {
+    "title": "Recent Articles",
+    "followMe": "Follow me on Medium",
+    "forMore": "For more articles on software development and quality engineering",
+    "articles": [
+      {
+        "title": "Quality-First Development: Lessons from QA Leadership",
+        "date": "May 10, 2025",
+        "excerpt": "Exploring how my background in QA leadership shaped my approach to software development and the practices I implement to ensure high-quality code."
+      },
+      {
+        "title": "Transitioning from QA to Development: A Personal Journey",
+        "date": "April 22, 2025",
+        "excerpt": "My experience moving from a career in quality assurance to full-stack development, including challenges faced and lessons learned."
+      },
+      {
+        "title": "Building High-Performance React Applications",
+        "date": "March 15, 2025",
+        "excerpt": "Technical insights on optimizing React applications for performance and scalability, with real-world examples from my work."
+      }
+    ]
+  },
+  "marketing": {
+    "title": "Marketing Performance",
+    "subtitle": "Campaign Performance Highlights",
+    "description": "Showcasing the growth metrics of a recent marketing campaign I managed, resulting in significant improvements across key performance indicators.",
+    "metrics": {
+      "registrations": "User Registrations",
+      "homepage": "Homepage Users",
+      "activity": "Site Activity",
+      "users": "Active Users"
+    },
+    "chartCaption": "Performance metrics over a 3-month period showing consistent growth"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "info": "Contact Information",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "linkedin": "LinkedIn",
+    "sendMessage": "Send Me a Message",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email",
+      "messagePlaceholder": "Your message",
+      "send": "Send Message"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "404": {
+    "header": "Hostages are still missing",
+    "secondary-header": "Also it seems like you got to an unknown page",
+    "link1": "Click ",
+    "cta": "here",
+    "link2": "to go back home"
+  },
+  "error": {
+    "header": "Error",
+    "description": "It seems like we've encountered an error",
+    "link1": "Click ",
+    "cta": "here",
+    "link2": "to go back home"
+  }
+}

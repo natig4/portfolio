@@ -1,0 +1,11 @@
+.link {
+  text-transform: uppercase;
+}
+
+.link:hover {
+  color: var(--contrast-red);
+}
+
+.link.active {
+  color: var(--contrast-red);
+}
