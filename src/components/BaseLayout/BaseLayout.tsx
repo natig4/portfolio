@@ -5,7 +5,6 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Widgets from "@/components/Widgets/Widgets";
 import { Language } from "@/lib/model/language";
-import styles from "./BaseLayout.module.css";
 
 type IProps = {
   children: ReactNode;
@@ -23,8 +22,12 @@ export default async function BaseLayout({
   const t = await getTranslations("links");
 
   return (
-    <html lang={locale} dir={locale === Language.en ? "ltr" : "rtl"}>
-      <body>
+    <html
+      lang={locale}
+      dir={locale === Language.en ? "ltr" : "rtl"}
+      className='h-full'
+    >
+      <body className='flex flex-col min-h-screen'>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header
             isMobile={isMobile}
@@ -33,7 +36,9 @@ export default async function BaseLayout({
               about: t("about"),
             }}
           />
-          <main className={styles.main}>{children}</main>
+          <main className='flex-grow w-full flex flex-col items-center pt-[var(--header-height)]'>
+            {children}
+          </main>
           <Footer />
 
           <Widgets lang={locale} />

@@ -6,6 +6,7 @@
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 245, 245, 245;
     --background-end-rgb: 255, 255, 255;
+    --header-height: 5.5rem; /* Define header height as a variable for offset */
   }
 
   .dark {
@@ -16,6 +17,7 @@
 
   html {
     scroll-behavior: smooth;
+    height: 100%;
   }
 
   html,
