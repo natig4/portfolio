@@ -6,25 +6,25 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class", // Enable dark mode with class
   theme: {
     extend: {
       colors: {
-        yellow: "#f7c500",
-        red: "#cb2424",
-        "dark-red": "#b21d1d",
-        "contrast-red": "#ff4d4d",
-        white: "#f0f0f0",
-        black: "#1a1a1a",
-        "header-text": "#393a3a",
-        link: "#0070f3",
-        "light-grey": "#f5f5f5",
-        "light-blue": "#66b3ff8a",
-        "image-background": "#333333",
+        primary: {
+          50: "#fff1f1",
+          100: "#ffe1e1",
+          200: "#ffc7c7",
+          300: "#ffa2a2",
+          400: "#ff7171",
+          500: "#ff4d4d", // Your contrast-red
+          600: "#e62e2e",
+          700: "#cb2424", // Your red
+          800: "#b21d1d", // Your dark-red
+          900: "#7d1414",
+        },
       },
-      height: {
-        footer: "6rem",
-        "footer-mobile": "2rem",
-        header: "6.2rem",
+      minHeight: {
+        "16": "4rem",
       },
     },
   },
