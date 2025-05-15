@@ -7,7 +7,18 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
 
   return {
     name: t("name"),
+    short_name: "Nati Gurevich",
+    description: "Full-Stack Software Engineer with quality-first approach",
     start_url: "/",
-    theme_color: "#101E33",
+    display: "standalone",
+    background_color: "#333333",
+    theme_color: "#cb2424",
+    icons: [
+      {
+        src: "/favicon.ico",
+        sizes: "any",
+        type: "image/x-icon",
+      },
+    ],
   };
 }
