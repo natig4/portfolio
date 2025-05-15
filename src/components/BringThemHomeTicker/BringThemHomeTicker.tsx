@@ -1,8 +1,6 @@
 "use client";
 import { useEffect } from "react";
-
 import { Language } from "@/lib/model/language";
-import styles from "./BringThemHomeTicker.module.css";
 
 const BringThemHomeTicker: React.FC<{ lang: Language }> = ({ lang }) => {
   useEffect(() => {
@@ -28,7 +26,15 @@ const BringThemHomeTicker: React.FC<{ lang: Language }> = ({ lang }) => {
     };
   }, [lang]);
 
-  return <div id='bthn' lang={lang} className={styles.bthn}></div>;
+  return (
+    <div
+      id='bthn'
+      lang={lang}
+      className={`fixed bottom-[var(--footer-height)] left-4 rtl:left-auto rtl:right-4 md:bottom-[var(--footer-height)] ${
+        lang === Language.he ? "rtl" : "ltr"
+      }`}
+    ></div>
+  );
 };
 
 export default BringThemHomeTicker;

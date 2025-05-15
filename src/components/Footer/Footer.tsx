@@ -4,7 +4,11 @@ import SocialIcon from "../SocialIcon/SocialIcon";
 import NavLink from "../NavLink/NavLink";
 import { getRoute } from "@/lib/utils/utils";
 
-export default function Footer() {
+interface FooterProps {
+  isMobile?: boolean;
+}
+
+export default function Footer({ isMobile = false }: FooterProps) {
   const t = useTranslations("links");
 
   const links = [
@@ -15,7 +19,7 @@ export default function Footer() {
     <NavLink
       key={name}
       href={href}
-      className='text-gray-300 hover:text-white transition-colors'
+      className='text-gray-300 hover:text-white transition-colors text-sm md:text-base'
     >
       {name}
     </NavLink>
@@ -29,24 +33,28 @@ export default function Footer() {
     },
     { href: "https://github.com/natig4", icon: FaGithub },
   ].map(({ href, icon: Icon }) => (
-    <SocialIcon key={href} href={href} Icon={Icon} size={24} />
+    <SocialIcon key={href} href={href} Icon={Icon} size={isMobile ? 20 : 24} />
   ));
 
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className='bg-gray-800 text-white py-6 dark:bg-gray-900 transition-colors duration-300 w-full mt-auto'>
+    <footer className='bg-gray-800 text-white py-4 md:py-6 dark:bg-gray-900 transition-colors duration-300 w-full mt-auto'>
       <div className='container mx-auto px-4'>
-        <div className='flex flex-col md:flex-row justify-between items-center'>
-          <div className='mb-4 md:mb-0'>
-            <h3 className='text-xl font-bold text-white'>Nati Gurevich</h3>
-            <p className='text-gray-400 text-sm mt-1'>
-              Full-Stack Software Engineer
-            </p>
+        <div className='flex flex-col items-center md:flex-row md:justify-between'>
+          <div className='flex gap-4 mb-4 md:mb-0 order-1 md:order-1'>
+            {icons}
           </div>
 
-          <div className='flex flex-col md:flex-row gap-6 items-center'>
-            <div className='flex gap-4'>{icons}</div>
-            <div className='flex gap-6'>{links}</div>
+          <div className='flex flex-wrap justify-center gap-3 md:gap-6 mb-4 md:mb-0 order-2 md:order-2'>
+            {links}
           </div>
+        </div>
+
+        <div className='text-center text-gray-400 text-xs mt-4 pt-3 border-t border-gray-700'>
+          <p>
+            © {currentYear} {t("createdBy")}. {t("rights")}
+          </p>
         </div>
       </div>
     </footer>

@@ -22,7 +22,8 @@
     "privacy": "Privacy policy",
     "hebrew": "Hebrew",
     "english": "English",
-    "createdBy": "Created by Nati Gurevich"
+    "createdBy": "Created by Nati Gurevich",
+    "rights": "All rights reserved."
   },
   "nav": {
     "home": "Home",
@@ -208,9 +209,7 @@
       "send": "Send Message"
     }
   },
-  "footer": {
-    "rights": "All rights reserved."
-  },
+
   "404": {
     "header": "Hostages are still missing",
     "secondary-header": "Also it seems like you got to an unknown page",

@@ -27,7 +27,7 @@ export default async function BaseLayout({
       dir={locale === Language.en ? "ltr" : "rtl"}
       className='h-full'
     >
-      <body className='flex flex-col min-h-screen'>
+      <body className='flex flex-col min-h-screen h-screen overflow-x-hidden max-w-[100vw]'>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header
             isMobile={isMobile}
@@ -36,10 +36,10 @@ export default async function BaseLayout({
               about: t("about"),
             }}
           />
-          <main className='flex-grow w-full flex flex-col items-center pt-[var(--header-height)]'>
+          <main className='flex-grow pt-[var(--header-height)] w-full flex flex-col'>
             {children}
           </main>
-          <Footer />
+          <Footer isMobile={isMobile} />
 
           <Widgets lang={locale} />
         </NextIntlClientProvider>

@@ -2,21 +2,31 @@
 
 import { useTranslations } from "next-intl";
 import NavLink from "@/components/NavLink/NavLink";
-import styles from "./error.module.css";
 
 export default function Error() {
-  const t = useTranslations("Error");
+  const t = useTranslations("error");
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.header}>{t("header")}</h1>
-      <p className={styles.text}>{t("description")}</p>
-      <div className={styles.action}>
-        <p>{t("link1")}</p>
-        <NavLink className={styles.link} href={{ pathname: "/" }}>
+    <div className='container mx-auto px-4 py-8 text-center'>
+      <h1 className='text-6xl font-bold text-primary-700 mb-6'>
+        {t("header")}
+      </h1>
+      <p className='text-4xl mb-8 text-gray-800 dark:text-gray-200 leading-tight'>
+        {t("description")}
+      </p>
+      <div className='flex flex-wrap justify-center items-center gap-1 md:gap-2'>
+        <p className='text-2xl md:text-3xl text-gray-800 dark:text-gray-200'>
+          {t("link1")}
+        </p>
+        <NavLink
+          className='text-4xl md:text-5xl text-primary-700 hover:text-primary-600 transition-colors duration-300'
+          href={{ pathname: "/" }}
+        >
           {t("cta")}
         </NavLink>
-        <p>{t("link2")}</p>
+        <p className='text-2xl md:text-3xl text-gray-800 dark:text-gray-200'>
+          {t("link2")}
+        </p>
       </div>
     </div>
   );

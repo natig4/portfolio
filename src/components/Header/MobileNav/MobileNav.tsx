@@ -1,5 +1,7 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+
 interface HeaderProps {
   links: React.JSX.Element[];
   menuOpen: boolean;
@@ -47,29 +49,43 @@ export default function MobileNav({
         </div>
       </button>
 
-      {menuOpen && (
-        <aside
-          className='fixed top-0 left-0 w-full h-screen bg-black/50 backdrop-blur-sm z-40'
-          onClick={handleToggleMenu}
-        >
-          <div
-            className='w-64 h-full bg-gray-800/95 shadow-lg'
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.aside
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className='fixed top-0 left-0 w-full h-screen bg-black/50 backdrop-blur-sm z-40'
+            onClick={handleToggleMenu}
           >
-            <ul className='flex flex-col w-full h-full pt-20 font-header'>
-              {links.map((link, index) => (
-                <div
-                  key={index}
-                  className='animate-slide-in'
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {link}
-                </div>
-              ))}
-            </ul>
-          </div>
-        </aside>
-      )}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "tween", duration: 0.3 }}
+              className='w-64 h-full bg-gray-800/95 shadow-lg'
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ul className='flex flex-col w-full h-full pt-20 font-header'>
+                {links.map((link, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: 0.1 + index * 0.1,
+                      duration: 0.3,
+                    }}
+                  >
+                    {link}
+                  </motion.div>
+                ))}
+              </ul>
+            </motion.div>
+          </motion.aside>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

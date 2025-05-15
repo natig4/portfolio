@@ -25,6 +25,19 @@ export default function Header({
   const [menuOpen, setMenuOpen] = useState(false);
   const path = usePathname();
 
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
@@ -59,7 +72,7 @@ export default function Header({
   return (
     <motion.header
       style={{ opacity }}
-      className='fixed top-0 w-full flex justify-between items-center z-30 text-white bg-gray-800/95 shadow-md transition-all duration-300 min-h-16 px-4 md:px-6'
+      className='fixed top-0 left-0 right-0 flex justify-between items-center z-30 text-white bg-gray-800/95 shadow-md transition-all duration-300 min-h-16 px-4 md:px-6 w-full max-w-[100vw]'
     >
       {isMobile ? (
         <>
