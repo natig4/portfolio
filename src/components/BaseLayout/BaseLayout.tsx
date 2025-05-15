@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Widgets from "@/components/Widgets/Widgets";
 import { Language } from "@/lib/model/language";
+import { ThemeProvider } from "@/components/Theme/ThemeProvider";
 
 type IProps = {
   children: ReactNode;
@@ -27,21 +28,22 @@ export default async function BaseLayout({
       dir={locale === Language.en ? "ltr" : "rtl"}
       className='h-full'
     >
-      <body className='flex flex-col min-h-screen h-screen overflow-x-hidden max-w-[100vw]'>
+      <body className='flex flex-col min-h-screen h-screen overflow-x-hidden max-w-[100vw] bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300'>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header
-            isMobile={isMobile}
-            links={{
-              home: t("home"),
-              about: t("about"),
-            }}
-          />
-          <main className='flex-grow pt-[var(--header-height)] w-full flex flex-col'>
-            {children}
-          </main>
-          <Footer isMobile={isMobile} />
-
-          <Widgets lang={locale} />
+          <ThemeProvider>
+            <Header
+              isMobile={isMobile}
+              links={{
+                home: t("home"),
+                about: t("about"),
+              }}
+            />
+            <main className='flex-grow pt-[var(--header-height)] w-full flex flex-col'>
+              {children}
+            </main>
+            <Footer isMobile={isMobile} />
+            <Widgets lang={locale} />
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

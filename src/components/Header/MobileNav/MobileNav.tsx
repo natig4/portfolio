@@ -64,7 +64,7 @@ export default function MobileNav({
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className='w-64 h-full bg-gray-800/95 shadow-lg'
+              className='w-64 h-full bg-gray-800/95 dark:bg-gray-900/95 shadow-lg'
               onClick={(e) => e.stopPropagation()}
             >
               <ul className='flex flex-col w-full h-full pt-20 font-header'>

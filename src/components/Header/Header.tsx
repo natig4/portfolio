@@ -7,6 +7,7 @@ import NavLink from "../NavLink/NavLink";
 import MobileNav from "./MobileNav/MobileNav";
 import DesktopNav from "./DesktopNav/DesktopNav";
 import LocaleSwitcher from "../LocaleSwitcher/LocaleSwitcher";
+import ThemeToggle from "../Theme/ThemeToggle";
 import { getRoute } from "@/lib/utils/utils";
 
 interface HeaderProps {
@@ -72,7 +73,7 @@ export default function Header({
   return (
     <motion.header
       style={{ opacity }}
-      className='fixed top-0 left-0 right-0 flex justify-between items-center z-30 text-white bg-gray-800/95 shadow-md transition-all duration-300 min-h-16 px-4 md:px-6 w-full max-w-[100vw]'
+      className='fixed top-0 left-0 right-0 flex justify-between items-center z-30 text-white bg-gray-800/95 dark:bg-gray-900/95 shadow-md transition-all duration-300 min-h-16 px-4 md:px-6 w-full max-w-[100vw]'
     >
       {isMobile ? (
         <>
@@ -82,14 +83,18 @@ export default function Header({
             links={navLinks}
           />
 
-          <div className='z-40'>
+          <div className='z-40 flex items-center space-x-3'>
+            <ThemeToggle />
             <LocaleSwitcher />
           </div>
         </>
       ) : (
         <>
           <DesktopNav links={navLinks} />
-          <LocaleSwitcher />
+          <div className='flex items-center space-x-4'>
+            <ThemeToggle />
+            <LocaleSwitcher />
+          </div>
         </>
       )}
     </motion.header>

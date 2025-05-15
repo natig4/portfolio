@@ -1,20 +1,12 @@
 @import "tailwindcss";
+@import "./typography.css";
 
 @layer {
   /* Base styles */
   :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 245, 245, 245;
-    --background-end-rgb: 255, 255, 255;
     --header-height: 5.5rem; /* Define header height as a variable for offset */
     --footer-height: 6rem;
     --footer-height-mobile: 9rem;
-  }
-
-  .dark {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 30, 30, 30;
-    --background-end-rgb: 15, 15, 15;
   }
 
   html {
@@ -38,6 +30,14 @@
     font-feature-settings: "rtl";
   }
 
+  /* Dark mode transition effects */
+  * {
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
   h1,
   h2,
   h3,
@@ -48,15 +48,8 @@
   }
 
   body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-      to bottom,
-      rgb(var(--background-start-rgb)),
-      rgb(var(--background-end-rgb))
-    );
     min-height: 100vh;
     position: relative;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
   }
