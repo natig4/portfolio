@@ -1,7 +1,5 @@
 "use client";
 
-import styles from "./DesktopNav.module.css";
-
 interface HeaderProps {
   links: React.JSX.Element[];
   children?: React.ReactNode;
@@ -9,12 +7,14 @@ interface HeaderProps {
 
 const DesktopNav: React.FC<HeaderProps> = ({ links, children }) => {
   return (
-    <nav>
-      <ul className={styles.nav}>
-        {children}
-        {links}
-      </ul>
-    </nav>
+    <div className='flex items-center'>
+      {children}
+      <nav>
+        <ul className='flex items-center text-lg md:text-xl font-header rtl:text-2xl'>
+          {links}
+        </ul>
+      </nav>
+    </div>
   );
 };
 

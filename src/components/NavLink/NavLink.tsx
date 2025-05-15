@@ -2,7 +2,6 @@
 
 import { useSelectedLayoutSegment } from "next/navigation";
 import { Link, Pathnames } from "@/i18n/routing";
-import styles from "./NavLink.module.css";
 
 interface NavLinkProps {
   href: { pathname: Pathnames; query?: Record<string, string | number> };
@@ -21,7 +20,13 @@ const NavLink: React.FC<NavLinkProps> = ({
 
   return (
     <Link
-      className={`${styles.link} ${isActive ? styles.active : ""} ${className}`}
+      className={`uppercase ${
+        isActive ? "text-primary-500" : "hover:text-primary-500"
+      } transition-colors duration-200 ${className} ${
+        isActive
+          ? 'relative after:content-[""] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary-500 rtl:after:right-0 rtl:after:left-auto'
+          : ""
+      }`}
       href={href}
     >
       {children}

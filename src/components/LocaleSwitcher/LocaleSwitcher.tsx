@@ -1,7 +1,8 @@
+"use client";
+
 import { useLocale, useTranslations } from "next-intl";
-import LocaleSwitcherSelect from "./LocaleSwitcherSelect";
 import { locales } from "@/i18n/routing";
-import styles from "./LocaleSwitcher.module.css";
+import LocaleSwitcherSelect from "./LocaleSwitcherSelect";
 
 export default function LocaleSwitcher() {
   const t = useTranslations("localeSwitcher");
@@ -17,12 +18,18 @@ export default function LocaleSwitcher() {
   };
 
   return (
-    <LocaleSwitcherSelect defaultValue={locale} label={t("label")}>
-      {locales.map((cur) => (
-        <option className={styles.option} key={cur} value={cur}>
-          {getLocaleLabel(cur)}
-        </option>
-      ))}
-    </LocaleSwitcherSelect>
+    <div className='relative'>
+      <LocaleSwitcherSelect defaultValue={locale} label={t("label")}>
+        {locales.map((cur) => (
+          <option
+            key={cur}
+            value={cur}
+            className='bg-gray-800 border-none outline-none'
+          >
+            {getLocaleLabel(cur)}
+          </option>
+        ))}
+      </LocaleSwitcherSelect>
+    </div>
   );
 }

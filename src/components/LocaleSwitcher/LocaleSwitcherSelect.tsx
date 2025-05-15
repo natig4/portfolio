@@ -2,7 +2,6 @@
 
 import { ChangeEvent, ReactNode, useTransition } from "react";
 import { useRouter, usePathname } from "@/i18n/routing";
-import styles from "./LocaleSwitcherSelect.module.css";
 import { Locale } from "next-intl";
 
 type Props = {
@@ -43,10 +42,12 @@ export default function LocaleSwitcherSelect({
   }
 
   return (
-    <label className={styles.container}>
-      <p className={styles.label}>{label}</p>
+    <label className='relative cursor-pointer border-none text-lg md:text-xl py-2 px-2 flex items-center text-white font-header transition-colors duration-200 hover:bg-white/10 rounded'>
+      <span className='absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0 clip-rect-0'>
+        {label}
+      </span>
       <select
-        className={styles.select}
+        className='bg-transparent text-white border-none outline-none leading-tight text-lg md:text-xl rounded appearance-none'
         defaultValue={defaultValue}
         disabled={isPending}
         onChange={onSelectChange}
