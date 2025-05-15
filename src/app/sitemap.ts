@@ -4,7 +4,18 @@ import { getPathname, locales, pages, routing } from "@/i18n/routing";
 import { Locale } from "next-intl";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return pages.map((page) => getEntry(page));
+  const date = new Date();
+
+  return pages.map((page) => {
+    const entry = getEntry(page);
+
+    return {
+      ...entry,
+      lastModified: date,
+      changeFrequency: page === "/" ? "weekly" : "monthly",
+      priority: page === "/" ? 1 : 0.8,
+    };
+  });
 }
 
 type Href = Parameters<typeof getPathname>[0]["href"];
