@@ -5,6 +5,7 @@ import { FaLaptopCode, FaServer, FaDatabase, FaDocker } from "react-icons/fa";
 import { motion } from "framer-motion";
 import SkillCard from "@/components/SkillCard/SkillCard";
 import { useDirection } from "@/hooks/useDirection";
+import Link from "next/link";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -135,7 +136,10 @@ export default function Home() {
             className='px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl shadow-lg font-semibold relative overflow-hidden group cursor-pointer'
           >
             <span className='relative z-10'>{t("viewProjects")}</span>
-            <div className='absolute inset-0 bg-gradient-to-r from-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-200' />
+            <Link
+              href='projects'
+              className='absolute inset-0 bg-gradient-to-r from-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-200'
+            />
           </motion.button>
 
           <motion.button
@@ -145,7 +149,10 @@ export default function Home() {
             className='px-8 py-4 bg-surface border-2 border-primary/30 hover:border-primary/60 text-text rounded-xl shadow-lg font-semibold relative overflow-hidden group backdrop-blur-sm cursor-pointer'
           >
             <span className='relative z-10'>{t("contactMe")}</span>
-            <div className='absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200' />
+            <Link
+              href='contact'
+              className='absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200'
+            />
           </motion.button>
         </motion.div>
       </motion.div>
@@ -179,15 +186,17 @@ export default function Home() {
         </div>
       </motion.div>
 
-      {/* Location section */}
-      <motion.div
+      <motion.a
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.4 }}
         className='mt-20 text-center relative z-10'
+        href='https://www.google.com/maps/place/YASUR/data=!4m2!3m1!1s0x151dca54b64c7603:0x1acb071f63e0bc23?sa=X&ved=1t:242&ictx=111'
+        target='_blank'
+        rel='noopener noreferrer'
       >
         <motion.div
-          className='p-6 rounded-2xl bg-surface/50 backdrop-blur-lg border border-border/30 cursor-default'
+          className='p-6 rounded-2xl bg-surface/50 backdrop-blur-lg border border-border/30'
           whileHover={{ scale: 1.02, y: -2 }}
           transition={{ duration: 0.2 }}
         >
@@ -199,7 +208,7 @@ export default function Home() {
             <span>{t("location")}</span>
           </p>
         </motion.div>
-      </motion.div>
+      </motion.a>
 
       <div className='absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50' />
     </div>
