@@ -47,34 +47,46 @@ export default function LocaleSwitcherSelect({
       <label className='block cursor-pointer'>
         <span className='sr-only'>{label}</span>
         <motion.select
-          className='w-full bg-transparent text-text border-none outline-none leading-tight text-sm font-medium rounded cursor-pointer appearance-none pr-8 focus:ring-2 focus:ring-primary/50 transition-all duration-200'
+          className='w-full bg-transparent text-text border-none outline-none leading-tight text-sm font-medium cursor-pointer appearance-none px-4 py-3 pr-10 focus:ring-2 focus:ring-primary/50 transition-all duration-200 min-w-[140px]'
           defaultValue={defaultValue}
           disabled={isPending}
           onChange={onSelectChange}
           whileFocus={{ scale: 1.01 }}
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23${
-              document.documentElement.classList.contains("dark")
-                ? "a855f7"
-                : "0ea5e9"
-            }' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
-            backgroundPosition: "right 0.5rem center",
+            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+            backgroundPosition: "right 12px center",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "1rem 1rem",
+            backgroundSize: "16px 16px",
           }}
         >
           {children}
         </motion.select>
       </label>
 
-      {/* Custom dropdown arrow with gradient */}
-      <div className='absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none'>
+      {/* Loading indicator */}
+      {isPending && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          className='absolute right-12 top-1/2 transform -translate-y-1/2 pointer-events-none'
+        >
+          <div className='w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin'></div>
+        </motion.div>
+      )}
+
+      {/* Custom styling for better dropdown arrow */}
+      <div className='absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none'>
         <motion.div
           animate={{ rotate: isPending ? 180 : 0 }}
           transition={{ duration: 0.3 }}
           className='w-4 h-4'
         >
-          <svg className='w-full h-full' fill='none' viewBox='0 0 20 20'>
+          <svg
+            className='w-full h-full text-text-secondary'
+            fill='none'
+            viewBox='0 0 20 20'
+          >
             <defs>
               <linearGradient
                 id='arrowGradient'
@@ -97,18 +109,6 @@ export default function LocaleSwitcherSelect({
           </svg>
         </motion.div>
       </div>
-
-      {/* Loading indicator */}
-      {isPending && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          className='absolute -right-8 top-1/2 transform -translate-y-1/2'
-        >
-          <div className='w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin'></div>
-        </motion.div>
-      )}
     </div>
   );
 }

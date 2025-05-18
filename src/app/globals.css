@@ -167,6 +167,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    --_access-icon-border-radius: 50%;
   }
 
   main {
