@@ -13,30 +13,78 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    const systemPrefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
+    // Prevent flash by reading theme synchronously on mount
+    const initializeTheme = () => {
+      // Use requestAnimationFrame to defer DOM operations
+      requestAnimationFrame(() => {
+        const savedTheme = localStorage.getItem("theme") as Theme | null;
+        const systemPrefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
 
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle("dark", savedTheme === "dark");
-    } else if (systemPrefersDark) {
-      setTheme("dark");
-      document.documentElement.classList.add("dark");
-    }
+        let initialTheme: Theme = "light";
+
+        if (savedTheme) {
+          initialTheme = savedTheme;
+        } else if (systemPrefersDark) {
+          initialTheme = "dark";
+        }
+
+        // Batch DOM operations to prevent forced reflow
+        const html = document.documentElement;
+
+        // Use CSS custom property instead of class toggle for smoother transition
+        html.style.setProperty("--theme-transition", "none");
+
+        if (initialTheme === "dark") {
+          html.classList.add("dark");
+        } else {
+          html.classList.remove("dark");
+        }
+
+        setTheme(initialTheme);
+        setIsInitialized(true);
+
+        // Re-enable transitions after a frame
+        requestAnimationFrame(() => {
+          html.style.removeProperty("--theme-transition");
+        });
+      });
+    };
+
+    initializeTheme();
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
+    // Use requestAnimationFrame to optimize the transition
+    requestAnimationFrame(() => {
+      const newTheme = theme === "light" ? "dark" : "light";
+      const html = document.documentElement;
 
-    localStorage.setItem("theme", newTheme);
+      // Batch all DOM operations
+      setTheme(newTheme);
+      localStorage.setItem("theme", newTheme);
 
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
+      // Use transform instead of class toggle for better performance
+      if (newTheme === "dark") {
+        html.classList.add("dark");
+      } else {
+        html.classList.remove("dark");
+      }
+    });
   };
+
+  // Don't render children until theme is initialized to prevent flash
+  if (!isInitialized) {
+    return (
+      <div className='fixed inset-0 bg-white dark:bg-slate-900 flex items-center justify-center'>
+        <div className='w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin'></div>
+      </div>
+    );
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

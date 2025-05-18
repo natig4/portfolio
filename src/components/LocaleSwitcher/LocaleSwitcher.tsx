@@ -83,22 +83,23 @@ export default function LocaleSwitcher() {
             transition={{ duration: 0.3 }}
           />
 
-          {/* Main trigger button */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
-            className='relative bg-surface/80 dark:bg-surface/60 backdrop-blur-lg border border-border/40 rounded-lg px-4 py-3 transition-all duration-200 hover:border-primary/60 cursor-pointer flex items-center gap-3 min-w-[140px] group disabled:opacity-50 disabled:cursor-not-allowed'
+            className='relative backdrop-blur-sm border border-transparent rounded-lg px-4 py-3 transition-all duration-200 hover:border-primary/60 cursor-pointer flex items-center gap-3 min-w-[140px] group disabled:opacity-50 disabled:cursor-not-allowed'
             style={{ direction: locale === "he" ? "rtl" : "ltr" }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className='text-lg order-1'>{currentLocale.flag}</span>
-            <span className='text-sm font-medium text-text flex-1 order-2'>
+            <span className='text-base leading-4 inline-flex items-center justify-center w-5 h-5'>
+              {currentLocale.flag}
+            </span>
+            <span className='text-sm font-medium text-text leading-4 inline-flex items-center'>
               {currentLocale.label}
             </span>
 
             <motion.div
               animate={{ rotate: isOpen ? 180 : 0 }}
               transition={{ duration: 0.2 }}
-              className='w-4 h-4 text-text-secondary group-hover:text-primary transition-colors order-3'
+              className='w-4 h-4 text-text-secondary group-hover:text-primary transition-colors order-3 inline-flex items-center justify-center'
             >
               <svg fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                 <path
@@ -138,8 +139,10 @@ export default function LocaleSwitcher() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
                     >
-                      <span className='text-lg order-1'>{localeInfo.flag}</span>
-                      <span className='text-sm font-medium flex-1 order-2'>
+                      <span className='text-base inline-flex items-center justify-center w-5 h-5 order-1'>
+                        {localeInfo.flag}
+                      </span>
+                      <span className='text-sm font-medium flex-1 order-2 inline-flex items-center'>
                         {localeInfo.label}
                       </span>
                       {isSelected && (
