@@ -34,7 +34,6 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Create mailto link with form data
     const subject = encodeURIComponent("Message to Nati");
     const body = encodeURIComponent(formData.message);
     const mailtoLink = `mailto:nati_g4@hotmail.com?subject=${subject}&body=${body}`;

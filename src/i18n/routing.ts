@@ -8,8 +8,8 @@ export const defaultLocale = Language.he;
 const pathnames = {
   "/": "/",
   "/about": "/about",
-  "/story": "/story",
-  "/story/details": "/story/details",
+  "/projects": "/projects",
+  "/contact": "/contact",
   "/accessibility": "/accessibility",
   "/privacy": "/privacy",
   "/terms": "/terms",

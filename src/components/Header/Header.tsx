@@ -14,30 +14,19 @@ interface HeaderProps {
   links: {
     home: string;
     about: string;
+    projects: string;
+    contact: string;
   };
   isMobile: boolean;
 }
 
 export default function Header({
-  links: { home, about },
+  links: { home, about, projects, contact },
   isMobile,
 }: HeaderProps) {
   const { scrollY } = useScroll();
   const [menuOpen, setMenuOpen] = useState(false);
   const path = usePathname();
-
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
 
   // Close menu on route change
   useEffect(() => {
@@ -47,6 +36,8 @@ export default function Header({
   const navLinks = [
     getRoute({ pathname: "/" }, home),
     getRoute({ pathname: "/about" }, about),
+    getRoute({ pathname: "/projects" }, projects),
+    getRoute({ pathname: "/contact" }, contact),
   ].map(({ href, name }, index, array) => (
     <li
       key={name}

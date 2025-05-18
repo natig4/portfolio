@@ -26,7 +26,7 @@ export default function MobileNav({
       >
         <div className='w-8 h-9 relative flex justify-center items-center'>
           <span
-            className={`absolute w-8 h-0.5 bg-white rounded-sm transition-all duration-300 ${
+            className={`absolute w-8 h-0.5 bg-primary rounded-sm transition-all duration-300 ${
               menuOpen
                 ? "rotate-45 bg-primary-500 translate-y-0"
                 : "translate-y-[-14px]"
@@ -34,13 +34,13 @@ export default function MobileNav({
           ></span>
 
           <span
-            className={`absolute w-8 h-0.5 bg-white rounded-sm transition-opacity duration-300 ${
+            className={`absolute w-8 h-0.5 bg-primary rounded-sm transition-opacity duration-300 ${
               menuOpen ? "opacity-0" : "opacity-100"
             }`}
           ></span>
 
           <span
-            className={`absolute w-8 h-0.5 bg-white rounded-sm transition-all duration-300 ${
+            className={`absolute w-8 h-0.5 bg-primary rounded-sm transition-all duration-300 ${
               menuOpen
                 ? "-rotate-45 bg-primary-500 translate-y-0"
                 : "translate-y-[14px]"
