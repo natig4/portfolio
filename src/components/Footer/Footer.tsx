@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
-import SocialIcon from "../SocialIcon/SocialIcon";
 import NavLink from "../NavLink/NavLink";
 import { getRoute } from "@/lib/utils/utils";
 
@@ -19,9 +18,10 @@ export default function Footer({ isMobile = false }: FooterProps) {
     <NavLink
       key={name}
       href={href}
-      className='text-gray-300 hover:text-text transition-colors text-sm md:text-base'
+      className='text-text-secondary hover:text-primary transition-all duration-300 text-sm md:text-base relative group'
     >
-      {name}
+      <span className='relative z-10'>{name}</span>
+      <span className='absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg' />
     </NavLink>
   ));
 
@@ -33,28 +33,53 @@ export default function Footer({ isMobile = false }: FooterProps) {
     },
     { href: "https://github.com/natig4", icon: FaGithub },
   ].map(({ href, icon: Icon }) => (
-    <SocialIcon key={href} href={href} Icon={Icon} size={isMobile ? 20 : 24} />
+    <a
+      key={href}
+      href={href}
+      target='_blank'
+      rel='noopener noreferrer'
+      className='p-3 rounded-lg bg-surface/50 hover:bg-surface border border-border/30 text-text-secondary hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-glow group backdrop-blur-sm'
+      aria-label={`Visit ${href}`}
+    >
+      <Icon size={isMobile ? 20 : 24} className='group-hover:drop-shadow-lg' />
+    </a>
   ));
 
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='bg-gray-800 text-text py-4 md:py-6 transition-colors duration-300 w-full mt-auto'>
-      <div className='container mx-auto px-4'>
+    <footer className='bg-surface/80 backdrop-blur-lg border-t border-border/30 text-text py-6 md:py-8 transition-all duration-300 w-full mt-auto relative overflow-hidden'>
+      <div className='absolute inset-0 pointer-events-none'>
+        <div className='absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent' />
+        <div className='absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent' />
+
+        <div className='absolute top-1/2 left-1/4 w-32 h-32 bg-primary/5 rounded-full blur-3xl transform -translate-y-1/2' />
+        <div className='absolute top-1/2 right-1/4 w-32 h-32 bg-secondary/5 rounded-full blur-3xl transform -translate-y-1/2' />
+      </div>
+
+      <div className='container mx-auto px-4 relative z-10'>
         <div className='flex flex-col items-center md:flex-row md:justify-between'>
-          <div className='flex gap-4 mb-4 md:mb-0 order-1 md:order-1'>
+          <div className='flex gap-4 mb-6 md:mb-0 order-1 md:order-1'>
             {icons}
           </div>
 
-          <div className='flex flex-wrap justify-center gap-3 md:gap-6 mb-4 md:mb-0 order-2 md:order-2'>
+          <div className='flex flex-wrap justify-center gap-6 md:gap-8 mb-6 md:mb-0 order-2 md:order-2'>
             {links}
           </div>
         </div>
 
-        <div className='text-center text-gray-400 text-xs mt-4 pt-3 border-t border-gray-700'>
-          <p>
-            © {currentYear} {t("createdBy")}. {t("rights")}
+        <div className='text-center text-text-secondary text-xs md:text-sm mt-6 pt-6 border-t border-border/20 relative'>
+          <div className='absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-px bg-gradient-to-r from-primary to-secondary' />
+
+          <p className='relative'>
+            © {currentYear}{" "}
+            <span className='bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-semibold'>
+              {t("createdBy")}
+            </span>
+            . {t("rights")}
           </p>
+
+          <div className='absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300' />
         </div>
       </div>
     </footer>
