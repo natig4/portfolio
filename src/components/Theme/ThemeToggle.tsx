@@ -7,62 +7,181 @@ export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
 
+  // Optimized spring configuration for better performance
+  const springConfig = {
+    type: "spring",
+    stiffness: 700,
+    damping: 30,
+    mass: 1,
+  };
+
   return (
-    <button
+    <motion.button
       onClick={toggleTheme}
-      className='relative w-16 h-8 bg-gradient-to-r from-slate-400 to-slate-500 dark:from-slate-700 dark:to-slate-800 rounded-full p-1 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 dark:hover:shadow-purple-500/25 border border-slate-300 dark:border-slate-600'
+      className='relative w-14 h-8 rounded-full p-0.5 transition-colors duration-200 border border-emerald-300/30 dark:border-violet-400/30 cursor-pointer'
+      style={{
+        background: isDark
+          ? "linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%)"
+          : "linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 50%, #6ee7b7 100%)",
+      }}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {/* Glow effect */}
-      <div className='absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 dark:from-purple-500 dark:to-pink-500 opacity-0 hover:opacity-20 transition-opacity duration-300' />
-
-      {/* Toggle switch */}
+      {/* Optimized glow effect - only on hover */}
       <motion.div
-        className='relative w-6 h-6 bg-white dark:bg-slate-900 rounded-full shadow-lg flex items-center justify-center'
-        animate={{
-          x: isDark ? 24 : 0,
+        className='absolute inset-0 rounded-full'
+        style={{
+          background: isDark
+            ? "linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(168, 85, 247, 0.2))"
+            : "linear-gradient(135deg, rgba(52, 211, 153, 0.2), rgba(34, 197, 94, 0.2))",
         }}
-        transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 30,
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+      />
+
+      {/* Toggle switch with optimized animation */}
+      <motion.div
+        className='relative w-7 h-7 rounded-full flex items-center justify-center overflow-hidden cursor-pointer'
+        style={{
+          background: isDark
+            ? "linear-gradient(135deg, #1e1b4b 0%, #312e81 100%)"
+            : "linear-gradient(135deg, #ffffff 0%, #f9fafb 100%)",
+          boxShadow: isDark
+            ? "0 2px 8px rgba(139, 92, 246, 0.3)"
+            : "0 2px 8px rgba(52, 211, 153, 0.2)",
         }}
+        animate={{ x: isDark ? 20 : 0 }}
+        transition={springConfig}
       >
-        {/* Icon container with rotation */}
+        {/* Icon with simplified animation */}
         <motion.div
-          animate={{ rotate: isDark ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
-          className='w-4 h-4 flex items-center justify-center'
+          className='relative w-4 h-4 flex items-center justify-center cursor-pointer'
+          animate={{ rotate: isDark ? 0 : 180 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           {isDark ? (
-            <svg
-              className='w-3 h-3 text-purple-500'
-              fill='currentColor'
-              viewBox='0 0 20 20'
+            <motion.svg
+              className='w-4 h-4 cursor-pointer'
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.2 }}
+              fill='url(#moonGradient)'
+              viewBox='0 0 24 24'
             >
-              <path d='M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z' />
-            </svg>
+              <defs>
+                <linearGradient
+                  id='moonGradient'
+                  x1='0%'
+                  y1='0%'
+                  x2='100%'
+                  y2='100%'
+                >
+                  <stop offset='0%' stopColor='#a855f7' />
+                  <stop offset='100%' stopColor='#ec4899' />
+                </linearGradient>
+              </defs>
+              <path d='M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z' />
+            </motion.svg>
           ) : (
-            <svg
-              className='w-3 h-3 text-yellow-500'
-              fill='currentColor'
-              viewBox='0 0 20 20'
+            <motion.svg
+              className='w-4 h-4 cursor-pointer'
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.2 }}
+              fill='url(#sunGradient)'
+              viewBox='0 0 24 24'
             >
-              <path
-                fillRule='evenodd'
-                d='M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z'
-                clipRule='evenodd'
+              <defs>
+                <linearGradient
+                  id='sunGradient'
+                  x1='0%'
+                  y1='0%'
+                  x2='100%'
+                  y2='100%'
+                >
+                  <stop offset='0%' stopColor='#fbbf24' />
+                  <stop offset='100%' stopColor='#f59e0b' />
+                </linearGradient>
+              </defs>
+              <circle cx='12' cy='12' r='5' />
+              <line
+                x1='12'
+                y1='1'
+                x2='12'
+                y2='3'
+                stroke='url(#sunGradient)'
+                strokeWidth='2'
+                strokeLinecap='round'
               />
-            </svg>
+              <line
+                x1='12'
+                y1='21'
+                x2='12'
+                y2='23'
+                stroke='url(#sunGradient)'
+                strokeWidth='2'
+                strokeLinecap='round'
+              />
+              <line
+                x1='4.22'
+                y1='4.22'
+                x2='5.64'
+                y2='5.64'
+                stroke='url(#sunGradient)'
+                strokeWidth='2'
+                strokeLinecap='round'
+              />
+              <line
+                x1='18.36'
+                y1='18.36'
+                x2='19.78'
+                y2='19.78'
+                stroke='url(#sunGradient)'
+                strokeWidth='2'
+                strokeLinecap='round'
+              />
+              <line
+                x1='1'
+                y1='12'
+                x2='3'
+                y2='12'
+                stroke='url(#sunGradient)'
+                strokeWidth='2'
+                strokeLinecap='round'
+              />
+              <line
+                x1='21'
+                y1='12'
+                x2='23'
+                y2='12'
+                stroke='url(#sunGradient)'
+                strokeWidth='2'
+                strokeLinecap='round'
+              />
+              <line
+                x1='4.22'
+                y1='19.78'
+                x2='5.64'
+                y2='18.36'
+                stroke='url(#sunGradient)'
+                strokeWidth='2'
+                strokeLinecap='round'
+              />
+              <line
+                x1='18.36'
+                y1='5.64'
+                x2='19.78'
+                y2='4.22'
+                stroke='url(#sunGradient)'
+                strokeWidth='2'
+                strokeLinecap='round'
+              />
+            </motion.svg>
           )}
         </motion.div>
       </motion.div>
-
-      {/* Background track indicators */}
-      <div className='absolute inset-1 flex items-center justify-between px-1'>
-        <div className='w-3 h-3 rounded-full bg-yellow-400/30 dark:bg-transparent transition-all duration-300' />
-        <div className='w-3 h-3 rounded-full bg-transparent dark:bg-purple-400/30 transition-all duration-300' />
-      </div>
-    </button>
+    </motion.button>
   );
 }

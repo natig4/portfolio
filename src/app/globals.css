@@ -6,28 +6,77 @@
     --header-height: 5.5rem;
     --footer-height: 6rem;
     --footer-height-mobile: 9rem;
-    --text: #080d0a;
-    --background: #f2f8f4;
-    --primary: #56aa72;
-    --secondary: #9dd2af;
-    --accent: #79c793;
+
+    /* Enhanced Light Theme - Ocean to Aurora */
+    --text: #0f1419; /* Deep charcoal */
+    --text-secondary: #4b5563; /* Warm gray */
+    --background: #fefefe; /* Pure white */
+    --background-secondary: #f8fafc; /* Subtle gray */
+    --surface: #ffffff; /* Clean white */
+    --primary: #0ea5e9; /* Ocean blue */
+    --primary-hover: #0284c7; /* Deeper ocean */
+    --secondary: #10b981; /* Emerald */
+    --accent: #8b5cf6; /* Violet */
+    --accent-secondary: #f59e0b; /* Amber */
+    --border: #e5e7eb; /* Light border */
+    --muted: #f3f4f6; /* Very light gray */
+    --destructive: #ef4444; /* Red */
+    --success: #10b981; /* Emerald */
+    --warning: #f59e0b; /* Amber */
+
+    /* Enhanced glow effects */
+    --glow-primary: rgba(14, 165, 233, 0.25);
+    --glow-secondary: rgba(16, 185, 129, 0.25);
+    --glow-accent: rgba(139, 92, 246, 0.25);
+    --glow-warm: rgba(245, 158, 11, 0.25);
   }
 
   .dark {
-    --text: #f2f8f4;
-    --background: #080d0a;
-    --primary: #56aa72;
-    --secondary: #9dd2af;
-    --accent: #79c793;
+    /* Enhanced Dark Theme - Cyberpunk Neon */
+    --text: #f1f5f9; /* Cool white */
+    --text-secondary: #94a3b8; /* Cool gray */
+    --background: #020617; /* Space black */
+    --background-secondary: #0f172a; /* Deep space */
+    --surface: #1e293b; /* Slate surface */
+    --primary: #38bdf8; /* Cyan blue */
+    --primary-hover: #0ea5e9; /* Electric blue */
+    --secondary: #34d399; /* Mint green */
+    --accent: #a855f7; /* Electric purple */
+    --accent-secondary: #f472b6; /* Hot pink */
+    --border: #334155; /* Slate border */
+    --muted: #1e293b; /* Dark slate */
+    --destructive: #f87171; /* Soft red */
+    --success: #34d399; /* Mint green */
+    --warning: #fbbf24; /* Gold */
+
+    /* Intense glow effects for dark mode */
+    --glow-primary: rgba(56, 189, 248, 0.3);
+    --glow-secondary: rgba(52, 211, 153, 0.3);
+    --glow-accent: rgba(168, 85, 247, 0.3);
+    --glow-warm: rgba(251, 191, 36, 0.3);
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not(.light) {
-      --text: #f2f8f4;
-      --background: #080d0a;
-      --primary: #56aa72;
-      --secondary: #9dd2af;
-      --accent: #79c793;
+      --text: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --background: #020617;
+      --background-secondary: #0f172a;
+      --surface: #1e293b;
+      --primary: #38bdf8;
+      --primary-hover: #0ea5e9;
+      --secondary: #34d399;
+      --accent: #a855f7;
+      --accent-secondary: #f472b6;
+      --border: #334155;
+      --muted: #1e293b;
+      --destructive: #f87171;
+      --success: #34d399;
+      --warning: #fbbf24;
+      --glow-primary: rgba(56, 189, 248, 0.3);
+      --glow-secondary: rgba(52, 211, 153, 0.3);
+      --glow-accent: rgba(168, 85, 247, 0.3);
+      --glow-warm: rgba(251, 191, 36, 0.3);
     }
   }
 
@@ -44,25 +93,75 @@
     -moz-osx-font-smoothing: grayscale;
     width: 100%;
     overscroll-behavior: none;
+    background: var(--background);
+    color: var(--text);
+
+    /* Optimized subtle background - reduced complexity */
+    background-image: radial-gradient(
+        circle at 20% 80%,
+        var(--glow-primary) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        var(--glow-secondary) 0%,
+        transparent 60%
+      );
+    background-size: 200% 200%;
+    animation: backgroundFlow 30s ease infinite;
   }
 
-  html,
-  body,
-  * {
-    transition-property: color, background-color, border-color;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+  /* Optimized background animation - slower and more subtle */
+  @keyframes backgroundFlow {
+    0%,
+    100% {
+      background-position: 0% 0%, 100% 100%;
+    }
+    50% {
+      background-position: 100% 100%, 0% 0%;
+    }
   }
 
+  /* Optimized typography with simplified gradients */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-weight: 500;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    /* Reduced animation frequency */
+    animation: textGradientShift 8s ease infinite;
+    position: relative;
   }
 
+  /* Simplified text gradient animation */
+  @keyframes textGradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Optimized transitions - reduced duration */
+  html,
+  body,
+  * {
+    transition-property: color, background-color, border-color, box-shadow,
+      transform, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 250ms; /* Reduced from 350ms */
+  }
+
+  /* Enhanced layout structure */
   body {
     min-height: 100vh;
     position: relative;
@@ -72,18 +171,244 @@
 
   main {
     flex: 1 0 auto;
+    position: relative;
   }
 
   footer {
     flex-shrink: 0;
   }
+
+  /* Cursor styles for clickable elements */
+  button,
+  a,
+  [role="button"],
+  [onclick],
+  .cursor-pointer,
+  input[type="submit"],
+  input[type="button"],
+  input[type="checkbox"],
+  input[type="radio"],
+  select,
+  label[for] {
+    cursor: pointer;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  textarea {
+    cursor: text;
+  }
+
+  /* Optimized scrollbar with gradients */
+  ::-webkit-scrollbar {
+    width: 8px; /* Made thinner */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--muted);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary), var(--secondary));
+    border-radius: 4px;
+    border: 1px solid var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--primary-hover), var(--accent));
+    cursor: pointer;
+  }
+
+  /* Optimized selection with simpler gradient */
+  ::selection {
+    background: var(--primary);
+    color: white;
+  }
+
+  /* Simplified focus states - reduced effects */
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary), 0 0 10px var(--glow-primary);
+  }
+
+  /* Enhanced hover effects for interactive elements */
+  button:hover,
+  a:hover,
+  [role="button"]:hover {
+    cursor: pointer;
+    transform: translateY(-1px);
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  /* Optimized button styles */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease; /* Faster transition */
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--glow-primary);
+    background: linear-gradient(135deg, var(--primary-hover), var(--accent));
+  }
+
+  /* Simplified shimmer effect */
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.4s ease; /* Faster shimmer */
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+
+  /* Optimized card styles */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease; /* Faster transition */
+    cursor: pointer;
+  }
+
+  .card:hover {
+    transform: translateY(-2px); /* Reduced movement */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .card {
+    border-color: var(--border);
+  }
+
+  .dark .card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Performance optimization for animations */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Enhanced interactive states */
+  button:active,
+  [role="button"]:active {
+    transform: translateY(0);
+    transition-duration: 0.1s;
+  }
+
+  /* Loading state cursor */
+  .loading {
+    cursor: wait;
+  }
+
+  .loading * {
+    cursor: wait;
+  }
+
+  /* Disabled state cursor */
+  button:disabled,
+  input:disabled,
+  select:disabled,
+  textarea:disabled,
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  button:disabled:hover,
+  .disabled:hover {
+    transform: none;
+    box-shadow: none;
+  }
 }
 
+/* Enhanced responsive design */
 @media (max-width: 768px) {
   :root {
     --header-height: 4rem;
   }
+
   body {
-    padding-bottom: 0;
+    background-size: 300% 300%; /* More subtle on mobile */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .card {
+    border-radius: 12px;
+  }
+
+  /* Touch-friendly cursor styles */
+  button,
+  a,
+  [role="button"] {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Reduce animations on low-end devices */
+@media (max-width: 480px) {
+  body {
+    animation: none; /* Disable background animation on very small screens */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    animation: none; /* Simplify text animations */
+    background: var(--primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
