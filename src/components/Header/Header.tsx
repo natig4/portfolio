@@ -28,6 +28,19 @@ export default function Header({
   const [menuOpen, setMenuOpen] = useState(false);
   const path = usePathname();
 
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
@@ -68,7 +81,9 @@ export default function Header({
   return (
     <motion.header
       style={{ opacity }}
-      className='fixed top-0 left-0 right-0 flex justify-between items-center z-30 text-text min-h-16 px-4 md:px-6 w-full max-w-[100vw] border-b border-border/20'
+      className={`fixed top-0 left-0 right-0 flex flex-col md:flex-row justify-between items-center z-30 text-text px-4 md:px-6 w-full max-w-[100vw] border-b border-border/20 ${
+        isMobile ? "min-h-24 py-4" : "min-h-16"
+      }`}
     >
       {/* Backdrop with futuristic glass effect */}
       <motion.div
@@ -80,32 +95,33 @@ export default function Header({
       <div className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent animate-gradient-shift' />
 
       {/* Content */}
-      <div className='relative z-10 flex justify-between items-center w-full'>
-        {isMobile ? (
-          <>
-            <MobileNav
-              menuOpen={menuOpen}
-              handleToggleMenu={() => setMenuOpen(!menuOpen)}
-              links={navLinks}
-            />
+      {isMobile ? (
+        <div className='w-full flex justify-between items-center relative z-10'>
+          {/* Left side: Menu button */}
+          <MobileNav
+            menuOpen={menuOpen}
+            handleToggleMenu={() => setMenuOpen(!menuOpen)}
+            links={navLinks}
+          />
 
-            <div className='z-40 flex items-center space-x-4'>
-              <ThemeToggle />
-              <div className='hidden sm:block'>
-                <LocaleSwitcher />
-              </div>
-            </div>
-          </>
-        ) : (
-          <>
-            <DesktopNav links={navLinks} />
-            <div className='flex items-center space-x-6'>
-              <ThemeToggle />
+          <div className='flex flex-col items-center space-y-2'>
+            <div className='flex items-center justify-center'>
               <LocaleSwitcher />
             </div>
-          </>
-        )}
-      </div>
+            <div className='flex items-center justify-center'>
+              <ThemeToggle />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className='relative z-10 flex justify-between items-center w-full'>
+          <DesktopNav links={navLinks} />
+          <div className='flex items-center space-x-6'>
+            <ThemeToggle />
+            <LocaleSwitcher />
+          </div>
+        </div>
+      )}
 
       {/* Ambient glow effect */}
       <div className='absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 pointer-events-none' />

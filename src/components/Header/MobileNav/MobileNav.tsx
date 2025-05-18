@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 
-interface HeaderProps {
+interface MobileNavProps {
   links: React.JSX.Element[];
   menuOpen: boolean;
   handleToggleMenu: () => void;
@@ -12,7 +12,7 @@ export default function MobileNav({
   menuOpen,
   links,
   handleToggleMenu,
-}: HeaderProps) {
+}: MobileNavProps) {
   return (
     <nav className='z-40 flex flex-col items-start'>
       <button
@@ -67,6 +67,7 @@ export default function MobileNav({
               className='w-64 h-full bg-gray-800/95 dark:bg-gray-900/95 shadow-lg'
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Navigation Links */}
               <ul className='flex flex-col w-full h-full pt-20 font-header'>
                 {links.map((link, index) => (
                   <motion.div
@@ -77,8 +78,11 @@ export default function MobileNav({
                       delay: 0.1 + index * 0.1,
                       duration: 0.3,
                     }}
+                    className='w-full'
                   >
-                    {link}
+                    <div className='px-4 py-3 text-white/90 hover:text-white hover:bg-gray-700/50 transition-colors duration-200'>
+                      {link}
+                    </div>
                   </motion.div>
                 ))}
               </ul>
