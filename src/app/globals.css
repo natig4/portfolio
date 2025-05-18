@@ -1,12 +1,34 @@
 @import "tailwindcss";
-@import "./typography.css";
+@config "../../tailwind.config";
 
-@layer {
-  /* Base styles */
+@layer base {
   :root {
-    --header-height: 5.5rem; /* Define header height as a variable for offset */
+    --header-height: 5.5rem;
     --footer-height: 6rem;
     --footer-height-mobile: 9rem;
+    --text: #080d0a;
+    --background: #f2f8f4;
+    --primary: #56aa72;
+    --secondary: #9dd2af;
+    --accent: #79c793;
+  }
+
+  .dark {
+    --text: #f2f8f4;
+    --background: #080d0a;
+    --primary: #56aa72;
+    --secondary: #9dd2af;
+    --accent: #79c793;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+      --text: #f2f8f4;
+      --background: #080d0a;
+      --primary: #56aa72;
+      --secondary: #9dd2af;
+      --accent: #79c793;
+    }
   }
 
   html {
@@ -15,7 +37,6 @@
     overflow-x: hidden;
   }
 
-  html,
   body {
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -25,15 +46,10 @@
     overscroll-behavior: none;
   }
 
-  /* Add RTL support */
-  html[dir="rtl"] * {
-    font-feature-settings: "rtl";
-  }
-
-  /* Dark mode transition effects */
+  html,
+  body,
   * {
-    transition-property: color, background-color, border-color,
-      text-decoration-color, fill, stroke;
+    transition-property: color, background-color, border-color;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
   }
@@ -54,7 +70,6 @@
     flex-direction: column;
   }
 
-  /* Fix for mobile sticky footer */
   main {
     flex: 1 0 auto;
   }
@@ -64,12 +79,10 @@
   }
 }
 
-/* Add responsive sizing for header and footer */
 @media (max-width: 768px) {
   :root {
     --header-height: 4rem;
   }
-
   body {
     padding-bottom: 0;
   }

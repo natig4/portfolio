@@ -61,7 +61,7 @@ export default function Home() {
         transition={{ duration: 0.8 }}
         className='text-center max-w-3xl mb-16'
       >
-        <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900 dark:text-white'>
+        <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-text'>
           {t("title")}
         </h1>
         <p className='text-xl md:text-2xl text-gray-700 dark:text-gray-300'>
@@ -72,14 +72,14 @@ export default function Home() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className='px-6 py-3 bg-primary-700 hover:bg-primary-800 text-white rounded-lg shadow-md transition-colors duration-300'
+            className='px-6 py-3 bg-primary-700 hover:bg-primary-800 text-text rounded-lg shadow-md transition-colors duration-300'
           >
             {t("viewProjects")}
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className='px-6 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white rounded-lg shadow-md transition-colors duration-300'
+            className='px-6 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-text rounded-lg shadow-md transition-colors duration-300'
           >
             {t("contactMe")}
           </motion.button>
@@ -92,7 +92,7 @@ export default function Home() {
         animate='visible'
         className='w-full max-w-6xl'
       >
-        <h2 className='text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white'>
+        <h2 className='text-3xl font-bold text-center mb-12 text-text'>
           Technical Skills
         </h2>
 
@@ -105,7 +105,7 @@ export default function Home() {
             >
               <div className='flex items-center mb-4'>
                 {category.icon}
-                <h3 className='text-xl font-semibold ml-3 text-gray-900 dark:text-white'>
+                <h3 className='text-xl font-semibold ml-3 text-text'>
                   {category.label}
                 </h3>
               </div>

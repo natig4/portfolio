@@ -28,7 +28,7 @@ export default async function BaseLayout({
       dir={locale === Language.en ? "ltr" : "rtl"}
       className='h-full'
     >
-      <body className='flex flex-col min-h-screen h-screen overflow-x-hidden max-w-[100vw] bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300'>
+      <body className='flex flex-col min-h-screen h-screen overflow-x-hidden max-w-[100vw] bg-background text-text transition-colors duration-300'>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider>
             <Header

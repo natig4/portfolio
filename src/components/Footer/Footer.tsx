@@ -19,7 +19,7 @@ export default function Footer({ isMobile = false }: FooterProps) {
     <NavLink
       key={name}
       href={href}
-      className='text-gray-300 hover:text-white transition-colors text-sm md:text-base'
+      className='text-gray-300 hover:text-text transition-colors text-sm md:text-base'
     >
       {name}
     </NavLink>
@@ -39,7 +39,7 @@ export default function Footer({ isMobile = false }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='bg-gray-800 dark:bg-gray-900 text-white py-4 md:py-6 transition-colors duration-300 w-full mt-auto'>
+    <footer className='bg-gray-800 text-text py-4 md:py-6 transition-colors duration-300 w-full mt-auto'>
       <div className='container mx-auto px-4'>
         <div className='flex flex-col items-center md:flex-row md:justify-between'>
           <div className='flex gap-4 mb-4 md:mb-0 order-1 md:order-1'>
