@@ -2,9 +2,11 @@
 
 import { useTheme } from "./ThemeProvider";
 import { motion } from "framer-motion";
+import { useDirection } from "@/hooks/useDirection";
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const { isRTL } = useDirection();
   const isDark = theme === "dark";
 
   // Optimized spring configuration for better performance
@@ -14,6 +16,9 @@ export default function ThemeToggle() {
     damping: 30,
     mass: 1,
   };
+
+  // Calculate toggle position based on direction
+  const togglePosition = isDark ? (isRTL ? -20 : 20) : 0;
 
   return (
     <motion.button
@@ -28,7 +33,7 @@ export default function ThemeToggle() {
       whileTap={{ scale: 0.98 }}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {/* Optimized glow effect - only on hover */}
+      {/* Glow effect container */}
       <motion.div
         className='absolute inset-0 rounded-full'
         style={{
@@ -41,7 +46,7 @@ export default function ThemeToggle() {
         transition={{ duration: 0.2 }}
       />
 
-      {/* Toggle switch with optimized animation */}
+      {/* Toggle switch with RTL/LTR support */}
       <motion.div
         className='relative w-7 h-7 rounded-full flex items-center justify-center overflow-hidden cursor-pointer'
         style={{
@@ -52,7 +57,7 @@ export default function ThemeToggle() {
             ? "0 2px 8px rgba(139, 92, 246, 0.3)"
             : "0 2px 8px rgba(52, 211, 153, 0.2)",
         }}
-        animate={{ x: isDark ? 20 : 0 }}
+        animate={{ x: togglePosition }}
         transition={springConfig}
       >
         {/* Icon with simplified animation */}

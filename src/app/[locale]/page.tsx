@@ -3,17 +3,19 @@
 import { useTranslations } from "next-intl";
 import { FaLaptopCode, FaServer, FaDatabase, FaDocker } from "react-icons/fa";
 import { motion } from "framer-motion";
+import SkillCard from "@/components/SkillCard/SkillCard";
+import { useDirection } from "@/hooks/useDirection";
 
 export default function Home() {
   const t = useTranslations("home");
+  const { direction } = useDirection();
 
-  // Optimized animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1, // Reduced stagger for faster appearance
+        staggerChildren: 0.1,
         duration: 0.3,
       },
     },
@@ -25,18 +27,9 @@ export default function Home() {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.4, // Reduced duration
+        duration: 0.4,
         ease: "easeOut",
       },
-    },
-  };
-
-  // Optimized hover variants
-  const cardHoverVariants = {
-    hover: {
-      y: -8,
-      scale: 1.02,
-      transition: { duration: 0.2, ease: "easeOut" },
     },
   };
 
@@ -69,7 +62,7 @@ export default function Home() {
 
   return (
     <div className='home-container w-full flex flex-col items-center px-4 py-16 relative overflow-hidden'>
-      {/* Optimized background elements - reduced complexity */}
+      {/* Background elements */}
       <div className='absolute inset-0 pointer-events-none'>
         <motion.div
           className='absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl'
@@ -98,6 +91,7 @@ export default function Home() {
         />
       </div>
 
+      {/* Header section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -111,7 +105,7 @@ export default function Home() {
             backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
           }}
           transition={{
-            duration: 6, // Slowed down animation
+            duration: 6,
             ease: "linear",
             repeat: Infinity,
           }}
@@ -156,6 +150,7 @@ export default function Home() {
         </motion.div>
       </motion.div>
 
+      {/* Skills section */}
       <motion.div
         variants={containerVariants}
         initial='hidden'
@@ -171,87 +166,20 @@ export default function Home() {
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
           {skillCategories.map((category, index) => (
-            <motion.div
+            <SkillCard
               key={index}
-              variants={itemVariants}
-              whileHover='hover'
-              custom={cardHoverVariants}
-              className='bg-surface/80 dark:bg-surface/60 backdrop-blur-lg p-6 rounded-2xl border border-border/30 relative overflow-hidden group transition-all duration-200 cursor-pointer'
-            >
-              {/* Simplified hover gradient */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-200`}
-              />
-
-              {/* Content */}
-              <div className='relative z-10'>
-                <div className='flex items-center mb-6'>
-                  {/* Fixed icon container for RTL support */}
-                  <motion.div
-                    whileHover={{ rotate: 180 }}
-                    transition={{ duration: 0.3 }}
-                    className='flex items-center justify-center p-3 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 cursor-pointer'
-                    style={{
-                      marginRight:
-                        document.documentElement.dir === "rtl"
-                          ? "0"
-                          : "0.75rem",
-                      marginLeft:
-                        document.documentElement.dir === "rtl"
-                          ? "0.75rem"
-                          : "0",
-                    }}
-                  >
-                    {category.icon}
-                  </motion.div>
-                  <h3 className='text-xl font-semibold text-text'>
-                    {category.label}
-                  </h3>
-                </div>
-
-                <ul className='space-y-3'>
-                  {category.skills.map((skill, skillIndex) => (
-                    <motion.li
-                      key={skillIndex}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{
-                        delay: index * 0.1 + skillIndex * 0.03,
-                        duration: 0.2,
-                      }}
-                      className='flex items-center text-text-secondary group-hover:text-text transition-colors duration-200'
-                      style={{
-                        flexDirection:
-                          document.documentElement.dir === "rtl"
-                            ? "row-reverse"
-                            : "row",
-                      }}
-                    >
-                      <span
-                        className='w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full'
-                        style={{
-                          marginRight:
-                            document.documentElement.dir === "rtl"
-                              ? "0"
-                              : "0.75rem",
-                          marginLeft:
-                            document.documentElement.dir === "rtl"
-                              ? "0.75rem"
-                              : "0",
-                        }}
-                      ></span>
-                      <span className='hover:text-primary transition-colors duration-150 cursor-default'>
-                        {skill}
-                      </span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
+              icon={category.icon}
+              title={category.label}
+              skills={category.skills}
+              gradient={category.gradient}
+              index={index}
+              itemVariants={itemVariants}
+            />
           ))}
         </div>
       </motion.div>
 
+      {/* Location section */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -263,8 +191,11 @@ export default function Home() {
           whileHover={{ scale: 1.02, y: -2 }}
           transition={{ duration: 0.2 }}
         >
-          <p className='text-lg text-text-secondary mb-4 flex items-center justify-center gap-2'>
-            <span>📍</span>
+          <p
+            className='text-lg text-text-secondary mb-4 flex items-center justify-center gap-3'
+            dir={direction}
+          >
+            <span className='flex-shrink-0'>📍</span>
             <span>{t("location")}</span>
           </p>
         </motion.div>
