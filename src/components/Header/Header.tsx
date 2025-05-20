@@ -15,13 +15,15 @@ interface HeaderProps {
     home: string;
     about: string;
     projects: string;
+    experience: string;
+    articles: string;
     contact: string;
   };
   isMobile: boolean;
 }
 
 export default function Header({
-  links: { home, about, projects, contact },
+  links: { home, about, projects, experience, articles, contact },
   isMobile,
 }: HeaderProps) {
   const { scrollY } = useScroll();
@@ -46,8 +48,10 @@ export default function Header({
 
   const navLinks = [
     getRoute({ pathname: "/" }, home),
-    getRoute({ pathname: "/about" }, about),
     getRoute({ pathname: "/projects" }, projects),
+    getRoute({ pathname: "/experience" }, experience),
+    getRoute({ pathname: "/articles" }, articles),
+    getRoute({ pathname: "/about" }, about),
     getRoute({ pathname: "/contact" }, contact),
   ].map(({ href, name }, index, array) => (
     <li

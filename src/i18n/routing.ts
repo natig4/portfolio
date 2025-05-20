@@ -9,6 +9,8 @@ const pathnames = {
   "/": "/",
   "/about": "/about",
   "/projects": "/projects",
+  "/experience": "/experience",
+  "/articles": "/articles",
   "/contact": "/contact",
   "/accessibility": "/accessibility",
   "/privacy": "/privacy",

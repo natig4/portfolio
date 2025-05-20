@@ -36,8 +36,10 @@ export default async function BaseLayout({
               links={{
                 home: t("home"),
                 about: t("about"),
-                contact: t("contact"),
                 projects: t("projects"),
+                experience: t("experience"),
+                articles: t("articles"),
+                contact: t("contact"),
               }}
             />
             <main className='flex-grow pt-[var(--header-height)] w-full flex flex-col'>
