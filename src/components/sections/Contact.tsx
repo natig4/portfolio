@@ -9,6 +9,7 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import ContactInfo from "@/components/ContactInfo/ContactInfo";
+import { EMAIL } from "@/lib/model/common";
 
 interface ContactInfoData {
   title: string;
@@ -69,7 +70,7 @@ export default function ContactSection({ contactInfo }: ContactSectionProps) {
 
     const subject = encodeURIComponent("Message to Nati");
     const body = encodeURIComponent(formData.message);
-    const mailtoLink = `mailto:nati_g4@hotmail.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
 
     window.location.href = mailtoLink;
 

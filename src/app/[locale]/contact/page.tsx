@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import ContactSection from "@/components/sections/Contact";
+import { EMAIL } from "@/lib/model/common";
 
 export default async function ContactPage() {
   const t = await getTranslations("contact");
@@ -10,7 +11,7 @@ export default async function ContactPage() {
     info: t("info"),
     email: {
       label: t("email"),
-      value: "nati_g4@hotmail.com",
+      value: EMAIL,
     },
     phone: {
       label: t("phone"),
