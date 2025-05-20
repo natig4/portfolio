@@ -173,4 +173,43 @@
       -webkit-text-fill-color: transparent;
     }
   }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--muted);
+    border-radius: 8px;
+  }
+
+  html.dark ::-webkit-scrollbar-track {
+    background-color: var(--border);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    transition: all 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--primary-hover), var(--accent));
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: var(--background);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--muted);
+  }
+
+  html.dark * {
+    scrollbar-color: var(--primary) var(--border);
+  }
 }
