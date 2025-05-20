@@ -60,105 +60,79 @@ export default function LocaleSwitcher() {
 
   return (
     <>
-      {/* Click outside overlay */}
       {isOpen && (
         <div className='fixed inset-0 z-40' onClick={handleClickOutside} />
       )}
 
       <div ref={dropdownRef} className='relative z-50'>
-        <motion.div
-          className='relative'
+        <motion.button
+          onClick={() => setIsOpen(!isOpen)}
+          className='relative backdrop-blur-sm border border-border/30 rounded-lg px-4 py-3 transition-all duration-200 hover:border-primary/40 cursor-pointer flex items-center gap-3 min-w-[140px] group'
+          style={{ direction: locale === "he" ? "rtl" : "ltr" }}
           whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
+          whileTap={{ scale: 0.98 }}
         >
-          {/* Glow effect container */}
+          <span className='text-base leading-4 inline-flex items-center justify-center w-5 h-5'>
+            {currentLocale.flag}
+          </span>
+          <span className='text-sm font-medium text-text leading-4 inline-flex items-center'>
+            {currentLocale.label}
+          </span>
+
           <motion.div
-            className='absolute inset-0 rounded-lg'
-            style={{
-              background:
-                "linear-gradient(135deg, var(--glow-primary), var(--glow-secondary))",
-              opacity: 0,
-            }}
-            whileHover={{ opacity: 0.15 }}
-            transition={{ duration: 0.3 }}
-          />
-
-          <motion.button
-            onClick={() => setIsOpen(!isOpen)}
-            className='relative backdrop-blur-sm border border-transparent rounded-lg px-4 py-3 transition-all duration-200 hover:border-primary/60 cursor-pointer flex items-center gap-3 min-w-[140px] group disabled:opacity-50 disabled:cursor-not-allowed'
-            style={{ direction: locale === "he" ? "rtl" : "ltr" }}
-            whileTap={{ scale: 0.98 }}
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+            className='w-4 h-4 text-text-secondary group-hover:text-primary transition-colors order-3 inline-flex items-center justify-center'
           >
-            <span className='text-base leading-4 inline-flex items-center justify-center w-5 h-5'>
-              {currentLocale.flag}
-            </span>
-            <span className='text-sm font-medium text-text leading-4 inline-flex items-center'>
-              {currentLocale.label}
-            </span>
+            <svg fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M19 9l-7 7-7-7'
+              />
+            </svg>
+          </motion.div>
+        </motion.button>
 
+        <AnimatePresence>
+          {isOpen && (
             <motion.div
-              animate={{ rotate: isOpen ? 180 : 0 }}
-              transition={{ duration: 0.2 }}
-              className='w-4 h-4 text-text-secondary group-hover:text-primary transition-colors order-3 inline-flex items-center justify-center'
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              transition={{ duration: 0.15 }}
+              className='absolute top-full left-0 mt-2 w-full bg-surface/95 dark:bg-surface/90 backdrop-blur-lg border border-border/40 rounded-lg shadow-lg overflow-hidden'
             >
-              <svg fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d='M19 9l-7 7-7-7'
-                />
-              </svg>
+              {locales.map((localeCode) => {
+                const localeInfo = getLocaleInfo(localeCode);
+                const isSelected = localeCode === locale;
+
+                return (
+                  <button
+                    key={localeCode}
+                    onClick={() => handleLocaleChange(localeCode)}
+                    className={`w-full px-4 py-3 flex items-center gap-3 text-left transition-all duration-150 hover:bg-primary/10 focus:bg-primary/10 focus:outline-none ${
+                      isSelected
+                        ? "bg-primary/5 text-primary"
+                        : "text-text hover:text-primary"
+                    }`}
+                  >
+                    <span className='text-base inline-flex items-center justify-center w-5 h-5 order-1'>
+                      {localeInfo.flag}
+                    </span>
+                    <span className='text-sm font-medium flex-1 order-2 inline-flex items-center'>
+                      {localeInfo.label}
+                    </span>
+                    {isSelected && (
+                      <div className='w-2 h-2 bg-primary rounded-full order-3' />
+                    )}
+                  </button>
+                );
+              })}
             </motion.div>
-          </motion.button>
-
-          {/* Custom dropdown */}
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                transition={{ duration: 0.15 }}
-                className='absolute top-full left-0 mt-2 w-full bg-surface/95 dark:bg-surface/90 backdrop-blur-lg border border-border/40 rounded-lg shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden'
-              >
-                {locales.map((localeCode, index) => {
-                  const localeInfo = getLocaleInfo(localeCode);
-                  const isSelected = localeCode === locale;
-
-                  return (
-                    <motion.button
-                      key={localeCode}
-                      onClick={() => handleLocaleChange(localeCode)}
-                      className={`w-full px-4 py-3 flex items-center gap-3 text-left transition-all duration-150 hover:bg-primary/10 focus:bg-primary/10 focus:outline-none group ${
-                        isSelected
-                          ? "bg-primary/5 text-primary"
-                          : "text-text hover:text-primary"
-                      }`}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                    >
-                      <span className='text-base inline-flex items-center justify-center w-5 h-5 order-1'>
-                        {localeInfo.flag}
-                      </span>
-                      <span className='text-sm font-medium flex-1 order-2 inline-flex items-center'>
-                        {localeInfo.label}
-                      </span>
-                      {isSelected && (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className='w-2 h-2 bg-primary rounded-full order-3'
-                        />
-                      )}
-                    </motion.button>
-                  );
-                })}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );

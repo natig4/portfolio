@@ -41,7 +41,6 @@ export default function Header({
     };
   }, [menuOpen]);
 
-  // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
   }, [path]);
@@ -54,7 +53,7 @@ export default function Header({
   ].map(({ href, name }, index, array) => (
     <li
       key={name}
-      className='relative mx-3 md:mx-4 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105'
+      className='relative mx-3 md:mx-4'
       onClick={(ev) => {
         if (isMobile) {
           ev.stopPropagation();
@@ -62,42 +61,35 @@ export default function Header({
         }
       }}
     >
-      <NavLink href={href} className='block py-2 px-1 relative group'>
-        <span className='relative z-10'>{name}</span>
-        {/* Futuristic hover effect */}
-        <span className='absolute inset-0 rounded-lg bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm' />
-        <span className='absolute inset-0 rounded-lg border border-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+      <NavLink href={href} className='block py-2 px-1'>
+        {name}
       </NavLink>
 
       {index < array.length - 1 && (
-        <span className='absolute top-1/2 -translate-y-1/2 right-[-1rem] w-0.5 h-3/5 bg-gradient-to-b from-primary/50 to-secondary/50 rtl:right-auto rtl:left-[-1rem]'></span>
+        <span className='absolute top-1/2 -translate-y-1/2 right-[-1rem] w-px h-3/5 bg-gradient-to-b from-primary/30 to-secondary/30 rtl:right-auto rtl:left-[-1rem]'></span>
       )}
     </li>
   ));
 
   const opacity = useTransform(scrollY, [0, 60], [0.95, 0.8]);
-  const blur = useTransform(scrollY, [0, 60], [10, 20]);
+  const blur = useTransform(scrollY, [0, 60], [8, 16]);
 
   return (
     <motion.header
       style={{ opacity }}
-      className={`fixed top-0 left-0 right-0 flex flex-col md:flex-row justify-between items-center z-30 text-text px-4 md:px-6 w-full max-w-[100vw] border-b border-border/20 ${
+      className={`fixed top-0 left-0 right-0 flex flex-col md:flex-row justify-between items-center z-30 text-text px-4 md:px-6 w-full max-w-[100vw] border-b border-border/10 ${
         isMobile ? "min-h-24 py-4" : "min-h-16"
       }`}
     >
-      {/* Backdrop with futuristic glass effect */}
       <motion.div
         style={{ backdropFilter: `blur(${blur}px)` }}
         className='absolute inset-0 bg-surface/80 dark:bg-surface/60'
       />
 
-      {/* Animated border effect */}
-      <div className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent animate-gradient-shift' />
+      <div className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent' />
 
-      {/* Content */}
       {isMobile ? (
         <div className='w-full flex justify-between items-center relative z-10'>
-          {/* Left side: Menu button */}
           <MobileNav
             menuOpen={menuOpen}
             handleToggleMenu={() => setMenuOpen(!menuOpen)}
@@ -122,9 +114,6 @@ export default function Header({
           </div>
         </div>
       )}
-
-      {/* Ambient glow effect */}
-      <div className='absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 pointer-events-none' />
     </motion.header>
   );
 }

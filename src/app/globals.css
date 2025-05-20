@@ -24,11 +24,11 @@
     --success: #10b981;
     --warning: #f59e0b;
 
-    /* Enhanced glow effects */
-    --glow-primary: rgba(14, 165, 233, 0.25);
-    --glow-secondary: rgba(16, 185, 129, 0.25);
-    --glow-accent: rgba(139, 92, 246, 0.25);
-    --glow-warm: rgba(245, 158, 11, 0.25);
+    /* Toned down glow effects */
+    --glow-primary: rgba(14, 165, 233, 0.15);
+    --glow-secondary: rgba(16, 185, 129, 0.15);
+    --glow-accent: rgba(139, 92, 246, 0.15);
+    --glow-warm: rgba(245, 158, 11, 0.15);
   }
 
   .dark {
@@ -47,18 +47,16 @@
     --destructive: #f87171;
     --success: #34d399;
     --warning: #fbbf24;
-    --glow-primary: rgba(56, 189, 248, 0.3);
-    --glow-secondary: rgba(52, 211, 153, 0.3);
-    --glow-accent: rgba(168, 85, 247, 0.3);
-    --glow-warm: rgba(251, 191, 36, 0.3);
+    --glow-primary: rgba(56, 189, 248, 0.2);
+    --glow-secondary: rgba(52, 211, 153, 0.2);
+    --glow-accent: rgba(168, 85, 247, 0.2);
+    --glow-warm: rgba(251, 191, 36, 0.2);
   }
 
   html {
     scroll-behavior: smooth;
     height: 100%;
     overflow-x: hidden;
-
-    contain: layout style;
   }
 
   body {
@@ -70,20 +68,19 @@
     overscroll-behavior: none;
     background: var(--background);
     color: var(--text);
-
     transition: var(--theme-transition);
 
     background-image: radial-gradient(
         circle at 20% 80%,
         var(--glow-primary) 0%,
-        transparent 60%
+        transparent 50%
       ),
       radial-gradient(
         circle at 80% 20%,
         var(--glow-secondary) 0%,
-        transparent 60%
+        transparent 50%
       );
-    background-size: 200% 200%;
+    background-size: 150% 150%;
     background-attachment: fixed;
   }
 
@@ -99,13 +96,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% 200%;
-
-    will-change: background-position;
-
-    animation: textGradientShift 12s ease infinite;
     position: relative;
-
-    contain: layout;
   }
 
   @keyframes textGradientShift {
@@ -124,38 +115,27 @@
     transition: var(--theme-transition);
   }
 
-  .theme-transitioning * {
-    transition: var(--theme-transition);
-  }
-
   body {
     min-height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
-    contain: layout style;
     --_access-icon-border-radius: 50%;
   }
 
   main {
     flex: 1 0 auto;
     position: relative;
-    contain: layout;
   }
 
   footer {
     flex-shrink: 0;
-    contain: layout;
   }
 
-  /* Optimize interactive elements with transform instead of layout changes */
   button:hover,
   a:hover,
   [role="button"]:hover {
     cursor: pointer;
-    transform: translateY(-1px);
-    /* Use will-change for hover states */
-    will-change: transform;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -192,12 +172,5 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-  }
-
-  .nav-link,
-  .theme-toggle,
-  .mobile-nav-toggle {
-    will-change: transform;
-    transform: translateZ(0);
   }
 }
