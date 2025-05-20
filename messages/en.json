@@ -53,9 +53,9 @@
     "stats": {
       "years": "8+ Years",
       "yearsDesc": "Total industry experience across development and QA",
-      "users": "300K+",
+      "users": "100K+",
       "usersDesc": "Daily users of applications developed and maintained",
-      "bugs": "Zero",
+      "bugs": "0",
       "bugsDesc": "Critical production bugs across major QA projects"
     }
   },

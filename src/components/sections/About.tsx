@@ -157,7 +157,6 @@ export default function AboutSection({
         </div>
       </motion.div>
 
-      {/* Call to Action */}
       <motion.div
         variants={itemVariants}
         className='text-center mt-20 p-10 bg-surface/30 backdrop-blur-sm rounded-2xl border border-border/20'

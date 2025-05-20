@@ -41,7 +41,7 @@ export default function Footer({ isMobile = false }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='bg-surface/80 backdrop-blur-lg border-t border-border/30 text-text py-6 md:py-8 transition-all duration-300 w-full mt-auto relative'>
+    <footer className='bg-surface/80 backdrop-blur-lg border-t border-border/30 text-text py-4 transition-all duration-300 w-full mt-auto relative'>
       <div className='absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent' />
 
       <div className='container mx-auto px-4'>
@@ -66,7 +66,7 @@ export default function Footer({ isMobile = false }: FooterProps) {
           </div>
         </div>
 
-        <div className='text-center text-text-secondary text-xs md:text-sm mt-6 pt-6 border-t border-border/10'>
+        <div className='text-center text-text-secondary text-xs md:text-sm border-t border-border/10'>
           <p className='flex items-center justify-center gap-2 flex-wrap'>
             <span>© {currentYear}</span>
             <span className='bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-semibold'>
