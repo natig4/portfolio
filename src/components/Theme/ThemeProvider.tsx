@@ -1,6 +1,12 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useMemo,
+} from "react";
 
 type Theme = "light" | "dark";
 
@@ -15,69 +21,64 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
   const [isInitialized, setIsInitialized] = useState(false);
 
+  // Initialize theme only once on mount
   useEffect(() => {
-    // Prevent flash by reading theme synchronously on mount
-    const initializeTheme = () => {
-      // Use requestAnimationFrame to defer DOM operations
-      requestAnimationFrame(() => {
-        const savedTheme = localStorage.getItem("theme") as Theme | null;
-        const systemPrefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
+    // Get theme synchronously to avoid flash
+    const savedTheme = localStorage.getItem("theme") as Theme | null;
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
 
-        let initialTheme: Theme = "light";
+    // Determine initial theme
+    const initialTheme: Theme =
+      savedTheme || (systemPrefersDark ? "dark" : "light");
 
-        if (savedTheme) {
-          initialTheme = savedTheme;
-        } else if (systemPrefersDark) {
-          initialTheme = "dark";
-        }
+    // Apply theme to document
+    const html = document.documentElement;
 
-        // Batch DOM operations to prevent forced reflow
+    // Disable transitions temporarily
+    html.style.setProperty("--theme-transition", "none");
+
+    // Set theme class
+    if (initialTheme === "dark") {
+      html.classList.add("dark");
+    } else {
+      html.classList.remove("dark");
+    }
+
+    // Update state
+    setTheme(initialTheme);
+    setIsInitialized(true);
+
+    // Re-enable transitions after a short delay
+    setTimeout(() => {
+      html.style.removeProperty("--theme-transition");
+    }, 0);
+  }, []);
+
+  // Memoize the toggle function to prevent unnecessary rerenders
+  const toggleTheme = useMemo(() => {
+    return () => {
+      setTheme((prevTheme) => {
+        const newTheme = prevTheme === "light" ? "dark" : "light";
+
+        // Update localStorage
+        localStorage.setItem("theme", newTheme);
+
+        // Update DOM - do this synchronously
         const html = document.documentElement;
-
-        // Use CSS custom property instead of class toggle for smoother transition
-        html.style.setProperty("--theme-transition", "none");
-
-        if (initialTheme === "dark") {
+        if (newTheme === "dark") {
           html.classList.add("dark");
         } else {
           html.classList.remove("dark");
         }
 
-        setTheme(initialTheme);
-        setIsInitialized(true);
-
-        // Re-enable transitions after a frame
-        requestAnimationFrame(() => {
-          html.style.removeProperty("--theme-transition");
-        });
+        return newTheme;
       });
     };
-
-    initializeTheme();
   }, []);
 
-  const toggleTheme = () => {
-    // Use requestAnimationFrame to optimize the transition
-    requestAnimationFrame(() => {
-      const newTheme = theme === "light" ? "dark" : "light";
-      const html = document.documentElement;
-
-      // Batch all DOM operations
-      setTheme(newTheme);
-      localStorage.setItem("theme", newTheme);
-
-      // Use transform instead of class toggle for better performance
-      if (newTheme === "dark") {
-        html.classList.add("dark");
-      } else {
-        html.classList.remove("dark");
-      }
-    });
-  };
-
-  // Don't render children until theme is initialized to prevent flash
+  // Don't render children until theme is initialized
   if (!isInitialized) {
     return (
       <div className='fixed inset-0 bg-white dark:bg-slate-900 flex items-center justify-center'>

@@ -75,7 +75,6 @@ export default function Header({
   ));
 
   const opacity = useTransform(scrollY, [0, 60], [0.95, 0.8]);
-  const blur = useTransform(scrollY, [0, 60], [8, 16]);
 
   return (
     <motion.header
@@ -84,10 +83,7 @@ export default function Header({
         isMobile ? "h-16" : "h-16"
       }`}
     >
-      <motion.div
-        style={{ backdropFilter: `blur(${blur}px)` }}
-        className='absolute inset-0 bg-surface/80 dark:bg-surface/60'
-      />
+      <div className='absolute inset-0 bg-surface/80 dark:bg-surface/60 backdrop-blur-[8px] transition-[backdrop-filter] duration-300' />
 
       <div className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent' />
 

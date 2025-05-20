@@ -75,13 +75,10 @@ const config: Config = {
           "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
       },
       animation: {
-        // Existing animations
         "gradient-shift": "gradientShift 3s ease infinite",
         "background-shift": "backgroundShift 20s ease infinite",
         "pulse-glow": "pulseGlow 2s ease-in-out infinite",
         float: "float 3s ease-in-out infinite",
-
-        // New enhanced animations
         "text-gradient": "textGradientShift 6s ease infinite",
         "background-flow": "backgroundFlow 20s ease infinite",
         "focus-pulse": "focusPulse 2s ease infinite",
@@ -99,6 +96,8 @@ const config: Config = {
         "fade-in": "fadeIn 0.5s ease-out",
         "scale-in": "scaleIn 0.3s ease-out",
         "rotate-in": "rotateIn 0.5s ease-out",
+        "pulse-slow": "pulse 8s ease-in-out infinite",
+        "pulse-delayed": "pulse 10s ease-in-out 1s infinite",
       },
       keyframes: {
         // Existing keyframes
@@ -213,6 +212,10 @@ const config: Config = {
       fontFamily: {
         cyber: ["Orbitron", "monospace"],
         futuristic: ["Exo 2", "sans-serif"],
+      },
+      scale: {
+        "97": "0.97",
+        "103": "1.03",
       },
     },
   },

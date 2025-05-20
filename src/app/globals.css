@@ -213,3 +213,17 @@
     scrollbar-color: var(--primary) var(--border);
   }
 }
+
+@layer utilities {
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  .will-change-colors {
+    will-change: background-color, border-color, color, fill, stroke;
+  }
+}
