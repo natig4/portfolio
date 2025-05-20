@@ -67,7 +67,7 @@ export default function LocaleSwitcher() {
       <div ref={dropdownRef} className='relative z-50'>
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
-          className='relative backdrop-blur-sm border border-border/30 rounded-lg px-4 py-3 transition-all duration-200 hover:border-primary/40 cursor-pointer flex items-center gap-3 min-w-[140px] group'
+          className='relative p-0 md:px-4 md:py-3 transition-all duration-200 hover:bg-primary/5 cursor-pointer flex items-center gap-2 bg-transparent'
           style={{ direction: locale === "he" ? "rtl" : "ltr" }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
@@ -102,7 +102,7 @@ export default function LocaleSwitcher() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.15 }}
-              className='absolute top-full left-0 mt-2 w-full bg-surface/95 dark:bg-surface/90 backdrop-blur-lg border border-border/40 rounded-lg shadow-lg overflow-hidden'
+              className='absolute top-full right-0 mt-2 w-full bg-surface/95 dark:bg-surface/90 backdrop-blur-lg border border-border/40 rounded-lg shadow-lg overflow-hidden'
             >
               {locales.map((localeCode) => {
                 const localeInfo = getLocaleInfo(localeCode);

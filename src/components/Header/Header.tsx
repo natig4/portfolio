@@ -28,7 +28,6 @@ export default function Header({
   const [menuOpen, setMenuOpen] = useState(false);
   const path = usePathname();
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
@@ -77,8 +76,8 @@ export default function Header({
   return (
     <motion.header
       style={{ opacity }}
-      className={`fixed top-0 left-0 right-0 flex flex-col md:flex-row justify-between items-center z-30 text-text px-4 md:px-6 w-full max-w-[100vw] border-b border-border/10 ${
-        isMobile ? "min-h-24 py-4" : "min-h-16"
+      className={`fixed top-0 left-0 right-0 flex flex-row justify-between items-center z-30 text-text px-4 md:px-6 w-full max-w-[100vw] border-b border-border/10 ${
+        isMobile ? "h-16" : "h-16"
       }`}
     >
       <motion.div
@@ -96,13 +95,8 @@ export default function Header({
             links={navLinks}
           />
 
-          <div className='flex flex-col items-center space-y-2'>
-            <div className='flex items-center justify-center'>
-              <LocaleSwitcher />
-            </div>
-            <div className='flex items-center justify-center'>
-              <ThemeToggle />
-            </div>
+          <div className='flex items-center'>
+            <LocaleSwitcher />
           </div>
         </div>
       ) : (
@@ -114,6 +108,8 @@ export default function Header({
           </div>
         </div>
       )}
+
+      <div className='absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 pointer-events-none' />
     </motion.header>
   );
 }

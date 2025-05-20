@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import ThemeToggle from "../../Theme/ThemeToggle";
 
 interface MobileNavProps {
   links: React.JSX.Element[];
@@ -64,10 +65,10 @@ export default function MobileNav({
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className='w-64 h-full bg-surface dark:bg-gray-900 shadow-lg'
+              className='w-64 h-full bg-surface dark:bg-gray-900 shadow-lg flex flex-col'
               onClick={(e) => e.stopPropagation()}
             >
-              <ul className='flex flex-col w-full h-full pt-20 font-header'>
+              <ul className='flex flex-col w-full pt-20 font-header flex-1'>
                 {links.map((link, index) => (
                   <motion.div
                     key={index}
@@ -85,6 +86,15 @@ export default function MobileNav({
                   </motion.div>
                 ))}
               </ul>
+
+              <div className='px-4 py-5 border-t border-border/30 mt-auto'>
+                <div className='flex items-center justify-between'>
+                  <span className='text-text-secondary font-medium'>
+                    Dark Mode
+                  </span>
+                  <ThemeToggle />
+                </div>
+              </div>
             </motion.div>
           </motion.aside>
         )}
