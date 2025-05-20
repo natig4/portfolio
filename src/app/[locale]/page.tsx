@@ -4,6 +4,7 @@ import SkillsSection from "@/components/sections/Skills";
 import HeaderSection from "@/components/sections/Header";
 import LocationSection from "@/components/sections/Location";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
+import CTASection from "@/components/CTASection/CTASection";
 
 export default async function Home() {
   const t = await getTranslations("home");
@@ -52,6 +53,14 @@ export default async function Home() {
       />
 
       <LocationSection />
+
+      <CTASection
+        title='Looking for a quality-focused developer for your next project?'
+        linkedInLabel='Check My LinkedIn'
+        contactLabel='Start a Conversation'
+        secondaryLink='/contact'
+        useLinkedIn={true}
+      />
 
       <div className='absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50' />
     </div>

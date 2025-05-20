@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useDirection } from "@/hooks/useDirection";
+import CTASection from "../CTASection/CTASection";
 
 interface Company {
   company: string;
@@ -124,33 +125,14 @@ export default function ExperienceSection({
         ))}
       </div>
 
-      {/* Additional action */}
-      <motion.div
-        variants={itemVariants}
-        className='text-center mt-16 p-8 bg-surface/30 backdrop-blur-sm rounded-2xl border border-border/20'
-      >
-        <p className='text-text-secondary text-lg mb-6'>
-          Want to learn more about my professional background?
-        </p>
-        <div className='flex justify-center gap-6 flex-wrap'>
-          <motion.a
-            href='https://www.linkedin.com/in/nati-gurevich-36868711b'
-            target='_blank'
-            rel='noopener noreferrer'
-            whileHover={{ scale: 1.05, y: -2 }}
-            className='px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200'
-          >
-            View LinkedIn Profile
-          </motion.a>
-          <motion.a
-            href='/contact'
-            whileHover={{ scale: 1.05, y: -2 }}
-            className='px-6 py-3 bg-surface border border-border/50 text-text rounded-lg font-semibold hover:bg-primary/10 hover:border-primary/30 transition-all duration-200'
-          >
-            Contact Me
-          </motion.a>
-        </div>
-      </motion.div>
+      {/* Call to Action */}
+      <CTASection
+        title='?Want to learn more about my professional background'
+        linkedInLabel='View LinkedIn Profile'
+        contactLabel='Contact Me'
+        primaryLink='/projects'
+        secondaryLink='/contact'
+      />
     </motion.div>
   );
 }

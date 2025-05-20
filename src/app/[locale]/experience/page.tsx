@@ -2,16 +2,66 @@ import { getTranslations } from "next-intl/server";
 import ExperienceSection from "@/components/sections/Experience";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 
+interface CompanyData {
+  company: string;
+  position: string;
+  period: string;
+  description: string[];
+}
+
 export default async function ExperiencePage() {
   const t = await getTranslations("experience");
 
   const title = t("title");
-  const companies = t("companies").map((company: any) => ({
-    company: company.company,
-    position: company.position,
-    period: company.period,
-    description: company.description,
-  }));
+
+  const companies: CompanyData[] = [
+    {
+      company: t("companies.0.company"),
+      position: t("companies.0.position"),
+      period: t("companies.0.period"),
+      description: [
+        t("companies.0.description.0"),
+        t("companies.0.description.1"),
+        t("companies.0.description.2"),
+        t("companies.0.description.3"),
+      ],
+    },
+    {
+      company: t("companies.1.company"),
+      position: t("companies.1.position"),
+      period: t("companies.1.period"),
+      description: [
+        t("companies.1.description.0"),
+        t("companies.1.description.1"),
+        t("companies.1.description.2"),
+        t("companies.1.description.3"),
+      ],
+    },
+    {
+      company: t("companies.2.company"),
+      position: t("companies.2.position"),
+      period: t("companies.2.period"),
+      description: [
+        t("companies.2.description.0"),
+        t("companies.2.description.1"),
+      ],
+    },
+    {
+      company: t("companies.3.company"),
+      position: t("companies.3.position"),
+      period: t("companies.3.period"),
+      description: [
+        t("companies.3.description.0"),
+        t("companies.3.description.1"),
+      ],
+    },
+    {
+      company: t("companies.4.company"),
+      position: t("companies.4.position"),
+      period: t("companies.4.period"),
+      description: [t("companies.4.description.0")],
+    },
+  ];
 
   return (
     <div className='min-h-screen p-4 py-16 relative overflow-hidden'>
