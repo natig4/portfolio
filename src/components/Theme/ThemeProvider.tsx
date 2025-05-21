@@ -6,6 +6,7 @@ import React, {
   useEffect,
   useState,
   useMemo,
+  useRef,
 } from "react";
 
 type Theme = "light" | "dark";
@@ -20,52 +21,55 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
   const [isInitialized, setIsInitialized] = useState(false);
+  const isMounted = useRef(true);
 
-  // Initialize theme only once on mount
   useEffect(() => {
-    // Get theme synchronously to avoid flash
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
+
+  useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as Theme | null;
     const systemPrefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
 
-    // Determine initial theme
     const initialTheme: Theme =
       savedTheme || (systemPrefersDark ? "dark" : "light");
 
-    // Apply theme to document
     const html = document.documentElement;
 
-    // Disable transitions temporarily
     html.style.setProperty("--theme-transition", "none");
 
-    // Set theme class
     if (initialTheme === "dark") {
       html.classList.add("dark");
     } else {
       html.classList.remove("dark");
     }
 
-    // Update state
-    setTheme(initialTheme);
-    setIsInitialized(true);
+    if (isMounted.current) {
+      setTheme(initialTheme);
+      setIsInitialized(true);
+    }
 
-    // Re-enable transitions after a short delay
     setTimeout(() => {
-      html.style.removeProperty("--theme-transition");
+      if (document.documentElement) {
+        document.documentElement.style.removeProperty("--theme-transition");
+      }
     }, 0);
   }, []);
 
-  // Memoize the toggle function to prevent unnecessary rerenders
   const toggleTheme = useMemo(() => {
     return () => {
+      if (!isMounted.current) return;
+
       setTheme((prevTheme) => {
         const newTheme = prevTheme === "light" ? "dark" : "light";
 
-        // Update localStorage
         localStorage.setItem("theme", newTheme);
 
-        // Update DOM - do this synchronously
         const html = document.documentElement;
         if (newTheme === "dark") {
           html.classList.add("dark");
@@ -78,7 +82,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  // Don't render children until theme is initialized
   if (!isInitialized) {
     return (
       <div className='fixed inset-0 bg-white dark:bg-slate-900 flex items-center justify-center'>

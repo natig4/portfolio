@@ -1,3 +1,4 @@
+// src/components/ErrorBoundary/ErrorBoundary.tsx
 "use client";
 
 import React, { ReactNode, ErrorInfo } from "react";
@@ -38,13 +39,19 @@ class ErrorBoundary extends React.Component<
     }
   }
 
+  componentDidUpdate(prevProps: ErrorBoundaryProps) {
+    if (this.state.hasError && prevProps.children !== this.props.children) {
+      this.setState({ hasError: false, error: null });
+    }
+  }
+
   render(): ReactNode {
     if (this.state.hasError) {
       if (this.props.fallback) {
         return this.props.fallback;
       }
 
-      return <Error />;
+      return <Error errorMessage={this.state.error?.message} />;
     }
 
     return this.props.children;

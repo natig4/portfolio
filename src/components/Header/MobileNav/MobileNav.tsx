@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import ThemeToggle from "../../Theme/ThemeToggle";
 import LocaleSwitcher from "../../LocaleSwitcher/LocaleSwitcher";
 import { useDirection } from "@/hooks/useDirection";
+import { useRef, useEffect } from "react";
 
 interface MobileNavProps {
   links: React.JSX.Element[];
@@ -17,6 +18,15 @@ export default function MobileNav({
   handleToggleMenu,
 }: MobileNavProps) {
   const { isRTL, direction } = useDirection();
+  const isMounted = useRef(true);
+
+  // Track mounting state
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   return (
     <nav className='z-40 flex flex-col items-start'>
@@ -24,7 +34,9 @@ export default function MobileNav({
         className='relative z-50 flex flex-col justify-center items-center w-10 h-10 bg-transparent border-0 cursor-pointer p-0'
         onClick={(e) => {
           e.stopPropagation();
-          handleToggleMenu();
+          if (isMounted.current) {
+            handleToggleMenu();
+          }
         }}
         aria-label='Toggle menu'
         aria-expanded={menuOpen}
@@ -62,7 +74,12 @@ export default function MobileNav({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className='fixed top-0 left-0 w-full h-screen bg-black/50 backdrop-blur-sm z-40'
-            onClick={handleToggleMenu}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (isMounted.current) {
+                handleToggleMenu();
+              }
+            }}
           >
             <motion.div
               initial={{ x: isRTL ? "100%" : "-100%" }}

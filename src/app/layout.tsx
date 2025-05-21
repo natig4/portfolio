@@ -1,10 +1,14 @@
 import { ReactNode } from "react";
 import "./globals.css";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { THEME_COLOR } from "@/lib/model/common";
 
 type Props = {
   children: ReactNode;
+};
+
+export const viewport: Viewport = {
+  themeColor: THEME_COLOR,
 };
 
 export const metadata: Metadata = {
@@ -25,7 +29,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  themeColor: THEME_COLOR,
   manifest: "/site.webmanifest",
 };
 

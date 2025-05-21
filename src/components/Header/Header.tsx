@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { usePathname } from "@/i18n/routing";
 import NavLink from "../NavLink/NavLink";
 import MobileNav from "./MobileNav/MobileNav";
@@ -31,6 +31,20 @@ export default function Header({
   const [menuOpen, setMenuOpen] = useState(false);
   const path = usePathname();
   const { isRTL, direction } = useDirection();
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
+
+  const safeSetMenuOpen = useCallback((value: boolean) => {
+    if (isMounted.current) {
+      setMenuOpen(value);
+    }
+  }, []);
 
   useEffect(() => {
     if (menuOpen) {
@@ -45,8 +59,10 @@ export default function Header({
   }, [menuOpen]);
 
   useEffect(() => {
-    setMenuOpen(false);
-  }, [path]);
+    if (isMounted.current) {
+      safeSetMenuOpen(false);
+    }
+  }, [path, safeSetMenuOpen]);
 
   const navLinks = [
     getRoute({ pathname: "/" }, home),
@@ -62,7 +78,7 @@ export default function Header({
       onClick={(ev) => {
         if (isMobile) {
           ev.stopPropagation();
-          setMenuOpen(false);
+          safeSetMenuOpen(false);
         }
       }}
     >
@@ -77,6 +93,12 @@ export default function Header({
   ));
 
   const opacity = useTransform(scrollY, [0, 60], [0.95, 0.8]);
+
+  const handleToggleMenu = useCallback(() => {
+    if (isMounted.current) {
+      safeSetMenuOpen(!menuOpen);
+    }
+  }, [safeSetMenuOpen, menuOpen]);
 
   return (
     <motion.header
@@ -95,7 +117,7 @@ export default function Header({
           <div className={`flex items-center ${isRTL ? "order-2" : "order-1"}`}>
             <MobileNav
               menuOpen={menuOpen}
-              handleToggleMenu={() => setMenuOpen(!menuOpen)}
+              handleToggleMenu={handleToggleMenu}
               links={navLinks}
             />
           </div>
