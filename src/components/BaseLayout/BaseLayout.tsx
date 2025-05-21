@@ -7,6 +7,8 @@ import Widgets from "@/components/Widgets/Widgets";
 import { Language } from "@/lib/model/language";
 import { ThemeProvider } from "@/components/Theme/ThemeProvider";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
+import Head from "next/head";
+import { THEME_COLOR } from "@/lib/model/common";
 
 type IProps = {
   children: ReactNode;
@@ -20,7 +22,6 @@ export default async function BaseLayout({
   isMobile,
 }: IProps) {
   const messages = await getMessages();
-
   const t = await getTranslations("links");
 
   return (
@@ -29,6 +30,30 @@ export default async function BaseLayout({
       dir={locale === Language.en ? "ltr" : "rtl"}
       className='h-full'
     >
+      <Head>
+        <link rel='icon' href='/NgLogo.ico' sizes='any' />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
+          href='/icons/NgLogo.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='16x16'
+          href='/icons/NgLogo.png'
+        />
+
+        <link rel='apple-touch-icon' sizes='180x180' href='/icons/NgLogo.png' />
+
+        <link rel='manifest' href='/site.webmanifest' />
+
+        <meta name='msapplication-TileColor' content={THEME_COLOR} />
+        <meta name='msapplication-TileImage' content='/icons/NgLogo.png' />
+        <link rel='mask-icon' href='/icons/NgLogo.svg' color={THEME_COLOR} />
+        <meta name='theme-color' content={THEME_COLOR} />
+      </Head>
       <body className='flex flex-col min-h-screen h-screen overflow-x-hidden max-w-[100vw] bg-background text-text transition-colors duration-300'>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ErrorBoundary>
