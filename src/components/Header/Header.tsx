@@ -9,6 +9,7 @@ import DesktopNav from "./DesktopNav/DesktopNav";
 import LocaleSwitcher from "../LocaleSwitcher/LocaleSwitcher";
 import ThemeToggle from "../Theme/ThemeToggle";
 import { getRoute } from "@/lib/utils/utils";
+import { useDirection } from "@/hooks/useDirection";
 
 interface HeaderProps {
   links: {
@@ -29,6 +30,7 @@ export default function Header({
   const { scrollY } = useScroll();
   const [menuOpen, setMenuOpen] = useState(false);
   const path = usePathname();
+  const { isRTL, direction } = useDirection();
 
   useEffect(() => {
     if (menuOpen) {
@@ -82,6 +84,7 @@ export default function Header({
       className={`fixed top-0 left-0 right-0 flex flex-row justify-between items-center z-30 text-text px-4 md:px-6 w-full max-w-[100vw] border-b border-border/10 ${
         isMobile ? "h-16" : "h-16"
       }`}
+      dir={direction}
     >
       <div className='absolute inset-0 bg-surface/80 dark:bg-surface/60 backdrop-blur-[8px] transition-[backdrop-filter] duration-300' />
 
@@ -89,22 +92,20 @@ export default function Header({
 
       {isMobile ? (
         <div className='w-full flex justify-between items-center relative z-10'>
-          <MobileNav
-            menuOpen={menuOpen}
-            handleToggleMenu={() => setMenuOpen(!menuOpen)}
-            links={navLinks}
-          />
-
-          <div className='flex items-center'>
-            <LocaleSwitcher />
+          <div className={`flex items-center ${isRTL ? "order-2" : "order-1"}`}>
+            <MobileNav
+              menuOpen={menuOpen}
+              handleToggleMenu={() => setMenuOpen(!menuOpen)}
+              links={navLinks}
+            />
           </div>
         </div>
       ) : (
         <div className='relative z-10 flex justify-between items-center w-full'>
           <DesktopNav links={navLinks} />
-          <div className='flex items-center space-x-6'>
+          <div className='flex items-center space-x-6 rtl:space-x-reverse'>
             <ThemeToggle />
-            <LocaleSwitcher />
+            <LocaleSwitcher isMobileView />
           </div>
         </div>
       )}

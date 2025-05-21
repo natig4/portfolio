@@ -108,7 +108,7 @@ export default async function ProjectsPage() {
   const translatedLiveDemoLabel = t("liveDemo");
 
   return (
-    <div className='min-h-screen p-4 py-16 relative overflow-hidden'>
+    <div className='min-h-screen p-4 pt-0 relative overflow-hidden'>
       <BackgroundEffects />
       <ProjectsSection
         title={translatedTitle}

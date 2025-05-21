@@ -34,7 +34,7 @@ export default async function ArticlesPage() {
   ];
 
   return (
-    <div className='min-h-screen p-4 py-16 relative overflow-hidden'>
+    <div className='min-h-screen p-4 pt-0 relative overflow-hidden'>
       <BackgroundEffects />
       <ArticlesSection
         title={title}

@@ -38,7 +38,7 @@ export default async function ContactPage() {
   };
 
   return (
-    <div className='min-h-screen p-4 py-16 relative overflow-hidden'>
+    <div className='min-h-screen p-4 pt-0 relative overflow-hidden'>
       <BackgroundEffects />
       <ContactSection contactInfo={contactInfo} />
     </div>

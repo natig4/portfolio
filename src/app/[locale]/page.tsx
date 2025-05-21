@@ -37,7 +37,7 @@ export default async function Home() {
   ];
 
   return (
-    <div className='home-container w-full flex flex-col items-center px-4 py-16 relative overflow-hidden'>
+    <div className='home-container w-full flex flex-col items-center px-4 pt-0 relative overflow-hidden'>
       <BackgroundEffects />
 
       <HeaderSection
