@@ -90,8 +90,8 @@
           "tech6": "Sass",
           "tech7": "Express",
           "tech8": "Oauth2",
-          "tech9": "passport",
-          "tech10": "helmet",
+          "tech9": "Passport",
+          "tech10": "Helmet",
           "tech11": "Web crawling"
         },
         "liveDemo": "https://jamoveo-8qpb.onrender.com",

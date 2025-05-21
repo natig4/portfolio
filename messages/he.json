@@ -82,8 +82,8 @@
           "tech6": "סאס",
           "tech7": "אקספרס",
           "tech8": "Oauth2",
-          "tech9": "passport",
-          "tech10": "helmet",
+          "tech9": "Passport",
+          "tech10": "Helmet",
           "tech11": "Web crawling"
         },
         "liveDemo": "https://jamoveo-8qpb.onrender.com",
@@ -92,7 +92,7 @@
       },
       "reportsManager": {
         "title": "מנהל דוחות",
-        "description": "מערכת לעדכון, בקרה וניתוח דוחות חודשיים לחברות ביטוח",
+        "description": "מערכת לעדכון, בקרה וניתוח דוחות חודשיים לחברות ביטוח.",
         "technologies": {
           "tech1": "C#",
           "tech2": ".NET Core",
@@ -232,7 +232,7 @@
       "experience": "המסע המקצועי שלי בתחום הפיתוח ובקרת האיכות",
       "articles": "מחשבות, תובנות והדרכות מהניסיון שלי בתעשיית הטכנולוגיה",
       "contact": "בואו נתחבר ונדון בפרויקט או בהזדמנות הבאה שלכם",
-      "moreProjects": "פרוייקטים נוספים בדרך, עקבו אחרי המסע שלי"
+      "moreProjects": "פרוייקטים נוספים בדרך, מוזמנים לעקוב אחריי"
     },
     "cta": {
       "defaultTitle": "רוצה ללמוד עוד על הרקע המקצועי שלי?",

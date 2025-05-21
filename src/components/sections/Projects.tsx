@@ -2,9 +2,88 @@
 
 import { memo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt, FaLock } from "react-icons/fa";
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaLock,
+  FaSpider,
+  FaWindows,
+  FaFileExcel,
+} from "react-icons/fa";
 import { JSX } from "react";
 import { useTranslations } from "next-intl";
+import {
+  SiAngular,
+  SiCloudinary,
+  SiDotnet,
+  SiExpress,
+  SiFirebase,
+  SiJsonwebtokens,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPassport,
+  SiPostgresql,
+  SiReact,
+  SiRedux,
+  SiSass,
+  SiSharp,
+  SiSocketdotio,
+  SiTypescript,
+  SiAuth0,
+  SiHelm,
+} from "react-icons/si";
+
+const techIconMap: { [key: string]: JSX.Element } = {
+  React: <SiReact className='text-blue-400' />,
+  "Node.js": <SiNodedotjs className='text-green-400' />,
+  MongoDB: <SiMongodb className='text-green-600' />,
+  Angular: <SiAngular className='text-red-500' />,
+  TypeScript: <SiTypescript className='text-blue-600' />,
+  PostgreSQL: <SiPostgresql className='text-blue-700' />,
+  ".NET Core": <SiDotnet className='text-purple-500' />,
+  "C#": <SiSharp className='text-purple-600' />,
+  Firebase: <SiFirebase className='text-yellow-500' />,
+  "Next.js": <SiNextdotjs className='text-black' />,
+  Cloudinary: <SiCloudinary className='text-blue-400' />,
+  Redux: <SiRedux className='text-purple-500' />,
+  "Socket.io": <SiSocketdotio className='text-black' />,
+  Sass: <SiSass className='text-pink-400' />,
+  Express: <SiExpress className='text-gray-700' />,
+  Oauth2: <SiAuth0 className='text-green-500' />,
+  passport: <SiPassport className='text-blue-700' />,
+  helmet: <SiHelm className='text-green-700' />,
+  "Web crawling": <FaSpider className='text-black' />,
+  JWT: <SiJsonwebtokens className='text-yellow-400' />,
+  WPF: <FaWindows className='text-blue-700' />,
+  EPPlus: <FaFileExcel className='text-green-600' />,
+};
+
+const hebrewToEnglishTechMap: { [key: string]: string } = {
+  נקסט: "Next.js",
+  קלאודינרי: "Cloudinary",
+  טייפסקריפט: "TypeScript",
+  ריאקט: "React",
+  "Node.js": "Node.js",
+  רידאקס: "Redux",
+  סוקטים: "Socket.io",
+  סאס: "Sass",
+  אקספרס: "Express",
+  Oauth2: "Oauth2",
+  Passport: "passport",
+  Helmet: "helmet",
+  "Web crawling": "Web crawling",
+  "C#": "C#",
+  ".NET Core": ".NET Core",
+  JWT: "JWT",
+  WPF: "WPF",
+  EPPlus: "EPPlus",
+};
+
+export function getTechIcon(tech: string) {
+  const englishTech = hebrewToEnglishTechMap[tech] || tech;
+  return techIconMap[englishTech] || null;
+}
 
 interface Project {
   title: string;
@@ -19,7 +98,6 @@ interface Project {
 interface ProjectsSectionProps {
   title: string;
   projects: Project[];
-  techIcons: { [key: string]: JSX.Element };
   labels: {
     code: string;
     private: string;
@@ -52,12 +130,12 @@ const itemVariants = {
 
 const ProjectCard = memo(function ProjectCard({
   project,
-  techIcons,
+
   labels,
   prefersReducedMotion,
 }: {
   project: Project;
-  techIcons: { [key: string]: JSX.Element };
+
   labels: { code: string; private: string; liveDemo: string };
   prefersReducedMotion: boolean;
 }) {
@@ -100,7 +178,7 @@ const ProjectCard = memo(function ProjectCard({
                   key={techIndex}
                   className='inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 text-primary rounded-lg text-xs font-medium border border-primary/20 hover:bg-primary/20 transition-colors duration-200'
                 >
-                  {techIcons[tech] || (
+                  {getTechIcon(tech) || (
                     <span className='w-4 h-4 bg-primary rounded-full' />
                   )}
                   {tech}
@@ -153,7 +231,6 @@ const ProjectCard = memo(function ProjectCard({
 const ProjectsSection = memo(function ProjectsSection({
   title,
   projects,
-  techIcons,
   labels,
 }: ProjectsSectionProps) {
   const prefersReducedMotion = useReducedMotion();
@@ -184,13 +261,12 @@ const ProjectsSection = memo(function ProjectsSection({
         variants={containerVariants}
         initial='hidden'
         animate='visible'
-        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start'
       >
         {projects.map((project) => (
           <ProjectCard
             key={project.title}
             project={project}
-            techIcons={techIcons}
             labels={labels}
             prefersReducedMotion={!!prefersReducedMotion}
           />

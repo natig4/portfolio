@@ -1,16 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import {
-  SiReact,
-  SiNodedotjs,
-  SiMongodb,
-  SiAngular,
-  SiTypescript,
-  SiPostgresql,
-  SiDotnet,
-  SiSharp,
-  SiFirebase,
-} from "react-icons/si";
-import { JSX } from "react";
+
 import ProjectsSection from "@/components/sections/Projects";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import { cookies } from "next/headers";
@@ -34,18 +23,6 @@ const gradients = [
   "from-cyan-500 to-blue-600",
   "from-yellow-500 to-red-600",
 ];
-
-const techIconMap: { [key: string]: JSX.Element } = {
-  React: <SiReact className='text-blue-400' />,
-  "Node.js": <SiNodedotjs className='text-green-400' />,
-  MongoDB: <SiMongodb className='text-green-600' />,
-  Angular: <SiAngular className='text-red-500' />,
-  TypeScript: <SiTypescript className='text-blue-600' />,
-  PostgreSQL: <SiPostgresql className='text-blue-700' />,
-  ".NET Core": <SiDotnet className='text-purple-500' />,
-  "C#": <SiSharp className='text-purple-600' />,
-  Firebase: <SiFirebase className='text-yellow-500' />,
-};
 
 async function getProjects(): Promise<Project[]> {
   const t = await getTranslations("projects");
@@ -100,7 +77,6 @@ export default async function ProjectsPage() {
       <ProjectsSection
         title={translatedTitle}
         projects={projects}
-        techIcons={techIconMap}
         labels={{
           code: translatedCodeLabel,
           private: translatedPrivateLabel,
