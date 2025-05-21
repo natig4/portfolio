@@ -110,6 +110,7 @@ export default async function ProjectsPage() {
   return (
     <div className='min-h-screen p-4 pt-0 relative overflow-hidden'>
       <BackgroundEffects />
+
       <ProjectsSection
         title={translatedTitle}
         projects={projects}

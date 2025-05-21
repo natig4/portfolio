@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 import { JSX } from "react";
 import SkillCard from "@/components/SkillCard/SkillCard";
 import { useDirection } from "@/hooks/useDirection";
-import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { memo } from "react";
 
 interface SkillCategory {
   icon: JSX.Element;
@@ -37,7 +36,7 @@ interface AboutSectionProps {
   stats: Stats;
 }
 
-export default function AboutSection({
+const AboutSection = memo(function AboutSection({
   title,
   description,
   skillsTitle,
@@ -45,7 +44,6 @@ export default function AboutSection({
   stats,
 }: AboutSectionProps) {
   const { direction } = useDirection();
-  const t = useTranslations("contact");
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -158,32 +156,8 @@ export default function AboutSection({
           ))}
         </div>
       </motion.div>
-
-      {/* Call to Action */}
-      <motion.div
-        variants={itemVariants}
-        className='text-center mt-20 p-10 bg-surface/30 backdrop-blur-sm rounded-2xl border border-border/20'
-      >
-        <h3 className='text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent'>
-          Let&rsquo;s Work Together
-        </h3>
-        <p className='text-text-secondary text-lg mb-8 max-w-3xl mx-auto'>
-          Looking for a developer with a quality-first approach? Let&rsquo;s
-          discuss how I can help bring your project to life with clean,
-          maintainable code and exceptional user experiences.
-        </p>
-        <motion.div
-          whileHover={{ scale: 1.05, y: -3 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <Link
-            href={{ pathname: "/contact" }}
-            className='px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold inline-block hover:shadow-lg transition-all duration-200'
-          >
-            {t("title")}
-          </Link>
-        </motion.div>
-      </motion.div>
     </motion.div>
   );
-}
+});
+
+export default AboutSection;

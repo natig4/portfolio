@@ -56,10 +56,12 @@ export default async function Home() {
 
       <CTASection
         title='Looking for a quality-focused developer for your next project?'
-        linkedInLabel='Check My LinkedIn'
-        contactLabel='Start a Conversation'
+        linkedInLabel={t("viewProjects")}
+        contactLabel={t("contactMe")}
+        primaryLink='/projects'
         secondaryLink='/contact'
-        useLinkedIn={true}
+        useLinkedIn={false}
+        showBackground
       />
 
       <div className='absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50' />

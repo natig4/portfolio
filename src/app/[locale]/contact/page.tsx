@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import ContactSection from "@/components/sections/Contact";
 import { EMAIL } from "@/lib/model/common";
+import CTASection from "@/components/CTASection/CTASection";
 
 export default async function ContactPage() {
   const t = await getTranslations("contact");
@@ -41,6 +42,18 @@ export default async function ContactPage() {
     <div className='min-h-screen p-4 pt-0 relative overflow-hidden'>
       <BackgroundEffects />
       <ContactSection contactInfo={contactInfo} />
+
+      <div className='mt-16'>
+        <CTASection
+          title='Interested in seeing my work?'
+          linkedInLabel='View Projects'
+          contactLabel='View Experience'
+          primaryLink='/projects'
+          secondaryLink='/experience'
+          showBackground={false}
+          useLinkedIn={false}
+        />
+      </div>
     </div>
   );
 }

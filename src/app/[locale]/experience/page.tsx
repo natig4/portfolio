@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import ExperienceSection from "@/components/sections/Experience";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
+import CTASection from "@/components/CTASection/CTASection";
 
 interface CompanyData {
   company: string;
@@ -67,6 +68,17 @@ export default async function ExperiencePage() {
     <div className='min-h-screen p-4 pt-0 relative overflow-hidden'>
       <BackgroundEffects />
       <ExperienceSection title={title} companies={companies} />
+
+      <div className='mt-16'>
+        <CTASection
+          title='Want to see my technical skills in action?'
+          linkedInLabel='View My Projects'
+          contactLabel='Contact Me'
+          primaryLink='/projects'
+          secondaryLink='/contact'
+          showBackground={false}
+        />
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useDirection } from "@/hooks/useDirection";
-import CTASection from "../CTASection/CTASection";
+import { memo } from "react";
 
 interface Company {
   company: string;
@@ -16,7 +16,7 @@ interface ExperienceSectionProps {
   companies: Company[];
 }
 
-export default function ExperienceSection({
+const ExperienceSection = memo(function ExperienceSection({
   title,
   companies,
 }: ExperienceSectionProps) {
@@ -124,15 +124,8 @@ export default function ExperienceSection({
           </motion.div>
         ))}
       </div>
-
-      {/* Call to Action */}
-      <CTASection
-        title='?Want to learn more about my professional background'
-        linkedInLabel='View LinkedIn Profile'
-        contactLabel='Contact Me'
-        primaryLink='/projects'
-        secondaryLink='/contact'
-      />
     </motion.div>
   );
-}
+});
+
+export default ExperienceSection;

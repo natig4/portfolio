@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { FaLaptopCode, FaServer, FaDatabase, FaDocker } from "react-icons/fa";
 import AboutSection from "@/components/sections/About";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
+import CTASection from "@/components/CTASection/CTASection";
 
 export default async function AboutPage() {
   const t = await getTranslations("about");
@@ -69,6 +70,17 @@ export default async function AboutPage() {
         skillCategories={skillCategories}
         stats={aboutData.stats}
       />
+
+      <div className='mt-16'>
+        <CTASection
+          title='Want to see my professional journey?'
+          linkedInLabel='View Experience'
+          contactLabel='Get In Touch'
+          primaryLink='/experience'
+          secondaryLink='/contact'
+          showBackground={false}
+        />
+      </div>
     </div>
   );
 }

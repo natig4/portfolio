@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import ArticlesSection from "@/components/sections/Articles";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
+import CTASection from "@/components/CTASection/CTASection";
 
 interface ArticleData {
   title: string;
@@ -42,6 +43,17 @@ export default async function ArticlesPage() {
         followMe={followMe}
         forMore={forMore}
       />
+
+      <div className='mt-16'>
+        <CTASection
+          title='Interested in my background and technical skills?'
+          linkedInLabel='Learn About Me'
+          contactLabel='Get In Touch'
+          primaryLink='/about'
+          secondaryLink='/contact'
+          showBackground={false}
+        />
+      </div>
     </div>
   );
 }
