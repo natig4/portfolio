@@ -6,6 +6,7 @@ import Footer from "@/components/Footer/Footer";
 import Widgets from "@/components/Widgets/Widgets";
 import { Language } from "@/lib/model/language";
 import { ThemeProvider } from "@/components/Theme/ThemeProvider";
+import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 
 type IProps = {
   children: ReactNode;
@@ -30,24 +31,26 @@ export default async function BaseLayout({
     >
       <body className='flex flex-col min-h-screen h-screen overflow-x-hidden max-w-[100vw] bg-background text-text transition-colors duration-300'>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider>
-            <Header
-              isMobile={isMobile}
-              links={{
-                home: t("home"),
-                about: t("about"),
-                projects: t("projects"),
-                experience: t("experience"),
-                articles: t("articles"),
-                contact: t("contact"),
-              }}
-            />
-            <main className='flex-grow pt-[var(--header-height)] w-full flex flex-col'>
-              {children}
-            </main>
-            <Footer isMobile={isMobile} />
-            <Widgets lang={locale} />
-          </ThemeProvider>
+          <ErrorBoundary>
+            <ThemeProvider>
+              <Header
+                isMobile={isMobile}
+                links={{
+                  home: t("home"),
+                  about: t("about"),
+                  projects: t("projects"),
+                  experience: t("experience"),
+                  articles: t("articles"),
+                  contact: t("contact"),
+                }}
+              />
+              <main className='flex-grow pt-[var(--header-height)] w-full flex flex-col'>
+                {children}
+              </main>
+              <Footer isMobile={isMobile} />
+              <Widgets lang={locale} />
+            </ThemeProvider>
+          </ErrorBoundary>
         </NextIntlClientProvider>
       </body>
     </html>
