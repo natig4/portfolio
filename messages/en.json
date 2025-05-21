@@ -66,29 +66,28 @@
     "liveDemo": "Live Demo",
     "technologies": "Technologies",
     "projects": {
-      "ecommercePlatform": {
-        "title": "E-Commerce Platform",
-        "description": "A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment processing.",
+      "lookIntoThierEyes": {
+        "title": "Look Into Their Eyes",
+        "description": "Is a bilingual (Hebrew/English) web exhibition showcasing the work of Israeli graffiti artist Benzi Brofman, with a focus on paintings created after the October 7th tragedy. The site serves as a memorial platform to raise awareness for the hostages taken during this event.",
+        "technologies": {
+          "tech1": "Next.js",
+          "tech2": "Cloudinary",
+          "tech3": "TypeScript"
+        },
+        "liveDemo": "https://look-into-their-eyes.vercel.app/",
+        "github": "https://github.com/lookIntoTheirEyes/look-into-their-eyes",
+        "isPrivate": ""
+      },
+      "jaMoveo": {
+        "title": "JaMoveo",
+        "description": "Is a collaborative musical rehearsal application that enables musicians to practice together virtually. The application serves as a digital platform for musical groups where participants with different instruments can view the same songs simultaneously, with each user seeing customized content based on their instrument (vocalists see only lyrics, while instrumentalists see both chords and lyrics).",
         "technologies": {
           "tech1": "React",
-          "tech2": "Node.js",
-          "tech3": "MongoDB",
-          "tech4": "Stripe",
-          "tech5": "Redux"
-        },
-        "liveDemo": "",
-        "github": "",
-        "isPrivate": "true"
-      },
-      "taskManagementApp": {
-        "title": "Task Management App",
-        "description": "A drag-and-drop task management application with real-time updates using WebSockets. Users can create projects, assign tasks, and track progress.",
-        "technologies": {
-          "tech1": "Angular",
           "tech2": "TypeScript",
-          "tech3": "NestJS",
-          "tech4": "PostgreSQL",
-          "tech5": "Socket.io"
+          "tech3": "Node.js",
+          "tech4": "Redux",
+          "tech5": "Socket.io",
+          "tech6": "Sass"
         },
         "liveDemo": "",
         "github": "",
