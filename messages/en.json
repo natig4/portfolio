@@ -87,48 +87,26 @@
           "tech3": "Node.js",
           "tech4": "Redux",
           "tech5": "Socket.io",
-          "tech6": "Sass"
+          "tech6": "Sass",
+          "tech7": "Express",
+          "tech8": "Oauth2",
+          "tech9": "passport",
+          "tech10": "helmet",
+          "tech11": "Web crawling"
         },
-        "liveDemo": "",
-        "github": "",
-        "isPrivate": "true"
+        "liveDemo": "https://jamoveo-8qpb.onrender.com",
+        "github": "https://github.com/natig4/JaMoveo",
+        "isPrivate": ""
       },
-      "erpSystem": {
-        "title": "Enterprise Resource Planning System",
-        "description": "A comprehensive ERP system for small businesses with modules for inventory management, customer relationships, and financial reporting.",
+      "reportsManager": {
+        "title": "Reports Manager",
+        "description": "A comprehensive reporting system for small businesses with modules for customer relationships, and financial reporting.",
         "technologies": {
           "tech1": "C#",
           "tech2": ".NET Core",
-          "tech3": "SQL Server",
+          "tech3": "JWT",
           "tech4": "WPF",
-          "tech5": "Entity Framework"
-        },
-        "liveDemo": "",
-        "github": "",
-        "isPrivate": "true"
-      },
-      "analyticsDashboard": {
-        "title": "Analytics Dashboard",
-        "description": "Interactive analytics dashboard for marketing performance monitoring. Features real-time data visualization and customizable reports.",
-        "technologies": {
-          "tech1": "React",
-          "tech2": "D3.js",
-          "tech3": "Node.js",
-          "tech4": "GraphQL",
-          "tech5": "Firebase"
-        },
-        "liveDemo": "",
-        "github": "",
-        "isPrivate": "true"
-      },
-      "realEstateApp": {
-        "title": "Real Estate Mobile App",
-        "description": "Cross-platform mobile application for real estate listings with features like property search, virtual tours, and appointment scheduling.",
-        "technologies": {
-          "tech1": "React Native",
-          "tech2": "Firebase",
-          "tech3": "Google Maps API",
-          "tech4": "Redux"
+          "tech5": "EPPlus"
         },
         "liveDemo": "",
         "github": "",

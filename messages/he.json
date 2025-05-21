@@ -55,7 +55,7 @@
     "title": "הפרויקטים שלי",
     "code": "קוד",
     "private": "פרטי",
-    "liveDemo": "הדגמה חיה",
+    "liveDemo": "לאתר",
     "technologies": "טכנולוגיות",
     "projects": {
       "lookIntoTheirEyes": {
@@ -80,48 +80,25 @@
           "tech4": "רידאקס",
           "tech5": "סוקטים",
           "tech6": "סאס",
-          "tech7": "אקספרס"
+          "tech7": "אקספרס",
+          "tech8": "Oauth2",
+          "tech9": "passport",
+          "tech10": "helmet",
+          "tech11": "Web crawling"
         },
         "liveDemo": "https://jamoveo-8qpb.onrender.com",
         "github": "https://github.com/natig4/JaMoveo",
         "isPrivate": ""
       },
-      "erpSystem": {
-        "title": "מערכת תכנון משאבים ארגונית",
-        "description": "מערכת ERP מקיפה לעסקים קטנים עם מודולים לניהול מלאי, קשרי לקוחות ודיווח פיננסי.",
+      "reportsManager": {
+        "title": "מנהל דוחות",
+        "description": "מערכת לעדכון, בקרה וניתוח דוחות חודשיים לחברות ביטוח",
         "technologies": {
           "tech1": "C#",
           "tech2": ".NET Core",
-          "tech3": "SQL Server",
+          "tech3": "JWT",
           "tech4": "WPF",
-          "tech5": "Entity Framework"
-        },
-        "liveDemo": "",
-        "github": "",
-        "isPrivate": "true"
-      },
-      "analyticsDashboard": {
-        "title": "לוח מחוונים אנליטי",
-        "description": "לוח מחוונים אנליטי אינטראקטיבי לניטור ביצועי שיווק. כולל חזותיות נתונים בזמן אמת ודוחות ניתנים להתאמה אישית.",
-        "technologies": {
-          "tech1": "ריאקט",
-          "tech2": "D3.js",
-          "tech3": "Node.js",
-          "tech4": "GraphQL",
-          "tech5": "Firebase"
-        },
-        "liveDemo": "",
-        "github": "",
-        "isPrivate": "true"
-      },
-      "realEstateApp": {
-        "title": "אפליקציית נדל\"ן לנייד",
-        "description": "אפליקציה חוצת-פלטפורמות לנייד עבור רישומי נדל\"ן עם תכונות כמו חיפוש נכסים, סיורים וירטואליים וקביעת פגישות.",
-        "technologies": {
-          "tech1": "ריאקט נייטיב",
-          "tech2": "פיירבייס",
-          "tech3": "גוגל מפות",
-          "tech4": "רידאקס"
+          "tech5": "EPPlus"
         },
         "liveDemo": "",
         "github": "",
