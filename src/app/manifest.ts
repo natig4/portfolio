@@ -18,7 +18,7 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
     display_override: ["window-controls-overlay", "standalone", "minimal-ui"],
     orientation: "portrait",
     background_color: "#1e293b",
-    theme_color: "#38bdf8",
+    theme_color: "#0ea5e9",
 
     lang: locale,
     dir: locale === "he" ? "rtl" : "ltr",
