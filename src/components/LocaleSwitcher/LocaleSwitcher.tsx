@@ -6,6 +6,7 @@ import { useState, useRef } from "react";
 import { useRouter, usePathname } from "@/i18n/routing";
 import { Locale } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDirection } from "@/hooks/useDirection";
 
 export default function LocaleSwitcher({
   isMobileView,
@@ -15,6 +16,7 @@ export default function LocaleSwitcher({
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const { isRTL } = useDirection();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -108,8 +110,8 @@ export default function LocaleSwitcher({
               transition={{ duration: 0.15 }}
               className={`absolute ${
                 isMobileView
-                  ? "top-auto bottom-12 right-0"
-                  : "top-full right-0 mt-2"
+                  ? `top-auto bottom-12 ${isRTL ? "left" : "right"}-0`
+                  : `top-full ${isRTL ? "left" : "right"}-0 mt-2`
               } w-full bg-surface/95 dark:bg-surface/90 backdrop-blur-lg border border-border/40 rounded-lg shadow-lg overflow-hidden min-w-[160px]`}
               style={{
                 maxHeight: "200px",

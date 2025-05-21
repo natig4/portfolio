@@ -1,4 +1,4 @@
-import { getTranslations, getMessages } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import {
   SiReact,
   SiNodedotjs,
@@ -14,6 +14,7 @@ import { JSX } from "react";
 import ProjectsSection from "@/components/sections/Projects";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import { cookies } from "next/headers";
+import { getTranslatedObject } from "@/lib/utils/translation-helpers";
 
 interface Project {
   title: string;
@@ -21,25 +22,8 @@ interface Project {
   technologies: string[];
   liveDemo?: string;
   github?: string;
-  isPrivate?: boolean;
+  isPrivate?: string;
   gradient: string;
-}
-
-interface TranslatedProjectEntry {
-  title: string;
-  description: string;
-  technologies: Record<string, string>;
-  liveDemo?: string;
-  github?: string;
-  isPrivate?: boolean;
-}
-
-interface TranslatedProjects {
-  title: string;
-  code: string;
-  private: string;
-  liveDemo: string;
-  projects: Record<string, TranslatedProjectEntry>;
 }
 
 const gradients = [
@@ -63,24 +47,42 @@ const techIconMap: { [key: string]: JSX.Element } = {
   Firebase: <SiFirebase className='text-yellow-500' />,
 };
 
+async function getProjects(): Promise<Project[]> {
+  const t = await getTranslations("projects");
+  const raw = await t.raw("projects");
+  const keys = Object.keys(raw);
+  const basePath = "projects";
+
+  const projects: Project[] = await Promise.all(
+    keys.map(async (key, index) => {
+      const project = await getTranslatedObject<
+        Omit<Project, "technologies" | "gradient">
+      >("projects", `${basePath}.${key}`, [
+        "title",
+        "description",
+        "liveDemo",
+        "github",
+        "isPrivate",
+      ]);
+
+      return {
+        ...project,
+        technologies: Object.values(raw[key]?.technologies),
+        isPrivate: project.isPrivate,
+        gradient: gradients[index % gradients.length],
+      };
+    })
+  );
+
+  return projects;
+}
+
 export default async function ProjectsPage() {
   const t = await getTranslations("projects");
-  const messages = await getMessages();
-  const translatedProjects: TranslatedProjects["projects"] =
-    messages.projects.projects;
+
   const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
-  const projectEntries = Object.values(translatedProjects);
-
-  const projects: Project[] = projectEntries.map((projectData, index) => ({
-    title: projectData.title,
-    description: projectData.description,
-    technologies: Object.values(projectData.technologies),
-    liveDemo: projectData.liveDemo,
-    github: projectData.github,
-    isPrivate: projectData.isPrivate ?? false,
-    gradient: gradients[index % gradients.length],
-  }));
+  const projects = await getProjects();
 
   const translatedTitle = t("title");
   const translatedCodeLabel = t("code");

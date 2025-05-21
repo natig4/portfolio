@@ -75,7 +75,10 @@
           "tech3": "MongoDB",
           "tech4": "Stripe",
           "tech5": "Redux"
-        }
+        },
+        "liveDemo": "",
+        "github": "",
+        "isPrivate": "true"
       },
       "taskManagementApp": {
         "title": "Task Management App",
@@ -86,7 +89,10 @@
           "tech3": "NestJS",
           "tech4": "PostgreSQL",
           "tech5": "Socket.io"
-        }
+        },
+        "liveDemo": "",
+        "github": "",
+        "isPrivate": "true"
       },
       "erpSystem": {
         "title": "Enterprise Resource Planning System",
@@ -97,7 +103,10 @@
           "tech3": "SQL Server",
           "tech4": "WPF",
           "tech5": "Entity Framework"
-        }
+        },
+        "liveDemo": "",
+        "github": "",
+        "isPrivate": "true"
       },
       "analyticsDashboard": {
         "title": "Analytics Dashboard",
@@ -108,7 +117,10 @@
           "tech3": "Node.js",
           "tech4": "GraphQL",
           "tech5": "Firebase"
-        }
+        },
+        "liveDemo": "",
+        "github": "",
+        "isPrivate": "true"
       },
       "realEstateApp": {
         "title": "Real Estate Mobile App",
@@ -118,7 +130,10 @@
           "tech2": "Firebase",
           "tech3": "Google Maps API",
           "tech4": "Redux"
-        }
+        },
+        "liveDemo": "",
+        "github": "",
+        "isPrivate": "true"
       }
     }
   },
@@ -247,7 +262,8 @@
       "projects": "Showcasing innovative solutions built with modern technologies",
       "experience": "My professional journey across development and quality assurance",
       "articles": "Thoughts, insights, and tutorials from my experiences in the tech industry",
-      "contact": "Let's connect and discuss your next project or opportunity"
+      "contact": "Let's connect and discuss your next project or opportunity",
+      "moreProjects": "More projects coming soon! Follow my journey on"
     },
     "cta": {
       "defaultTitle": "Want to learn more about my professional background?",
@@ -263,9 +279,11 @@
     "buttons": {
       "viewProjects": "View Projects",
       "viewExperience": "View Experience",
-      "contactMe": "Contact Me",
+      "contactMe": "Contact",
       "getInTouch": "Get In Touch",
-      "learnAboutMe": "Learn About Me"
+      "learnAboutMe": "About Me",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
     },
     "readMore": "Read Full Article"
   }

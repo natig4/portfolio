@@ -80,6 +80,31 @@ export async function getTranslatedObjectArray<T>(
 }
 
 /**
+ * Helper to get nested translated arrays when parent keys are strings, not indices.
+ *
+ * @param namespace The translation namespace
+ * @param basePath Base path for the parent object
+ * @param parentKey String key in the parent object
+ * @param childPath Path to the child array
+ * @param childIndices Array of indices to access in child array
+ * @returns Array of values
+ */
+export async function getNestedTranslatedArrayByKey<T>(
+  namespace: string,
+  basePath: string,
+  parentKey: string,
+  childPath: string,
+  childIndices: number[]
+): Promise<T[]> {
+  const t = await getTranslations(namespace);
+
+  return childIndices.map((childIndex) => {
+    const fullPath = `${basePath}.${parentKey}.${childPath}.${childIndex}`;
+    return t(fullPath) as unknown as T;
+  });
+}
+
+/**
  * Helper to get a complete object from translations
  *
  * @param namespace The translation namespace

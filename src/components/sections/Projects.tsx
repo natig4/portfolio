@@ -12,7 +12,7 @@ interface Project {
   technologies: string[];
   liveDemo?: string;
   github?: string;
-  isPrivate?: boolean;
+  isPrivate?: string;
   gradient: string;
 }
 
@@ -122,7 +122,7 @@ const ProjectCard = memo(function ProjectCard({
               </a>
             )}
 
-            {project.github && !project.isPrivate && (
+            {project.github && !(project.isPrivate === "true") && (
               <a
                 href={project.github}
                 target='_blank'
@@ -134,7 +134,7 @@ const ProjectCard = memo(function ProjectCard({
               </a>
             )}
 
-            {project.isPrivate && (
+            {project.isPrivate === "true" && (
               <div className='flex-1 px-4 py-2.5 bg-muted/50 text-text-secondary rounded-lg font-medium text-sm flex items-center justify-center gap-2 cursor-not-allowed'>
                 <FaLock size={14} />
                 {labels.private}
@@ -199,7 +199,7 @@ const ProjectsSection = memo(function ProjectsSection({
 
       <div className='text-center mt-16 p-8 bg-surface/30 backdrop-blur-sm rounded-2xl border border-border/20'>
         <p className='text-text-secondary text-lg mb-4'>
-          More projects coming soon! Follow my journey on
+          {t("subtitles.moreProjects")}
         </p>
         <div className='flex justify-center gap-4'>
           <a
@@ -209,7 +209,7 @@ const ProjectsSection = memo(function ProjectsSection({
             className='will-change-transform px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold flex items-center gap-2 hover:shadow-lg hover:scale-[1.05] hover:-translate-y-1 transition-all duration-200'
           >
             <FaGithub size={20} />
-            GitHub
+            {t("buttons.github")}
           </a>
           <a
             href='https://www.linkedin.com/in/nati-gurevich-36868711b'
@@ -217,7 +217,7 @@ const ProjectsSection = memo(function ProjectsSection({
             rel='noopener noreferrer'
             className='will-change-transform px-6 py-3 bg-surface border border-border/50 text-text rounded-lg font-semibold hover:bg-primary/10 hover:border-primary/30 hover:scale-[1.05] hover:-translate-y-1 transition-all duration-200'
           >
-            LinkedIn
+            {t("buttons.linkedin")}
           </a>
         </div>
       </div>

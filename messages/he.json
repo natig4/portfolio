@@ -67,7 +67,10 @@
           "tech3": "MongoDB",
           "tech4": "Stripe",
           "tech5": "Redux"
-        }
+        },
+        "liveDemo": "",
+        "github": "",
+        "isPrivate": "true"
       },
       "taskManagementApp": {
         "title": "אפליקציית ניהול משימות",
@@ -78,7 +81,10 @@
           "tech3": "NestJS",
           "tech4": "PostgreSQL",
           "tech5": "Socket.io"
-        }
+        },
+        "liveDemo": "",
+        "github": "",
+        "isPrivate": "true"
       },
       "erpSystem": {
         "title": "מערכת תכנון משאבים ארגונית",
@@ -89,7 +95,10 @@
           "tech3": "SQL Server",
           "tech4": "WPF",
           "tech5": "Entity Framework"
-        }
+        },
+        "liveDemo": "",
+        "github": "",
+        "isPrivate": "true"
       },
       "analyticsDashboard": {
         "title": "לוח מחוונים אנליטי",
@@ -100,7 +109,10 @@
           "tech3": "Node.js",
           "tech4": "GraphQL",
           "tech5": "Firebase"
-        }
+        },
+        "liveDemo": "",
+        "github": "",
+        "isPrivate": "true"
       },
       "realEstateApp": {
         "title": "אפליקציית נדל\"ן לנייד",
@@ -110,7 +122,10 @@
           "tech2": "פיירבייס",
           "tech3": "גוגל מפות",
           "tech4": "רידאקס"
-        }
+        },
+        "liveDemo": "",
+        "github": "",
+        "isPrivate": "true"
       }
     }
   },
@@ -239,7 +254,8 @@
       "projects": "הצגת פתרונות חדשניים שנבנו באמצעות טכנולוגיות מודרניות",
       "experience": "המסע המקצועי שלי בתחום הפיתוח ובקרת האיכות",
       "articles": "מחשבות, תובנות והדרכות מהניסיון שלי בתעשיית הטכנולוגיה",
-      "contact": "בואו נתחבר ונדון בפרויקט או בהזדמנות הבאה שלכם"
+      "contact": "בואו נתחבר ונדון בפרויקט או בהזדמנות הבאה שלכם",
+      "moreProjects": "פרוייקטים נוספים בדרך, עקבו אחרי המסע שלי"
     },
     "cta": {
       "defaultTitle": "רוצה ללמוד עוד על הרקע המקצועי שלי?",
@@ -255,7 +271,9 @@
       "viewExperience": "ניסיון",
       "contactMe": "צור קשר",
       "getInTouch": "צור קשר",
-      "learnAboutMe": "אודות"
+      "learnAboutMe": "אודות",
+      "github": "גיטהאב",
+      "linkedin": "לינקדין"
     },
     "readMore": "קרא את המאמר המלא"
   }
