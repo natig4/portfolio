@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const MarketingSection = memo(function MarketingSection() {
   const t = useTranslations("marketing");
-  const { direction } = useDirection();
+  const { direction, isRTL } = useDirection();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -38,7 +38,7 @@ const MarketingSection = memo(function MarketingSection() {
       variants={containerVariants}
       initial='hidden'
       animate='visible'
-      className='max-w-6xl mx-auto relative z-10'
+      className='max-w-7xl mx-auto relative z-10 px-4 md:px-6'
     >
       <motion.div variants={itemVariants} className='text-center mb-16'>
         <h1 className='text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent'>
@@ -49,10 +49,10 @@ const MarketingSection = memo(function MarketingSection() {
         </p>
       </motion.div>
 
-      <div className='grid grid-cols-1 lg:grid-cols-2 gap-16'>
+      <div className='flex flex-col lg:flex-row gap-8 lg:gap-16'>
         <motion.div
           variants={itemVariants}
-          className='bg-surface/80 backdrop-blur-sm rounded-2xl p-8 border border-border/30 relative overflow-hidden'
+          className='bg-surface/80 backdrop-blur-sm rounded-2xl p-8 border border-border/30 relative overflow-hidden lg:w-2/5'
           dir={direction}
         >
           <div className='absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 pointer-events-none' />
@@ -108,19 +108,19 @@ const MarketingSection = memo(function MarketingSection() {
 
         <motion.div
           variants={itemVariants}
-          className='bg-surface/80 backdrop-blur-sm rounded-2xl border border-border/30 overflow-hidden flex flex-col'
+          className='bg-surface/80 backdrop-blur-sm rounded-2xl border border-border/30 overflow-hidden lg:w-3/5 p-4'
         >
-          <div className='relative z-10 h-full'>
+          <div className='relative aspect-[16/10] w-full'>
             <Image
               priority
               fill
-              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-              src='/images/performance-heb.png'
+              src={`/images/performance-${isRTL ? "heb" : "en"}.png`}
               alt='Marketing Performance Chart'
-              className='max-w-full h-auto rounded-lg border border-border/30 shadow-lg'
+              className='object-contain rounded-lg'
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 800px'
             />
           </div>
-          <p className='text-center text-sm text-text-secondary mt-4'>
+          <p className='text-center text-sm text-text-secondary mt-4 px-4'>
             {t("chartCaption")}
           </p>
         </motion.div>
