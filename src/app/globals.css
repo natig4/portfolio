@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @config "../../tailwind.config";
 
+html[dir="rtl"] {
+  body {
+    --_access-icon-left: 1rem;
+    --_access-icon-right: auto;
+  }
+}
+
 @layer base {
   :root {
     --header-height: 5.5rem;
