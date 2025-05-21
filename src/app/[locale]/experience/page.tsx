@@ -11,6 +11,32 @@ interface CompanyData {
   description: string[];
 }
 
+async function getCompanies(): Promise<CompanyData[]> {
+  const t = await getTranslations("experience");
+  const raw = await t.raw("companies");
+  const keys = Object.keys(raw);
+
+  const companies: CompanyData[] = keys.map((key) => {
+    const companyData = raw[key];
+
+    const description =
+      typeof companyData.description === "object"
+        ? Array.isArray(companyData.description)
+          ? companyData.description
+          : Object.values(companyData.description)
+        : [];
+
+    return {
+      company: companyData.company,
+      position: companyData.position,
+      period: companyData.period,
+      description,
+    };
+  });
+
+  return companies;
+}
+
 export default async function ExperiencePage() {
   const t = await getTranslations("experience");
   const commonT = await getTranslations("common");
@@ -18,54 +44,7 @@ export default async function ExperiencePage() {
 
   const title = t("title");
 
-  const companies: CompanyData[] = [
-    {
-      company: t("companies.0.company"),
-      position: t("companies.0.position"),
-      period: t("companies.0.period"),
-      description: [
-        t("companies.0.description.0"),
-        t("companies.0.description.1"),
-        t("companies.0.description.2"),
-        t("companies.0.description.3"),
-      ],
-    },
-    {
-      company: t("companies.1.company"),
-      position: t("companies.1.position"),
-      period: t("companies.1.period"),
-      description: [
-        t("companies.1.description.0"),
-        t("companies.1.description.1"),
-        t("companies.1.description.2"),
-        t("companies.1.description.3"),
-      ],
-    },
-    {
-      company: t("companies.2.company"),
-      position: t("companies.2.position"),
-      period: t("companies.2.period"),
-      description: [
-        t("companies.2.description.0"),
-        t("companies.2.description.1"),
-      ],
-    },
-    {
-      company: t("companies.3.company"),
-      position: t("companies.3.position"),
-      period: t("companies.3.period"),
-      description: [
-        t("companies.3.description.0"),
-        t("companies.3.description.1"),
-      ],
-    },
-    {
-      company: t("companies.4.company"),
-      position: t("companies.4.position"),
-      period: t("companies.4.period"),
-      description: [t("companies.4.description.0")],
-    },
-  ];
+  const companies: CompanyData[] = await getCompanies();
 
   return (
     <div

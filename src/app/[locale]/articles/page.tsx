@@ -3,12 +3,33 @@ import ArticlesSection from "@/components/sections/Articles";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import CTASection from "@/components/CTASection/CTASection";
 import { cookies } from "next/headers";
-import { getTranslatedObjectArray } from "@/lib/utils/translation-helpers";
+import { getTranslatedObject } from "@/lib/utils/translation-helpers";
 
 interface ArticleData {
   title: string;
   date: string;
   excerpt: string;
+}
+
+async function getArticles(): Promise<ArticleData[]> {
+  const t = await getTranslations("articles");
+  const raw = await t.raw("articles");
+  const keys = Object.keys(raw);
+  const basePath = "articles";
+
+  const articles: ArticleData[] = await Promise.all(
+    keys.map(async (key) => {
+      const article = await getTranslatedObject<ArticleData>(
+        "articles",
+        `${basePath}.${key}`,
+        ["title", "date", "excerpt"]
+      );
+
+      return article;
+    })
+  );
+
+  return articles;
 }
 
 export default async function ArticlesPage() {
@@ -20,13 +41,7 @@ export default async function ArticlesPage() {
   const followMe = t("followMe");
   const forMore = t("forMore");
 
-  // Get articles data from translations
-  const articles: ArticleData[] = await getTranslatedObjectArray<ArticleData>(
-    "articles",
-    "articles",
-    3, // Assuming you have 3 articles
-    ["title", "date", "excerpt"]
-  );
+  const articles: ArticleData[] = await getArticles();
 
   return (
     <div

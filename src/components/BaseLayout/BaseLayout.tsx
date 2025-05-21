@@ -67,6 +67,7 @@ export default async function BaseLayout({
                   experience: t("experience"),
                   articles: t("articles"),
                   contact: t("contact"),
+                  marketing: t("marketing"),
                 }}
               />
               <main className='flex-grow pt-[var(--header-height)] w-full flex flex-col'>

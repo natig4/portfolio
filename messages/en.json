@@ -17,6 +17,7 @@
     "articles": "Articles",
     "contact": "Contact",
     "about": "About",
+    "marketing": "Marketing",
     "accessibility": "Accessibility",
     "terms": "Terms of use",
     "privacy": "Privacy policy",
@@ -116,76 +117,77 @@
   },
   "experience": {
     "title": "Professional Experience",
-    "companies": [
-      {
+    "companies": {
+      "freelance": {
         "company": "Freelance",
         "position": "Software Engineer",
         "period": "2024 - Present",
-        "description": [
-          "Designed and developed full-stack web applications using Next.js and modern React patterns.",
-          "Built and maintained enterprise desktop applications using WPF and .NET framework.",
-          "Implemented automated deployment workflows using GitHub Actions CI/CD pipelines.",
-          "Drove project success through effective client communication and timely delivery."
-        ]
+        "description": {
+          "desc1": "Designed and developed full-stack web applications using Next.js and modern React patterns.",
+          "desc2": "Built and maintained enterprise desktop applications using WPF and .NET framework.",
+          "desc3": "Implemented automated deployment workflows using GitHub Actions CI/CD pipelines.",
+          "desc4": "Drove project success through effective client communication and timely delivery."
+        }
       },
-      {
+      "outbrain": {
         "company": "Outbrain",
         "position": "Software Engineer",
         "period": "2022 - 2024",
-        "description": [
-          "Developed and maintained high-traffic web applications using Angular and React.",
-          "Led technical training sessions for 50+ developers on RxJS.",
-          "Created complex components used by 10+ teams, reducing development time.",
-          "Built scalable microservices using Node.js, NestJS, and Scala."
-        ]
+        "description": {
+          "desc1": "Developed and maintained high-traffic web applications using Angular and React.",
+          "desc2": "Led technical training sessions for 50+ developers on RxJS.",
+          "desc3": "Created complex components used by 10+ teams, reducing development time.",
+          "desc4": "Built scalable microservices using Node.js, NestJS, and Scala."
+        }
       },
-      {
+      "nova": {
         "company": "Nova",
         "position": "QA Manual Test Engineer",
         "period": "2018 - 2021",
-        "description": [
-          "Built regression testing framework for embedded real-time systems.",
-          "Led QA for 3+ major platform projects with zero critical production bugs."
-        ]
+        "description": {
+          "desc1": "Built regression testing framework for embedded real-time systems.",
+          "desc2": "Led QA for 3+ major platform projects with zero critical production bugs."
+        }
       },
-      {
+      "myThings": {
         "company": "myThings",
         "position": "QA & PM Team Leader",
         "period": "2016 - 2018",
-        "description": [
-          "Managed 5-person team delivering 50+ projects annually.",
-          "Established and maintained company-wide QA standards and processes."
-        ]
+        "description": {
+          "desc1": "Managed 5-person team delivering 50+ projects annually.",
+          "desc2": "Established and maintained company-wide QA standards and processes."
+        }
       },
-      {
+      "bezeq": {
         "company": "Bezeq",
         "position": "Senior Technical Service Representative",
         "period": "2010 - 2015",
-        "description": [
-          "Acted as a consultant for complex technical challenges, enhancing team problem-solving capabilities."
-        ]
+        "description": {
+          "desc1": "Acted as a consultant for complex technical challenges, enhancing team problem-solving capabilities."
+        }
       }
-    ]
+    }
   },
   "articles": {
     "title": "Recent Articles",
     "followMe": "Follow me on Medium",
     "forMore": "For more articles on software development and quality engineering",
-    "articles": [
-      {
+    "articles": {
+      "angularCache": {
         "title": "Building an Efficient Event Buffer Service in Angular with RxJS",
         "date": "May 13, 2025",
         "excerpt": "How to reduce network overhead and improve performance by batching high-frequency events?"
       }
-    ]
+    }
   },
   "marketing": {
     "title": "Marketing Performance",
     "subtitle": "Campaign Performance Highlights",
     "description": "Showcasing the growth metrics of a recent marketing campaign I managed, resulting in significant improvements across key performance indicators.",
+    "prevQuarter": "vs. prev. quarter",
     "metrics": {
-      "registrations": "User Registrations",
-      "homepage": "Homepage Users",
+      "purchases": "Purchases",
+      "firstPurchase": "New purchases",
       "activity": "Site Activity",
       "users": "Active Users"
     },
@@ -234,6 +236,7 @@
     },
     "cta": {
       "defaultTitle": "Want to learn more about my professional background?",
+      "marketingTitle": "Looking for upscaling you businesses as well?",
       "projectsTitle": "Looking for a quality-focused developer for your next project?",
       "experienceTitle": "Want to see my technical skills in action?",
       "contactTitle": "Interested in seeing my work?",

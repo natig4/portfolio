@@ -12,6 +12,7 @@ const pathnames = {
   "/experience": "/experience",
   "/articles": "/articles",
   "/contact": "/contact",
+  "/marketing": "/marketing",
   "/accessibility": "/accessibility",
   "/privacy": "/privacy",
   "/terms": "/terms",

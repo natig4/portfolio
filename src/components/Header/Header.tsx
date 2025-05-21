@@ -19,12 +19,13 @@ interface HeaderProps {
     experience: string;
     articles: string;
     contact: string;
+    marketing: string;
   };
   isMobile: boolean;
 }
 
 export default function Header({
-  links: { home, about, projects, experience, articles, contact },
+  links: { home, about, projects, experience, articles, contact, marketing }, // Added marketing
   isMobile,
 }: HeaderProps) {
   const { scrollY } = useScroll();
@@ -69,6 +70,7 @@ export default function Header({
     getRoute({ pathname: "/projects" }, projects),
     getRoute({ pathname: "/experience" }, experience),
     getRoute({ pathname: "/articles" }, articles),
+    getRoute({ pathname: "/marketing" }, marketing), // Added marketing link
     getRoute({ pathname: "/about" }, about),
     getRoute({ pathname: "/contact" }, contact),
   ].map(({ href, name }, index, array) => (
