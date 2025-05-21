@@ -7,6 +7,7 @@ import { cookies } from "next/headers";
 
 export default async function AboutPage() {
   const t = await getTranslations("about");
+  const commonT = await getTranslations("common");
   const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const aboutData = {
@@ -79,12 +80,12 @@ export default async function AboutPage() {
 
       <div className='mt-16'>
         <CTASection
-          title='Want to see my professional journey?'
-          linkedInLabel='View Experience'
-          contactLabel='Get In Touch'
+          linkedInLabel={commonT("buttons.viewExperience")}
+          contactLabel={commonT("buttons.getInTouch")}
           primaryLink='/experience'
           secondaryLink='/contact'
           showBackground={false}
+          titleKey='aboutTitle'
         />
       </div>
     </div>

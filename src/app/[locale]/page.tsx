@@ -9,6 +9,7 @@ import { cookies } from "next/headers";
 
 export default async function Home() {
   const t = await getTranslations("home");
+  const commonT = await getTranslations("common");
   const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const skillCategories = [
@@ -61,13 +62,13 @@ export default async function Home() {
       <LocationSection />
 
       <CTASection
-        title='Looking for a quality-focused developer for your next project?'
-        linkedInLabel={t("viewProjects")}
-        contactLabel={t("contactMe")}
+        linkedInLabel={commonT("buttons.viewProjects")}
+        contactLabel={commonT("buttons.contactMe")}
         primaryLink='/projects'
         secondaryLink='/contact'
         useLinkedIn={false}
         showBackground
+        titleKey='projectsTitle'
       />
 
       <div className='absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50' />

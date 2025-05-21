@@ -3,6 +3,7 @@ import ArticlesSection from "@/components/sections/Articles";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import CTASection from "@/components/CTASection/CTASection";
 import { cookies } from "next/headers";
+import { getTranslatedObjectArray } from "@/lib/utils/translation-helpers";
 
 interface ArticleData {
   title: string;
@@ -12,29 +13,20 @@ interface ArticleData {
 
 export default async function ArticlesPage() {
   const t = await getTranslations("articles");
+  const commonT = await getTranslations("common");
   const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const title = t("title");
   const followMe = t("followMe");
   const forMore = t("forMore");
 
-  const articles: ArticleData[] = [
-    {
-      title: t("articles.0.title"),
-      date: t("articles.0.date"),
-      excerpt: t("articles.0.excerpt"),
-    },
-    {
-      title: t("articles.1.title"),
-      date: t("articles.1.date"),
-      excerpt: t("articles.1.excerpt"),
-    },
-    {
-      title: t("articles.2.title"),
-      date: t("articles.2.date"),
-      excerpt: t("articles.2.excerpt"),
-    },
-  ];
+  // Get articles data from translations
+  const articles: ArticleData[] = await getTranslatedObjectArray<ArticleData>(
+    "articles",
+    "articles",
+    3, // Assuming you have 3 articles
+    ["title", "date", "excerpt"]
+  );
 
   return (
     <div
@@ -52,12 +44,12 @@ export default async function ArticlesPage() {
 
       <div className='mt-16'>
         <CTASection
-          title='Interested in my background and technical skills?'
-          linkedInLabel='Learn About Me'
-          contactLabel='Get In Touch'
+          linkedInLabel={commonT("buttons.learnAboutMe")}
+          contactLabel={commonT("buttons.getInTouch")}
           primaryLink='/about'
           secondaryLink='/contact'
           showBackground={false}
+          titleKey='articlesTitle'
         />
       </div>
     </div>

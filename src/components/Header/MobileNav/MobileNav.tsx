@@ -96,13 +96,12 @@ export default function MobileNav({
 
               <div className='px-4 py-3 border-t border-border/30 mt-auto'>
                 <div className='flex flex-col space-y-6 mb-4'>
-                  {/* Language Switcher */}
                   <div className='flex items-center justify-between'>
                     <span className='text-text-secondary font-medium'>
                       {isRTL ? "שפה" : "Language"}
                     </span>
                     <div className='h-12 flex items-center'>
-                      <LocaleSwitcher isMobileView={false} />
+                      <LocaleSwitcher isMobileView />
                     </div>
                   </div>
 

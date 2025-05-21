@@ -4,6 +4,7 @@ import { memo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaLock } from "react-icons/fa";
 import { JSX } from "react";
+import { useTranslations } from "next-intl";
 
 interface Project {
   title: string;
@@ -60,6 +61,7 @@ const ProjectCard = memo(function ProjectCard({
   labels: { code: string; private: string; liveDemo: string };
   prefersReducedMotion: boolean;
 }) {
+  const t = useTranslations("projects");
   const hoverProps = prefersReducedMotion
     ? {}
     : {
@@ -90,7 +92,7 @@ const ProjectCard = memo(function ProjectCard({
 
           <div className='mb-6'>
             <h4 className='text-sm font-semibold text-text mb-3'>
-              Technologies
+              {t("technologies")}
             </h4>
             <div className='flex flex-wrap gap-2'>
               {project.technologies.map((tech, techIndex) => (
@@ -155,6 +157,7 @@ const ProjectsSection = memo(function ProjectsSection({
   labels,
 }: ProjectsSectionProps) {
   const prefersReducedMotion = useReducedMotion();
+  const t = useTranslations("common");
 
   return (
     <div className='max-w-7xl mx-auto relative z-10'>
@@ -173,7 +176,7 @@ const ProjectsSection = memo(function ProjectsSection({
           {title}
         </h1>
         <p className='text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto'>
-          Showcasing innovative solutions built with modern technologies
+          {t("subtitles.projects")}
         </p>
       </div>
 

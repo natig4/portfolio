@@ -105,7 +105,7 @@ export default function Header({
           <DesktopNav links={navLinks} />
           <div className='flex items-center space-x-6 rtl:space-x-reverse'>
             <ThemeToggle />
-            <LocaleSwitcher isMobileView />
+            <LocaleSwitcher isMobileView={false} />
           </div>
         </div>
       )}

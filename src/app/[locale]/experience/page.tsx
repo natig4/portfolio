@@ -13,6 +13,7 @@ interface CompanyData {
 
 export default async function ExperiencePage() {
   const t = await getTranslations("experience");
+  const commonT = await getTranslations("common");
   const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const title = t("title");
@@ -77,12 +78,12 @@ export default async function ExperiencePage() {
 
       <div className='mt-16'>
         <CTASection
-          title='Want to see my technical skills in action?'
-          linkedInLabel='View My Projects'
-          contactLabel='Contact Me'
+          linkedInLabel={commonT("buttons.viewProjects")}
+          contactLabel={commonT("buttons.contactMe")}
           primaryLink='/projects'
           secondaryLink='/contact'
           showBackground={false}
+          titleKey='experienceTitle'
         />
       </div>
     </div>

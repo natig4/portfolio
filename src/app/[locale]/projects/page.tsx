@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getMessages } from "next-intl/server";
 import {
   SiReact,
   SiNodedotjs,
@@ -25,6 +25,32 @@ interface Project {
   gradient: string;
 }
 
+interface TranslatedProjectEntry {
+  title: string;
+  description: string;
+  technologies: Record<string, string>;
+  liveDemo?: string;
+  github?: string;
+  isPrivate?: boolean;
+}
+
+interface TranslatedProjects {
+  title: string;
+  code: string;
+  private: string;
+  liveDemo: string;
+  projects: Record<string, TranslatedProjectEntry>;
+}
+
+const gradients = [
+  "from-blue-500 to-purple-600",
+  "from-green-500 to-blue-600",
+  "from-purple-500 to-pink-600",
+  "from-red-500 to-orange-600",
+  "from-cyan-500 to-blue-600",
+  "from-yellow-500 to-red-600",
+];
+
 const techIconMap: { [key: string]: JSX.Element } = {
   React: <SiReact className='text-blue-400' />,
   "Node.js": <SiNodedotjs className='text-green-400' />,
@@ -39,70 +65,22 @@ const techIconMap: { [key: string]: JSX.Element } = {
 
 export default async function ProjectsPage() {
   const t = await getTranslations("projects");
+  const messages = await getMessages();
+  const translatedProjects: TranslatedProjects["projects"] =
+    messages.projects.projects;
   const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
-  const projects: Project[] = [
-    {
-      title: "Portfolio Website",
-      description:
-        "A modern, responsive portfolio website built with Next.js, featuring dark/light themes, internationalization (Hebrew/English), and futuristic UI design with animations.",
-      technologies: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Framer Motion",
-      ],
-      liveDemo: "https://nati-gurevich.vercel.app",
-      github: "https://github.com/natig4/portfolio",
-      gradient: "from-blue-500 to-purple-600",
-    },
-    {
-      title: "Enterprise Resource Planning System",
-      description:
-        "A comprehensive ERP system for small businesses with modules for inventory management, customer relationships, and financial reporting. Built with .NET for maximum performance.",
-      technologies: [
-        "C#",
-        ".NET Core",
-        "SQL Server",
-        "WPF",
-        "Entity Framework",
-      ],
-      isPrivate: true,
-      gradient: "from-purple-500 to-pink-600",
-    },
-    {
-      title: "E-Commerce Platform",
-      description:
-        "A full-stack e-commerce platform with user authentication, product catalog, shopping cart, and payment processing. Handles high traffic with optimized performance.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
-      isPrivate: true,
-      gradient: "from-green-500 to-blue-600",
-    },
-    {
-      title: "Task Management Dashboard",
-      description:
-        "A drag-and-drop task management application with real-time updates using WebSockets. Features project creation, task assignment, and progress tracking.",
-      technologies: [
-        "Angular",
-        "TypeScript",
-        "NestJS",
-        "PostgreSQL",
-        "Socket.io",
-      ],
-      isPrivate: true,
-      gradient: "from-red-500 to-orange-600",
-    },
-    {
-      title: "Real-time Analytics Dashboard",
-      description:
-        "Interactive analytics dashboard for marketing performance monitoring. Features real-time data visualization, customizable reports, and advanced filtering.",
-      technologies: ["React", "D3.js", "Node.js", "GraphQL", "Firebase"],
-      liveDemo: "#",
-      github: "#",
-      gradient: "from-cyan-500 to-blue-600",
-    },
-  ];
+  const projectEntries = Object.values(translatedProjects);
+
+  const projects: Project[] = projectEntries.map((projectData, index) => ({
+    title: projectData.title,
+    description: projectData.description,
+    technologies: Object.values(projectData.technologies),
+    liveDemo: projectData.liveDemo,
+    github: projectData.github,
+    isPrivate: projectData.isPrivate ?? false,
+    gradient: gradients[index % gradients.length],
+  }));
 
   const translatedTitle = t("title");
   const translatedCodeLabel = t("code");

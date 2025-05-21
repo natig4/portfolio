@@ -5,11 +5,44 @@ import { EMAIL } from "@/lib/model/common";
 import CTASection from "@/components/CTASection/CTASection";
 import { cookies } from "next/headers";
 
+interface ContactInfoData {
+  title: string;
+  info: string;
+  email: {
+    label: string;
+    value: string;
+  };
+  phone: {
+    label: string;
+    value: string;
+  };
+  location: {
+    label: string;
+    value: string;
+  };
+  linkedin: {
+    label: string;
+    value: string;
+  };
+  sendMessage: string;
+  form: {
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    message: string;
+    messagePlaceholder: string;
+    send: string;
+  };
+}
+
 export default async function ContactPage() {
   const t = await getTranslations("contact");
+  const commonT = await getTranslations("common");
   const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
-  const contactInfo = {
+  // Get contact info from translations
+  const contactInfo: ContactInfoData = {
     title: t("title"),
     info: t("info"),
     email: {
@@ -51,13 +84,13 @@ export default async function ContactPage() {
 
       <div className='mt-16'>
         <CTASection
-          title='Interested in seeing my work?'
-          linkedInLabel='View Projects'
-          contactLabel='View Experience'
+          linkedInLabel={commonT("buttons.viewProjects")}
+          contactLabel={commonT("buttons.viewExperience")}
           primaryLink='/projects'
           secondaryLink='/experience'
           showBackground={false}
           useLinkedIn={false}
+          titleKey='contactTitle'
         />
       </div>
     </div>

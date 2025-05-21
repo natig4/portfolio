@@ -64,45 +64,63 @@
     "code": "Code",
     "private": "Private",
     "liveDemo": "Live Demo",
-    "projects": [
-      {
+    "technologies": "Technologies",
+    "projects": {
+      "ecommercePlatform": {
         "title": "E-Commerce Platform",
         "description": "A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment processing.",
-        "technologies": ["React", "Node.js", "MongoDB", "Stripe", "Redux"]
+        "technologies": {
+          "tech1": "React",
+          "tech2": "Node.js",
+          "tech3": "MongoDB",
+          "tech4": "Stripe",
+          "tech5": "Redux"
+        }
       },
-      {
+      "taskManagementApp": {
         "title": "Task Management App",
         "description": "A drag-and-drop task management application with real-time updates using WebSockets. Users can create projects, assign tasks, and track progress.",
-        "technologies": [
-          "Angular",
-          "TypeScript",
-          "NestJS",
-          "PostgreSQL",
-          "Socket.io"
-        ]
+        "technologies": {
+          "tech1": "Angular",
+          "tech2": "TypeScript",
+          "tech3": "NestJS",
+          "tech4": "PostgreSQL",
+          "tech5": "Socket.io"
+        }
       },
-      {
+      "erpSystem": {
         "title": "Enterprise Resource Planning System",
         "description": "A comprehensive ERP system for small businesses with modules for inventory management, customer relationships, and financial reporting.",
-        "technologies": [
-          "C#",
-          ".NET Core",
-          "SQL Server",
-          "WPF",
-          "Entity Framework"
-        ]
+        "technologies": {
+          "tech1": "C#",
+          "tech2": ".NET Core",
+          "tech3": "SQL Server",
+          "tech4": "WPF",
+          "tech5": "Entity Framework"
+        }
       },
-      {
+      "analyticsDashboard": {
         "title": "Analytics Dashboard",
         "description": "Interactive analytics dashboard for marketing performance monitoring. Features real-time data visualization and customizable reports.",
-        "technologies": ["React", "D3.js", "Node.js", "GraphQL", "Firebase"]
+        "technologies": {
+          "tech1": "React",
+          "tech2": "D3.js",
+          "tech3": "Node.js",
+          "tech4": "GraphQL",
+          "tech5": "Firebase"
+        }
       },
-      {
+      "realEstateApp": {
         "title": "Real Estate Mobile App",
         "description": "Cross-platform mobile application for real estate listings with features like property search, virtual tours, and appointment scheduling.",
-        "technologies": ["React Native", "Firebase", "Google Maps API", "Redux"]
+        "technologies": {
+          "tech1": "React Native",
+          "tech2": "Firebase",
+          "tech3": "Google Maps API",
+          "tech4": "Redux"
+        }
       }
-    ]
+    }
   },
   "experience": {
     "title": "Professional Experience",
@@ -209,7 +227,6 @@
       "send": "Send Message"
     }
   },
-
   "404": {
     "header": "Hostages are still missing",
     "secondary-header": "Also it seems like you got to an unknown page",
@@ -223,5 +240,33 @@
     "link1": "Click ",
     "cta": "here",
     "link2": "to go back home"
+  },
+  "common": {
+    "subtitles": {
+      "skills": "Showcasing modern technologies and development expertise",
+      "projects": "Showcasing innovative solutions built with modern technologies",
+      "experience": "My professional journey across development and quality assurance",
+      "articles": "Thoughts, insights, and tutorials from my experiences in the tech industry",
+      "contact": "Let's connect and discuss your next project or opportunity"
+    },
+    "cta": {
+      "defaultTitle": "Want to learn more about my professional background?",
+      "projectsTitle": "Looking for a quality-focused developer for your next project?",
+      "experienceTitle": "Want to see my technical skills in action?",
+      "contactTitle": "Interested in seeing my work?",
+      "articlesTitle": "Interested in my background and technical skills?",
+      "aboutTitle": "Want to see my professional journey?"
+    },
+    "medium": {
+      "follow": "Follow on Medium"
+    },
+    "buttons": {
+      "viewProjects": "View Projects",
+      "viewExperience": "View Experience",
+      "contactMe": "Contact Me",
+      "getInTouch": "Get In Touch",
+      "learnAboutMe": "Learn About Me"
+    },
+    "readMore": "Read Full Article"
   }
 }

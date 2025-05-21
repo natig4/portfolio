@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SkillCard from "@/components/SkillCard/SkillCard";
 import { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 
 interface SkillCategory {
   icon: ReactNode;
@@ -20,6 +21,8 @@ export default function SkillsSection({
   title,
   skillCategories,
 }: SkillsSectionProps) {
+  const t = useTranslations("common");
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -56,6 +59,13 @@ export default function SkillsSection({
       >
         {title}
       </motion.h2>
+
+      <motion.p
+        variants={itemVariants}
+        className='text-xl text-text-secondary max-w-3xl mx-auto text-center mb-12'
+      >
+        {t("subtitles.skills")}
+      </motion.p>
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
         {skillCategories.map((category, index) => (

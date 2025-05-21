@@ -4,6 +4,7 @@ import { memo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useDirection } from "@/hooks/useDirection";
 import { FaMedium } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 interface Article {
   title: string;
@@ -50,6 +51,7 @@ const ArticleCard = memo(function ArticleCard({
   direction: string;
   prefersReducedMotion: boolean;
 }) {
+  const t = useTranslations("common");
   const hoverProps = prefersReducedMotion
     ? {}
     : {
@@ -83,7 +85,7 @@ const ArticleCard = memo(function ArticleCard({
           href='#'
           className='text-primary font-medium inline-flex items-center gap-2 mt-auto hover:translate-x-1 transition-transform duration-200'
         >
-          Read Full Article
+          {t("readMore")}
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='16'
@@ -113,6 +115,7 @@ const ArticlesSection = memo(function ArticlesSection({
 }: ArticlesSectionProps) {
   const { direction } = useDirection();
   const prefersReducedMotion = useReducedMotion();
+  const t = useTranslations("common");
 
   return (
     <div className='max-w-6xl mx-auto relative z-10'>
@@ -121,8 +124,7 @@ const ArticlesSection = memo(function ArticlesSection({
           {title}
         </h1>
         <p className='text-xl text-text-secondary max-w-3xl mx-auto'>
-          Thoughts, insights, and tutorials from my experiences in the tech
-          industry
+          {t("subtitles.articles")}
         </p>
       </div>
 
@@ -144,9 +146,6 @@ const ArticlesSection = memo(function ArticlesSection({
 
       <div className='text-center p-10 bg-surface/30 backdrop-blur-sm rounded-2xl border border-border/20'>
         <FaMedium className='text-primary text-5xl mb-6 mx-auto' />
-        <h3 className='text-2xl md:text-3xl font-bold mb-4 text-text'>
-          {followMe}
-        </h3>
         <p className='text-text-secondary mb-8'>{forMore}</p>
         <a
           href='https://medium.com/@nati_g4'
@@ -155,7 +154,7 @@ const ArticlesSection = memo(function ArticlesSection({
           className='will-change-transform px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold inline-flex items-center gap-2 hover:shadow-lg hover:scale-[1.05] hover:-translate-y-1 transition-all duration-200'
         >
           <FaMedium />
-          Follow on Medium
+          {followMe}
         </a>
       </div>
     </div>

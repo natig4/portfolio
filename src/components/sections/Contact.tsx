@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import ContactInfo from "@/components/ContactInfo/ContactInfo";
 import { EMAIL } from "@/lib/model/common";
+import { useTranslations } from "next-intl";
 
 interface ContactInfoData {
   title: string;
@@ -167,6 +168,7 @@ const ContactSection = memo(function ContactSection({
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+  const t = useTranslations("common");
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -199,7 +201,7 @@ const ContactSection = memo(function ContactSection({
           {contactInfo.title}
         </h1>
         <p className='text-xl text-text-secondary max-w-2xl mx-auto'>
-          Let&rsquo;s connect and discuss your next project or opportunity
+          {t("subtitles.contact")}
         </p>
       </div>
 

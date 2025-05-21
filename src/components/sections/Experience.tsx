@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useDirection } from "@/hooks/useDirection";
 import { memo } from "react";
+import { useTranslations } from "next-intl";
 
 interface Company {
   company: string;
@@ -21,6 +22,7 @@ const ExperienceSection = memo(function ExperienceSection({
   companies,
 }: ExperienceSectionProps) {
   const { direction } = useDirection();
+  const t = useTranslations("common");
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -57,7 +59,7 @@ const ExperienceSection = memo(function ExperienceSection({
           {title}
         </h1>
         <p className='text-xl text-text-secondary max-w-3xl mx-auto'>
-          My professional journey across development and quality assurance
+          {t("subtitles.experience")}
         </p>
       </motion.div>
 

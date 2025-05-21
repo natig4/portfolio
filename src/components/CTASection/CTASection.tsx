@@ -1,5 +1,6 @@
 import { Link, Pathnames } from "@/i18n/routing";
 import { memo } from "react";
+import { useTranslations } from "next-intl";
 
 interface CTASectionProps {
   title?: string;
@@ -10,10 +11,11 @@ interface CTASectionProps {
   secondaryLink?: Pathnames;
   showBackground?: boolean;
   useLinkedIn?: boolean;
+  titleKey?: string;
 }
 
 const CTASection = memo(function CTASection({
-  title = "?Want to learn more about my professional background",
+  title,
   linkedInUrl = "https://www.linkedin.com/in/nati-gurevich-36868711b",
   linkedInLabel = "View LinkedIn Profile",
   contactLabel = "Contact Me",
@@ -21,17 +23,21 @@ const CTASection = memo(function CTASection({
   secondaryLink = "/contact",
   showBackground = true,
   useLinkedIn = false,
+  titleKey = "defaultTitle",
 }: CTASectionProps) {
+  const t = useTranslations("common");
   const containerClass = showBackground
     ? "w-full py-10 bg-blue-50/90 dark:bg-blue-950/10"
     : "w-full";
 
+  const displayTitle = title || t(`cta.${titleKey}`);
+
   return (
     <div className={containerClass}>
       <div className='container mx-auto px-4 text-center'>
-        {title && (
+        {displayTitle && (
           <p className='text-xl text-gray-700 dark:text-gray-300 mb-6 font-normal'>
-            {title}
+            {displayTitle}
           </p>
         )}
 
