@@ -35,10 +35,12 @@ const NavLink: React.FC<NavLinkProps> = ({
       {isActive && (
         <motion.div
           className='absolute bottom-[-4px] left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full'
-          layoutId='navbar-indicator'
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          transition={{
+            duration: 0.2,
+            ease: "easeOut",
+          }}
         />
       )}
 

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import SkillCard from "@/components/SkillCard/SkillCard";
 import { ReactNode } from "react";
 import { useTranslations } from "next-intl";
+import { FaLaptopCode, FaServer, FaDatabase, FaDocker } from "react-icons/fa";
 
 interface SkillCategory {
   icon: ReactNode;
@@ -12,15 +13,38 @@ interface SkillCategory {
   gradient: string;
 }
 
+const skillCategories: SkillCategory[] = [
+  {
+    icon: <FaLaptopCode size={28} className='text-primary' />,
+    label: "Frontend",
+    skills: ["React", "Next.js", "Angular", "TypeScript", "Tailwind CSS"],
+    gradient: "from-primary to-secondary",
+  },
+  {
+    icon: <FaServer size={28} className='text-secondary' />,
+    label: "Backend",
+    skills: ["Node.js", "NestJS", "Express", ".NET Core", "Scala"],
+    gradient: "from-secondary to-accent",
+  },
+  {
+    icon: <FaDatabase size={28} className='text-accent' />,
+    label: "Database",
+    skills: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "GraphQL"],
+    gradient: "from-accent to-accent-secondary",
+  },
+  {
+    icon: <FaDocker size={28} className='text-accent-secondary' />,
+    label: "DevOps",
+    skills: ["Docker", "Kubernetes", "CI/CD", "AWS", "Azure"],
+    gradient: "from-accent-secondary to-primary",
+  },
+];
+
 interface SkillsSectionProps {
   title: string;
-  skillCategories: SkillCategory[];
 }
 
-export default function SkillsSection({
-  title,
-  skillCategories,
-}: SkillsSectionProps) {
+export default function SkillsSection({ title }: SkillsSectionProps) {
   const t = useTranslations("common");
 
   const containerVariants = {

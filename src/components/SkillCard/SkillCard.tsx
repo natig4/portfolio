@@ -27,7 +27,10 @@ const SkillCard: React.FC<SkillCardProps> = ({
       whileHover={{
         y: -8,
         scale: 1.02,
-        transition: { duration: 0.2, ease: "easeOut" },
+      }}
+      transition={{
+        duration: 0.15,
+        ease: "easeOut",
       }}
       className='bg-surface/80 dark:bg-surface/60 backdrop-blur-lg p-6 rounded-2xl border border-border/30 relative overflow-hidden group transition-all duration-200'
     >
