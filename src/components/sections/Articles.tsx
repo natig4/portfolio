@@ -133,7 +133,7 @@ export default function ArticlesSection({
         </h3>
         <p className='text-text-secondary mb-8'>{forMore}</p>
         <motion.a
-          href='https://medium.com/@nati.gurevich'
+          href='https://medium.com/@nati_g4'
           target='_blank'
           rel='noopener noreferrer'
           whileHover={{ scale: 1.05, y: -2 }}

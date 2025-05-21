@@ -5,6 +5,7 @@ import { JSX } from "react";
 import SkillCard from "@/components/SkillCard/SkillCard";
 import { useDirection } from "@/hooks/useDirection";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 interface SkillCategory {
   icon: JSX.Element;
@@ -44,6 +45,7 @@ export default function AboutSection({
   stats,
 }: AboutSectionProps) {
   const { direction } = useDirection();
+  const t = useTranslations("contact");
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -178,7 +180,7 @@ export default function AboutSection({
             href={{ pathname: "/contact" }}
             className='px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold inline-block hover:shadow-lg transition-all duration-200'
           >
-            Get In Touch
+            {t("title")}
           </Link>
         </motion.div>
       </motion.div>
