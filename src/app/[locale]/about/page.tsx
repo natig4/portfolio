@@ -3,9 +3,11 @@ import { FaLaptopCode, FaServer, FaDatabase, FaDocker } from "react-icons/fa";
 import AboutSection from "@/components/sections/About";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import CTASection from "@/components/CTASection/CTASection";
+import { cookies } from "next/headers";
 
 export default async function AboutPage() {
   const t = await getTranslations("about");
+  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const aboutData = {
     title: t("title"),
@@ -61,7 +63,11 @@ export default async function AboutPage() {
   ];
 
   return (
-    <div className='min-h-screen p-4 pt-0 relative overflow-hidden'>
+    <div
+      className={`min-h-screen p-4 pt-${
+        isMobile ? 16 : 0
+      } relative overflow-hidden`}
+    >
       <BackgroundEffects />
       <AboutSection
         title={aboutData.title}

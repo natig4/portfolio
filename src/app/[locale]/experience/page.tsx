@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import ExperienceSection from "@/components/sections/Experience";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import CTASection from "@/components/CTASection/CTASection";
+import { cookies } from "next/headers";
 
 interface CompanyData {
   company: string;
@@ -12,6 +13,7 @@ interface CompanyData {
 
 export default async function ExperiencePage() {
   const t = await getTranslations("experience");
+  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const title = t("title");
 
@@ -65,7 +67,11 @@ export default async function ExperiencePage() {
   ];
 
   return (
-    <div className='min-h-screen p-4 pt-0 relative overflow-hidden'>
+    <div
+      className={`min-h-screen p-4 pt-${
+        isMobile ? 16 : 0
+      } relative overflow-hidden`}
+    >
       <BackgroundEffects />
       <ExperienceSection title={title} companies={companies} />
 

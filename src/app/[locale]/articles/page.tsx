@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import ArticlesSection from "@/components/sections/Articles";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import CTASection from "@/components/CTASection/CTASection";
+import { cookies } from "next/headers";
 
 interface ArticleData {
   title: string;
@@ -11,6 +12,7 @@ interface ArticleData {
 
 export default async function ArticlesPage() {
   const t = await getTranslations("articles");
+  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const title = t("title");
   const followMe = t("followMe");
@@ -35,7 +37,11 @@ export default async function ArticlesPage() {
   ];
 
   return (
-    <div className='min-h-screen p-4 pt-0 relative overflow-hidden'>
+    <div
+      className={`min-h-screen p-4 pt-pt-${
+        isMobile ? 16 : 0
+      } relative overflow-hidden`}
+    >
       <BackgroundEffects />
       <ArticlesSection
         title={title}

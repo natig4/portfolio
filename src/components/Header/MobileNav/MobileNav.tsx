@@ -69,7 +69,7 @@ export default function MobileNav({
               animate={{ x: 0 }}
               exit={{ x: isRTL ? "100%" : "-100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className={`w-64 h-full bg-surface dark:bg-gray-900 shadow-lg flex flex-col fixed ${
+              className={`w-64 pb-16 h-full bg-surface dark:bg-gray-900 shadow-lg flex flex-col fixed ${
                 isRTL ? "right-0" : "left-0"
               }`}
               onClick={(e) => e.stopPropagation()}

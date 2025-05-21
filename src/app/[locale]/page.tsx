@@ -5,9 +5,11 @@ import HeaderSection from "@/components/sections/Header";
 import LocationSection from "@/components/sections/Location";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import CTASection from "@/components/CTASection/CTASection";
+import { cookies } from "next/headers";
 
 export default async function Home() {
   const t = await getTranslations("home");
+  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const skillCategories = [
     {
@@ -37,7 +39,11 @@ export default async function Home() {
   ];
 
   return (
-    <div className='home-container w-full flex flex-col items-center px-4 pt-0 relative overflow-hidden'>
+    <div
+      className={`home-container w-full flex flex-col items-center px-4 pt-${
+        isMobile ? 16 : 0
+      } relative overflow-hidden`}
+    >
       <BackgroundEffects />
 
       <HeaderSection

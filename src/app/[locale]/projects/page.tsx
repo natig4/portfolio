@@ -13,6 +13,7 @@ import {
 import { JSX } from "react";
 import ProjectsSection from "@/components/sections/Projects";
 import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
+import { cookies } from "next/headers";
 
 interface Project {
   title: string;
@@ -38,6 +39,7 @@ const techIconMap: { [key: string]: JSX.Element } = {
 
 export default async function ProjectsPage() {
   const t = await getTranslations("projects");
+  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const projects: Project[] = [
     {
@@ -108,7 +110,11 @@ export default async function ProjectsPage() {
   const translatedLiveDemoLabel = t("liveDemo");
 
   return (
-    <div className='min-h-screen p-4 pt-0 relative overflow-hidden'>
+    <div
+      className={`min-h-screen p-4 pt-${
+        isMobile ? 16 : 0
+      } relative overflow-hidden`}
+    >
       <BackgroundEffects />
 
       <ProjectsSection

@@ -3,9 +3,11 @@ import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects"
 import ContactSection from "@/components/sections/Contact";
 import { EMAIL } from "@/lib/model/common";
 import CTASection from "@/components/CTASection/CTASection";
+import { cookies } from "next/headers";
 
 export default async function ContactPage() {
   const t = await getTranslations("contact");
+  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const contactInfo = {
     title: t("title"),
@@ -39,7 +41,11 @@ export default async function ContactPage() {
   };
 
   return (
-    <div className='min-h-screen p-4 pt-0 relative overflow-hidden'>
+    <div
+      className={`min-h-screen p-4 pt-${
+        isMobile ? 16 : 0
+      } relative overflow-hidden`}
+    >
       <BackgroundEffects />
       <ContactSection contactInfo={contactInfo} />
 
