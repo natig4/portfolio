@@ -173,19 +173,9 @@
     "forMore": "For more articles on software development and quality engineering",
     "articles": [
       {
-        "title": "Quality-First Development: Lessons from QA Leadership",
-        "date": "May 10, 2025",
-        "excerpt": "Exploring how my background in QA leadership shaped my approach to software development and the practices I implement to ensure high-quality code."
-      },
-      {
-        "title": "Transitioning from QA to Development: A Personal Journey",
-        "date": "April 22, 2025",
-        "excerpt": "My experience moving from a career in quality assurance to full-stack development, including challenges faced and lessons learned."
-      },
-      {
-        "title": "Building High-Performance React Applications",
-        "date": "March 15, 2025",
-        "excerpt": "Technical insights on optimizing React applications for performance and scalability, with real-world examples from my work."
+        "title": "Building an Efficient Event Buffer Service in Angular with RxJS",
+        "date": "May 13, 2025",
+        "excerpt": "How to reduce network overhead and improve performance by batching high-frequency events?"
       }
     ]
   },
