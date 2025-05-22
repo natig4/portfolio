@@ -26,7 +26,7 @@ export default async function Home() {
         contactMeLabel={t("contactMe")}
       />
 
-      <SkillsSection title='Technical Skills' />
+      <SkillsSection title={commonT("skills.title")} />
 
       <LocationSection />
 

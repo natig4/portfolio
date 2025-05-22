@@ -13,39 +13,39 @@ interface SkillCategory {
   gradient: string;
 }
 
-const skillCategories: SkillCategory[] = [
-  {
-    icon: <FaLaptopCode size={28} className='text-primary' />,
-    label: "Frontend",
-    skills: ["React", "Next.js", "Angular", "TypeScript", "Tailwind CSS"],
-    gradient: "from-primary to-secondary",
-  },
-  {
-    icon: <FaServer size={28} className='text-secondary' />,
-    label: "Backend",
-    skills: ["Node.js", "NestJS", "Express", ".NET Core", "Scala"],
-    gradient: "from-secondary to-accent",
-  },
-  {
-    icon: <FaDatabase size={28} className='text-accent' />,
-    label: "Database",
-    skills: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "GraphQL"],
-    gradient: "from-accent to-accent-secondary",
-  },
-  {
-    icon: <FaDocker size={28} className='text-accent-secondary' />,
-    label: "DevOps",
-    skills: ["Docker", "Kubernetes", "CI/CD", "AWS", "Azure"],
-    gradient: "from-accent-secondary to-primary",
-  },
-];
-
 interface SkillsSectionProps {
   title: string;
 }
 
 export default function SkillsSection({ title }: SkillsSectionProps) {
   const t = useTranslations("common");
+
+  const skillCategories: SkillCategory[] = [
+    {
+      icon: <FaLaptopCode size={28} className='text-primary' />,
+      label: t("skills.frontend"),
+      skills: ["React", "Next.js", "Angular", "TypeScript", "Tailwind CSS"],
+      gradient: "from-primary to-secondary",
+    },
+    {
+      icon: <FaServer size={28} className='text-secondary' />,
+      label: t("skills.backend"),
+      skills: ["Node.js", "NestJS", "Express", ".NET Core", "Scala"],
+      gradient: "from-secondary to-accent",
+    },
+    {
+      icon: <FaDatabase size={28} className='text-accent' />,
+      label: t("skills.database"),
+      skills: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "GraphQL"],
+      gradient: "from-accent to-accent-secondary",
+    },
+    {
+      icon: <FaDocker size={28} className='text-accent-secondary' />,
+      label: t("skills.devops"),
+      skills: ["Docker", "Kubernetes", "CI/CD", "AWS", "Azure"],
+      gradient: "from-accent-secondary to-primary",
+    },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },

@@ -461,6 +461,13 @@
     "link2": "to go back home"
   },
   "common": {
+    "skills": {
+      "title": "Technical Skills",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps"
+    },
     "subtitles": {
       "skills": "Showcasing modern technologies and development expertise",
       "projects": "Showcasing innovative solutions built with modern technologies",
