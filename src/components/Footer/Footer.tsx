@@ -19,6 +19,7 @@ export default function Footer({ isMobile = false }: FooterProps) {
       key={name}
       href={href}
       className='text-text-secondary hover:text-primary text-sm md:text-base p-2'
+      aria-label={`Navigate to ${name} page`}
     >
       {name}
     </NavLink>
@@ -41,12 +42,22 @@ export default function Footer({ isMobile = false }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='bg-surface/80 backdrop-blur-lg border-t border-border/30 text-text py-4 transition-all duration-300 w-full mt-auto relative'>
-      <div className='absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent' />
+    <footer
+      className='bg-surface/80 backdrop-blur-lg border-t border-border/30 text-text py-4 transition-all duration-300 w-full mt-auto relative'
+      role='contentinfo'
+      aria-label='Site footer'
+    >
+      <div
+        className='absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent'
+        aria-hidden='true'
+      />
 
       <div className='container mx-auto px-4'>
         <div className='flex flex-col items-center md:flex-row md:justify-between'>
-          <div className='flex gap-4 mb-6 md:mb-0 order-1 md:order-1'>
+          <nav
+            className='flex gap-4 mb-6 md:mb-0 order-1 md:order-1'
+            aria-label='Social media links'
+          >
             {socialIcons.map(({ href, icon: Icon, label }) => (
               <a
                 key={href}
@@ -54,19 +65,26 @@ export default function Footer({ isMobile = false }: FooterProps) {
                 target='_blank'
                 rel='noopener noreferrer'
                 className='p-3 rounded-lg bg-surface/50 hover:bg-surface border border-border/30 text-text-secondary hover:text-primary transition-colors duration-300 group backdrop-blur-sm'
-                aria-label={label}
+                aria-label={`Visit my ${label} profile (opens in new tab)`}
               >
-                <Icon size={isMobile ? 20 : 22} />
+                <Icon size={isMobile ? 20 : 22} aria-hidden='true' />
               </a>
             ))}
-          </div>
+          </nav>
 
-          <div className='flex flex-wrap justify-center gap-2 mb-6 md:mb-0 order-2 md:order-2'>
+          <nav
+            className='flex flex-wrap justify-center gap-2 mb-6 md:mb-0 order-2 md:order-2'
+            aria-label='Footer navigation'
+          >
             {links}
-          </div>
+          </nav>
         </div>
 
-        <div className='text-center text-text-secondary text-xs md:text-sm border-t border-border/10'>
+        <div
+          className='text-center text-text-secondary text-xs md:text-sm border-t border-border/10'
+          role='contentinfo'
+          aria-label='Copyright information'
+        >
           <p className='flex items-center justify-center gap-2 flex-wrap'>
             <span>© {currentYear}</span>
             <span className='bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-semibold'>

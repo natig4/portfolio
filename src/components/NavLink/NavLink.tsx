@@ -8,12 +8,14 @@ interface NavLinkProps {
   href: { pathname: Pathnames; query?: Record<string, string | number> };
   children: React.ReactNode;
   className?: string;
+  "aria-label"?: string;
 }
 
 const NavLink: React.FC<NavLinkProps> = ({
   href,
   children,
   className = "",
+  "aria-label": ariaLabel,
 }) => {
   const selectedLayoutSegment = useSelectedLayoutSegment();
   const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : "/";
@@ -26,6 +28,9 @@ const NavLink: React.FC<NavLinkProps> = ({
     <Link
       className={`relative inline-block transition-all duration-300 group ${className}`}
       href={href}
+      aria-current={isActive && !isLogoLink ? "page" : undefined}
+      aria-label={ariaLabel}
+      role={isLogoLink ? "link" : undefined}
     >
       <span
         className={`relative z-10 transition-colors duration-300 ${
@@ -33,6 +38,8 @@ const NavLink: React.FC<NavLinkProps> = ({
             ? "text-primary"
             : "text-text-secondary hover:text-primary"
         }`}
+        role={isLogoLink ? "img" : undefined}
+        aria-label={isLogoLink ? "Nati Gurevich logo" : undefined}
       >
         {children}
       </span>
@@ -46,11 +53,15 @@ const NavLink: React.FC<NavLinkProps> = ({
             duration: 0.2,
             ease: "easeOut",
           }}
+          aria-hidden='true'
         />
       )}
 
       {!isLogoLink && (
-        <div className='absolute inset-0 rounded-lg overflow-hidden opacity-0 group-hover:opacity-100 transition-all duration-300'>
+        <div
+          className='absolute inset-0 rounded-lg overflow-hidden opacity-0 group-hover:opacity-100 transition-all duration-300'
+          aria-hidden='true'
+        >
           <div className='absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 transform scale-100' />
         </div>
       )}

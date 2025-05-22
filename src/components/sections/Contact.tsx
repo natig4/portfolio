@@ -86,74 +86,96 @@ const ContactForm = memo(function ContactForm({
   form: ContactInfoData["form"];
 }) {
   return (
-    <form onSubmit={handleSubmit} className='space-y-6'>
-      <div>
-        <label
-          htmlFor='name'
-          className='block text-sm font-medium text-text mb-2'
-        >
-          {form.name}
-        </label>
-        <input
-          type='text'
-          id='name'
-          name='name'
-          value={formData.name}
-          onChange={handleInputChange}
-          required
-          className='w-full px-4 py-3 bg-background/50 border border-border/30 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200 text-text placeholder-text-secondary'
-          placeholder={form.namePlaceholder}
-        />
-      </div>
+    <form
+      onSubmit={handleSubmit}
+      className='space-y-6'
+      noValidate
+      aria-label='Contact form'
+    >
+      <fieldset className='space-y-6'>
+        <legend className='sr-only'>Contact information form</legend>
 
-      <div>
-        <label
-          htmlFor='email'
-          className='block text-sm font-medium text-text mb-2'
-        >
-          {form.email}
-        </label>
-        <input
-          type='email'
-          id='email'
-          name='email'
-          value={formData.email}
-          onChange={handleInputChange}
-          required
-          className='w-full px-4 py-3 bg-background/50 border border-border/30 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200 text-text placeholder-text-secondary'
-          placeholder={form.emailPlaceholder}
-        />
-      </div>
+        <div>
+          <label
+            htmlFor='contact-name'
+            className='block text-sm font-medium text-text mb-2'
+          >
+            {form.name} <span aria-label='required'>*</span>
+          </label>
+          <input
+            type='text'
+            id='contact-name'
+            name='name'
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+            aria-required='true'
+            aria-invalid={formData.name.trim() === "" ? "true" : "false"}
+            className='w-full px-4 py-3 bg-background/50 border border-border/30 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200 text-text placeholder-text-secondary'
+            placeholder={form.namePlaceholder}
+          />
+        </div>
 
-      <div>
-        <label
-          htmlFor='message'
-          className='block text-sm font-medium text-text mb-2'
-        >
-          {form.message}
-        </label>
-        <textarea
-          id='message'
-          name='message'
-          value={formData.message}
-          onChange={handleInputChange}
-          required
-          rows={5}
-          className='w-full px-4 py-3 bg-background/50 border border-border/30 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200 text-text placeholder-text-secondary resize-vertical'
-          placeholder={form.messagePlaceholder}
-        />
-      </div>
+        <div>
+          <label
+            htmlFor='contact-email'
+            className='block text-sm font-medium text-text mb-2'
+          >
+            {form.email} <span aria-label='required'>*</span>
+          </label>
+          <input
+            type='email'
+            id='contact-email'
+            name='email'
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+            aria-required='true'
+            aria-invalid={formData.email.includes("@") ? "false" : "true"}
+            className='w-full px-4 py-3 bg-background/50 border border-border/30 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200 text-text placeholder-text-secondary'
+            placeholder={form.emailPlaceholder}
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor='contact-message'
+            className='block text-sm font-medium text-text mb-2'
+          >
+            {form.message} <span aria-label='required'>*</span>
+          </label>
+          <textarea
+            id='contact-message'
+            name='message'
+            value={formData.message}
+            onChange={handleInputChange}
+            required
+            aria-required='true'
+            aria-invalid={formData.message.trim() === "" ? "true" : "false"}
+            rows={5}
+            className='w-full px-4 py-3 bg-background/50 border border-border/30 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200 text-text placeholder-text-secondary resize-vertical'
+            placeholder={form.messagePlaceholder}
+          />
+        </div>
+      </fieldset>
 
       <button
         type='submit'
         disabled={isSubmitting}
         className='will-change-transform w-full px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1'
+        aria-describedby={isSubmitting ? "form-status" : undefined}
       >
         <span className='relative z-10'>
           {isSubmitting ? "Sending..." : form.send}
         </span>
         <div className='absolute inset-0 bg-gradient-to-r from-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-200' />
       </button>
+
+      {isSubmitting && (
+        <div id='form-status' className='sr-only' aria-live='polite'>
+          Form is being submitted
+        </div>
+      )}
     </form>
   );
 });
@@ -195,15 +217,22 @@ const ContactSection = memo(function ContactSection({
   };
 
   return (
-    <div className='max-w-6xl mx-auto relative z-10'>
-      <div className='text-center mb-16'>
-        <h1 className='text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent'>
+    <main
+      className='max-w-6xl mx-auto relative z-10'
+      role='main'
+      aria-labelledby='contact-title'
+    >
+      <header className='text-center mb-16'>
+        <h1
+          id='contact-title'
+          className='text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent'
+        >
           {contactInfo.title}
         </h1>
         <p className='text-xl text-text-secondary max-w-2xl mx-auto'>
           {t("subtitles.contact")}
         </p>
-      </div>
+      </header>
 
       <motion.div
         variants={containerVariants}
@@ -211,18 +240,25 @@ const ContactSection = memo(function ContactSection({
         animate='visible'
         className='grid grid-cols-1 lg:grid-cols-2 gap-12'
       >
-        <motion.div
+        <motion.section
           variants={itemVariants}
           className='bg-surface/80 backdrop-blur-sm rounded-2xl p-8 border border-border/30 relative overflow-hidden'
+          aria-labelledby='contact-info-title'
         >
-          <div className='absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 pointer-events-none' />
+          <div
+            className='absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 pointer-events-none'
+            aria-hidden='true'
+          />
 
           <div className='relative z-10'>
-            <h2 className='text-2xl font-bold mb-8 text-text'>
+            <h2
+              id='contact-info-title'
+              className='text-2xl font-bold mb-8 text-text'
+            >
               {contactInfo.info}
             </h2>
 
-            <div className='space-y-6'>
+            <address className='space-y-6 not-italic'>
               <ContactInfo
                 icon={FaEnvelope}
                 label={contactInfo.email.label}
@@ -250,18 +286,25 @@ const ContactSection = memo(function ContactSection({
                 value={contactInfo.linkedin.value}
                 href='https://www.linkedin.com/in/nati-gurevich-36868711b/'
               />
-            </div>
+            </address>
           </div>
-        </motion.div>
+        </motion.section>
 
-        <motion.div
+        <motion.section
           variants={itemVariants}
           className='bg-surface/80 backdrop-blur-sm rounded-2xl p-8 border border-border/30 relative overflow-hidden'
+          aria-labelledby='contact-form-title'
         >
-          <div className='absolute inset-0 bg-gradient-to-br from-accent/5 to-accent-secondary/5 pointer-events-none' />
+          <div
+            className='absolute inset-0 bg-gradient-to-br from-accent/5 to-accent-secondary/5 pointer-events-none'
+            aria-hidden='true'
+          />
 
           <div className='relative z-10'>
-            <h2 className='text-2xl font-bold mb-8 text-text'>
+            <h2
+              id='contact-form-title'
+              className='text-2xl font-bold mb-8 text-text'
+            >
               {contactInfo.sendMessage}
             </h2>
 
@@ -273,9 +316,9 @@ const ContactSection = memo(function ContactSection({
               form={contactInfo.form}
             />
           </div>
-        </motion.div>
+        </motion.section>
       </motion.div>
-    </div>
+    </main>
   );
 });
 

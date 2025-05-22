@@ -16,31 +16,54 @@ export default async function Home() {
       className={`home-container w-full flex flex-col items-center px-4 pt-${
         isMobile ? 16 : 0
       } relative overflow-hidden`}
+      role='main'
     >
       <BackgroundEffects />
 
-      <HeaderSection
-        title={t("title")}
-        subtitle={t("subtitle")}
-        viewProjectsLabel={t("viewProjects")}
-        contactMeLabel={t("contactMe")}
+      <main className='w-full flex flex-col items-center'>
+        <section
+          aria-labelledby='hero-title'
+          className='w-full flex justify-center'
+        >
+          <HeaderSection
+            title={t("title")}
+            subtitle={t("subtitle")}
+            viewProjectsLabel={t("viewProjects")}
+            contactMeLabel={t("contactMe")}
+          />
+        </section>
+
+        <section
+          aria-labelledby='skills-section-title'
+          className='w-full flex justify-center'
+        >
+          <SkillsSection title={commonT("skills.title")} />
+        </section>
+
+        <section
+          aria-labelledby='location-section'
+          className='w-full flex justify-center'
+        >
+          <LocationSection />
+        </section>
+
+        <section aria-labelledby='cta-section' className='w-full'>
+          <CTASection
+            linkedInLabel={commonT("buttons.viewProjects")}
+            contactLabel={commonT("buttons.contactMe")}
+            primaryLink='/projects'
+            secondaryLink='/contact'
+            useLinkedIn={false}
+            showBackground
+            titleKey='projectsTitle'
+          />
+        </section>
+      </main>
+
+      <div
+        className='absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50'
+        aria-hidden='true'
       />
-
-      <SkillsSection title={commonT("skills.title")} />
-
-      <LocationSection />
-
-      <CTASection
-        linkedInLabel={commonT("buttons.viewProjects")}
-        contactLabel={commonT("buttons.contactMe")}
-        primaryLink='/projects'
-        secondaryLink='/contact'
-        useLinkedIn={false}
-        showBackground
-        titleKey='projectsTitle'
-      />
-
-      <div className='absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50' />
     </div>
   );
 }

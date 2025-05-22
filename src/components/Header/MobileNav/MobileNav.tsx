@@ -118,7 +118,7 @@ export default function MobileNav({
   }, [menuOpen]);
 
   const handleNavItemClick = useCallback(
-    (e: React.MouseEvent) => {
+    (e: React.MouseEvent | React.KeyboardEvent<HTMLDivElement>) => {
       e.stopPropagation();
 
       if (isMountedRef.current) {
@@ -148,12 +148,17 @@ export default function MobileNav({
   }
 
   return (
-    <nav className='z-40 flex flex-col items-start'>
+    <nav
+      className='z-40 flex flex-col items-start'
+      role='navigation'
+      aria-label='Mobile navigation'
+    >
       <button
         className='relative z-50 flex flex-col justify-center items-center w-10 h-10 bg-transparent border-0 cursor-pointer p-0'
         onClick={safeToggleMenu}
-        aria-label='Toggle menu'
+        aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
         aria-expanded={menuOpen}
+        aria-controls='mobile-menu'
         type='button'
       >
         <div className='w-8 h-9 relative flex justify-center items-center'>
@@ -163,13 +168,15 @@ export default function MobileNav({
                 ? "rotate-45 bg-primary translate-y-0"
                 : "translate-y-[-10px]"
             }`}
-          ></span>
+            aria-hidden='true'
+          />
 
           <span
             className={`absolute w-8 h-0.5 bg-primary rounded-sm transition-opacity duration-300 ${
               menuOpen ? "opacity-0" : "opacity-100"
             }`}
-          ></span>
+            aria-hidden='true'
+          />
 
           <span
             className={`absolute w-8 h-0.5 bg-primary rounded-sm transition-all duration-300 ${
@@ -177,7 +184,8 @@ export default function MobileNav({
                 ? "-rotate-45 bg-primary translate-y-0"
                 : "translate-y-[10px]"
             }`}
-          ></span>
+            aria-hidden='true'
+          />
         </div>
       </button>
 
@@ -199,15 +207,19 @@ export default function MobileNav({
         }}
       >
         {menuOpen && (
-          <motion.aside
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className='fixed top-0 left-0 w-full h-screen bg-black/50 backdrop-blur-sm z-40'
             onClick={handleOverlayClick}
+            role='dialog'
+            aria-modal='true'
+            aria-labelledby='mobile-menu-title'
           >
-            <motion.div
+            <motion.aside
+              id='mobile-menu'
               initial={{ x: isRTL ? "100%" : "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: isRTL ? "100%" : "-100%" }}
@@ -220,13 +232,19 @@ export default function MobileNav({
               style={{
                 height: "100svh",
               }}
+              role='navigation'
+              aria-label='Main mobile navigation'
             >
               <div className='flex flex-col h-full overflow-hidden'>
                 {/* Mobile menu header with logo */}
-                <div className='flex-shrink-0 px-6 py-4 border-b border-border/30 bg-surface dark:bg-gray-900'>
+                <header className='flex-shrink-0 px-6 py-4 border-b border-border/30 bg-surface dark:bg-gray-900'>
+                  <h2 id='mobile-menu-title' className='sr-only'>
+                    Mobile Navigation Menu
+                  </h2>
                   <NavLink
                     href={{ pathname: "/" }}
                     className='flex items-center justify-center !no-underline hover:!no-underline'
+                    aria-label='Nati Gurevich - Go to homepage'
                   >
                     <motion.div
                       whileHover={{ scale: 1.02 }}
@@ -236,7 +254,7 @@ export default function MobileNav({
                     >
                       <Image
                         src='/icons/NgLogo.png'
-                        alt='Nati Gurevich Logo'
+                        alt='Nati Gurevich professional logo'
                         width={36}
                         height={36}
                         className='w-9 h-9 object-contain'
@@ -247,12 +265,15 @@ export default function MobileNav({
                       </span>
                     </motion.div>
                   </NavLink>
-                </div>
+                </header>
 
-                <div className='flex-1 overflow-y-auto overflow-x-hidden'>
-                  <ul className='flex flex-col w-full pt-6 font-header min-h-0'>
+                <main className='flex-1 overflow-y-auto overflow-x-hidden'>
+                  <ul
+                    className='flex flex-col w-full pt-6 font-header min-h-0'
+                    role='list'
+                  >
                     {/* Add Home link at the top of mobile menu */}
-                    <motion.div
+                    <motion.li
                       key='home-link'
                       initial={{ opacity: 0, x: isRTL ? 10 : -10 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -262,19 +283,28 @@ export default function MobileNav({
                         duration: 0.2,
                       }}
                       className='w-full flex-shrink-0'
+                      role='listitem'
                     >
                       <div
                         className='px-6 py-4 text-text hover:text-primary hover:bg-primary/5 transition-colors duration-200 cursor-pointer'
                         onClick={handleNavItemClick}
+                        role='button'
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            handleNavItemClick(e);
+                          }
+                        }}
+                        aria-label='Navigate to home page'
                       >
                         <NavLink href={{ pathname: "/" }} className='block'>
                           {isRTL ? "בית" : "Home"}
                         </NavLink>
                       </div>
-                    </motion.div>
+                    </motion.li>
 
                     {links.map((link, index) => (
-                      <motion.div
+                      <motion.li
                         key={`nav-link-${index}`}
                         initial={{ opacity: 0, x: isRTL ? 10 : -10 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -284,42 +314,67 @@ export default function MobileNav({
                           duration: 0.2,
                         }}
                         className='w-full flex-shrink-0'
+                        role='listitem'
                       >
                         <div
                           className='px-6 py-4 text-text hover:text-primary hover:bg-primary/5 transition-colors duration-200 cursor-pointer'
                           onClick={handleNavItemClick}
+                          role='button'
+                          tabIndex={0}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              handleNavItemClick(e);
+                            }
+                          }}
                         >
                           {link}
                         </div>
-                      </motion.div>
+                      </motion.li>
                     ))}
                   </ul>
-                </div>
+                </main>
 
-                <div className='flex-shrink-0 px-6 py-4 border-t border-border/30 bg-surface dark:bg-gray-900'>
-                  <div className='flex flex-col space-y-4'>
+                <footer className='flex-shrink-0 px-6 py-4 border-t border-border/30 bg-surface dark:bg-gray-900'>
+                  <fieldset className='flex flex-col space-y-4'>
+                    <legend className='sr-only'>Site preferences</legend>
+
                     <div className='flex items-center justify-between min-h-[48px]'>
-                      <span className='text-text-secondary font-medium text-sm'>
+                      <label
+                        htmlFor='language-switcher'
+                        className='text-text-secondary font-medium text-sm'
+                      >
                         {isRTL ? "שפה" : "Language"}
-                      </span>
-                      <div className='flex items-center h-12'>
+                      </label>
+                      <div
+                        id='language-switcher'
+                        className='flex items-center h-12'
+                        role='group'
+                        aria-label='Language selection'
+                      >
                         <LocaleSwitcher isMobileView />
                       </div>
                     </div>
 
                     <div className='flex items-center justify-between min-h-[48px]'>
-                      <span className='text-text-secondary font-medium text-sm'>
+                      <label
+                        htmlFor='theme-toggle'
+                        className='text-text-secondary font-medium text-sm'
+                      >
                         {isRTL ? "מצב כהה" : "Dark Mode"}
-                      </span>
-                      <div className='flex items-center'>
+                      </label>
+                      <div
+                        id='theme-toggle'
+                        className='flex items-center'
+                        aria-label='Toggle dark mode'
+                      >
                         <ThemeToggle />
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </fieldset>
+                </footer>
               </div>
-            </motion.div>
-          </motion.aside>
+            </motion.aside>
+          </motion.div>
         )}
       </AnimatePresence>
     </nav>

@@ -69,94 +69,128 @@ const AboutSection = memo(function AboutSection({
   };
 
   return (
-    <motion.div
+    <motion.main
       variants={containerVariants}
       initial='hidden'
       animate='visible'
       className='max-w-6xl mx-auto relative z-10'
+      role='main'
+      aria-labelledby='about-title'
     >
-      {/* About Me Section */}
-      <motion.div variants={itemVariants} className='text-center mb-20'>
-        <h1 className='text-4xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent'>
-          {title}
-        </h1>
+      <motion.section
+        variants={itemVariants}
+        className='text-center mb-20'
+        aria-labelledby='about-title'
+      >
+        <header>
+          <h1
+            id='about-title'
+            className='text-4xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent'
+          >
+            {title}
+          </h1>
+        </header>
         <p
           className='text-lg md:text-xl text-text-secondary max-w-4xl mx-auto leading-relaxed'
           dir={direction}
         >
           {description}
         </p>
-      </motion.div>
+      </motion.section>
 
-      {/* Stats Section */}
-      <motion.div
+      <motion.section
         variants={itemVariants}
         className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-20'
+        aria-labelledby='stats-title'
       >
-        {/* Years of Experience */}
-        <motion.div
+        <h2 id='stats-title' className='sr-only'>
+          Professional Statistics
+        </h2>
+
+        <motion.article
           whileHover={{ y: -5, scale: 1.02 }}
           transition={{ duration: 0.2 }}
           className='p-8 bg-surface/80 backdrop-blur-lg rounded-2xl border border-border/30 text-center hover:shadow-lg hover:shadow-primary/5 transition-all duration-200'
+          role='article'
+          aria-labelledby='years-stat'
         >
-          <h3 className='text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4'>
+          <h3
+            id='years-stat'
+            className='text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4'
+          >
             {stats.years.value}
           </h3>
           <p className='text-text-secondary'>{stats.years.description}</p>
-        </motion.div>
+        </motion.article>
 
-        {/* Users Served */}
-        <motion.div
+        <motion.article
           whileHover={{ y: -5, scale: 1.02 }}
           transition={{ duration: 0.2 }}
           className='p-8 bg-surface/80 backdrop-blur-lg rounded-2xl border border-border/30 text-center hover:shadow-lg hover:shadow-secondary/5 transition-all duration-200'
+          role='article'
+          aria-labelledby='users-stat'
         >
-          <h3 className='text-3xl md:text-4xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent mb-4'>
+          <h3
+            id='users-stat'
+            className='text-3xl md:text-4xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent mb-4'
+          >
             {stats.users.value}
           </h3>
           <p className='text-text-secondary'>{stats.users.description}</p>
-        </motion.div>
+        </motion.article>
 
-        {/* Critical Bugs */}
-        <motion.div
+        <motion.article
           whileHover={{ y: -5, scale: 1.02 }}
           transition={{ duration: 0.2 }}
           className='p-8 bg-surface/80 backdrop-blur-lg rounded-2xl border border-border/30 text-center hover:shadow-lg hover:shadow-accent/5 transition-all duration-200'
+          role='article'
+          aria-labelledby='bugs-stat'
         >
-          <h3 className='text-3xl md:text-4xl font-bold bg-gradient-to-r from-accent to-accent-secondary bg-clip-text text-transparent mb-4'>
+          <h3
+            id='bugs-stat'
+            className='text-3xl md:text-4xl font-bold bg-gradient-to-r from-accent to-accent-secondary bg-clip-text text-transparent mb-4'
+          >
             {stats.bugs.value}
           </h3>
           <p className='text-text-secondary'>{stats.bugs.description}</p>
-        </motion.div>
-      </motion.div>
+        </motion.article>
+      </motion.section>
 
-      {/* Skills Section */}
-      <motion.div
+      <motion.section
         variants={containerVariants}
         className='w-full max-w-6xl relative z-10'
+        aria-labelledby='skills-title'
       >
-        <motion.h2
-          variants={itemVariants}
-          className='text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent'
-        >
-          {skillsTitle}
-        </motion.h2>
+        <header>
+          <motion.h2
+            id='skills-title'
+            variants={itemVariants}
+            className='text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent'
+          >
+            {skillsTitle}
+          </motion.h2>
+        </header>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+        <div
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'
+          role='list'
+          aria-label='Technical skills organized by category'
+        >
           {skillCategories.map((category, index) => (
-            <SkillCard
-              key={index}
-              icon={category.icon}
-              title={category.label}
-              skills={category.skills}
-              gradient={category.gradient}
-              index={index}
-              itemVariants={itemVariants}
-            />
+            <div key={index} role='listitem'>
+              <SkillCard
+                icon={category.icon}
+                title={category.label}
+                skills={category.skills}
+                gradient={category.gradient}
+                index={index}
+                itemVariants={itemVariants}
+              />
+            </div>
           ))}
         </div>
-      </motion.div>
-    </motion.div>
+      </motion.section>
+    </motion.main>
   );
 });
 

@@ -59,23 +59,43 @@ export default async function BaseLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ErrorBoundary>
             <ThemeProvider>
-              <Header
-                isMobile={isMobile}
-                links={{
-                  home: t("home"),
-                  about: t("about"),
-                  projects: t("projects"),
-                  experience: t("experience"),
-                  articles: t("articles"),
-                  contact: t("contact"),
-                  marketing: t("marketing"),
-                }}
-              />
-              <main className='flex-grow pt-[var(--header-height)] w-full flex flex-col'>
-                {children}
-              </main>
-              <Footer isMobile={isMobile} />
-              <Widgets lang={locale} />
+              <a
+                href='#main-content'
+                className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded z-50'
+              >
+                Skip to main content
+              </a>
+
+              <div className='flex flex-col min-h-screen'>
+                <Header
+                  isMobile={isMobile}
+                  links={{
+                    home: t("home"),
+                    about: t("about"),
+                    projects: t("projects"),
+                    experience: t("experience"),
+                    articles: t("articles"),
+                    contact: t("contact"),
+                    marketing: t("marketing"),
+                  }}
+                />
+
+                <main
+                  id='main-content'
+                  className='flex-grow pt-[var(--header-height)] w-full flex flex-col'
+                  role='main'
+                  tabIndex={-1}
+                >
+                  {children}
+                </main>
+
+                <Footer isMobile={isMobile} />
+              </div>
+
+              <aside aria-label='Accessibility and utility widgets'>
+                <Widgets lang={locale} />
+              </aside>
+
               <AnalyticsProvider />
             </ThemeProvider>
           </ErrorBoundary>

@@ -48,7 +48,6 @@ export default function Header({
     }
   }, []);
 
-  // Close menu when path changes
   useEffect(() => {
     if (isMounted.current) {
       // Use requestAnimationFrame to ensure DOM is ready
@@ -60,7 +59,6 @@ export default function Header({
     }
   }, [path, safeSetMenuOpen]);
 
-  // Navigation links without home (replaced by logo)
   const navLinks = [
     getRoute({ pathname: "/projects" }, projects),
     getRoute({ pathname: "/experience" }, experience),
@@ -78,12 +76,19 @@ export default function Header({
         }
       }}
     >
-      <NavLink href={href} className={isMobile ? "" : "block py-2 px-1"}>
+      <NavLink
+        href={href}
+        className={isMobile ? "" : "block py-2 px-1"}
+        aria-label={`Navigate to ${name} page`}
+      >
         {name}
       </NavLink>
 
       {index < array.length - 1 && (
-        <span className='absolute top-1/2 -translate-y-1/2 right-[-1rem] w-px h-3/5 bg-gradient-to-b from-primary/30 to-secondary/30 rtl:right-auto rtl:left-[-1rem]'></span>
+        <span
+          className='absolute top-1/2 -translate-y-1/2 right-[-1rem] w-px h-3/5 bg-gradient-to-b from-primary/30 to-secondary/30 rtl:right-auto rtl:left-[-1rem]'
+          aria-hidden='true'
+        />
       )}
     </li>
   ));
@@ -103,10 +108,18 @@ export default function Header({
         isMobile ? "h-16" : "h-16"
       }`}
       dir={direction}
+      role='banner'
+      aria-label='Main navigation'
     >
-      <div className='absolute inset-0 bg-surface/80 dark:bg-surface/60 backdrop-blur-[8px] transition-[backdrop-filter] duration-300' />
+      <div
+        className='absolute inset-0 bg-surface/80 dark:bg-surface/60 backdrop-blur-[8px] transition-[backdrop-filter] duration-300'
+        aria-hidden='true'
+      />
 
-      <div className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent' />
+      <div
+        className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent'
+        aria-hidden='true'
+      />
 
       {isMobile ? (
         <div
@@ -114,7 +127,6 @@ export default function Header({
             !isRTL ? "flex-row-reverse" : ""
           }`}
         >
-          {/* Mobile hamburger menu */}
           <div className={`flex items-center ${isRTL ? "order-3" : "order-1"}`}>
             <MobileNav
               menuOpen={menuOpen}
@@ -123,11 +135,11 @@ export default function Header({
             />
           </div>
 
-          {/* Mobile logo in center */}
           <div className='order-2 flex-1 flex justify-center'>
             <NavLink
               href={{ pathname: "/" }}
               className='flex items-center !no-underline hover:!no-underline'
+              aria-label='Nati Gurevich - Go to homepage'
             >
               <motion.div
                 whileHover={{ scale: 1.02 }}
@@ -136,7 +148,7 @@ export default function Header({
               >
                 <Image
                   src='/icons/NgLogo.png'
-                  alt='Nati Gurevich Logo'
+                  alt='Nati Gurevich professional logo'
                   width={40}
                   height={40}
                   className='w-10 h-10 object-contain'
@@ -146,16 +158,18 @@ export default function Header({
             </NavLink>
           </div>
 
-          {/* Mobile settings placeholder */}
-          <div className={`w-10 ${isRTL ? "order-1" : "order-3"}`} />
+          <div
+            className={`w-10 ${isRTL ? "order-1" : "order-3"}`}
+            aria-hidden='true'
+          />
         </div>
       ) : (
         <div className='relative z-10 flex justify-between items-center w-full'>
-          {/* Desktop logo on left */}
           <div className='flex items-center'>
             <NavLink
               href={{ pathname: "/" }}
               className='flex items-center !no-underline hover:!no-underline'
+              aria-label='Nati Gurevich - Go to homepage'
             >
               <motion.div
                 whileHover={{ scale: 1.02 }}
@@ -164,7 +178,7 @@ export default function Header({
               >
                 <Image
                   src='/icons/NgLogo.png'
-                  alt='Nati Gurevich Logo'
+                  alt='Nati Gurevich professional logo'
                   width={44}
                   height={44}
                   className='w-11 h-11 object-contain'
@@ -174,18 +188,23 @@ export default function Header({
             </NavLink>
           </div>
 
-          {/* Desktop navigation */}
           <DesktopNav links={navLinks} />
 
-          {/* Desktop controls */}
-          <div className='flex items-center space-x-6 rtl:space-x-reverse'>
+          <div
+            className='flex items-center space-x-6 rtl:space-x-reverse'
+            role='toolbar'
+            aria-label='Site preferences'
+          >
             <ThemeToggle />
             <LocaleSwitcher isMobileView={false} />
           </div>
         </div>
       )}
 
-      <div className='absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 pointer-events-none' />
+      <div
+        className='absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 pointer-events-none'
+        aria-hidden='true'
+      />
     </motion.header>
   );
 }
