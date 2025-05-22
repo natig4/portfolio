@@ -19,6 +19,9 @@ const NavLink: React.FC<NavLinkProps> = ({
   const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : "/";
   const isActive = pathname === href.pathname;
 
+  const isLogoLink =
+    href.pathname === "/" && className.includes("!no-underline");
+
   return (
     <Link
       className={`relative inline-block transition-all duration-300 group ${className}`}
@@ -26,13 +29,15 @@ const NavLink: React.FC<NavLinkProps> = ({
     >
       <span
         className={`relative z-10 transition-colors duration-300 ${
-          isActive ? "text-primary" : "text-text-secondary hover:text-primary"
+          isActive && !isLogoLink
+            ? "text-primary"
+            : "text-text-secondary hover:text-primary"
         }`}
       >
         {children}
       </span>
 
-      {isActive && (
+      {isActive && !isLogoLink && (
         <motion.div
           className='absolute bottom-[-4px] left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full'
           initial={{ opacity: 0, scaleX: 0 }}
@@ -44,9 +49,11 @@ const NavLink: React.FC<NavLinkProps> = ({
         />
       )}
 
-      <div className='absolute inset-0 rounded-lg overflow-hidden opacity-0 group-hover:opacity-100 transition-all duration-300'>
-        <div className='absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 transform scale-100' />
-      </div>
+      {!isLogoLink && (
+        <div className='absolute inset-0 rounded-lg overflow-hidden opacity-0 group-hover:opacity-100 transition-all duration-300'>
+          <div className='absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 transform scale-100' />
+        </div>
+      )}
     </Link>
   );
 };

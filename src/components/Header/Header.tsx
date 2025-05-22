@@ -10,6 +10,7 @@ import LocaleSwitcher from "../LocaleSwitcher/LocaleSwitcher";
 import ThemeToggle from "../Theme/ThemeToggle";
 import { getRoute } from "@/lib/utils/utils";
 import { useDirection } from "@/hooks/useDirection";
+import Image from "next/image";
 
 interface HeaderProps {
   links: {
@@ -25,7 +26,7 @@ interface HeaderProps {
 }
 
 export default function Header({
-  links: { home, about, projects, experience, articles, contact, marketing }, // Added marketing
+  links: { about, projects, experience, articles, contact, marketing },
   isMobile,
 }: HeaderProps) {
   const { scrollY } = useScroll();
@@ -42,35 +43,29 @@ export default function Header({
   }, []);
 
   const safeSetMenuOpen = useCallback((value: boolean) => {
-    if (isMounted.current) {
+    if (isMounted.current && typeof window !== "undefined") {
       setMenuOpen(value);
     }
   }, []);
 
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
-
+  // Close menu when path changes
   useEffect(() => {
     if (isMounted.current) {
-      safeSetMenuOpen(false);
+      // Use requestAnimationFrame to ensure DOM is ready
+      requestAnimationFrame(() => {
+        if (isMounted.current) {
+          safeSetMenuOpen(false);
+        }
+      });
     }
   }, [path, safeSetMenuOpen]);
 
+  // Navigation links without home (replaced by logo)
   const navLinks = [
-    getRoute({ pathname: "/" }, home),
     getRoute({ pathname: "/projects" }, projects),
     getRoute({ pathname: "/experience" }, experience),
     getRoute({ pathname: "/articles" }, articles),
-    getRoute({ pathname: "/marketing" }, marketing), // Added marketing link
+    getRoute({ pathname: "/marketing" }, marketing),
     getRoute({ pathname: "/about" }, about),
     getRoute({ pathname: "/contact" }, contact),
   ].map(({ href, name }, index, array) => (
@@ -97,7 +92,7 @@ export default function Header({
   const opacity = useTransform(scrollY, [0, 60], [0.95, 0.8]);
 
   const handleToggleMenu = useCallback(() => {
-    if (isMounted.current) {
+    if (isMounted.current && typeof window !== "undefined") {
       safeSetMenuOpen(!menuOpen);
     }
   }, [safeSetMenuOpen, menuOpen]);
@@ -115,18 +110,75 @@ export default function Header({
       <div className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent' />
 
       {isMobile ? (
-        <div className='w-full flex justify-between items-center relative z-10'>
-          <div className={`flex items-center ${isRTL ? "order-2" : "order-1"}`}>
+        <div
+          className={`w-full flex justify-between items-center relative z-10 ${
+            !isRTL ? "flex-row-reverse" : ""
+          }`}
+        >
+          {/* Mobile hamburger menu */}
+          <div className={`flex items-center ${isRTL ? "order-3" : "order-1"}`}>
             <MobileNav
               menuOpen={menuOpen}
               handleToggleMenu={handleToggleMenu}
               links={navLinks}
             />
           </div>
+
+          {/* Mobile logo in center */}
+          <div className='order-2 flex-1 flex justify-center'>
+            <NavLink
+              href={{ pathname: "/" }}
+              className='flex items-center !no-underline hover:!no-underline'
+            >
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className='flex items-center justify-center p-2 rounded-lg hover:bg-primary/5 transition-colors duration-200'
+              >
+                <Image
+                  src='/icons/NgLogo.png'
+                  alt='Nati Gurevich Logo'
+                  width={40}
+                  height={40}
+                  className='w-10 h-10 object-contain'
+                  priority
+                />
+              </motion.div>
+            </NavLink>
+          </div>
+
+          {/* Mobile settings placeholder */}
+          <div className={`w-10 ${isRTL ? "order-1" : "order-3"}`} />
         </div>
       ) : (
         <div className='relative z-10 flex justify-between items-center w-full'>
+          {/* Desktop logo on left */}
+          <div className='flex items-center'>
+            <NavLink
+              href={{ pathname: "/" }}
+              className='flex items-center !no-underline hover:!no-underline'
+            >
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className='flex items-center justify-center mr-8 rtl:mr-0 rtl:ml-8 p-2 rounded-lg hover:bg-primary/5 transition-colors duration-200'
+              >
+                <Image
+                  src='/icons/NgLogo.png'
+                  alt='Nati Gurevich Logo'
+                  width={44}
+                  height={44}
+                  className='w-11 h-11 object-contain'
+                  priority
+                />
+              </motion.div>
+            </NavLink>
+          </div>
+
+          {/* Desktop navigation */}
           <DesktopNav links={navLinks} />
+
+          {/* Desktop controls */}
           <div className='flex items-center space-x-6 rtl:space-x-reverse'>
             <ThemeToggle />
             <LocaleSwitcher isMobileView={false} />
