@@ -54,11 +54,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       setIsInitialized(true);
     }
 
-    setTimeout(() => {
-      if (document.documentElement) {
-        document.documentElement.style.removeProperty("--theme-transition");
-      }
-    }, 0);
+    if (document.documentElement) {
+      document.documentElement.style.removeProperty("--theme-transition");
+    }
   }, []);
 
   const toggleTheme = useMemo(() => {

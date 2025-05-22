@@ -43,16 +43,24 @@ export default function MobileNav({
     [handleToggleMenu]
   );
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+      document.body.style.height = "100%";
     } else {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
     }
 
     return () => {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
     };
   }, [menuOpen]);
 
@@ -110,58 +118,65 @@ export default function MobileNav({
               animate={{ x: 0 }}
               exit={{ x: isRTL ? "100%" : "-100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className={`w-64 pb-16 h-full bg-surface dark:bg-gray-900 shadow-lg flex flex-col fixed ${
+              className={`w-80 max-w-[85vw] h-full bg-surface dark:bg-gray-900 shadow-lg flex flex-col fixed ${
                 isRTL ? "right-0" : "left-0"
-              }`}
+              } overflow-hidden`}
               onClick={(e) => e.stopPropagation()}
               dir={direction}
+              style={{
+                height: "100svh",
+              }}
             >
-              <ul className='flex flex-col w-full pt-20 font-header flex-1'>
-                {links.map((link, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: isRTL ? 10 : -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay: 0.1 + index * 0.05,
-                      duration: 0.2,
-                    }}
-                    className='w-full'
-                  >
-                    <div
-                      className='px-4 py-3 text-text hover:text-primary hover:bg-primary/5 transition-colors duration-200'
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // Close menu when link is clicked
-                        setTimeout(() => {
-                          if (isMountedRef.current) {
-                            safeToggleMenu();
-                          }
-                        }, 100);
-                      }}
-                    >
-                      {link}
-                    </div>
-                  </motion.div>
-                ))}
-              </ul>
+              <div className='flex flex-col h-full overflow-hidden'>
+                <div className='flex-1 overflow-y-auto overflow-x-hidden'>
+                  <ul className='flex flex-col w-full pt-20 font-header min-h-0'>
+                    {links.map((link, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: isRTL ? 10 : -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          delay: 0.1 + index * 0.05,
+                          duration: 0.2,
+                        }}
+                        className='w-full flex-shrink-0'
+                      >
+                        <div
+                          className='px-6 py-4 text-text hover:text-primary hover:bg-primary/5 transition-colors duration-200 cursor-pointer'
+                          onClick={(e) => {
+                            e.stopPropagation();
 
-              <div className='px-4 py-3 border-t border-border/30 mt-auto'>
-                <div className='flex flex-col space-y-6 mb-4'>
-                  <div className='flex items-center justify-between'>
-                    <span className='text-text-secondary font-medium'>
-                      {isRTL ? "שפה" : "Language"}
-                    </span>
-                    <div className='h-12 flex items-center'>
-                      <LocaleSwitcher isMobileView />
-                    </div>
-                  </div>
+                            if (isMountedRef.current) {
+                              safeToggleMenu();
+                            }
+                          }}
+                        >
+                          {link}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </ul>
+                </div>
 
-                  <div className='flex items-center justify-between'>
-                    <span className='text-text-secondary font-medium'>
-                      {isRTL ? "מצב כהה" : "Dark Mode"}
-                    </span>
-                    <ThemeToggle />
+                <div className='flex-shrink-0 px-6 py-4 border-t border-border/30 bg-surface dark:bg-gray-900'>
+                  <div className='flex flex-col space-y-4'>
+                    <div className='flex items-center justify-between min-h-[48px]'>
+                      <span className='text-text-secondary font-medium text-sm'>
+                        {isRTL ? "שפה" : "Language"}
+                      </span>
+                      <div className='flex items-center h-12'>
+                        <LocaleSwitcher isMobileView />
+                      </div>
+                    </div>
+
+                    <div className='flex items-center justify-between min-h-[48px]'>
+                      <span className='text-text-secondary font-medium text-sm'>
+                        {isRTL ? "מצב כהה" : "Dark Mode"}
+                      </span>
+                      <div className='flex items-center'>
+                        <ThemeToggle />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
