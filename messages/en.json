@@ -211,6 +211,47 @@
       "send": "Send Message"
     }
   },
+  "career": {
+    "metaTitle": "My Career Journey",
+    "metaDescription": "Follow my professional journey from technical support to QA leadership to software engineering",
+    "title": "My Professional Journey",
+    "subtitle": "Exploring my transition from technical support to QA leadership to full-stack software engineering",
+
+    "bezeq": {
+      "title": "Senior Technical Service Representative",
+      "company": "Bezeq",
+      "description": "Built a strong technical foundation while solving complex customer issues. Developed troubleshooting skills and learned to communicate technical concepts clearly to non-technical audiences."
+    },
+
+    "myThings": {
+      "title": "QA & PM Team Leader",
+      "company": "myThings",
+      "description": "Led a team of 5 QA specialists delivering 50+ projects annually. Established company-wide quality standards and processes. Learned project management, team leadership, and strategic planning."
+    },
+
+    "nova": {
+      "title": "QA Manual Test Engineer",
+      "company": "Nova",
+      "description": "Built comprehensive regression testing frameworks for embedded real-time systems. Led QA for 3+ major platform projects with zero critical production bugs. Developed deeper technical expertise."
+    },
+
+    "outbrain": {
+      "title": "Software Engineer",
+      "company": "Outbrain",
+      "description": "Made the transition to full-time development, building high-traffic web applications using Angular and React. Created complex components used by 10+ teams. Led technical training sessions for 50+ developers."
+    },
+
+    "freelance": {
+      "title": "Freelance Software Engineer",
+      "company": "Self-employed",
+      "description": "Designing and developing full-stack web applications using Next.js and modern React patterns. Building enterprise desktop applications with .NET. Implementing automated deployment workflows with CI/CD."
+    },
+
+    "keyLearning": {
+      "title": "My Quality-First Approach",
+      "description": "My journey from QA to development has shaped my unique perspective on software engineering. I approach every project with quality as the primary focus, combining rigorous testing methodologies with modern development practices to create robust, maintainable software that exceeds both technical requirements and user expectations."
+    }
+  },
   "404": {
     "header": "Hostages are still missing",
     "secondary-header": "Also it seems like you got to an unknown page",
@@ -233,6 +274,11 @@
       "articles": "Thoughts, insights, and tutorials from my experiences in the tech industry",
       "contact": "Let's connect and discuss your next project or opportunity",
       "moreProjects": "More projects coming soon! Follow my journey on"
+    },
+    "career": {
+      "journeyTitle": "From QA Leadership to Software Engineering",
+      "journeyDescription": "My journey from QA to development has shaped my unique perspective on software engineering. I approach every project with quality as the primary focus, combining rigorous testing methodologies with modern development practices to create robust, maintainable software that exceeds both technical requirements and user expectations.",
+      "detailedExperience": "Detailed Experience"
     },
     "cta": {
       "defaultTitle": "Want to learn more about my professional background?",

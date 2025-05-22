@@ -11,6 +11,16 @@ interface CompanyData {
   description: string[];
 }
 
+export async function generateMetadata() {
+  const experienceT = await getTranslations("experience");
+  const commonT = await getTranslations("common");
+
+  return {
+    title: `${experienceT("title")} | Nati Gurevich`,
+    description: commonT("subtitles.experience"),
+  };
+}
+
 async function getCompanies(): Promise<CompanyData[]> {
   const t = await getTranslations("experience");
   const raw = await t.raw("companies");
@@ -43,7 +53,6 @@ export default async function ExperiencePage() {
   const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const title = t("title");
-
   const companies: CompanyData[] = await getCompanies();
 
   return (
@@ -53,7 +62,11 @@ export default async function ExperiencePage() {
       } relative overflow-hidden`}
     >
       <BackgroundEffects />
-      <ExperienceSection title={title} companies={companies} />
+      <ExperienceSection
+        isMobile={isMobile}
+        title={title}
+        companies={companies}
+      />
 
       <div className='mt-16'>
         <CTASection
