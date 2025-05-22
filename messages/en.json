@@ -216,41 +216,235 @@
     "metaDescription": "Follow my professional journey from technical support to QA leadership to software engineering",
     "title": "My Professional Journey",
     "subtitle": "Exploring my transition from technical support to QA leadership to full-stack software engineering",
-
     "bezeq": {
       "title": "Senior Technical Service Representative",
       "company": "Bezeq",
       "description": "Built a strong technical foundation while solving complex customer issues. Developed troubleshooting skills and learned to communicate technical concepts clearly to non-technical audiences."
     },
-
     "myThings": {
       "title": "QA & PM Team Leader",
       "company": "myThings",
       "description": "Led a team of 5 QA specialists delivering 50+ projects annually. Established company-wide quality standards and processes. Learned project management, team leadership, and strategic planning."
     },
-
     "nova": {
       "title": "QA Manual Test Engineer",
       "company": "Nova",
       "description": "Built comprehensive regression testing frameworks for embedded real-time systems. Led QA for 3+ major platform projects with zero critical production bugs. Developed deeper technical expertise."
     },
-
     "outbrain": {
       "title": "Software Engineer",
       "company": "Outbrain",
       "description": "Made the transition to full-time development, building high-traffic web applications using Angular and React. Created complex components used by 10+ teams. Led technical training sessions for 50+ developers."
     },
-
     "freelance": {
       "title": "Freelance Software Engineer",
       "company": "Self-employed",
       "description": "Designing and developing full-stack web applications using Next.js and modern React patterns. Building enterprise desktop applications with .NET. Implementing automated deployment workflows with CI/CD."
     },
-
     "keyLearning": {
       "title": "My Quality-First Approach",
       "description": "My journey from QA to development has shaped my unique perspective on software engineering. I approach every project with quality as the primary focus, combining rigorous testing methodologies with modern development practices to create robust, maintainable software that exceeds both technical requirements and user expectations."
     }
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "metaDescription": "Terms of use for Nati Gurevich's portfolio website",
+    "lastUpdated": "Last updated",
+    "lastUpdatedDate": "May 2025",
+    "effectiveDate": "Effective date",
+    "effectiveDateDate": "May 22, 2025",
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "content": "By accessing and using this website (nati-gurevich.com), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service."
+    },
+    "description": {
+      "title": "Website Description",
+      "content": "This website serves as a professional portfolio and resume for Nati Gurevich, showcasing software development projects, professional experience, and contact information for potential employers and collaborators."
+    },
+    "usage": {
+      "title": "Permitted Use",
+      "permitted": {
+        "browse": "Browse and view the content for informational purposes",
+        "contact": "Use the contact information to reach out for professional opportunities",
+        "share": "Share links to the website and its content"
+      },
+      "prohibited": {
+        "title": "Prohibited Uses",
+        "commercial": "Use the website or its content for commercial purposes without permission",
+        "modify": "Modify, copy, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, transfer, or sell any information obtained from this website",
+        "harmful": "Use the website in any way that could damage, disable, overburden, or impair the website",
+        "rights": "Violate any intellectual property rights or other proprietary rights"
+      }
+    },
+    "intellectual": {
+      "title": "Intellectual Property Rights",
+      "content": "The website and its original content, features, and functionality are owned by Nati Gurevich and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws. All project code and implementations remain the intellectual property of their respective owners and clients."
+    },
+    "links": {
+      "title": "External Links",
+      "content": "This website may contain links to external websites that are not provided or maintained by Nati Gurevich. Please note that I do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites."
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "content": "The information on this website is provided on an 'as is' basis. To the fullest extent permitted by law, Nati Gurevich excludes all representations, warranties, conditions, and terms whether express or implied, statutory or otherwise."
+    },
+    "limitation": {
+      "title": "Limitation of Liability",
+      "content": "In no event shall Nati Gurevich, nor any of its officers, directors, and employees, be held liable for anything arising out of or in any way connected with your use of this website whether such liability is under contract, tort, or otherwise."
+    },
+    "changes": {
+      "title": "Changes to Terms",
+      "content": "Nati Gurevich reserves the right to revise these terms of use at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of use."
+    },
+    "contact": {
+      "title": "Contact Information",
+      "content": "If you have any questions about these Terms of Use, please contact me at:"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "Privacy policy for Nati Gurevich's portfolio website",
+    "lastUpdated": "Last updated",
+    "lastUpdatedDate": "January 2025",
+    "effectiveDate": "Effective date",
+    "effectiveDateDate": "January 1, 2025",
+    "introduction": {
+      "title": "Introduction",
+      "content": "This Privacy Policy describes how Nati Gurevich ('I', 'me', or 'my') collects, uses, and protects your information when you visit my portfolio website. I am committed to protecting your privacy and being transparent about my data practices."
+    },
+    "information": {
+      "title": "Information I Collect",
+      "personal": {
+        "title": "Personal Information You Provide",
+        "name": "Name and contact information when you reach out through contact forms",
+        "email": "Email address for communication purposes",
+        "message": "Messages and inquiries you send through the website"
+      },
+      "automatic": {
+        "title": "Information Collected Automatically",
+        "ip": "IP address and general location information",
+        "browser": "Browser type and version",
+        "device": "Device information (mobile, desktop, operating system)",
+        "usage": "Website usage patterns and analytics data"
+      }
+    },
+    "collection": {
+      "title": "How I Collect Information",
+      "forms": "Contact forms and direct communication",
+      "analytics": "Website analytics through Vercel Analytics",
+      "cookies": "Cookies and similar tracking technologies for preferences",
+      "interaction": "Your interactions with website features and content"
+    },
+    "usage": {
+      "title": "How I Use Your Information",
+      "respond": "Respond to your inquiries and professional opportunities",
+      "improve": "Improve website functionality and user experience",
+      "analytics": "Analyze website performance and visitor engagement",
+      "communicate": "Communicate about potential collaborations or opportunities",
+      "legal": "Comply with legal obligations and protect against misuse"
+    },
+    "sharing": {
+      "title": "Information Sharing",
+      "general": "I do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described below:",
+      "exceptions": {
+        "title": "Limited Exceptions",
+        "consent": "With your explicit consent",
+        "legal": "When required by law or to protect legal rights",
+        "providers": "With trusted service providers who assist in website operations (Vercel, accessibility services)"
+      }
+    },
+    "cookies": {
+      "title": "Cookies and Tracking Technologies",
+      "content": "I use cookies and similar technologies to enhance your browsing experience and analyze website performance.",
+      "types": {
+        "title": "Types of Cookies Used",
+        "essential": {
+          "title": "Essential Cookies",
+          "content": "Required for website functionality, including theme preferences and language settings"
+        },
+        "analytics": {
+          "title": "Analytics Cookies",
+          "content": "Help me understand how visitors interact with the website through Vercel Analytics"
+        },
+        "preferences": {
+          "title": "Preference Cookies",
+          "content": "Remember your settings and preferences for future visits"
+        }
+      }
+    },
+    "thirdParty": {
+      "title": "Third-Party Services",
+      "vercel": {
+        "title": "Vercel Analytics",
+        "content": "I use Vercel Analytics to understand website performance and visitor behavior. This service may collect anonymous usage data.",
+        "link": "Vercel Privacy Policy"
+      },
+      "accessibility": {
+        "title": "Accessibility Service",
+        "content": "I use accessibility tools to ensure the website is usable by people with disabilities. These services may collect data about accessibility feature usage.",
+        "link": "Accessibility Service Privacy Policy"
+      }
+    },
+    "security": {
+      "title": "Data Security",
+      "content": "I implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no internet transmission is completely secure, and I cannot guarantee absolute security."
+    },
+    "retention": {
+      "title": "Data Retention",
+      "content": "I retain personal information only for as long as necessary to fulfill the purposes outlined in this privacy policy or as required by law. Contact form submissions are typically retained for up to 2 years unless you request deletion."
+    },
+    "rights": {
+      "title": "Your Privacy Rights",
+      "access": "Access the personal information I have about you",
+      "correct": "Request correction of inaccurate information",
+      "delete": "Request deletion of your personal information",
+      "restrict": "Request restriction of processing",
+      "object": "Object to processing of your information",
+      "portability": "Request transfer of your data to another service"
+    },
+    "children": {
+      "title": "Children's Privacy",
+      "content": "This website is not intended for children under 13 years of age. I do not knowingly collect personal information from children under 13. If you become aware that a child has provided me with personal information, please contact me immediately."
+    },
+    "international": {
+      "title": "International Data Transfers",
+      "content": "Your information may be transferred to and processed in countries other than your country of residence. These countries may have different data protection laws. I ensure appropriate safeguards are in place to protect your information."
+    },
+    "changes": {
+      "title": "Changes to This Privacy Policy",
+      "content": "I may update this Privacy Policy periodically. I will notify you of any changes by posting the new Privacy Policy on this page and updating the 'Last updated' date. You are advised to review this Privacy Policy periodically for changes."
+    },
+    "contact": {
+      "title": "Contact Me",
+      "content": "If you have any questions about this Privacy Policy or wish to exercise your privacy rights, please contact me at:"
+    }
+  },
+  "accessibility": {
+    "title": "Accessibility Statement",
+    "company_name": "Nati Gurevich Portfolio",
+    "intro_paragraph_1": "is committed to ensuring digital accessibility for people with disabilities. I am continually improving the user experience for everyone and applying the relevant accessibility standards.",
+    "intro_paragraph_2": "This website aims to conform to Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards to ensure accessibility for users with disabilities.",
+    "accessibility_initiative_1": "I take accessibility seriously and strive to adhere to the",
+    "wcag_link": "Web Content Accessibility Guidelines (WCAG) 2.1",
+    "wcag_link_title": "Link to WCAG 2.1 Guidelines",
+    "accessibility_initiative_2": "Level AA standards. These guidelines explain how to make web content more accessible to people with disabilities.",
+    "accessibility_features_title": "Accessibility Features",
+    "feature_text_resize": "Text size adjustment - increase or decrease text size",
+    "feature_text_spacing": "Text spacing adjustment - increase or decrease spacing between letters",
+    "feature_line_height": "Line height adjustment - increase or decrease line spacing",
+    "feature_invert_colors": "Color inversion - invert website colors for better contrast",
+    "feature_gray_hues": "Grayscale mode - convert colors to grayscale",
+    "feature_underline_links": "Link highlighting - underline all clickable links",
+    "feature_big_cursor": "Large cursor - increase cursor size for better visibility",
+    "feature_reading_guide": "Reading guide - highlight current reading line",
+    "feature_text_to_speech": "Text-to-speech - convert text to audio",
+    "feature_speech_to_text": "Speech-to-text - voice input functionality",
+    "feature_disable_animations": "Animation control - disable website animations and transitions",
+    "contact_us_title": "Contact Us About Accessibility",
+    "contact_us_paragraph": "If you encounter any accessibility barriers while using this website, or if you have suggestions for improvement, please don't hesitate to contact me. I value your feedback and am committed to making this website accessible to everyone.",
+    "contact_info_title": "Contact Information:",
+    "email_label": "Email: ",
+    "accessibility_commitment": "I am committed to maintaining and improving the accessibility of this website. Regular accessibility audits are conducted, and updates are made to ensure ongoing compliance with accessibility standards. Your feedback helps me identify areas for improvement and ensure that all users can access and use this website effectively."
   },
   "404": {
     "header": "Hostages are still missing",

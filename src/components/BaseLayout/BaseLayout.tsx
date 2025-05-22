@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Widgets from "@/components/Widgets/Widgets";
+import AnalyticsProvider from "@/components/Analytics/Analytics";
 import { Language } from "@/lib/model/language";
 import { ThemeProvider } from "@/components/Theme/ThemeProvider";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
@@ -75,6 +76,7 @@ export default async function BaseLayout({
               </main>
               <Footer isMobile={isMobile} />
               <Widgets lang={locale} />
+              <AnalyticsProvider />
             </ThemeProvider>
           </ErrorBoundary>
         </NextIntlClientProvider>
