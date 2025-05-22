@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import ThemeToggle from "../../Theme/ThemeToggle";
 import LocaleSwitcher from "../../LocaleSwitcher/LocaleSwitcher";
 import { useDirection } from "@/hooks/useDirection";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 
 interface MobileNavProps {
   links: React.JSX.Element[];
@@ -18,28 +18,52 @@ export default function MobileNav({
   handleToggleMenu,
 }: MobileNavProps) {
   const { isRTL, direction } = useDirection();
-  const isMounted = useRef(true);
+  const isMountedRef = useRef(true);
 
-  // Track mounting state
   useEffect(() => {
-    isMounted.current = true;
+    isMountedRef.current = true;
+
     return () => {
-      isMounted.current = false;
+      isMountedRef.current = false;
     };
-  }, []);
+  }, [menuOpen]);
+
+  const safeToggleMenu = useCallback(
+    (event?: React.MouseEvent) => {
+      if (event) {
+        event.stopPropagation();
+      }
+
+      if (!isMountedRef.current) {
+        return;
+      }
+
+      handleToggleMenu();
+    },
+    [handleToggleMenu]
+  );
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
     <nav className='z-40 flex flex-col items-start'>
       <button
         className='relative z-50 flex flex-col justify-center items-center w-10 h-10 bg-transparent border-0 cursor-pointer p-0'
-        onClick={(e) => {
-          e.stopPropagation();
-          if (isMounted.current) {
-            handleToggleMenu();
-          }
-        }}
+        onClick={safeToggleMenu}
         aria-label='Toggle menu'
         aria-expanded={menuOpen}
+        type='button'
       >
         <div className='w-8 h-9 relative flex justify-center items-center'>
           <span
@@ -66,7 +90,7 @@ export default function MobileNav({
         </div>
       </button>
 
-      <AnimatePresence>
+      <AnimatePresence mode='wait'>
         {menuOpen && (
           <motion.aside
             initial={{ opacity: 0 }}
@@ -76,8 +100,8 @@ export default function MobileNav({
             className='fixed top-0 left-0 w-full h-screen bg-black/50 backdrop-blur-sm z-40'
             onClick={(e) => {
               e.stopPropagation();
-              if (isMounted.current) {
-                handleToggleMenu();
+              if (isMountedRef.current) {
+                safeToggleMenu();
               }
             }}
           >
@@ -104,7 +128,18 @@ export default function MobileNav({
                     }}
                     className='w-full'
                   >
-                    <div className='px-4 py-3 text-text hover:text-primary hover:bg-primary/5 transition-colors duration-200'>
+                    <div
+                      className='px-4 py-3 text-text hover:text-primary hover:bg-primary/5 transition-colors duration-200'
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // Close menu when link is clicked
+                        setTimeout(() => {
+                          if (isMountedRef.current) {
+                            safeToggleMenu();
+                          }
+                        }, 100);
+                      }}
+                    >
                       {link}
                     </div>
                   </motion.div>
