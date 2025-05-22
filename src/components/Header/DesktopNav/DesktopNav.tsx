@@ -10,7 +10,7 @@ const DesktopNav: React.FC<HeaderProps> = ({ links, children }) => {
     <div className='flex items-center flex-1 justify-center'>
       {children}
       <nav>
-        <ul className='flex items-center text-lg md:text-xl font-header rtl:text-2xl'>
+        <ul className='flex items-center text-lg md:text-xl font-header rtl:text-2xl gap-4'>
           {links}
         </ul>
       </nav>

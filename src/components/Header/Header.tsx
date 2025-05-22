@@ -71,7 +71,6 @@ export default function Header({
   ].map(({ href, name }, index, array) => (
     <li
       key={name}
-      className='relative mx-3 md:mx-4'
       onClick={(ev) => {
         if (isMobile) {
           ev.stopPropagation();
@@ -79,7 +78,7 @@ export default function Header({
         }
       }}
     >
-      <NavLink href={href} className='block py-2 px-1'>
+      <NavLink href={href} className={isMobile ? "" : "block py-2 px-1"}>
         {name}
       </NavLink>
 
