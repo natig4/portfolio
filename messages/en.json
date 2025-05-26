@@ -77,7 +77,8 @@
         },
         "liveDemo": "https://look-into-their-eyes.vercel.app/",
         "github": "https://github.com/lookIntoTheirEyes/look-into-their-eyes",
-        "isPrivate": ""
+        "isPrivate": "",
+        "inProgress": "true"
       },
       "jaMoveo": {
         "title": "JaMoveo",
@@ -97,11 +98,12 @@
         },
         "liveDemo": "https://jamoveo-8qpb.onrender.com",
         "github": "https://github.com/natig4/JaMoveo",
-        "isPrivate": ""
+        "isPrivate": "",
+        "inProgress": ""
       },
       "reportsManager": {
         "title": "Reports Manager",
-        "description": "A comprehensive reporting system for small businesses with modules for customer relationships, and financial reporting.",
+        "description": "A comprehensive enterprise reporting system built for financial services, designed to automate complex Excel-based report processing and data analysis workflows. The application features a modern Windows app interface with multi-language support (Hebrew/English) and handles large-scale financial data processing with advanced error detection and resolution capabilities.",
         "technologies": {
           "tech1": "C#",
           "tech2": ".NET Core",
@@ -111,7 +113,8 @@
         },
         "liveDemo": "",
         "github": "",
-        "isPrivate": "true"
+        "isPrivate": "true",
+        "inProgress": ""
       }
     }
   },

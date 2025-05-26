@@ -73,7 +73,8 @@
         },
         "liveDemo": "https://look-into-their-eyes.vercel.app/",
         "github": "https://github.com/lookIntoTheirEyes/look-into-their-eyes",
-        "isPrivate": ""
+        "isPrivate": "",
+        "inProgress": "true"
       },
       "jaMoveo": {
         "title": "JaMoveo",
@@ -93,11 +94,12 @@
         },
         "liveDemo": "https://jamoveo-8qpb.onrender.com",
         "github": "https://github.com/natig4/JaMoveo",
-        "isPrivate": ""
+        "isPrivate": "",
+        "inProgress": ""
       },
       "reportsManager": {
         "title": "מנהל דוחות",
-        "description": "מערכת לעדכון, בקרה וניתוח דוחות חודשיים לחברות ביטוח.",
+        "description": "מערכת דיווח ארגונית מקיפה הבנויה עבור שירותים פיננסיים, שתוכננה לאוטמציה של עיבוד דוחות אקסל מורכבים וזרימות עבודה של ניתוח נתונים. האפליקציה כוללת ממשק אפליקציה מודרני עם תמיכה רב-לשונית (עברית/אנגלית) ומטפלת בעיבוד נתונים פיננסיים בהיקף גדול עם יכולות מתקדמות לזיהוי ופתרון שגיאות.",
         "technologies": {
           "tech1": "C#",
           "tech2": ".NET Core",
@@ -107,7 +109,8 @@
         },
         "liveDemo": "",
         "github": "",
-        "isPrivate": "true"
+        "isPrivate": "true",
+        "inProgress": ""
       }
     }
   },
