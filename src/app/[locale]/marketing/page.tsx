@@ -23,7 +23,6 @@ export default async function MarketingPage() {
           contactLabel={t("buttons.getInTouch")}
           primaryLink='/projects'
           secondaryLink='/contact'
-          showBackground={false}
           titleKey='marketingTitle'
         />
       </div>

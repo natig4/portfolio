@@ -1,21 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import CTASection from "../CTASection/CTASection";
 
 interface HeaderSectionProps {
   title: string;
   subtitle: string;
-  viewProjectsLabel: string;
-  contactMeLabel: string;
 }
 
-export default function HeaderSection({
-  title,
-  subtitle,
-  viewProjectsLabel,
-  contactMeLabel,
-}: HeaderSectionProps) {
+export default function HeaderSection({ title, subtitle }: HeaderSectionProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -46,15 +38,6 @@ export default function HeaderSection({
       >
         {subtitle}
       </motion.p>
-
-      <CTASection
-        title=''
-        linkedInLabel={viewProjectsLabel}
-        contactLabel={contactMeLabel}
-        primaryLink='/projects'
-        secondaryLink='/contact'
-        showBackground={false}
-      />
     </motion.div>
   );
 }

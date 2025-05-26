@@ -63,7 +63,6 @@ export default async function ArticlesPage() {
           contactLabel={commonT("buttons.getInTouch")}
           primaryLink='/about'
           secondaryLink='/contact'
-          showBackground={false}
           titleKey='articlesTitle'
         />
       </div>

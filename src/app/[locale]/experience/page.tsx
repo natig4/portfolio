@@ -74,7 +74,6 @@ export default async function ExperiencePage() {
           contactLabel={commonT("buttons.contactMe")}
           primaryLink='/projects'
           secondaryLink='/contact'
-          showBackground={false}
           titleKey='experienceTitle'
         />
       </div>

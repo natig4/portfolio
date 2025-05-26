@@ -25,12 +25,7 @@ export default async function Home() {
           aria-labelledby='hero-title'
           className='w-full flex justify-center'
         >
-          <HeaderSection
-            title={t("title")}
-            subtitle={t("subtitle")}
-            viewProjectsLabel={t("viewProjects")}
-            contactMeLabel={t("contactMe")}
-          />
+          <HeaderSection title={t("title")} subtitle={t("subtitle")} />
         </section>
 
         <section
@@ -54,7 +49,7 @@ export default async function Home() {
             primaryLink='/projects'
             secondaryLink='/contact'
             useLinkedIn={false}
-            showBackground
+            pad
             titleKey='projectsTitle'
           />
         </section>

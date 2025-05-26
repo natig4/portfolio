@@ -84,7 +84,6 @@ export default async function AboutPage() {
           contactLabel={commonT("buttons.getInTouch")}
           primaryLink='/experience'
           secondaryLink='/contact'
-          showBackground={false}
           titleKey='aboutTitle'
         />
       </div>

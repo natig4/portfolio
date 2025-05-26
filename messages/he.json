@@ -7,7 +7,7 @@
     "name": "נתי גורביץ' | מהנדס תוכנה | פולסטאק",
     "links": {
       "projects": "פרויקטים",
-      "contact": "צור קשר"
+      "contact": "צרו קשר"
     }
   },
   "localeSwitcher": {
@@ -20,7 +20,7 @@
     "projects": "פרויקטים",
     "experience": "ניסיון",
     "articles": "מאמרים",
-    "contact": "צור קשר",
+    "contact": "צרו קשר",
     "marketing": "שיווק",
     "accessibility": "נגישות",
     "terms": "תנאי שימוש",
@@ -34,7 +34,7 @@
     "title": "מהנדס תוכנה פולסטאק",
     "subtitle": "מפתח באיכות גבוהה עם רקע ייחודי בניהול בקרת איכות",
     "viewProjects": "פרויקטים",
-    "contactMe": "צור קשר",
+    "contactMe": "צרו קשר",
     "location": "יסעור, מחוז הצפון, ישראל"
   },
   "about": {
@@ -170,7 +170,7 @@
   },
   "articles": {
     "title": "מאמרים אחרונים",
-    "followMe": "עקוב אחריי ב-מדיום",
+    "followMe": "עקבו אחריי ב-מדיום",
     "forMore": "לעוד מאמרים על פיתוח תוכנה והנדסת איכות",
     "articles": {
       "angularCache": {
@@ -194,7 +194,7 @@
     "chartCaption": "מדדי ביצוע לאורך תקופה של 3 חודשים המציגים צמיחה עקבית"
   },
   "contact": {
-    "title": "צור קשר",
+    "title": "צרו קשר",
     "info": "פרטי התקשרות",
     "email": "אימייל",
     "phone": "טלפון",
@@ -482,23 +482,23 @@
       "detailedExperience": "ניסיון"
     },
     "cta": {
-      "defaultTitle": "רוצה ללמוד עוד על הרקע המקצועי שלי?",
-      "projectsTitle": "מחפש מפתח ממוקד-איכות לפרויקט הבא שלך?",
-      "marketingTitle": "מחפש להקים קמפיין פרסום לעסק שלך?",
-      "experienceTitle": "רוצה לראות את המיומנויות שלי בפעולה?",
-      "contactTitle": "מעוניין לראות את העבודה שלי?",
-      "articlesTitle": "מעוניין ברקע ובמיומנויות שלי?",
-      "aboutTitle": "רוצה לראות את המסע שלי?"
+      "defaultTitle": "רוצים ללמוד עוד על הרקע המקצועי שלי?",
+      "projectsTitle": "מחפשים מפתח ממוקד-איכות לפרויקט הבא שלך?",
+      "marketingTitle": "מחפשים להקים קמפיין פרסום לעסק שלך?",
+      "experienceTitle": "רוצים לראות את המיומנויות שלי בפעולה?",
+      "contactTitle": "מעוניינים לראות את העבודה שלי?",
+      "articlesTitle": "מעוניינים ברקע ובמיומנויות שלי?",
+      "aboutTitle": "רוצים לראות את המסע שלי?"
     },
     "buttons": {
       "viewProjects": "פרויקטים",
       "viewExperience": "ניסיון",
-      "contactMe": "צור קשר",
-      "getInTouch": "צור קשר",
+      "contactMe": "צרו קשר",
+      "getInTouch": "צרו קשר",
       "learnAboutMe": "אודות",
       "github": "גיטהאב",
       "linkedin": "לינקדין"
     },
-    "readMore": "קרא את המאמר המלא"
+    "readMore": "קראו את המאמר המלא"
   }
 }

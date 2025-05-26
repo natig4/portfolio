@@ -9,7 +9,7 @@ interface CTASectionProps {
   contactLabel?: string;
   primaryLink?: Pathnames;
   secondaryLink?: Pathnames;
-  showBackground?: boolean;
+  pad?: boolean;
   useLinkedIn?: boolean;
   titleKey?: string;
 }
@@ -21,14 +21,12 @@ const CTASection = memo(function CTASection({
   contactLabel = "Contact Me",
   primaryLink = "/projects",
   secondaryLink = "/contact",
-  showBackground = true,
+  pad = false,
   useLinkedIn = false,
   titleKey = "defaultTitle",
 }: CTASectionProps) {
   const t = useTranslations("common");
-  const containerClass = showBackground
-    ? "w-full py-10 bg-blue-50/90 dark:bg-blue-950/10"
-    : "w-full";
+  const containerClass = `w-full ${pad ? "py-10" : ""}`;
 
   const displayTitle = title || t(`cta.${titleKey}`);
 
