@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { memo } from "react";
 import { FaExternalLinkAlt, FaGithub, FaLock } from "react-icons/fa";
 import { getTechIcon, Project } from "../sections/Projects";
+import InProgressRibbon from "../InProgressRibbon/InProgressRibbon";
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -41,6 +42,8 @@ const ProjectCard = memo(function ProjectCard({
         },
       };
 
+  console.log("project.inProgress", project);
+
   return (
     <motion.article
       variants={itemVariants}
@@ -56,6 +59,10 @@ const ProjectCard = memo(function ProjectCard({
           className={`h-2 bg-gradient-to-r ${project.gradient}`}
           aria-hidden='true'
         />
+
+        {project.inProgress === "true" && (
+          <InProgressRibbon animate={!prefersReducedMotion} />
+        )}
 
         <div className='p-6 flex-1 flex flex-col'>
           <header>

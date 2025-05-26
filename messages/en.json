@@ -66,6 +66,7 @@
     "private": "Private",
     "liveDemo": "Live Demo",
     "technologies": "Technologies",
+    "inProgress": "In Progress",
     "projects": {
       "lookIntoThierEyes": {
         "title": "Look Into Their Eyes",

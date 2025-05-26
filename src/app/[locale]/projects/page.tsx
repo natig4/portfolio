@@ -40,6 +40,7 @@ async function getProjects(): Promise<Project[]> {
         "liveDemo",
         "github",
         "isPrivate",
+        "inProgress",
       ]);
 
       return {
@@ -65,6 +66,7 @@ export default async function ProjectsPage() {
   const translatedCodeLabel = t("code");
   const translatedPrivateLabel = t("private");
   const translatedLiveDemoLabel = t("liveDemo");
+  const translatedProgressLabel = t("inProgress");
 
   return (
     <div
@@ -78,6 +80,7 @@ export default async function ProjectsPage() {
         title={translatedTitle}
         projects={projects}
         labels={{
+          inProgress: translatedProgressLabel,
           code: translatedCodeLabel,
           private: translatedPrivateLabel,
           liveDemo: translatedLiveDemoLabel,
