@@ -177,6 +177,7 @@ export default function Header({
                 className='flex items-center justify-center mr-8 rtl:mr-0 rtl:ml-8 p-2 rounded-lg hover:bg-primary/5 transition-colors duration-200'
               >
                 <Image
+                  style={{ borderRadius: 8 }}
                   src='/icons/NgLogo.png'
                   alt='Nati Gurevich professional logo'
                   width={44}

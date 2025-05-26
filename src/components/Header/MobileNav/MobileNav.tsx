@@ -236,8 +236,7 @@ export default function MobileNav({
               aria-label='Main mobile navigation'
             >
               <div className='flex flex-col h-full overflow-hidden'>
-                {/* Mobile menu header with logo */}
-                <header className='flex-shrink-0 px-6 py-4 border-b border-border/30 bg-surface dark:bg-gray-900'>
+                <header className='flex-shrink-0 px-3 py-4 border-b border-border/30 bg-surface dark:bg-gray-900'>
                   <h2 id='mobile-menu-title' className='sr-only'>
                     Mobile Navigation Menu
                   </h2>
@@ -253,6 +252,7 @@ export default function MobileNav({
                       onClick={handleNavItemClick}
                     >
                       <Image
+                        style={{ borderRadius: 8 }}
                         src='/icons/NgLogo.png'
                         alt='Nati Gurevich professional logo'
                         width={36}
@@ -272,8 +272,7 @@ export default function MobileNav({
                     className='flex flex-col w-full pt-6 font-header min-h-0'
                     role='list'
                   >
-                    {/* Add Home link at the top of mobile menu */}
-                    <motion.li
+                    <motion.div
                       key='home-link'
                       initial={{ opacity: 0, x: isRTL ? 10 : -10 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -301,10 +300,10 @@ export default function MobileNav({
                           {isRTL ? "בית" : "Home"}
                         </NavLink>
                       </div>
-                    </motion.li>
+                    </motion.div>
 
                     {links.map((link, index) => (
-                      <motion.li
+                      <motion.div
                         key={`nav-link-${index}`}
                         initial={{ opacity: 0, x: isRTL ? 10 : -10 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -329,7 +328,7 @@ export default function MobileNav({
                         >
                           {link}
                         </div>
-                      </motion.li>
+                      </motion.div>
                     ))}
                   </ul>
                 </main>
