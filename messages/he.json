@@ -112,6 +112,24 @@
         "github": "",
         "isPrivate": "true",
         "inProgress": ""
+      },
+      "torGroup": {
+        "title": "TOR Group",
+        "description": "אתר קורפורטיבי מודרני ורספונסיבי עבור TOR Group, חברת שירותים פיננסיים המתמחה בגיוס השקעות והנפקת אגרות חוב בינלאומיות עבור שווקים מתפתחים. האתר כולל עיצוב בנושא צמיחה, תיק שירותים מקיף, פרופילי צוות ותמיכה רב-לשונית עם תכונות נגישות מתקדמות.",
+        "technologies": {
+          "tech1": "נקסט",
+          "tech2": "טייפסקריפט",
+          "tech3": "Framer Motion",
+          "tech4": "next-intl",
+          "tech5": "CSS Modules",
+          "tech6": "EmailJS",
+          "tech7": "גוגל אנליטיקס",
+          "tech8": "ריאקט 19"
+        },
+        "liveDemo": "https://thetorgroup.com",
+        "github": "",
+        "isPrivate": "true",
+        "inProgress": ""
       }
     }
   },

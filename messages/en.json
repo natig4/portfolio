@@ -116,6 +116,24 @@
         "github": "",
         "isPrivate": "true",
         "inProgress": ""
+      },
+      "torGroup": {
+        "title": "TOR Group",
+        "description": "A modern, responsive corporate website for TOR Group, a financial services company specializing in investment fundraising and international bond issuance for emerging markets. The site features a growth-themed design, comprehensive service portfolio, team profiles, and multi-language support with advanced accessibility features.",
+        "technologies": {
+          "tech1": "Next.js",
+          "tech2": "TypeScript",
+          "tech3": "Framer Motion",
+          "tech4": "next-intl",
+          "tech5": "CSS Modules",
+          "tech6": "EmailJS",
+          "tech7": "Google Analytics",
+          "tech8": "React"
+        },
+        "liveDemo": "https://thetorgroup.com",
+        "github": "",
+        "isPrivate": "true",
+        "inProgress": ""
       }
     }
   },

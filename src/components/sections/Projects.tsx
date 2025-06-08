@@ -2,7 +2,13 @@
 
 import { memo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { FaGithub, FaSpider, FaWindows, FaFileExcel } from "react-icons/fa";
+import {
+  FaGithub,
+  FaSpider,
+  FaWindows,
+  FaFileExcel,
+  FaGlobe,
+} from "react-icons/fa";
 import { JSX } from "react";
 import { useTranslations } from "next-intl";
 import {
@@ -25,6 +31,10 @@ import {
   SiTypescript,
   SiAuth0,
   SiHelm,
+  SiCss3,
+  SiMaildotru,
+  SiFramer,
+  SiGoogleanalytics,
 } from "react-icons/si";
 import ProjectCard from "../Project/Project";
 
@@ -51,6 +61,11 @@ const techIconMap: { [key: string]: JSX.Element } = {
   JWT: <SiJsonwebtokens className='text-yellow-400' />,
   WPF: <FaWindows className='text-blue-700' />,
   EPPlus: <FaFileExcel className='text-green-600' />,
+  "Framer Motion": <SiFramer className='text-pink-500' />,
+  "next-intl": <FaGlobe className='text-blue-500' />,
+  "CSS Modules": <SiCss3 className='text-blue-600' />,
+  EmailJS: <SiMaildotru className='text-red-500' />,
+  "Google Analytics": <SiGoogleanalytics className='text-orange-500' />,
 };
 
 const hebrewToEnglishTechMap: { [key: string]: string } = {
@@ -72,6 +87,10 @@ const hebrewToEnglishTechMap: { [key: string]: string } = {
   JWT: "JWT",
   WPF: "WPF",
   EPPlus: "EPPlus",
+  "פריימר מושן": "Framer Motion",
+  "next-intl": "next-intl",
+  EmailJS: "EmailJS",
+  "גוגל אנליטיקס": "Google Analytics",
 };
 
 export function getTechIcon(tech: string) {
