@@ -169,7 +169,7 @@ const ProjectsSection = memo(function ProjectsSection({
         variants={containerVariants}
         initial='hidden'
         animate='visible'
-        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start'
+        className='columns-1 md:columns-2 lg:columns-3'
         aria-label='Portfolio projects'
       >
         {projects.map((project) => (

@@ -42,13 +42,11 @@ const ProjectCard = memo(function ProjectCard({
         },
       };
 
-  console.log("project.inProgress", project);
-
   return (
     <motion.article
       variants={itemVariants}
       {...hoverProps}
-      className='will-change-transform group relative'
+      className='will-change-transform group relative mb-6 px-2 break-inside-avoid'
       role='article'
       aria-labelledby={`project-${project.title
         .replace(/\s+/g, "-")
