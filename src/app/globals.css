@@ -88,7 +88,6 @@ html[dir="rtl"] {
         transparent 50%
       );
     background-size: 150% 150%;
-    background-attachment: fixed;
   }
 
   h1,
@@ -98,6 +97,7 @@ html[dir="rtl"] {
   h5,
   h6 {
     font-weight: 700;
+    text-wrap: balance;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     background-clip: text;
     -webkit-background-clip: text;
@@ -116,9 +116,13 @@ html[dir="rtl"] {
     }
   }
 
-  html,
   body,
-  * {
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  [role="button"] {
     transition: var(--theme-transition);
   }
 
@@ -223,14 +227,41 @@ html[dir="rtl"] {
 
 @layer utilities {
   .will-change-transform {
+    will-change: auto;
+  }
+  .will-change-transform:hover {
     will-change: transform;
   }
 
   .will-change-opacity {
+    will-change: auto;
+  }
+  .will-change-opacity:hover {
     will-change: opacity;
   }
 
   .will-change-colors {
+    will-change: auto;
+  }
+  .will-change-colors:hover {
     will-change: background-color, border-color, color, fill, stroke;
+  }
+
+  @keyframes blob-float-1 {
+    0%, 100% { transform: translateY(0); opacity: 0.3; }
+    50% { transform: translateY(-20px); opacity: 0.6; }
+  }
+
+  @keyframes blob-float-2 {
+    0%, 100% { transform: translateY(0); opacity: 0.3; }
+    50% { transform: translateY(20px); opacity: 0.5; }
+  }
+
+  .animate-blob-1 {
+    animation: blob-float-1 8s ease-in-out infinite;
+  }
+
+  .animate-blob-2 {
+    animation: blob-float-2 10s ease-in-out 1s infinite;
   }
 }

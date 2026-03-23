@@ -24,7 +24,6 @@ export default function HeaderSection({ title, subtitle }: HeaderSectionProps) {
         transition={{
           duration: 6,
           ease: "linear",
-          repeat: Infinity,
         }}
       >
         {title}
