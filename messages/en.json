@@ -469,8 +469,8 @@
     "accessibility_commitment": "I am committed to maintaining and improving the accessibility of this website. Regular accessibility audits are conducted, and updates are made to ensure ongoing compliance with accessibility standards. Your feedback helps me identify areas for improvement and ensure that all users can access and use this website effectively."
   },
   "404": {
-    "header": "Hostages are still missing",
-    "secondary-header": "Also it seems like you got to an unknown page",
+    "header": "Page not found",
+    "secondary-header": "Looks like this page doesn't exist",
     "link1": "Click ",
     "cta": "here",
     "link2": "to go back home"

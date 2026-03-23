@@ -8,7 +8,7 @@ export default function NotFoundPage() {
     <div className='container mx-auto px-4 py-8'>
       <h1 className='text-6xl md:text-7xl font-bold pt-8 pb-12 leading-tight'>
         <strong className='text-primary-700'>
-          {/* 404 changed to 58 */}58
+          404
         </strong>{" "}
         <span>{t("header")}</span>
       </h1>
