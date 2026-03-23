@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useDirection } from "@/hooks/useDirection";
 import { memo } from "react";
@@ -10,7 +10,7 @@ const MarketingSection = memo(function MarketingSection() {
   const t = useTranslations("marketing");
   const { direction, isRTL } = useDirection();
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -21,7 +21,7 @@ const MarketingSection = memo(function MarketingSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,

@@ -6,5 +6,5 @@ export const Language = {
 export type Language = (typeof Language)[keyof typeof Language];
 
 export interface ILanguageProps {
-  params: Promise<{ locale: Language }>;
+  params: Promise<{ locale: string }>;
 }

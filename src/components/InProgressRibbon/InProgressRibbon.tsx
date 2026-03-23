@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { memo } from "react";
 import { useDirection } from "@/hooks/useDirection";
@@ -15,22 +15,22 @@ const InProgressRibbon = memo(function InProgressRibbon({
   const t = useTranslations("projects");
   const { isRTL } = useDirection();
 
-  const RibbonComponent = animate ? motion.div : "div";
-  const animationProps = animate
-    ? {
-        initial: { opacity: 0, scale: 0.8, rotate: isRTL ? -15 : 15 },
-        animate: { opacity: 1, scale: 1, rotate: isRTL ? -12 : 12 },
-        transition: { delay: 0.3, duration: 0.4, ease: "easeOut" },
-        whileHover: { scale: 1.05, rotate: isRTL ? -10 : 10 },
-      }
-    : {};
+  const variants: Variants = {
+    hidden: { opacity: 0, scale: 0.8, rotate: isRTL ? -15 : 15 },
+    visible: { opacity: 1, scale: 1, rotate: isRTL ? -12 : 12 },
+    hover: { scale: 1.05, rotate: isRTL ? -10 : 10 },
+  };
 
   return (
-    <RibbonComponent
+    <motion.div
       className={`absolute ${
         isRTL ? "top-5 left-0" : "top-8 right-0"
       } z-20 ${className}`}
-      {...animationProps}
+      variants={variants}
+      initial={animate ? "hidden" : false}
+      animate={animate ? "visible" : undefined}
+      transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
+      whileHover={animate ? "hover" : undefined}
     >
       <div className='relative'>
         <div
@@ -54,7 +54,7 @@ const InProgressRibbon = memo(function InProgressRibbon({
           </div>
         </div>
       </div>
-    </RibbonComponent>
+    </motion.div>
   );
 });
 

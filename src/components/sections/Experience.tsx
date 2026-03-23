@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useDirection } from "@/hooks/useDirection";
 import { JSX, memo } from "react";
 import { useTranslations } from "next-intl";
@@ -27,7 +27,7 @@ interface ExperienceSectionProps {
   isMobile: boolean;
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -38,7 +38,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
@@ -47,6 +47,11 @@ const itemVariants = {
       duration: 0.4,
       ease: "easeOut",
     },
+  },
+  hover: {
+    y: -5,
+    scale: 1.01,
+    transition: { duration: 0.2, ease: "easeOut" },
   },
 };
 
@@ -202,11 +207,8 @@ const ExperienceSection = memo(function ExperienceSection({
               )}
 
               <motion.div
-                whileHover={{
-                  y: -5,
-                  scale: 1.01,
-                  transition: { duration: 0.2, ease: "easeOut" },
-                }}
+                variants={itemVariants}
+                whileHover="hover"
                 className='relative md:ml-16 bg-surface/80 dark:bg-surface/60 backdrop-blur-lg p-8 rounded-2xl border border-border/30 overflow-hidden group transition-all duration-200'
                 dir={direction}
               >

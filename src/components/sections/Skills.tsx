@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import SkillCard from "@/components/SkillCard/SkillCard";
 import { ReactNode } from "react";
 import { useTranslations } from "next-intl";
@@ -47,7 +47,7 @@ export default function SkillsSection({ title }: SkillsSectionProps) {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -58,7 +58,7 @@ export default function SkillsSection({ title }: SkillsSectionProps) {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { JSX } from "react";
 import SkillCard from "@/components/SkillCard/SkillCard";
 import { useDirection } from "@/hooks/useDirection";
@@ -45,7 +45,7 @@ const AboutSection = memo(function AboutSection({
 }: AboutSectionProps) {
   const { direction } = useDirection();
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -56,7 +56,7 @@ const AboutSection = memo(function AboutSection({
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,

@@ -1,11 +1,11 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { memo } from "react";
 import { FaExternalLinkAlt, FaGithub, FaLock } from "react-icons/fa";
 import { getTechIcon, Project } from "../sections/Projects";
 import InProgressRibbon from "../InProgressRibbon/InProgressRibbon";
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
@@ -14,6 +14,11 @@ const itemVariants = {
       duration: 0.3,
       ease: "easeOut",
     },
+  },
+  hover: {
+    y: -10,
+    scale: 1.02,
+    transition: { duration: 0.2, ease: "easeOut" },
   },
 };
 
@@ -32,20 +37,11 @@ const ProjectCard = memo(function ProjectCard({
   prefersReducedMotion: boolean;
 }) {
   const t = useTranslations("projects");
-  const hoverProps = prefersReducedMotion
-    ? {}
-    : {
-        whileHover: {
-          y: -10,
-          scale: 1.02,
-          transition: { duration: 0.2, ease: "easeOut" },
-        },
-      };
 
   return (
     <motion.article
       variants={itemVariants}
-      {...hoverProps}
+      whileHover={prefersReducedMotion ? undefined : "hover"}
       className='will-change-transform group relative mb-6 px-2 break-inside-avoid'
       role='article'
       aria-labelledby={`project-${project.title

@@ -31,7 +31,7 @@ import {
   SiTypescript,
   SiAuth0,
   SiHelm,
-  SiCss3,
+  SiCss,
   SiMaildotru,
   SiFramer,
   SiGoogleanalytics,
@@ -63,7 +63,7 @@ const techIconMap: { [key: string]: JSX.Element } = {
   EPPlus: <FaFileExcel className='text-green-600' />,
   "Framer Motion": <SiFramer className='text-pink-500' />,
   "next-intl": <FaGlobe className='text-blue-500' />,
-  "CSS Modules": <SiCss3 className='text-blue-600' />,
+  "CSS Modules": <SiCss className='text-blue-600' />,
   EmailJS: <SiMaildotru className='text-red-500' />,
   "Google Analytics": <SiGoogleanalytics className='text-orange-500' />,
 };

@@ -1,7 +1,7 @@
 "use client";
 
 import { memo } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, Variants } from "framer-motion";
 import { useDirection } from "@/hooks/useDirection";
 import { FaMedium } from "react-icons/fa";
 import { useTranslations } from "next-intl";
@@ -30,7 +30,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
@@ -39,6 +39,11 @@ const itemVariants = {
       duration: 0.3,
       ease: "easeOut",
     },
+  },
+  hover: {
+    y: -8,
+    scale: 1.02,
+    transition: { duration: 0.2, ease: "easeOut" },
   },
 };
 
@@ -52,20 +57,11 @@ const ArticleCard = memo(function ArticleCard({
   prefersReducedMotion: boolean;
 }) {
   const t = useTranslations("common");
-  const hoverProps = prefersReducedMotion
-    ? {}
-    : {
-        whileHover: {
-          y: -8,
-          scale: 1.02,
-          transition: { duration: 0.2, ease: "easeOut" },
-        },
-      };
 
   return (
     <motion.div
       variants={itemVariants}
-      {...hoverProps}
+      whileHover={prefersReducedMotion ? undefined : "hover"}
       className='will-change-transform bg-surface/80 dark:bg-surface/60 backdrop-blur-sm p-7 rounded-2xl border border-border/30 relative overflow-hidden group h-full flex flex-col'
       dir={direction}
     >

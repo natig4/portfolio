@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, memo } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, Variants } from "framer-motion";
 import {
   FaEnvelope,
   FaPhone,
@@ -47,7 +47,7 @@ interface ContactSectionProps {
   contactInfo: ContactInfoData;
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -58,7 +58,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
@@ -80,7 +80,7 @@ const ContactForm = memo(function ContactForm({
   formData: { name: string; email: string; message: string };
   isSubmitting: boolean;
   handleInputChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
   handleSubmit: (e: React.FormEvent) => void;
   form: ContactInfoData["form"];
@@ -193,7 +193,7 @@ const ContactSection = memo(function ContactSection({
   const t = useTranslations("common");
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
