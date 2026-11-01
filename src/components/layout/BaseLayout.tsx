@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/i18n/routing";
 import { fontVariables } from "@/app/fonts";
 import Widgets from "@/components/Widgets/Widgets";
@@ -18,6 +18,8 @@ export default async function BaseLayout({
   locale: AppLocale;
 }) {
   const t = await getTranslations("nav");
+  // Client components get their labels as props; only the error boundary reads the catalog.
+  const { error } = await getMessages();
 
   return (
     <html
@@ -38,7 +40,7 @@ export default async function BaseLayout({
         </noscript>
       </head>
       <body className='flex min-h-dvh flex-col'>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={{ error }}>
           <Providers>
             <a
               href='#main-content'

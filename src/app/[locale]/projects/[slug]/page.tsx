@@ -50,6 +50,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+type ProjectCopyKey =
+  | "title"
+  | "client"
+  | "sector"
+  | "tagline"
+  | "summary"
+  | "role"
+  | "challenge"
+  | "solution"
+  | "result"
+  | "alt.desktop"
+  | "alt.mobile"
+  | "alt.full";
+
 const bodyText = "mt-4 text-lg leading-relaxed text-foreground/85";
 const sectionTitle = "text-2xl font-semibold tracking-tight";
 
@@ -61,7 +75,7 @@ export default async function CaseStudyPage({ params }: Props) {
   const t = await getTranslations("projects");
   const project = getProject(slug);
   const shots = getProjectShots(slug);
-  const item = (key: string) => t(`items.${slug}.${key}`);
+  const item = (key: ProjectCopyKey) => t(`items.${slug}.${key}`);
   const highlights = t.raw(`items.${slug}.highlights`) as string[];
   const url = "url" in project ? project.url : undefined;
   const years =

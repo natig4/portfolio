@@ -1,11 +1,9 @@
 {
   "meta": {
     "title": "Nati Gurevich — New Generation SW",
-    "description": "New Generation SW builds fast, accessible websites, web apps and internal tools. Led by Nati Gurevich, full-stack engineer (ex-Outbrain) with a quality-first background.",
-    "siteName": "New Generation SW"
+    "description": "New Generation SW builds fast, accessible websites, web apps and internal tools. Led by Nati Gurevich, full-stack engineer (ex-Outbrain) with a quality-first background."
   },
   "nav": {
-    "home": "Home",
     "work": "Work",
     "about": "About",
     "marketing": "Marketing",
@@ -395,53 +393,91 @@
     }
   },
   "articles": {
-    "title": "Recent Articles",
-    "followMe": "Follow me on Medium",
-    "forMore": "For more articles on software development and quality engineering",
-    "articles": {
-      "angularCache": {
+    "page": {
+      "eyebrow": "Articles",
+      "title": "Writing",
+      "description": "Notes on software development and quality engineering, from problems I’ve solved in production.",
+      "follow": "Follow on Medium"
+    },
+    "labels": {
+      "read": "Read on Medium",
+      "language": {
+        "en": "In English",
+        "he": "In Hebrew"
+      },
+      "newTab": "(opens in a new tab)"
+    },
+    "items": {
+      "angular-event-buffer": {
         "title": "Building an Efficient Event Buffer Service in Angular with RxJS",
-        "date": "May 13, 2025",
-        "excerpt": "How to reduce network overhead and improve performance by batching high-frequency events?"
+        "excerpt": "How to reduce network overhead and improve performance by batching high-frequency events."
       }
     }
   },
   "marketing": {
-    "title": "Marketing Performance",
-    "subtitle": "Campaign Performance Highlights",
-    "description": "Showcasing the growth metrics of a recent marketing campaign I managed, resulting in significant improvements across key performance indicators.",
-    "prevQuarter": "vs. prev. quarter",
-    "metrics": {
-      "purchases": "Purchases",
-      "firstPurchase": "New purchases",
-      "activity": "Site Activity",
-      "users": "Active Users"
+    "page": {
+      "eyebrow": "Marketing",
+      "title": "Campaign results",
+      "description": "Beyond building the product, I help businesses grow it — campaign setup, tracking and optimization. Here are results from campaigns I’ve managed."
     },
-    "chartCaption": "Performance metrics over a 3-month period showing consistent growth"
+    "labels": {
+      "comparison": "vs. previous quarter"
+    },
+    "cases": {
+      "quarterly-growth": {
+        "title": "Quarter-over-quarter campaign growth",
+        "summary": "Growth metrics from a recent marketing campaign I managed, with significant improvements across every key performance indicator.",
+        "chartAlt": "Line chart of active users, site activity, new buyers and purchases rising over three months",
+        "chartCaption": "Performance over a three-month period, showing consistent growth",
+        "metrics": {
+          "users": "Active users",
+          "activity": "Site activity",
+          "newBuyers": "New buyers",
+          "purchases": "Purchases"
+        }
+      }
+    }
   },
   "contact": {
-    "title": "Get In Touch",
-    "info": "Contact Information",
-    "email": "Email",
-    "phone": "Phone",
-    "location": "Location",
-    "linkedin": "LinkedIn",
-    "sendMessage": "Send Me a Message",
+    "page": {
+      "eyebrow": "Contact",
+      "title": "Let’s talk about your project",
+      "description": "Tell me a bit about what you need — a new website, a web platform, or help with an existing product — and I’ll get back to you with next steps."
+    },
+    "details": {
+      "title": "Direct contact",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "locationValue": "Yasur, Western Galilee — working with clients across Israel and abroad",
+      "linkedin": "LinkedIn",
+      "newTab": "(opens in a new tab)"
+    },
     "form": {
+      "title": "Send a message",
       "name": "Name",
       "email": "Email",
-      "message": "Message",
+      "company": "Company",
+      "optional": "optional",
+      "message": "What are you building?",
       "namePlaceholder": "Your name",
-      "emailPlaceholder": "Your email",
-      "messagePlaceholder": "Your message",
-      "send": "Send Message"
+      "emailPlaceholder": "you@company.com",
+      "companyPlaceholder": "Company or project name",
+      "messagePlaceholder": "A few lines about the project, timeline and anything else that helps.",
+      "send": "Send message",
+      "note": "This opens your email app with the message ready to send.",
+      "opened": "Your email app should open now. If it didn’t, email me directly at {email}.",
+      "subject": "New project inquiry — {name}",
+      "bodyName": "Name",
+      "bodyEmail": "Email",
+      "bodyCompany": "Company"
     }
   },
   "terms": {
     "title": "Terms of Use",
-    "metaDescription": "Terms of use for Nati Gurevich's portfolio website",
+    "metaDescription": "Terms of use for the New Generation SW website",
     "lastUpdated": "Last updated",
-    "lastUpdatedDate": "May 2025",
+    "lastUpdatedDate": "November 2026",
     "effectiveDate": "Effective date",
     "effectiveDateDate": "May 22, 2025",
     "acceptance": {
@@ -450,7 +486,7 @@
     },
     "description": {
       "title": "Website Description",
-      "content": "This website serves as a professional portfolio and resume for Nati Gurevich, showcasing software development projects, professional experience, and contact information for potential employers and collaborators."
+      "content": "This website presents New Generation SW, a software studio led by Nati Gurevich, and showcases its services, projects, professional experience and contact information for prospective clients and collaborators."
     },
     "usage": {
       "title": "Permitted Use",
@@ -469,23 +505,23 @@
     },
     "intellectual": {
       "title": "Intellectual Property Rights",
-      "content": "The website and its original content, features, and functionality are owned by Nati Gurevich and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws. All project code and implementations remain the intellectual property of their respective owners and clients."
+      "content": "The website and its original content, features, and functionality are owned by Nati Gurevich (New Generation SW) and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws. All project code and implementations remain the intellectual property of their respective owners and clients."
     },
     "links": {
       "title": "External Links",
-      "content": "This website may contain links to external websites that are not provided or maintained by Nati Gurevich. Please note that I do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites."
+      "content": "This website may contain links to external websites that are not provided or maintained by Nati Gurevich (New Generation SW). Please note that I do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites."
     },
     "disclaimer": {
       "title": "Disclaimer",
-      "content": "The information on this website is provided on an 'as is' basis. To the fullest extent permitted by law, Nati Gurevich excludes all representations, warranties, conditions, and terms whether express or implied, statutory or otherwise."
+      "content": "The information on this website is provided on an 'as is' basis. To the fullest extent permitted by law, Nati Gurevich (New Generation SW) excludes all representations, warranties, conditions, and terms whether express or implied, statutory or otherwise."
     },
     "limitation": {
       "title": "Limitation of Liability",
-      "content": "In no event shall Nati Gurevich, nor any of its officers, directors, and employees, be held liable for anything arising out of or in any way connected with your use of this website whether such liability is under contract, tort, or otherwise."
+      "content": "In no event shall Nati Gurevich (New Generation SW), nor any of its officers, directors, and employees, be held liable for anything arising out of or in any way connected with your use of this website whether such liability is under contract, tort, or otherwise."
     },
     "changes": {
       "title": "Changes to Terms",
-      "content": "Nati Gurevich reserves the right to revise these terms of use at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of use."
+      "content": "Nati Gurevich (New Generation SW) reserves the right to revise these terms of use at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of use."
     },
     "contact": {
       "title": "Contact Information",
@@ -494,14 +530,14 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "description": "Privacy policy for Nati Gurevich's portfolio website",
+    "description": "Privacy policy for the New Generation SW website",
     "lastUpdated": "Last updated",
-    "lastUpdatedDate": "May 2025",
+    "lastUpdatedDate": "November 2026",
     "effectiveDate": "Effective date",
     "effectiveDateDate": "May 22, 2025",
     "introduction": {
       "title": "Introduction",
-      "content": "This Privacy Policy describes how Nati Gurevich ('I', 'me', or 'my') collects, uses, and protects your information when you visit my portfolio website. I am committed to protecting your privacy and being transparent about my data practices."
+      "content": "This Privacy Policy describes how Nati Gurevich (New Generation SW) ('I', 'me', or 'my') collects, uses, and protects your information when you visit this website. I am committed to protecting your privacy and being transparent about my data practices."
     },
     "information": {
       "title": "Information I Collect",
@@ -612,7 +648,7 @@
   },
   "accessibility": {
     "title": "Accessibility Statement",
-    "company_name": "Nati Gurevich Portfolio",
+    "company_name": "New Generation SW",
     "intro_paragraph_1": "is committed to ensuring digital accessibility for people with disabilities. I am continually improving the user experience for everyone and applying the relevant accessibility standards.",
     "intro_paragraph_2": "This website aims to conform to Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards to ensure accessibility for users with disabilities.",
     "accessibility_initiative_1": "I take accessibility seriously and strive to adhere to the",
@@ -643,50 +679,6 @@
     "description": "An unexpected error interrupted this page. Try again, or head back home.",
     "retry": "Try again",
     "home": "Back to home"
-  },
-  "common": {
-    "skills": {
-      "title": "Technical Skills",
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "database": "Database",
-      "devops": "DevOps"
-    },
-    "subtitles": {
-      "skills": "Showcasing modern technologies and development expertise",
-      "projects": "Showcasing innovative solutions built with modern technologies",
-      "experience": "My professional journey across development and quality assurance",
-      "articles": "Thoughts, insights, and tutorials from my experiences in the tech industry",
-      "contact": "Let's connect and discuss your next project or opportunity",
-      "moreProjects": "More projects coming soon! Follow my journey on"
-    },
-    "career": {
-      "journeyTitle": "From QA Leadership to Software Engineering",
-      "journeyDescription": "My journey from QA to development has shaped my unique perspective on software engineering. I approach every project with quality as the primary focus, combining rigorous testing methodologies with modern development practices to create robust, maintainable software that exceeds both technical requirements and user expectations.",
-      "detailedExperience": "Detailed Experience"
-    },
-    "cta": {
-      "defaultTitle": "Want to learn more about my professional background?",
-      "marketingTitle": "Looking to upscale your businesses as well?",
-      "projectsTitle": "Looking for a quality-focused developer for your next project?",
-      "experienceTitle": "Want to see my technical skills in action?",
-      "contactTitle": "Interested in seeing my work?",
-      "articlesTitle": "Interested in my background and technical skills?",
-      "aboutTitle": "Want to see my professional journey?"
-    },
-    "medium": {
-      "follow": "Follow on Medium"
-    },
-    "buttons": {
-      "viewProjects": "View Projects",
-      "viewExperience": "View Experience",
-      "contactMe": "Contact",
-      "getInTouch": "Get In Touch",
-      "learnAboutMe": "About Me",
-      "github": "GitHub",
-      "linkedin": "LinkedIn"
-    },
-    "readMore": "Read Full Article"
   },
   "notFound": {
     "title": "This page does not exist",

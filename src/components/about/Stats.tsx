@@ -17,11 +17,8 @@ export default function Stats() {
           <dt className='text-sm leading-snug text-muted-foreground'>
             {label}
           </dt>
-          <dd
-            className='mt-2 text-3xl font-semibold tracking-tight tabular-nums'
-            dir='ltr'
-          >
-            {value}
+          <dd className='mt-2 text-3xl font-semibold tracking-tight tabular-nums'>
+            <bdi dir='ltr'>{value}</bdi>
           </dd>
         </div>
       ))}

@@ -39,7 +39,7 @@ export default async function AccessibilityPage({ params }: Props) {
     "feature_text_to_speech",
     "feature_speech_to_text",
     "feature_disable_animations",
-  ];
+  ] as const;
 
   return (
     <LegalPage title={t("title")}>

@@ -62,18 +62,6 @@
     monospace;
 }
 
-/* LEGACY ALIASES — map pre-redesign class names onto the new tokens.
-   Remove once no component uses them. */
-@theme inline {
-  --color-primary: var(--accent);
-  --color-primary-hover: var(--accent-hover);
-  --color-secondary: var(--accent);
-  --color-accent-secondary: var(--accent);
-  --color-text: var(--foreground);
-  --color-text-secondary: var(--muted-foreground);
-  --color-background-secondary: var(--muted);
-}
-
 @theme {
   --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
   --animate-fade-up: fade-up 400ms var(--ease-out-soft) both;

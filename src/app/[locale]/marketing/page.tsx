@@ -1,30 +1,48 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { AppLocale } from "@/i18n/routing";
-import MarketingSection from "@/components/sections/Marketing";
-import CTASection from "@/components/CTASection/CTASection";
+import { marketingCases } from "@/data/marketing";
+import { pageMetadata } from "@/lib/metadata";
+import Container from "@/components/ui/Container";
+import PageHeader from "@/components/ui/PageHeader";
+import MarketingCase from "@/components/marketing/MarketingCase";
+import CtaBanner from "@/components/shared/CtaBanner";
 
-export default async function MarketingPage({
-  params,
-}: {
-  params: Promise<{ locale: AppLocale }>;
-}) {
+type Props = { params: Promise<{ locale: AppLocale }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "marketing.page" });
+
+  return {
+    title: t("title"),
+    ...pageMetadata({
+      locale,
+      href: "/marketing",
+      title: t("title"),
+      description: t("description"),
+    }),
+  };
+}
+
+export default async function MarketingPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("common");
+  const t = await getTranslations("marketing.page");
 
   return (
-    <div className='min-h-screen p-4 relative overflow-hidden'>
-      <MarketingSection />
-
-      <div className='mt-16'>
-        <CTASection
-          linkedInLabel={t("buttons.viewProjects")}
-          contactLabel={t("buttons.getInTouch")}
-          primaryLink='/projects'
-          secondaryLink='/contact'
-          titleKey='marketingTitle'
-        />
-      </div>
-    </div>
+    <>
+      <PageHeader
+        eyebrow={t("eyebrow")}
+        title={t("title")}
+        description={t("description")}
+      />
+      <Container className='space-y-10 py-14 sm:py-20'>
+        {marketingCases.map((data) => (
+          <MarketingCase key={data.slug} data={data} />
+        ))}
+      </Container>
+      <CtaBanner />
+    </>
   );
 }
