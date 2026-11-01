@@ -40,7 +40,7 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Self-taught Full-Stack Software Engineer with 8+ years of experience, including 5+ years in QA and project management leadership, and 3+ years in development. I specialize in modern web technologies with a unique quality-first development approach. I have a proven track record of building high-traffic applications serving 100K+ daily users and maintaining enterprise-grade SaaS platforms. I am a continuous learner with expertise gained through hands-on experience and structured online education.",
+    "description": "Self-taught Full-Stack Software Engineer with 10+ years of experience, including 5+ years in QA and project management leadership, and 3+ years in development. I specialize in modern web technologies with a unique quality-first development approach. I have a proven track record of building high-traffic applications serving 100K+ daily users and maintaining enterprise-grade SaaS platforms. I am a continuous learner with expertise gained through hands-on experience and structured online education.",
     "skills": "Technical Skills",
     "skillCategories": {
       "frontend": "Frontend",
@@ -58,79 +58,188 @@
     }
   },
   "projects": {
-    "title": "My Projects",
-    "code": "Code",
-    "private": "Private",
-    "liveDemo": "Live Demo",
-    "technologies": "Technologies",
-    "inProgress": "In Progress",
-    "projects": {
-      "lookIntoThierEyes": {
-        "title": "Look Into Their Eyes",
-        "description": "Is a bilingual (Hebrew/English) web exhibition showcasing the work of Israeli graffiti artist Benzi Brofman, with a focus on paintings created after the October 7th tragedy. The site serves as a memorial platform to raise awareness for the hostages taken during this event.",
-        "technologies": {
-          "tech1": "Next.js",
-          "tech2": "Cloudinary",
-          "tech3": "TypeScript"
-        },
-        "liveDemo": "https://look-into-their-eyes.vercel.app/",
-        "github": "https://github.com/lookIntoTheirEyes/look-into-their-eyes",
-        "isPrivate": "",
-        "inProgress": "true"
+    "page": {
+      "eyebrow": "Work",
+      "title": "Selected work",
+      "description": "Websites, web platforms and internal tools I’ve designed and built — for businesses in Israel and abroad."
+    },
+    "labels": {
+      "client": "Client",
+      "year": "Year",
+      "role": "Role",
+      "status": "Status",
+      "stack": "Stack",
+      "type": "Type",
+      "visitSite": "Visit site",
+      "viewCase": "View case study",
+      "challenge": "The challenge",
+      "solution": "What I built",
+      "highlights": "Highlights",
+      "result": "The result",
+      "gallery": "Full page",
+      "nextProject": "Next project",
+      "backToWork": "All work",
+      "noScreenshots": "Screenshots coming soon",
+      "present": "present",
+      "desktop": "Desktop",
+      "mobile": "Mobile",
+      "moreStack": "+{count} more",
+      "newTab": "(opens in a new tab)",
+      "overview": "Overview"
+    },
+    "status": {
+      "live": "Live",
+      "in-progress": "In progress",
+      "internal": "Internal tool",
+      "private": "Private client"
+    },
+    "kind": {
+      "website": "Business website",
+      "web-app": "Web platform",
+      "saas": "SaaS platform",
+      "internal-tool": "Internal tool",
+      "desktop": "Desktop app"
+    },
+    "items": {
+      "mirk": {
+        "title": "Mirk",
+        "client": "M.Y.R. Kirshenbaum Ltd.",
+        "sector": "Metal processing · Akko",
+        "tagline": "A lead-generating website and content platform for a metal-processing plant.",
+        "summary": "A ground-up rebuild of the company website for a metal supplier and processing plant in Akko — department pages, local-SEO service areas, a CMS-driven blog and case studies, and an admin panel that routes every inquiry to sales.",
+        "role": "Design, full-stack development, CMS and SEO",
+        "challenge": "The previous WordPress site was slow, hard to update and undersold the plant’s capabilities. Sales needed a reliable source of inbound leads, and the office team needed to publish content without calling a developer.",
+        "solution": "I rebuilt the site on Next.js with Sanity as the content studio, PostgreSQL (via Prisma and Supabase) for leads, newsletter and analytics, and SendGrid for transactional email. The visual design was developed together with the client — a light, industrial palette — and every page was built RTL-first and keyboard- and screen-reader-accessible.",
+        "highlights": [
+          "Department and product pages for laser and plasma cutting, bending, rolling and iron sales",
+          "Service-area landing pages for local search across the Western Galilee, Haifa and the Krayot",
+          "Blog and case studies edited in an embedded Sanity Studio, with draft previews",
+          "Admin panel for inquiries, newsletter subscribers, service areas and activity logs",
+          "WhatsApp, Waze and click-to-call shortcuts, with email alerts to the sales team",
+          "Full accessibility statement; Hebrew-first with an English version"
+        ],
+        "result": "A fast, statically rendered site the client’s team updates on its own, with every inquiry landing in one place.",
+        "alt": {
+          "desktop": "Mirk website homepage on desktop",
+          "mobile": "Mirk website homepage on mobile",
+          "full": "Full-length capture of the Mirk homepage"
+        }
       },
-      "jaMoveo": {
-        "title": "JaMoveo",
-        "description": "Is a collaborative musical rehearsal application that enables musicians to practice together virtually. The application serves as a digital platform for musical groups where participants with different instruments can view the same songs simultaneously, with each user seeing customized content based on their instrument (vocalists see only lyrics, while instrumentalists see both chords and lyrics).",
-        "technologies": {
-          "tech1": "React",
-          "tech2": "TypeScript",
-          "tech3": "Node.js",
-          "tech4": "Redux",
-          "tech5": "Socket.io",
-          "tech6": "Sass",
-          "tech7": "Express",
-          "tech8": "Oauth2",
-          "tech9": "Passport",
-          "tech10": "Helmet",
-          "tech11": "Web crawling"
-        },
-        "liveDemo": "https://jamoveo-8qpb.onrender.com",
-        "github": "https://github.com/natig4/JaMoveo",
-        "isPrivate": "",
-        "inProgress": ""
+      "digitengo": {
+        "title": "Digitengo",
+        "client": "Digitengo",
+        "sector": "AI marketing SaaS",
+        "tagline": "Lead engineer on a multi-tenant AI platform that runs social-media marketing for small businesses.",
+        "summary": "Digitengo writes, schedules and publishes social posts with AI, reports on paid campaigns across Meta and Google Ads, and captures leads — for small businesses and six white-label partner brands. I’ve led its full-stack development since mid-2025.",
+        "role": "Lead full-stack engineer — architecture, features, infrastructure",
+        "challenge": "A fast-growing product originally built by an outside agency: around seventeen Node.js microservices, a Vue front end and Kubernetes infrastructure, with reliability issues and features that had to ship quickly for paying customers and partners.",
+        "solution": "I took over day-to-day engineering across the whole stack — from the Vue app to the services, queues and AWS infrastructure — shipping new product areas while hardening what was already running in production.",
+        "highlights": [
+          "AI post generation and holiday-aware scheduling with OpenAI and Gemini",
+          "Paid-campaigns dashboard combining Meta and Google Ads data with leads and revenue into ROI and ROAS",
+          "Publishing to Facebook, Instagram and TikTok, plus Meta lead-form capture",
+          "White-label tenants on their own subdomains and a public partner API",
+          "Cut the onboarding bundle from 2.27 MB to about 0.55 MB gzipped",
+          "Hardened the EKS cluster after a node failure and closed a cross-tenant data leak in scheduled jobs"
+        ],
+        "result": "A more reliable platform that keeps shipping — over 2,600 commits since July 2025 across the front end, services and infrastructure.",
+        "alt": {
+          "desktop": "Digitengo dashboard on desktop",
+          "mobile": "Digitengo on mobile",
+          "full": "Digitengo screen"
+        }
       },
-      "reportsManager": {
-        "title": "Reports Manager",
-        "description": "A comprehensive enterprise reporting system built for financial services, designed to automate complex Excel-based report processing and data analysis workflows. The application features a modern Windows app interface with multi-language support (Hebrew/English) and handles large-scale financial data processing with advanced error detection and resolution capabilities.",
-        "technologies": {
-          "tech1": "C#",
-          "tech2": ".NET Core",
-          "tech3": "JWT",
-          "tech4": "WPF",
-          "tech5": "EPPlus"
-        },
-        "liveDemo": "",
-        "github": "",
-        "isPrivate": "true",
-        "inProgress": ""
+      "my-north-food": {
+        "title": "My North Food",
+        "client": "Ma’akhalei HaTzafon",
+        "sector": "Food manufacturing · Upper Galilee",
+        "tagline": "An online store and operations platform for a Galilee food manufacturer.",
+        "summary": "A food manufacturer operating since 1979 is moving its ordering, deliveries and back office online: a Hebrew storefront with a product catalog and cart, plus dedicated apps for drivers, production stations and management.",
+        "role": "Product design and full-stack development",
+        "challenge": "Orders, delivery routes, kitchen tasks and supplier purchasing were managed by phone and on paper. The business needed one system that customers, drivers, kitchen staff and management could each use from their own device.",
+        "solution": "I’m building a React and Express platform with role-based areas: the public storefront and customer accounts, an admin back office, a driver app, station screens for the kitchen and warehouse, and a management dashboard — all on one shared database.",
+        "highlights": [
+          "Product catalog, cart and order history, with service requests and inquiries",
+          "Back office for products, inventory, weekly menus, kashrut certificates and banners",
+          "Driver app with delivery lists and digital signatures on handover",
+          "Station screens for daily tasks, goods receipt and purchase orders",
+          "Management dashboard for orders and weekly planning",
+          "AI chat assistant for customer questions"
+        ],
+        "result": "In active development — the public site is live and the operational modules are rolling out in stages.",
+        "alt": {
+          "desktop": "My North Food homepage on desktop",
+          "mobile": "My North Food homepage on mobile",
+          "full": "Full-length capture of the My North Food homepage"
+        }
       },
-      "torGroup": {
+      "galil-dashboard": {
+        "title": "Field Organizing Dashboard",
+        "client": "Regional volunteer organization",
+        "sector": "Civic organizing · Western Galilee",
+        "tagline": "An internal dashboard that replaced a tangle of spreadsheets for a regional volunteer organization.",
+        "summary": "A Hebrew, sign-in-protected dashboard that tracks every community in the region — local coordinators, key figures and a history of field events — with Excel import and export so the team can keep working the way it’s used to.",
+        "role": "Product design and full-stack development",
+        "challenge": "Volunteers were coordinating dozens of communities across two regional councils and several cities from shared spreadsheets that were hard to search, easy to break and impossible to keep in sync.",
+        "solution": "I built a secure Next.js app on Supabase and Prisma that imports the existing spreadsheets, groups communities by council, and lets organizers search, sort and edit figures inline — then export any filtered view back to Excel.",
+        "highlights": [
+          "Communities grouped by regional council, with search across names, coordinators and phone numbers",
+          "Inline editing of key figures, color-coded against regional averages",
+          "Per-community coordinator lists and an event history with participants and speakers",
+          "One-click Excel export of any filtered view, plus a two-sheet export per community",
+          "Supabase Auth with server-side checks on every page and API route",
+          "Import scripts that seeded the database from the organization’s existing spreadsheets"
+        ],
+        "result": "One source of truth for the field team, built and shipped in under a month.",
+        "alt": {
+          "desktop": "Field organizing dashboard with demo data",
+          "mobile": "Field organizing dashboard on mobile, demo data",
+          "full": "Community detail page with demo data"
+        }
+      },
+      "tor-group": {
         "title": "TOR Group",
-        "description": "A modern, responsive corporate website for TOR Group, a financial services company specializing in investment fundraising and international bond issuance for emerging markets. The site features a growth-themed design, comprehensive service portfolio, team profiles, and multi-language support with advanced accessibility features.",
-        "technologies": {
-          "tech1": "Next.js",
-          "tech2": "TypeScript",
-          "tech3": "Framer Motion",
-          "tech4": "next-intl",
-          "tech5": "CSS Modules",
-          "tech6": "EmailJS",
-          "tech7": "Google Analytics",
-          "tech8": "React"
-        },
-        "liveDemo": "https://thetorgroup.com",
-        "github": "",
-        "isPrivate": "true",
-        "inProgress": ""
+        "client": "TOR Group",
+        "sector": "Investment fundraising",
+        "tagline": "A corporate website for an investment-fundraising firm focused on emerging markets.",
+        "summary": "A responsive, multi-language corporate site for a financial-services firm specializing in investment fundraising and international bond issuance — with a growth-themed design, service and team pages, and built-in accessibility features.",
+        "role": "Design and front-end development",
+        "challenge": "The firm needed a credible, modern presence to present its services, process and partners to international investors — in more than one language.",
+        "solution": "I designed and built a Next.js site with next-intl for localization, Framer Motion for restrained animation and a contact form wired to email, structured around the firm’s approach, timing and process.",
+        "highlights": [
+          "Service, approach, timing and process sections built around the firm’s pitch",
+          "Multi-language routing with next-intl",
+          "Glass-style hero and a growth-themed visual language",
+          "Contact form with email delivery, plus Google Analytics"
+        ],
+        "result": "A polished first impression for investor conversations, live at thetorgroup.com.",
+        "alt": {
+          "desktop": "TOR Group homepage on desktop",
+          "mobile": "TOR Group homepage on mobile",
+          "full": "Full-length capture of the TOR Group homepage"
+        }
+      },
+      "reports-manager": {
+        "title": "Reports Manager",
+        "client": "Private financial-services client",
+        "sector": "Financial services",
+        "tagline": "A Windows desktop app that automates complex Excel reporting for a financial-services firm.",
+        "summary": "An enterprise reporting tool that ingests large Excel workbooks, validates and reconciles the data, and produces finished reports — replacing hours of manual spreadsheet work. Bilingual Hebrew/English interface.",
+        "role": "Desktop application development",
+        "challenge": "Analysts were spending hours each cycle copying, checking and reformatting data across large Excel files, and errors were hard to trace.",
+        "solution": "I built a WPF application on .NET with EPPlus for Excel processing, JWT-secured access and a guided workflow that flags inconsistencies and helps resolve them before reports are generated.",
+        "highlights": [
+          "Batch processing of large Excel workbooks with EPPlus",
+          "Automatic error detection with guided resolution",
+          "Hebrew/English interface",
+          "Secured access with JWT"
+        ],
+        "result": "A repeatable, auditable reporting workflow in place of manual spreadsheet work.",
+        "alt": {
+          "desktop": "Reports Manager main window",
+          "mobile": "Reports Manager",
+          "full": "Reports Manager"
+        }
       }
     }
   },
@@ -486,5 +595,11 @@
     "description": "The link may be broken, or the page may have moved. Let's get you back on track.",
     "home": "Back to home",
     "work": "See the work"
+  },
+  "cta": {
+    "title": "Have a project in mind?",
+    "description": "Tell me what you’re building — a new website, a web platform or a tool for your team — and let’s see how I can help.",
+    "primary": "Start a project",
+    "secondary": "See the work"
   }
 }

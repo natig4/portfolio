@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { localizedUrl } from "@/lib/metadata";
+import { projects } from "@/data/projects";
+import { projectHref } from "@/lib/routes";
 
 type Entry = { href: Parameters<typeof localizedUrl>[0]; priority: number };
 
@@ -11,6 +13,7 @@ const entries: Entry[] = [
   { href: "/marketing", priority: 0.6 },
   { href: "/articles", priority: 0.6 },
   { href: "/contact", priority: 0.8 },
+  ...projects.map(({ slug }) => ({ href: projectHref(slug), priority: 0.7 })),
   { href: "/accessibility", priority: 0.2 },
   { href: "/privacy", priority: 0.2 },
   { href: "/terms", priority: 0.2 },

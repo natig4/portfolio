@@ -8,6 +8,9 @@ const variants = {
   primary: "bg-accent text-accent-foreground hover:bg-accent-hover",
   secondary: "border border-border bg-surface text-foreground hover:bg-muted",
   ghost: "text-foreground hover:bg-muted",
+  /** For use on the always-dark CTA panel. */
+  onDark: "bg-brand-cyan text-zinc-950 hover:bg-cyan-300",
+  ghostOnDark: "text-zinc-50 hover:bg-white/10",
 } as const;
 
 const sizes = {
