@@ -7,6 +7,11 @@ import mirkFull from "@/assets/projects/mirk/full.jpg";
 import mnfDesktop from "@/assets/projects/my-north-food/desktop.jpg";
 import mnfMobile from "@/assets/projects/my-north-food/mobile.jpg";
 import mnfFull from "@/assets/projects/my-north-food/full.jpg";
+import digitengoDesktop from "@/assets/projects/digitengo/desktop.jpg";
+import digitengoFull from "@/assets/projects/digitengo/full.jpg";
+import galilDesktop from "@/assets/projects/galil-dashboard/desktop.jpg";
+import galilMobile from "@/assets/projects/galil-dashboard/mobile.jpg";
+import galilFull from "@/assets/projects/galil-dashboard/full.jpg";
 import torDesktop from "@/assets/projects/tor-group/desktop.jpg";
 import torMobile from "@/assets/projects/tor-group/mobile.jpg";
 import torFull from "@/assets/projects/tor-group/full.jpg";
@@ -28,6 +33,14 @@ export type ProjectShots = {
 export const projectImages: Partial<Record<ProjectSlug, ProjectShots>> = {
   mirk: { desktop: mirkDesktop, mobile: mirkMobile, full: mirkFull },
   "my-north-food": { desktop: mnfDesktop, mobile: mnfMobile, full: mnfFull },
+  // Captured logged-in with names and contact details blurred; no mobile shot (desktop-first app).
+  digitengo: { desktop: digitengoDesktop, full: digitengoFull },
+  // Captured logged-in with names, phone numbers and notes blurred.
+  "galil-dashboard": {
+    desktop: galilDesktop,
+    mobile: galilMobile,
+    full: galilFull,
+  },
   "tor-group": { desktop: torDesktop, mobile: torMobile, full: torFull },
 };
 

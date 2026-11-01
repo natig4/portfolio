@@ -28,7 +28,6 @@ export default function ProjectCard({
         slug={slug}
         title={title}
         url={url}
-        placeholderLabel={t("labels.noScreenshots")}
         sizes='(min-width: 1024px) 544px, (min-width: 640px) 90vw, 100vw'
         preload={preload}
         zoomOnHover

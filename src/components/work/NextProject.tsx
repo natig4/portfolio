@@ -28,12 +28,7 @@ export default function NextProject({ slug }: { slug: ProjectSlug }) {
           {t(`items.${slug}.tagline`)}
         </p>
       </div>
-      <ProjectCover
-        slug={slug}
-        title={title}
-        placeholderLabel={t("labels.noScreenshots")}
-        sizes='280px'
-      />
+      <ProjectCover slug={slug} title={title} sizes='280px' />
     </Link>
   );
 }

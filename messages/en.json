@@ -234,7 +234,9 @@
       "mobile": "Mobile",
       "moreStack": "+{count} more",
       "newTab": "(opens in a new tab)",
-      "overview": "Overview"
+      "overview": "Overview",
+      "confidential": "Confidential client project",
+      "confidentialNote": "Screenshots can’t be shared for this project."
     },
     "status": {
       "live": "Live",
@@ -293,9 +295,9 @@
         ],
         "result": "A more reliable platform that keeps shipping — over 2,600 commits since July 2025 across the front end, services and infrastructure.",
         "alt": {
-          "desktop": "Digitengo dashboard on desktop",
+          "desktop": "Digitengo paid-campaigns dashboard",
           "mobile": "Digitengo on mobile",
-          "full": "Digitengo screen"
+          "full": "Digitengo post feed with scheduled AI-generated posts"
         }
       },
       "my-north-food": {
@@ -341,9 +343,9 @@
         ],
         "result": "One source of truth for the field team, built and shipped in under a month.",
         "alt": {
-          "desktop": "Field organizing dashboard with demo data",
-          "mobile": "Field organizing dashboard on mobile, demo data",
-          "full": "Community detail page with demo data"
+          "desktop": "Field organizing dashboard, personal details blurred",
+          "mobile": "Field organizing dashboard on mobile, personal details blurred",
+          "full": "Full dashboard of communities, personal details blurred"
         }
       },
       "tor-group": {

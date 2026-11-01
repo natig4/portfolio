@@ -25,7 +25,8 @@ Structured data lives in `src/data/*.ts`; all visible copy lives in `messages/{e
 
 1. Add an entry to `src/data/projects.ts` (array order is display order).
 2. Add `projects.items.<slug>` copy to **both** message files.
-3. Screenshots: for a live site, add it to `PROJECTS` in `scripts/capture-screenshots.mjs` and run `npm run screenshots -- --only <slug>`. Otherwise drop `desktop.jpg` (1440×900, optional `mobile.jpg` 390×844 and `full.jpg`) into `src/assets/projects/<slug>/`. Then import them in `src/data/project-images.ts`. Without screenshots the project shows a placeholder.
+3. Screenshots: for a live site, add it to `PROJECTS` in `scripts/capture-screenshots.mjs` and run `npm run screenshots -- --only <slug>`. Otherwise drop `desktop.jpg` (1440×900, optional `mobile.jpg` 390×844 and `full.jpg`) into `src/assets/projects/<slug>/`. Then import them in `src/data/project-images.ts`. Without screenshots the project shows a "coming soon" placeholder; set `confidential: true` in `projects.ts` for work whose screenshots can never be shared.
+4. Logged-in apps: capture with personal data blurred before adding images (never commit unblurred customer data).
 
 ### Add a marketing case or article
 

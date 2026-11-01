@@ -1,15 +1,19 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { getProjectShots } from "@/data/project-images";
-import type { ProjectSlug } from "@/data/projects";
+import { getProject, type ProjectSlug } from "@/data/projects";
 import { BrowserFrame } from "@/components/ui/DeviceFrame";
+import ConfidentialCover from "@/components/ui/ConfidentialCover";
 import ScreenshotPlaceholder from "@/components/ui/ScreenshotPlaceholder";
 
-/** Desktop screenshot in browser chrome, or a placeholder until one is supplied. */
+/**
+ * Desktop screenshot in browser chrome. Confidential projects get a dedicated
+ * cover; anything else without screenshots shows a "coming soon" placeholder.
+ */
 export default function ProjectCover({
   slug,
   title,
   url,
-  placeholderLabel,
   sizes,
   alt = "",
   preload = false,
@@ -19,14 +23,15 @@ export default function ProjectCover({
   slug: ProjectSlug;
   title: string;
   url?: string;
-  placeholderLabel: string;
   sizes: string;
   alt?: string;
   preload?: boolean;
   zoomOnHover?: boolean;
   className?: string;
 }) {
+  const t = useTranslations("projects.labels");
   const shots = getProjectShots(slug);
+  const project = getProject(slug);
 
   return (
     <BrowserFrame url={url} className={className}>
@@ -46,8 +51,13 @@ export default function ProjectCover({
             }`}
           />
         </div>
+      ) : "confidential" in project && project.confidential ? (
+        <ConfidentialCover
+          title={t("confidential")}
+          description={t("confidentialNote")}
+        />
       ) : (
-        <ScreenshotPlaceholder title={title} label={placeholderLabel} />
+        <ScreenshotPlaceholder title={title} label={t("noScreenshots")} />
       )}
     </BrowserFrame>
   );

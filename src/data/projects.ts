@@ -15,6 +15,8 @@ type ProjectData = {
   /** Public URL. Omitted for internal/private work. */
   url?: string;
   stack: readonly TechId[];
+  /** Screenshots can never be shown (client confidentiality) — renders a confidential cover. */
+  confidential?: boolean;
 };
 
 /**
@@ -69,24 +71,6 @@ export const projects = [
     ],
   },
   {
-    slug: "galil-dashboard",
-    featured: false,
-    year: 2026,
-    status: "internal",
-    kind: "internal-tool",
-    stack: [
-      "nextjs",
-      "typescript",
-      "tailwind",
-      "shadcn",
-      "prisma",
-      "postgresql",
-      "supabase",
-      "sheetjs",
-      "vercel",
-    ],
-  },
-  {
     slug: "my-north-food",
     featured: false,
     year: 2026,
@@ -107,6 +91,24 @@ export const projects = [
     ],
   },
   {
+    slug: "galil-dashboard",
+    featured: false,
+    year: 2026,
+    status: "internal",
+    kind: "internal-tool",
+    stack: [
+      "nextjs",
+      "typescript",
+      "tailwind",
+      "shadcn",
+      "prisma",
+      "postgresql",
+      "supabase",
+      "sheetjs",
+      "vercel",
+    ],
+  },
+  {
     slug: "tor-group",
     featured: false,
     year: 2025,
@@ -121,6 +123,7 @@ export const projects = [
     year: 2024,
     status: "private",
     kind: "desktop",
+    confidential: true,
     stack: ["csharp", "dotnet", "wpf", "epplus"],
   },
 ] as const satisfies readonly ProjectData[];

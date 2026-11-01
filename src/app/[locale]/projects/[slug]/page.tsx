@@ -147,7 +147,6 @@ export default async function CaseStudyPage({ params }: Props) {
           title={item("title")}
           url={url}
           alt={item("alt.desktop")}
-          placeholderLabel={t("labels.noScreenshots")}
           sizes='(min-width: 1152px) 1104px, 100vw'
           preload
           className='mt-12'
@@ -215,7 +214,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </aside>
       </Container>
 
-      {shots?.full && shots.mobile && (
+      {shots?.full && (
         <Container>
           <ScreenshotShowcase
             full={shots.full}
