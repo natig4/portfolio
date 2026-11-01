@@ -32,29 +32,180 @@
     "newTab": "(opens in a new tab)"
   },
   "home": {
-    "title": "Full-Stack Software Engineer",
-    "subtitle": "Quality-first developer with a unique QA leadership background",
-    "viewProjects": "View Projects",
-    "contactMe": "Contact Me",
-    "location": "Yasur, Northern District, Israel"
+    "hero": {
+      "eyebrow": "New Generation SW · Founder & Lead Engineer",
+      "title": "Websites, web apps and internal tools — built right.",
+      "description": "I’m Nati Gurevich. Through New Generation SW I design and build software for businesses — from lead-generating websites to SaaS platforms — with a QA lead’s eye for quality and a full-stack engineer’s range.",
+      "primary": "Start a project",
+      "secondary": "See the work",
+      "trust": {
+        "outbrain": "Ex-Outbrain engineer",
+        "years": "{years}+ years in tech",
+        "bilingual": "Hebrew & English, RTL-native",
+        "stack": "Next.js · React · Node.js · .NET"
+      },
+      "shotsLabel": "Screenshots of recent client projects"
+    },
+    "work": {
+      "eyebrow": "Selected work",
+      "title": "Recent projects",
+      "description": "A few of the businesses and products I’ve built for lately.",
+      "viewAll": "All work"
+    },
+    "services": {
+      "eyebrow": "Services",
+      "title": "What I build",
+      "description": "Three kinds of projects, one standard: fast, accessible, maintainable software your team can actually run.",
+      "examples": "Examples",
+      "items": {
+        "websites": {
+          "title": "Business websites",
+          "description": "Lead-generating sites with a CMS your team can update, built for search and for accessibility compliance.",
+          "points": [
+            "Next.js with a headless CMS",
+            "Local SEO and analytics",
+            "Accessibility to IS 5568 / WCAG AA"
+          ]
+        },
+        "platforms": {
+          "title": "Web platforms & SaaS",
+          "description": "Customer-facing products and multi-tenant platforms — from online ordering to AI-powered tools — designed to grow.",
+          "points": [
+            "React, Vue and Node.js",
+            "Payments, auth and integrations",
+            "Cloud infrastructure on AWS or Vercel"
+          ]
+        },
+        "tools": {
+          "title": "Internal tools & automation",
+          "description": "Dashboards, back offices and desktop apps that replace spreadsheets and manual work.",
+          "points": [
+            "Admin panels and dashboards",
+            "Excel import, export and reporting",
+            ".NET desktop applications"
+          ]
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "How I work",
+      "title": "Quality built in from day one — not tested in at the end",
+      "description": "Before I wrote production code I spent five years in QA and project leadership. That shapes every project: clear scope, small releases and testing at every step.",
+      "steps": {
+        "discover": {
+          "title": "Discover",
+          "description": "We map goals, users and constraints, and agree on a scope and timeline you can plan around."
+        },
+        "design": {
+          "title": "Design",
+          "description": "Wireframes and a visual direction in your brand — in Hebrew, English or both, RTL from day one."
+        },
+        "build": {
+          "title": "Build",
+          "description": "Weekly progress on a live preview link, so you see the product take shape and can steer early."
+        },
+        "test": {
+          "title": "Test",
+          "description": "Accessibility, performance and cross-device checks on every release — habits from years of leading QA."
+        },
+        "launch": {
+          "title": "Launch & support",
+          "description": "Deployment, analytics and handover — and I stay available for improvements after go-live."
+        }
+      }
+    },
+    "background": {
+      "eyebrow": "Background",
+      "title": "From quality lead to full-stack engineer",
+      "description": "{years} years in tech — leading QA teams, building high-traffic products at Outbrain, and now running New Generation SW.",
+      "cta": "More about me"
+    }
   },
   "about": {
-    "title": "About Me",
-    "description": "Self-taught Full-Stack Software Engineer with 10+ years of experience, including 5+ years in QA and project management leadership, and 3+ years in development. I specialize in modern web technologies with a unique quality-first development approach. I have a proven track record of building high-traffic applications serving 100K+ daily users and maintaining enterprise-grade SaaS platforms. I am a continuous learner with expertise gained through hands-on experience and structured online education.",
-    "skills": "Technical Skills",
-    "skillCategories": {
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "database": "Database",
-      "devops": "DevOps"
+    "page": {
+      "eyebrow": "About",
+      "title": "Hi, I’m Nati.",
+      "description": "Founder and lead engineer of New Generation SW — an independent software studio in the Western Galilee, working with businesses across Israel and abroad."
+    },
+    "intro": {
+      "title": "My story",
+      "p1": "I’m a self-taught full-stack engineer with {years} years in tech. I started on the quality side — leading QA and project management at myThings and building regression frameworks for real-time systems at Nova — before moving into development full time.",
+      "p2": "At Outbrain I built and maintained high-traffic web applications in Angular and React, created shared components used by more than ten teams, and trained over fifty developers in RxJS.",
+      "p3": "Today I run New Generation SW, where I design and build websites, web platforms and internal tools. Since 2025 I’ve also led full-stack development of the Digitengo AI marketing platform."
     },
     "stats": {
-      "years": "10+ Years",
-      "yearsDesc": "Total industry experience across development and QA",
-      "users": "100K+",
-      "usersDesc": "Daily users of applications developed and maintained",
-      "bugs": "0",
-      "bugsDesc": "Critical production bugs across major QA projects"
+      "years": "years in tech",
+      "users": "daily users on apps I’ve built and maintained",
+      "teams": "teams using components I built at Outbrain",
+      "trained": "developers trained in RxJS"
+    },
+    "experience": {
+      "eyebrow": "Experience",
+      "title": "Where I’ve worked",
+      "present": "Present",
+      "current": "Current",
+      "items": {
+        "ngsw": {
+          "company": "New Generation SW",
+          "role": "Founder & Lead Engineer",
+          "summary": "Independent software studio building websites, web platforms and internal tools for businesses in Israel and abroad.",
+          "highlights": [
+            "Lead full-stack engineer on the Digitengo AI marketing platform (2025–present)",
+            "Designed and built client sites and platforms including Mirk, My North Food and TOR Group",
+            "Internal tools and .NET desktop apps that replace manual spreadsheet work",
+            "CI/CD with GitHub Actions and GitLab; hosting on Vercel and AWS"
+          ]
+        },
+        "outbrain": {
+          "company": "Outbrain",
+          "role": "Software Engineer",
+          "summary": "High-traffic web applications on one of the world’s largest content-recommendation platforms.",
+          "highlights": [
+            "Developed and maintained high-traffic web applications in Angular and React",
+            "Built complex shared components used by 10+ teams",
+            "Led RxJS training sessions for 50+ developers",
+            "Built scalable microservices with Node.js, NestJS and Scala"
+          ]
+        },
+        "nova": {
+          "company": "Nova",
+          "role": "QA Test Engineer",
+          "summary": "Testing for embedded real-time systems.",
+          "highlights": [
+            "Built a regression-testing framework for embedded real-time systems",
+            "Led QA for 3+ major platform projects with zero critical production bugs"
+          ]
+        },
+        "mythings": {
+          "company": "myThings",
+          "role": "QA & PM Team Leader",
+          "summary": "Quality and project management at a digital advertising company.",
+          "highlights": [
+            "Managed a five-person team delivering 50+ projects a year",
+            "Established company-wide QA standards and processes"
+          ]
+        },
+        "bezeq": {
+          "company": "Bezeq",
+          "role": "Senior Technical Service Representative",
+          "summary": "Resolving complex technical issues for customers.",
+          "highlights": [
+            "Consulted on complex technical issues and helped teams solve them"
+          ]
+        }
+      }
+    },
+    "skills": {
+      "eyebrow": "Toolbox",
+      "title": "Technologies I work with",
+      "categories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "data": "Data",
+        "infra": "Cloud & DevOps",
+        "ai": "AI & integrations",
+        "desktop": "Desktop"
+      }
     }
   },
   "projects": {
@@ -239,59 +390,6 @@
           "desktop": "Reports Manager main window",
           "mobile": "Reports Manager",
           "full": "Reports Manager"
-        }
-      }
-    }
-  },
-  "experience": {
-    "title": "Professional Experience",
-    "companies": {
-      "freelance": {
-        "company": "Freelance",
-        "position": "Software Engineer",
-        "period": "2024 - Present",
-        "description": {
-          "desc1": "Designed and developed full-stack web applications using Next.js and modern React patterns.",
-          "desc2": "Built and maintained enterprise desktop applications using WPF and .NET framework.",
-          "desc3": "Implemented automated deployment workflows using GitHub Actions CI/CD pipelines.",
-          "desc4": "Drove project success through effective client communication and timely delivery."
-        }
-      },
-      "outbrain": {
-        "company": "Outbrain",
-        "position": "Software Engineer",
-        "period": "2022 - 2024",
-        "description": {
-          "desc1": "Developed and maintained high-traffic web applications using Angular and React.",
-          "desc2": "Led technical training sessions for 50+ developers on RxJS.",
-          "desc3": "Created complex components used by 10+ teams, reducing development time.",
-          "desc4": "Built scalable microservices using Node.js, NestJS, and Scala."
-        }
-      },
-      "nova": {
-        "company": "Nova",
-        "position": "QA Manual Test Engineer",
-        "period": "2018 - 2021",
-        "description": {
-          "desc1": "Built regression testing framework for embedded real-time systems.",
-          "desc2": "Led QA for 3+ major platform projects with zero critical production bugs."
-        }
-      },
-      "myThings": {
-        "company": "myThings",
-        "position": "QA & PM Team Leader",
-        "period": "2016 - 2018",
-        "description": {
-          "desc1": "Managed 5-person team delivering 50+ projects annually.",
-          "desc2": "Established and maintained company-wide QA standards and processes."
-        }
-      },
-      "bezeq": {
-        "company": "Bezeq",
-        "position": "Senior Technical Service Representative",
-        "period": "2010 - 2015",
-        "description": {
-          "desc1": "Acted as a consultant for complex technical challenges, enhancing team problem-solving capabilities."
         }
       }
     }

@@ -1,5 +1,5 @@
 import type { StaticImageData } from "next/image";
-import type { ProjectSlug } from "./projects";
+import { projects, type Project, type ProjectSlug } from "./projects";
 
 import mirkDesktop from "@/assets/projects/mirk/desktop.jpg";
 import mirkMobile from "@/assets/projects/mirk/mobile.jpg";
@@ -33,4 +33,11 @@ export const projectImages: Partial<Record<ProjectSlug, ProjectShots>> = {
 
 export function getProjectShots(slug: ProjectSlug): ProjectShots | undefined {
   return projectImages[slug];
+}
+
+/** Projects for showcases (home page, hero): featured with screenshots first, then others with screenshots. */
+export function getShowcaseProjects(limit: number) {
+  const rank = (p: Project) =>
+    (projectImages[p.slug] ? 2 : 0) + (p.featured ? 1 : 0);
+  return [...projects].sort((a, b) => rank(b) - rank(a)).slice(0, limit);
 }

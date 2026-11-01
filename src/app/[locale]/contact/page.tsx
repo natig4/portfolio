@@ -86,7 +86,7 @@ export default async function ContactPage({
           linkedInLabel={commonT("buttons.viewProjects")}
           contactLabel={commonT("buttons.viewExperience")}
           primaryLink='/projects'
-          secondaryLink='/experience'
+          secondaryLink='/about'
           useLinkedIn={false}
           titleKey='contactTitle'
         />

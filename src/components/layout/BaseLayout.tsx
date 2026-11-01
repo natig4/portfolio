@@ -31,6 +31,11 @@ export default async function BaseLayout({
       {/* eslint-disable-next-line @next/next/no-head-element */}
       <head>
         <ThemeScript />
+        <noscript>
+          <style>
+            {"[data-reveal]{opacity:1!important;transform:none!important}"}
+          </style>
+        </noscript>
       </head>
       <body className='flex min-h-dvh flex-col'>
         <NextIntlClientProvider>

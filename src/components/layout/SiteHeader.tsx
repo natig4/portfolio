@@ -42,7 +42,7 @@ export default async function SiteHeader() {
         </nav>
 
         <div className='flex items-center gap-1'>
-          <LocaleSwitcher className='hidden lg:inline-flex' />
+          <LocaleSwitcher />
           <ThemeToggle label={t("toggleTheme")} />
           <Link
             href='/contact'
