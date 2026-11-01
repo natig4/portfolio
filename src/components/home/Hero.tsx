@@ -30,7 +30,8 @@ export default function Hero() {
       />
 
       <Container className='relative grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:py-28'>
-        <div className='animate-fade-up'>
+        {/* No entrance animation here: this text is the LCP element. */}
+        <div>
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h1
             id='hero-title'

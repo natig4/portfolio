@@ -25,11 +25,11 @@ export default function Services() {
       description={t("description")}
     >
       <div className='grid gap-6 md:grid-cols-3'>
-        {services.map(({ id, icon, examples }, index) => {
+        {services.map(({ id, icon, examples }) => {
           const Icon = icons[icon];
           const points = t.raw(`items.${id}.points`) as string[];
           return (
-            <Reveal key={id} delay={index * 0.06} className='h-full'>
+            <Reveal key={id} className='h-full'>
               <article className='flex h-full flex-col rounded-2xl border border-border bg-surface p-6 sm:p-7'>
                 <span className='inline-flex size-11 items-center justify-center rounded-xl bg-accent-soft text-accent'>
                   <Icon className='size-5' aria-hidden='true' />

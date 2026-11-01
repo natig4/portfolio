@@ -1,6 +1,5 @@
 "use client";
 import type { AppLocale } from "@/i18n/routing";
-import { Accessibility } from "accessibility";
 import { useEffect } from "react";
 
 const AccessibilityWidget: React.FC<{
@@ -26,9 +25,25 @@ const AccessibilityWidget: React.FC<{
         ? { ...getHebrewOptions(), ...defaultOptions }
         : defaultOptions;
 
-    const accessibility = new Accessibility(accessibilityOptions);
+    // Load the widget (and the icon font it pulls in) once the page is idle,
+    // so it never competes with first paint.
+    let widget: { destroy: () => void } | undefined;
+    let cancelled = false;
+    const start = () =>
+      import("accessibility").then(({ Accessibility }) => {
+        if (!cancelled) widget = new Accessibility(accessibilityOptions);
+      });
+    // Safari has no requestIdleCallback; fall back to a short timeout there.
+    const hasIdle = typeof window.requestIdleCallback === "function";
+    const handle = hasIdle
+      ? window.requestIdleCallback(start, { timeout: 3000 })
+      : setTimeout(start, 1500);
+
     return () => {
-      accessibility.destroy();
+      cancelled = true;
+      if (hasIdle) window.cancelIdleCallback(handle as number);
+      else clearTimeout(handle);
+      widget?.destroy();
     };
   }, [lang]);
 

@@ -12,7 +12,7 @@ export const plexSans = IBM_Plex_Sans({
 
 export const plexHebrew = IBM_Plex_Sans_Hebrew({
   subsets: ["hebrew"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   variable: "--font-plex-hebrew",
   display: "swap",
 });

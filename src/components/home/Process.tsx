@@ -17,10 +17,7 @@ export default function Process() {
       <ol className='grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-5'>
         {processSteps.map((step, index) => (
           <li key={step}>
-            <Reveal
-              delay={index * 0.05}
-              className='border-t-2 border-border pt-5'
-            >
+            <Reveal className='border-t-2 border-border pt-5'>
               <span className='font-mono text-sm font-medium text-accent'>
                 {String(index + 1).padStart(2, "0")}
               </span>
