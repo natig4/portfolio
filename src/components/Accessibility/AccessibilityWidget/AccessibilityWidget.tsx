@@ -1,13 +1,13 @@
 "use client";
-import { Language } from "@/lib/model/language";
+import type { AppLocale } from "@/i18n/routing";
 import { Accessibility } from "accessibility";
 import { useEffect } from "react";
 
 const AccessibilityWidget: React.FC<{
-  lang: Language;
+  lang: AppLocale;
 }> = ({ lang }) => {
   useEffect(() => {
-    const speechLang = lang === Language.he ? "he-IL" : "en-US";
+    const speechLang = lang === "he" ? "he-IL" : "en-US";
 
     const defaultOptions = {
       session: {
@@ -22,7 +22,7 @@ const AccessibilityWidget: React.FC<{
       },
     };
     const accessibilityOptions =
-      lang === Language.he
+      lang === "he"
         ? { ...getHebrewOptions(), ...defaultOptions }
         : defaultOptions;
 

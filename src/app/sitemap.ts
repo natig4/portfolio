@@ -1,37 +1,32 @@
-import { MetadataRoute } from "next";
-import { host } from "@/config";
-import { getPathname, locales, pages, routing } from "@/i18n/routing";
-import { Locale } from "next-intl";
+import type { MetadataRoute } from "next";
+import { routing } from "@/i18n/routing";
+import { localizedUrl } from "@/lib/metadata";
+
+type Entry = { href: Parameters<typeof localizedUrl>[0]; priority: number };
+
+const entries: Entry[] = [
+  { href: "/", priority: 1 },
+  { href: "/projects", priority: 0.9 },
+  { href: "/about", priority: 0.8 },
+  { href: "/marketing", priority: 0.6 },
+  { href: "/articles", priority: 0.6 },
+  { href: "/contact", priority: 0.8 },
+  { href: "/accessibility", priority: 0.2 },
+  { href: "/privacy", priority: 0.2 },
+  { href: "/terms", priority: 0.2 },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const date = new Date();
+  const lastModified = new Date();
 
-  return pages.map((page) => {
-    const entry = getEntry(page);
-
-    return {
-      ...entry,
-      lastModified: date,
-      changeFrequency: page === "/" ? "weekly" : "monthly",
-      priority: page === "/" ? 1 : 0.8,
-    };
-  });
-}
-
-type Href = Parameters<typeof getPathname>[0]["href"];
-
-function getEntry(href: Href) {
-  return {
-    url: getUrl(href, routing.defaultLocale),
+  return entries.map(({ href, priority }) => ({
+    url: localizedUrl(href, routing.defaultLocale),
+    lastModified,
+    priority,
     alternates: {
       languages: Object.fromEntries(
-        locales.map((locale) => [locale, getUrl(href, locale)])
+        routing.locales.map((l) => [l, localizedUrl(href, l)]),
       ),
     },
-  };
-}
-
-function getUrl(href: Href, locale: Locale) {
-  const pathname = getPathname({ locale, href });
-  return `${host}/${locale}${pathname === "/" ? "" : pathname}`;
+  }));
 }

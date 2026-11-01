@@ -1,9 +1,8 @@
-import { getTranslations } from "next-intl/server";
-import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { AppLocale } from "@/i18n/routing";
 import ContactSection from "@/components/sections/Contact";
-import { EMAIL } from "@/lib/model/common";
+import { site } from "@/lib/site";
 import CTASection from "@/components/CTASection/CTASection";
-import { cookies } from "next/headers";
 
 interface ContactInfoData {
   title: string;
@@ -36,10 +35,15 @@ interface ContactInfoData {
   };
 }
 
-export default async function ContactPage() {
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ locale: AppLocale }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("contact");
   const commonT = await getTranslations("common");
-  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   // Get contact info from translations
   const contactInfo: ContactInfoData = {
@@ -47,7 +51,7 @@ export default async function ContactPage() {
     info: t("info"),
     email: {
       label: t("email"),
-      value: EMAIL,
+      value: site.email,
     },
     phone: {
       label: t("phone"),
@@ -74,12 +78,7 @@ export default async function ContactPage() {
   };
 
   return (
-    <div
-      className={`min-h-screen p-4 pt-${
-        isMobile ? 16 : 0
-      } relative overflow-hidden`}
-    >
-      <BackgroundEffects />
+    <div className='min-h-screen p-4 relative overflow-hidden'>
       <ContactSection contactInfo={contactInfo} />
 
       <div className='mt-16'>

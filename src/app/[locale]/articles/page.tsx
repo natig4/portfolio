@@ -1,8 +1,7 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { AppLocale } from "@/i18n/routing";
 import ArticlesSection from "@/components/sections/Articles";
-import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import CTASection from "@/components/CTASection/CTASection";
-import { cookies } from "next/headers";
 import { getTranslatedObject } from "@/lib/utils/translation-helpers";
 
 interface ArticleData {
@@ -22,20 +21,25 @@ async function getArticles(): Promise<ArticleData[]> {
       const article = await getTranslatedObject<ArticleData>(
         "articles",
         `${basePath}.${key}`,
-        ["title", "date", "excerpt"]
+        ["title", "date", "excerpt"],
       );
 
       return article;
-    })
+    }),
   );
 
   return articles;
 }
 
-export default async function ArticlesPage() {
+export default async function ArticlesPage({
+  params,
+}: {
+  params: Promise<{ locale: AppLocale }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("articles");
   const commonT = await getTranslations("common");
-  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const title = t("title");
   const followMe = t("followMe");
@@ -44,12 +48,7 @@ export default async function ArticlesPage() {
   const articles: ArticleData[] = await getArticles();
 
   return (
-    <div
-      className={`min-h-screen p-4 pt-pt-${
-        isMobile ? 16 : 0
-      } relative overflow-hidden`}
-    >
-      <BackgroundEffects />
+    <div className='min-h-screen p-4 relative overflow-hidden'>
       <ArticlesSection
         title={title}
         articles={articles}

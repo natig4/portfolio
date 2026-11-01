@@ -1,8 +1,7 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { AppLocale } from "@/i18n/routing";
 
 import ProjectsSection from "@/components/sections/Projects";
-import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
-import { cookies } from "next/headers";
 import { getTranslatedObject } from "@/lib/utils/translation-helpers";
 
 interface Project {
@@ -49,16 +48,20 @@ async function getProjects(): Promise<Project[]> {
         isPrivate: project.isPrivate,
         gradient: gradients[index % gradients.length],
       };
-    })
+    }),
   );
 
   return projects;
 }
 
-export default async function ProjectsPage() {
+export default async function ProjectsPage({
+  params,
+}: {
+  params: Promise<{ locale: AppLocale }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("projects");
-
-  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const projects = await getProjects();
 
@@ -69,13 +72,7 @@ export default async function ProjectsPage() {
   const translatedProgressLabel = t("inProgress");
 
   return (
-    <div
-      className={`min-h-screen p-4 pt-${
-        isMobile ? 16 : 0
-      } relative overflow-hidden`}
-    >
-      <BackgroundEffects />
-
+    <div className='min-h-screen p-4 relative overflow-hidden'>
       <ProjectsSection
         title={translatedTitle}
         projects={projects}

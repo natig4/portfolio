@@ -1,8 +1,7 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { AppLocale } from "@/i18n/routing";
 import ExperienceSection from "@/components/sections/Experience";
-import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import CTASection from "@/components/CTASection/CTASection";
-import { cookies } from "next/headers";
 
 interface CompanyData {
   company: string;
@@ -47,26 +46,22 @@ async function getCompanies(): Promise<CompanyData[]> {
   return companies;
 }
 
-export default async function ExperiencePage() {
+export default async function ExperiencePage({
+  params,
+}: {
+  params: Promise<{ locale: AppLocale }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("experience");
   const commonT = await getTranslations("common");
-  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const title = t("title");
   const companies: CompanyData[] = await getCompanies();
 
   return (
-    <div
-      className={`min-h-screen p-4 pt-${
-        isMobile ? 16 : 0
-      } relative overflow-hidden`}
-    >
-      <BackgroundEffects />
-      <ExperienceSection
-        isMobile={isMobile}
-        title={title}
-        companies={companies}
-      />
+    <div className='min-h-screen p-4 relative overflow-hidden'>
+      <ExperienceSection isMobile={false} title={title} companies={companies} />
 
       <div className='mt-16'>
         <CTASection

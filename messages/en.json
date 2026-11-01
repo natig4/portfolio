@@ -1,38 +1,35 @@
 {
   "meta": {
-    "title": "Nati Gurevich | Full-Stack Software Engineer",
-    "description": "Quality-first developer with a unique QA leadership background"
-  },
-  "manifest": {
-    "name": "Nati Gurevich | Full-Stack Software Engineer"
-  },
-  "localeSwitcher": {
-    "label": "Language",
-    "locale": "{locale, select, he {🇮🇱 HEBREW} en {🇺🇸 ENGLISH} other {Unknown}}"
-  },
-  "links": {
-    "home": "Home",
-    "projects": "Projects",
-    "experience": "Experience",
-    "articles": "Articles",
-    "contact": "Contact",
-    "about": "About",
-    "marketing": "Marketing",
-    "accessibility": "Accessibility",
-    "terms": "Terms of use",
-    "privacy": "Privacy policy",
-    "hebrew": "Hebrew",
-    "english": "English",
-    "createdBy": "Created by Nati Gurevich",
-    "rights": "All rights reserved."
+    "title": "Nati Gurevich — New Generation SW",
+    "description": "New Generation SW builds fast, accessible websites, web apps and internal tools. Led by Nati Gurevich, full-stack engineer (ex-Outbrain) with a quality-first background.",
+    "siteName": "New Generation SW"
   },
   "nav": {
     "home": "Home",
+    "work": "Work",
     "about": "About",
-    "projects": "Projects",
-    "experience": "Experience",
+    "marketing": "Marketing",
     "articles": "Articles",
-    "contact": "Contact"
+    "contact": "Contact",
+    "startProject": "Start a project",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleTheme": "Toggle dark mode",
+    "skipToContent": "Skip to main content",
+    "primary": "Primary",
+    "homeLabel": "Nati Gurevich, New Generation SW — home",
+    "role": "Founder & Lead Engineer"
+  },
+  "footer": {
+    "tagline": "Websites, web apps and internal tools — built quality-first, in Hebrew and English.",
+    "explore": "Explore",
+    "legal": "Legal",
+    "connect": "Connect",
+    "rights": "All rights reserved.",
+    "accessibility": "Accessibility statement",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "newTab": "(opens in a new tab)"
   },
   "home": {
     "title": "Full-Stack Software Engineer",
@@ -52,7 +49,7 @@
       "devops": "DevOps"
     },
     "stats": {
-      "years": "8+ Years",
+      "years": "10+ Years",
       "yearsDesc": "Total industry experience across development and QA",
       "users": "100K+",
       "usersDesc": "Daily users of applications developed and maintained",
@@ -231,41 +228,6 @@
       "emailPlaceholder": "Your email",
       "messagePlaceholder": "Your message",
       "send": "Send Message"
-    }
-  },
-  "career": {
-    "metaTitle": "My Career Journey",
-    "metaDescription": "Follow my professional journey from technical support to QA leadership to software engineering",
-    "title": "My Professional Journey",
-    "subtitle": "Exploring my transition from technical support to QA leadership to full-stack software engineering",
-    "bezeq": {
-      "title": "Senior Technical Service Representative",
-      "company": "Bezeq",
-      "description": "Built a strong technical foundation while solving complex customer issues. Developed troubleshooting skills and learned to communicate technical concepts clearly to non-technical audiences."
-    },
-    "myThings": {
-      "title": "QA & PM Team Leader",
-      "company": "myThings",
-      "description": "Led a team of 5 QA specialists delivering 50+ projects annually. Established company-wide quality standards and processes. Learned project management, team leadership, and strategic planning."
-    },
-    "nova": {
-      "title": "QA Manual Test Engineer",
-      "company": "Nova",
-      "description": "Built comprehensive regression testing frameworks for embedded real-time systems. Led QA for 3+ major platform projects with zero critical production bugs. Developed deeper technical expertise."
-    },
-    "outbrain": {
-      "title": "Software Engineer",
-      "company": "Outbrain",
-      "description": "Made the transition to full-time development, building high-traffic web applications using Angular and React. Created complex components used by 10+ teams. Led technical training sessions for 50+ developers."
-    },
-    "freelance": {
-      "title": "Freelance Software Engineer",
-      "company": "Self-employed",
-      "description": "Designing and developing full-stack web applications using Next.js and modern React patterns. Building enterprise desktop applications with .NET. Implementing automated deployment workflows with CI/CD."
-    },
-    "keyLearning": {
-      "title": "My Quality-First Approach",
-      "description": "My journey from QA to development has shaped my unique perspective on software engineering. I approach every project with quality as the primary focus, combining rigorous testing methodologies with modern development practices to create robust, maintainable software that exceeds both technical requirements and user expectations."
     }
   },
   "terms": {
@@ -468,19 +430,12 @@
     "email_label": "Email: ",
     "accessibility_commitment": "I am committed to maintaining and improving the accessibility of this website. Regular accessibility audits are conducted, and updates are made to ensure ongoing compliance with accessibility standards. Your feedback helps me identify areas for improvement and ensure that all users can access and use this website effectively."
   },
-  "404": {
-    "header": "Page not found",
-    "secondary-header": "Looks like this page doesn't exist",
-    "link1": "Click ",
-    "cta": "here",
-    "link2": "to go back home"
-  },
   "error": {
-    "header": "Error",
-    "description": "It seems like we've encountered an error",
-    "link1": "Click ",
-    "cta": "here",
-    "link2": "to go back home"
+    "code": "Error",
+    "title": "Something went wrong",
+    "description": "An unexpected error interrupted this page. Try again, or head back home.",
+    "retry": "Try again",
+    "home": "Back to home"
   },
   "common": {
     "skills": {
@@ -525,5 +480,11 @@
       "linkedin": "LinkedIn"
     },
     "readMore": "Read Full Article"
+  },
+  "notFound": {
+    "title": "This page does not exist",
+    "description": "The link may be broken, or the page may have moved. Let's get you back on track.",
+    "home": "Back to home",
+    "work": "See the work"
   }
 }

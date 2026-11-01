@@ -1,14 +1,18 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { AppLocale } from "@/i18n/routing";
 import { FaLaptopCode, FaServer, FaDatabase, FaDocker } from "react-icons/fa";
 import AboutSection from "@/components/sections/About";
-import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import CTASection from "@/components/CTASection/CTASection";
-import { cookies } from "next/headers";
 
-export default async function AboutPage() {
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: AppLocale }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("about");
   const commonT = await getTranslations("common");
-  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   const aboutData = {
     title: t("title"),
@@ -64,12 +68,7 @@ export default async function AboutPage() {
   ];
 
   return (
-    <div
-      className={`min-h-screen p-4 pt-${
-        isMobile ? 16 : 0
-      } relative overflow-hidden`}
-    >
-      <BackgroundEffects />
+    <div className='min-h-screen p-4 relative overflow-hidden'>
       <AboutSection
         title={aboutData.title}
         description={aboutData.description}

@@ -1,25 +1,25 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { AppLocale } from "@/i18n/routing";
 import SkillsSection from "@/components/sections/Skills";
 import HeaderSection from "@/components/sections/Header";
 import LocationSection from "@/components/sections/Location";
-import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
 import CTASection from "@/components/CTASection/CTASection";
-import { cookies } from "next/headers";
 
-export default async function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: AppLocale }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("home");
   const commonT = await getTranslations("common");
-  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   return (
     <div
-      className={`home-container w-full flex flex-col items-center px-4 pt-${
-        isMobile ? 16 : 0
-      } relative overflow-hidden`}
+      className='home-container w-full flex flex-col items-center px-4 relative overflow-hidden'
       role='main'
     >
-      <BackgroundEffects />
-
       <main className='w-full flex flex-col items-center'>
         <section
           aria-labelledby='hero-title'

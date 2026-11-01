@@ -1,20 +1,19 @@
-import { getTranslations } from "next-intl/server";
-import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { AppLocale } from "@/i18n/routing";
 import MarketingSection from "@/components/sections/Marketing";
 import CTASection from "@/components/CTASection/CTASection";
-import { cookies } from "next/headers";
 
-export default async function MarketingPage() {
+export default async function MarketingPage({
+  params,
+}: {
+  params: Promise<{ locale: AppLocale }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("common");
-  const isMobile = (await cookies()).get("isMobile")?.value === "true";
 
   return (
-    <div
-      className={`min-h-screen p-4 pt-${
-        isMobile ? 16 : 0
-      } relative overflow-hidden`}
-    >
-      <BackgroundEffects />
+    <div className='min-h-screen p-4 relative overflow-hidden'>
       <MarketingSection />
 
       <div className='mt-16'>

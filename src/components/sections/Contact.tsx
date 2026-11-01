@@ -9,7 +9,7 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import ContactInfo from "@/components/ContactInfo/ContactInfo";
-import { EMAIL } from "@/lib/model/common";
+import { site } from "@/lib/site";
 import { useTranslations } from "next-intl";
 
 interface ContactInfoData {
@@ -208,7 +208,7 @@ const ContactSection = memo(function ContactSection({
 
     const subject = encodeURIComponent("Message to Nati");
     const body = encodeURIComponent(formData.message);
-    const mailtoLink = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:${site.email}?subject=${subject}&body=${body}`;
 
     window.location.href = mailtoLink;
 

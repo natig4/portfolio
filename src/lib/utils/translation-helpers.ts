@@ -11,7 +11,7 @@ import { getTranslations } from "next-intl/server";
 export async function getTranslatedObject<T>(
   namespace: string,
   basePath: string,
-  properties: string[]
+  properties: string[],
 ): Promise<T> {
   const t = await getTranslations(namespace);
 
