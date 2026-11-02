@@ -1,278 +1,756 @@
 {
   "meta": {
-    "title": "Nati Gurevich | Full-Stack Software Engineer",
-    "description": "Quality-first developer with a unique QA leadership background"
-  },
-  "manifest": {
-    "name": "Nati Gurevich | Full-Stack Software Engineer"
-  },
-  "localeSwitcher": {
-    "label": "Language",
-    "locale": "{locale, select, he {🇮🇱 HEBREW} en {🇺🇸 ENGLISH} other {Unknown}}"
-  },
-  "links": {
-    "home": "Home",
-    "projects": "Projects",
-    "experience": "Experience",
-    "articles": "Articles",
-    "contact": "Contact",
-    "about": "About",
-    "marketing": "Marketing",
-    "accessibility": "Accessibility",
-    "terms": "Terms of use",
-    "privacy": "Privacy policy",
-    "hebrew": "Hebrew",
-    "english": "English",
-    "createdBy": "Created by Nati Gurevich",
-    "rights": "All rights reserved."
+    "title": "Nati Gurevich — New Generation SW",
+    "description": "Developers who live marketing. New Generation SW builds fast websites and software and runs the Google Ads, Meta campaigns and SEO that bring customers in. Founded by Nati Gurevich."
   },
   "nav": {
-    "home": "Home",
+    "work": "Work",
     "about": "About",
-    "projects": "Projects",
-    "experience": "Experience",
+    "marketing": "Marketing & SEO",
     "articles": "Articles",
-    "contact": "Contact"
+    "contact": "Contact",
+    "startProject": "Start a project",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleTheme": "Toggle dark mode",
+    "skipToContent": "Skip to main content",
+    "primary": "Primary",
+    "homeLabel": "Nati Gurevich, New Generation SW — home",
+    "role": "Founder & Lead Engineer"
+  },
+  "footer": {
+    "tagline": "Developers who live marketing — websites, software and growth, in Hebrew and English.",
+    "explore": "Explore",
+    "legal": "Legal",
+    "connect": "Connect",
+    "rights": "All rights reserved.",
+    "accessibility": "Accessibility statement",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "newTab": "(opens in a new tab)"
   },
   "home": {
-    "title": "Full-Stack Software Engineer",
-    "subtitle": "Quality-first developer with a unique QA leadership background",
-    "viewProjects": "View Projects",
-    "contactMe": "Contact Me",
-    "location": "Yasur, Northern District, Israel"
+    "hero": {
+      "eyebrow": "New Generation SW · Software & growth studio",
+      "description": "Most businesses hire one company to build the website and another to market it — and results fall through the gap. We do both: fast websites and software, plus the Google Ads, Meta campaigns and SEO that bring customers in, measured in real numbers.",
+      "primary": "Start a project",
+      "secondary": "See the results",
+      "trust": {
+        "years": "{years}+ years in tech",
+        "saved": "$1M+ saved for a client",
+        "channels": "Google Ads · Meta · SEO",
+        "bilingual": "Hebrew & English, RTL-native"
+      },
+      "shotsLabel": "Screenshots of recent client projects",
+      "titleStart": "Developers who",
+      "titleHighlight": "live marketing.",
+      "chips": {
+        "purchaseValue": "purchase value",
+        "google": "on Google",
+        "cpc": "cost per click"
+      }
+    },
+    "work": {
+      "eyebrow": "Selected work",
+      "title": "Websites and software we’ve built",
+      "description": "A few of the businesses and products we’ve built for lately.",
+      "viewAll": "All work"
+    },
+    "services": {
+      "eyebrow": "Services",
+      "title": "What we do",
+      "description": "Build it, then grow it: fast, accessible software, and the search and advertising work that brings customers to it.",
+      "examples": "Examples",
+      "items": {
+        "websites": {
+          "title": "Business websites",
+          "description": "Lead-generating sites with a CMS your team can update, built for search and for accessibility compliance.",
+          "points": [
+            "Next.js with a headless CMS",
+            "Local SEO and analytics",
+            "Accessibility to IS 5568 / WCAG AA"
+          ]
+        },
+        "platforms": {
+          "title": "Web platforms & SaaS",
+          "description": "Customer-facing products and multi-tenant platforms — from online ordering to AI-powered tools — designed to grow.",
+          "points": [
+            "React, Vue and Node.js",
+            "Payments, auth and integrations",
+            "Cloud infrastructure on AWS or Vercel"
+          ]
+        },
+        "tools": {
+          "title": "Internal tools & automation",
+          "description": "Dashboards, back offices and desktop apps that replace spreadsheets and manual work.",
+          "points": [
+            "Admin panels and dashboards",
+            "Excel import, export and reporting",
+            ".NET desktop applications"
+          ]
+        },
+        "growth": {
+          "title": "SEO & digital marketing",
+          "description": "Getting found on Google and turning clicks into customers — Google Ads, Meta campaigns and SEO, measured in Search Console and analytics.",
+          "points": [
+            "Google Ads and Meta campaigns",
+            "Technical and local SEO",
+            "Conversion tracking and GA4"
+          ]
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "How we work",
+      "title": "Quality built in from day one — not tested in at the end",
+      "description": "Before writing production code, Nati spent five years in QA and project leadership. That shapes every project: clear scope, small releases, testing at every step — and results measured from day one.",
+      "steps": {
+        "discover": {
+          "title": "Discover",
+          "description": "We map goals, users and constraints, and agree on a scope and timeline you can plan around."
+        },
+        "design": {
+          "title": "Design",
+          "description": "Wireframes and a visual direction in your brand — in Hebrew, English or both, RTL from day one."
+        },
+        "build": {
+          "title": "Build",
+          "description": "Weekly progress on a live preview link, built with an AI-first workflow in Claude Code — so you see the product take shape fast and can steer early."
+        },
+        "test": {
+          "title": "Test",
+          "description": "Accessibility, performance and cross-device checks on every release — habits from years of leading QA."
+        },
+        "launch": {
+          "title": "Launch & support",
+          "description": "Deployment, analytics and handover — and we stay on for improvements, campaigns and SEO after go-live."
+        }
+      }
+    },
+    "marquee": {
+      "label": "Platforms and tools we work with"
+    },
+    "results": {
+      "eyebrow": "Proof",
+      "title": "Results, not promises",
+      "description": "A few numbers from sites and campaigns we run. Every figure links to the full story and its source.",
+      "viewAll": "All marketing results",
+      "items": {
+        "leads": "more form leads for a luxury-watch service",
+        "conversations": "the WhatsApp conversations for a dance school",
+        "google": "on Google — local SEO for a manufacturer",
+        "saved": "saved for a financial-services client"
+      }
+    },
+    "founder": {
+      "eyebrow": "Who’s behind it",
+      "title": "A developer who lives marketing",
+      "description": "Nati Gurevich founded New Generation SW after years in quality assurance and full-stack engineering. Today he leads development of Digitengo, an AI marketing platform, and runs Google Ads, Meta and SEO for clients — so the person writing your code is the same one running your campaigns.",
+      "cta": "More about Nati"
+    },
+    "edge": {
+      "eyebrow": "Our edge",
+      "title": "Code and marketing, one team",
+      "description": "Agencies don’t touch the code and developers don’t run campaigns — so tracking breaks, pages load slowly and nobody owns the result. We sit on both sides.",
+      "dev": {
+        "title": "Development",
+        "file": "site.tsx",
+        "items": [
+          "Fast, accessible websites and web apps",
+          "SEO-ready structure from the first commit",
+          "Tracking and GA4 wired into the code"
+        ]
+      },
+      "marketing": {
+        "title": "Marketing",
+        "file": "campaigns",
+        "items": [
+          "Google Ads and Meta campaigns",
+          "Technical and local SEO",
+          "Landing pages built for conversions"
+        ]
+      },
+      "result": {
+        "title": "Customers",
+        "description": "Leads and sales you can measure — not just clicks.",
+        "cta": "See the results"
+      },
+      "points": {
+        "tracking": {
+          "title": "Tracking that counts",
+          "description": "We set up GA4, conversion actions and Tag Manager ourselves, so campaigns optimise for real leads and sales."
+        },
+        "seo": {
+          "title": "SEO in the code",
+          "description": "Page structure, speed and metadata are built in from day one — not patched in later by a plugin."
+        },
+        "landing": {
+          "title": "Pages at campaign speed",
+          "description": "When an ad needs a new landing page or a test, we build it ourselves — fast, with an AI-first workflow in Claude Code — no waiting on another team."
+        },
+        "owner": {
+          "title": "One team owns the result",
+          "description": "No finger-pointing between agency and developer: the site, the campaigns and the numbers are ours."
+        }
+      }
+    }
   },
   "about": {
-    "title": "About Me",
-    "description": "Self-taught Full-Stack Software Engineer with 8+ years of experience, including 5+ years in QA and project management leadership, and 3+ years in development. I specialize in modern web technologies with a unique quality-first development approach. I have a proven track record of building high-traffic applications serving 100K+ daily users and maintaining enterprise-grade SaaS platforms. I am a continuous learner with expertise gained through hands-on experience and structured online education.",
-    "skills": "Technical Skills",
-    "skillCategories": {
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "database": "Database",
-      "devops": "DevOps"
+    "page": {
+      "eyebrow": "About",
+      "title": "Hi, I’m Nati.",
+      "description": "A developer who lives marketing — and the founder of New Generation SW, a software and growth studio in the Western Galilee working with businesses across Israel and abroad."
     },
-    "stats": {
-      "years": "8+ Years",
-      "yearsDesc": "Total industry experience across development and QA",
-      "users": "100K+",
-      "usersDesc": "Daily users of applications developed and maintained",
-      "bugs": "0",
-      "bugsDesc": "Critical production bugs across major QA projects"
+    "intro": {
+      "title": "My story",
+      "p1": "I’m a self-taught full-stack engineer with {years} years in tech. I started on the quality side — leading QA and project management at myThings and building regression frameworks for real-time systems at Nova — before moving into development full time.",
+      "p2": "After engineering roles that included two years building high-traffic web apps at Outbrain, I founded New Generation SW to work directly with businesses.",
+      "p3": "Today we build websites, web platforms and internal tools, and run the Google Ads, Meta and SEO work that brings them customers. Reports Manager, a reporting tool I built, has saved a financial-services client more than $1M, and since 2025 I’ve also led full-stack development of the Digitengo AI marketing platform."
+    },
+    "experience": {
+      "eyebrow": "Experience",
+      "title": "Where I’ve worked",
+      "present": "Present",
+      "current": "Current",
+      "items": {
+        "ngsw": {
+          "company": "New Generation SW",
+          "role": "Founder & Lead Engineer",
+          "summary": "Software and growth studio: websites, web platforms, internal tools and performance marketing for businesses in Israel and abroad.",
+          "highlights": [
+            "Lead full-stack engineer on the Digitengo AI marketing platform (2025–present)",
+            "Designed and built client sites and platforms including Mirk, My North Food and TOR Group",
+            "Google Ads, Meta Ads and SEO for clients in e-commerce, legal services, local services and education",
+            "Reports Manager, an Excel reporting tool that has saved a financial-services client more than $1M"
+          ]
+        },
+        "outbrain": {
+          "company": "Outbrain",
+          "role": "Software Engineer",
+          "summary": "High-traffic web applications on one of the world’s largest content-recommendation platforms.",
+          "highlights": [
+            "Developed and maintained high-traffic web applications in Angular and React",
+            "Built complex shared components used by 10+ teams"
+          ]
+        },
+        "nova": {
+          "company": "Nova",
+          "role": "QA Test Engineer",
+          "summary": "Testing for embedded real-time systems.",
+          "highlights": [
+            "Built a regression-testing framework for embedded real-time systems",
+            "Led QA for 3+ major platform projects with zero critical production bugs"
+          ]
+        },
+        "mythings": {
+          "company": "myThings",
+          "role": "QA & PM Team Leader",
+          "summary": "Quality and project management at a digital advertising company.",
+          "highlights": [
+            "Managed a five-person team delivering 50+ projects a year",
+            "Established company-wide QA standards and processes"
+          ]
+        },
+        "bezeq": {
+          "company": "Bezeq",
+          "role": "Senior Technical Service Representative",
+          "summary": "Resolving complex technical issues for customers.",
+          "highlights": [
+            "Consulted on complex technical issues and helped teams solve them"
+          ]
+        }
+      }
+    },
+    "skills": {
+      "eyebrow": "Toolbox",
+      "title": "Technologies I work with",
+      "categories": {
+        "marketing": "Marketing & SEO",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "data": "Data",
+        "infra": "Cloud & DevOps",
+        "ai": "AI & integrations",
+        "desktop": "Desktop"
+      }
+    },
+    "record": {
+      "eyebrow": "Track record",
+      "title": "Results from the accounts we run",
+      "description": "Marketing and SEO results from the last few months — each with its source and the full story.",
+      "viewAll": "All marketing results"
     }
   },
   "projects": {
-    "title": "My Projects",
-    "code": "Code",
-    "private": "Private",
-    "liveDemo": "Live Demo",
-    "technologies": "Technologies",
-    "inProgress": "In Progress",
-    "projects": {
-      "lookIntoThierEyes": {
-        "title": "Look Into Their Eyes",
-        "description": "Is a bilingual (Hebrew/English) web exhibition showcasing the work of Israeli graffiti artist Benzi Brofman, with a focus on paintings created after the October 7th tragedy. The site serves as a memorial platform to raise awareness for the hostages taken during this event.",
-        "technologies": {
-          "tech1": "Next.js",
-          "tech2": "Cloudinary",
-          "tech3": "TypeScript"
+    "page": {
+      "eyebrow": "Work",
+      "title": "Selected work",
+      "description": "Websites, web platforms and internal tools we’ve designed and built — for businesses in Israel and abroad."
+    },
+    "labels": {
+      "client": "Client",
+      "year": "Year",
+      "role": "Role",
+      "status": "Status",
+      "stack": "Stack",
+      "type": "Type",
+      "visitSite": "Visit site",
+      "viewCase": "View case study",
+      "challenge": "The challenge",
+      "solution": "What we built",
+      "highlights": "Highlights",
+      "result": "The result",
+      "gallery": "Full page",
+      "nextProject": "Next project",
+      "backToWork": "All work",
+      "noScreenshots": "Screenshots coming soon",
+      "present": "present",
+      "desktop": "Desktop",
+      "mobile": "Mobile",
+      "moreStack": "+{count} more",
+      "newTab": "(opens in a new tab)",
+      "overview": "Overview",
+      "confidential": "Confidential client project",
+      "confidentialNote": "Screenshots can’t be shared for this project.",
+      "marketingResults": "See the SEO results"
+    },
+    "status": {
+      "live": "Live",
+      "in-progress": "In progress",
+      "internal": "Internal tool",
+      "private": "Private client"
+    },
+    "kind": {
+      "website": "Business website",
+      "web-app": "Web platform",
+      "saas": "SaaS platform",
+      "internal-tool": "Internal tool",
+      "desktop": "Desktop app"
+    },
+    "items": {
+      "mirk": {
+        "title": "Mirk",
+        "client": "M.Y.R. Kirshenbaum Ltd.",
+        "sector": "Metal processing · Akko",
+        "tagline": "A lead-generating website and content platform for a metal-processing plant.",
+        "summary": "A ground-up rebuild of the company website for a metal supplier and processing plant in Akko — department pages, local-SEO service areas, a CMS-driven blog and case studies, and an admin panel that routes every inquiry to sales.",
+        "role": "Design, full-stack development, CMS and SEO",
+        "challenge": "The previous WordPress site was slow, hard to update and undersold the plant’s capabilities. Sales needed a reliable source of inbound leads, and the office team needed to publish content without calling a developer.",
+        "solution": "We rebuilt the site on Next.js with Sanity as the content studio, PostgreSQL (via Prisma and Supabase) for leads, newsletter and analytics, and SendGrid for transactional email. The visual design was developed together with the client — a light, industrial palette — and every page was built RTL-first and keyboard- and screen-reader-accessible.",
+        "highlights": [
+          "Department and product pages for laser and plasma cutting, bending, rolling and iron sales",
+          "Service-area landing pages for local search across the Western Galilee, Haifa and the Krayot",
+          "Blog and case studies edited in an embedded Sanity Studio, with draft previews",
+          "Admin panel for inquiries, newsletter subscribers, service areas and activity logs",
+          "WhatsApp, Waze and click-to-call shortcuts, with email alerts to the sales team",
+          "Full accessibility statement; Hebrew-first with an English version"
+        ],
+        "result": "A fast, statically rendered site the client’s team updates on its own, with every inquiry landing in one place. In Google search, impressions grew 41% across consecutive 28-day periods and the site reached #1 on Google.",
+        "alt": {
+          "desktop": "Mirk website homepage on desktop",
+          "mobile": "Mirk website homepage on mobile",
+          "full": "Full-length capture of the Mirk homepage"
         },
-        "liveDemo": "https://look-into-their-eyes.vercel.app/",
-        "github": "https://github.com/lookIntoTheirEyes/look-into-their-eyes",
-        "isPrivate": "",
-        "inProgress": "true"
+        "outcome": "on Google"
       },
-      "jaMoveo": {
-        "title": "JaMoveo",
-        "description": "Is a collaborative musical rehearsal application that enables musicians to practice together virtually. The application serves as a digital platform for musical groups where participants with different instruments can view the same songs simultaneously, with each user seeing customized content based on their instrument (vocalists see only lyrics, while instrumentalists see both chords and lyrics).",
-        "technologies": {
-          "tech1": "React",
-          "tech2": "TypeScript",
-          "tech3": "Node.js",
-          "tech4": "Redux",
-          "tech5": "Socket.io",
-          "tech6": "Sass",
-          "tech7": "Express",
-          "tech8": "Oauth2",
-          "tech9": "Passport",
-          "tech10": "Helmet",
-          "tech11": "Web crawling"
-        },
-        "liveDemo": "https://jamoveo-8qpb.onrender.com",
-        "github": "https://github.com/natig4/JaMoveo",
-        "isPrivate": "",
-        "inProgress": ""
+      "digitengo": {
+        "title": "Digitengo",
+        "client": "Digitengo",
+        "sector": "AI marketing SaaS",
+        "tagline": "Lead engineer on a multi-tenant AI platform that runs social-media marketing for small businesses.",
+        "summary": "Digitengo writes, schedules and publishes social posts with AI, reports on paid campaigns across Meta and Google Ads, and captures leads — for small businesses and six white-label partner brands. We’ve led its full-stack development since mid-2025.",
+        "role": "Lead full-stack engineer — architecture, features, infrastructure",
+        "challenge": "A fast-growing product originally built by an outside agency: around seventeen Node.js microservices, a Vue front end and Kubernetes infrastructure, with reliability issues and features that had to ship quickly for paying customers and partners.",
+        "solution": "We took over day-to-day engineering across the whole stack — from the Vue app to the services, queues and AWS infrastructure — shipping new product areas while hardening what was already running in production.",
+        "highlights": [
+          "AI post generation and holiday-aware scheduling with OpenAI and Gemini",
+          "Paid-campaigns dashboard combining Meta and Google Ads data with leads and revenue into ROI and ROAS",
+          "Publishing to Facebook, Instagram and TikTok, plus Meta lead-form capture",
+          "White-label tenants on their own subdomains and a public partner API",
+          "Cut the onboarding bundle from 2.27 MB to about 0.55 MB gzipped",
+          "Hardened the EKS cluster after a node failure and closed a cross-tenant data leak in scheduled jobs"
+        ],
+        "result": "A more reliable platform that keeps shipping — over 2,600 commits since July 2025 across the front end, services and infrastructure.",
+        "alt": {
+          "desktop": "Digitengo paid-campaigns dashboard",
+          "mobile": "Digitengo on mobile",
+          "full": "Digitengo post feed with scheduled AI-generated posts"
+        }
       },
-      "reportsManager": {
-        "title": "Reports Manager",
-        "description": "A comprehensive enterprise reporting system built for financial services, designed to automate complex Excel-based report processing and data analysis workflows. The application features a modern Windows app interface with multi-language support (Hebrew/English) and handles large-scale financial data processing with advanced error detection and resolution capabilities.",
-        "technologies": {
-          "tech1": "C#",
-          "tech2": ".NET Core",
-          "tech3": "JWT",
-          "tech4": "WPF",
-          "tech5": "EPPlus"
-        },
-        "liveDemo": "",
-        "github": "",
-        "isPrivate": "true",
-        "inProgress": ""
+      "my-north-food": {
+        "title": "My North Food",
+        "client": "Ma’akhalei HaTzafon",
+        "sector": "Food manufacturing · Upper Galilee",
+        "tagline": "An online store and operations platform for a Galilee food manufacturer — an AI-built codebase we took over and made production-grade.",
+        "summary": "A food manufacturer operating since 1979 is moving its ordering, deliveries and back office online: a Hebrew storefront with a product catalog and cart, plus dedicated apps for drivers, production stations and management.",
+        "role": "Codebase takeover, refactoring and full-stack development",
+        "challenge": "Orders, delivery routes, kitchen tasks and supplier purchasing were managed by phone and on paper. A first version had already been generated with an AI app builder: it worked in parts, but it was hard to change — React errors, a fragile media flow and manual database changes — and the business still needed one system that customers, drivers, kitchen staff and management could each use from their own device.",
+        "solution": "We took over the existing React and Express codebase and improved it end to end — frontend, backend and database — while the live system kept running. On that foundation we’re building role-based areas: the public storefront and customer accounts, an admin back office, a driver app, station screens for the kitchen and warehouse, and a management dashboard — all on one shared database.",
+        "highlights": [
+          "Refactored an AI-generated codebase across frontend and backend, without taking the system down",
+          "Automated database migrations and seed data; fixed React errors, media uploads and startup scripts",
+          "Product catalog, cart and order history, with service requests and inquiries",
+          "Back office for products, inventory, weekly menus, kashrut certificates and banners",
+          "Driver app with delivery lists and digital signatures on handover",
+          "Station screens for daily tasks, goods receipt and purchase orders",
+          "Management dashboard for orders and weekly planning",
+          "AI chat assistant for customer questions"
+        ],
+        "result": "The public site is live on the improved codebase, and the operational modules are rolling out in stages — everything that worked before still works.",
+        "alt": {
+          "desktop": "My North Food homepage on desktop",
+          "mobile": "My North Food homepage on mobile",
+          "full": "Full-length capture of the My North Food homepage"
+        }
       },
-      "torGroup": {
+      "galil-dashboard": {
+        "title": "Field Organizing Dashboard",
+        "client": "Regional volunteer organization",
+        "sector": "Civic organizing · Western Galilee",
+        "tagline": "An internal dashboard that replaced a tangle of spreadsheets for a regional volunteer organization.",
+        "summary": "A Hebrew, sign-in-protected dashboard that tracks every community in the region — local coordinators, key figures and a history of field events — with Excel import and export so the team can keep working the way it’s used to.",
+        "role": "Product design and full-stack development",
+        "challenge": "Volunteers were coordinating dozens of communities across two regional councils and several cities from shared spreadsheets that were hard to search, easy to break and impossible to keep in sync.",
+        "solution": "We built a secure Next.js app on Supabase and Prisma that imports the existing spreadsheets, groups communities by council, and lets organizers search, sort and edit figures inline — then export any filtered view back to Excel.",
+        "highlights": [
+          "Communities grouped by regional council, with search across names, coordinators and phone numbers",
+          "Inline editing of key figures, color-coded against regional averages",
+          "Per-community coordinator lists and an event history with participants and speakers",
+          "One-click Excel export of any filtered view, plus a two-sheet export per community",
+          "Supabase Auth with server-side checks on every page and API route",
+          "Import scripts that seeded the database from the organization’s existing spreadsheets"
+        ],
+        "result": "One source of truth for the field team, built in a few days.",
+        "alt": {
+          "desktop": "Field organizing dashboard, personal details blurred",
+          "mobile": "Field organizing dashboard on mobile, personal details blurred",
+          "full": "Full dashboard of communities, personal details blurred"
+        }
+      },
+      "tor-group": {
         "title": "TOR Group",
-        "description": "A modern, responsive corporate website for TOR Group, a financial services company specializing in investment fundraising and international bond issuance for emerging markets. The site features a growth-themed design, comprehensive service portfolio, team profiles, and multi-language support with advanced accessibility features.",
-        "technologies": {
-          "tech1": "Next.js",
-          "tech2": "TypeScript",
-          "tech3": "Framer Motion",
-          "tech4": "next-intl",
-          "tech5": "CSS Modules",
-          "tech6": "EmailJS",
-          "tech7": "Google Analytics",
-          "tech8": "React"
+        "client": "TOR Group",
+        "sector": "Investment fundraising",
+        "tagline": "A corporate website for an investment-fundraising firm focused on emerging markets.",
+        "summary": "A responsive, multi-language corporate site for a financial-services firm specializing in investment fundraising and international bond issuance — with a growth-themed design, service and team pages, and built-in accessibility features.",
+        "role": "Design and front-end development",
+        "challenge": "The firm needed a credible, modern presence to present its services, process and partners to international investors — in more than one language.",
+        "solution": "We designed and built a Next.js site with next-intl for localization, Framer Motion for restrained animation and a contact form wired to email, structured around the firm’s approach, timing and process.",
+        "highlights": [
+          "Service, approach, timing and process sections built around the firm’s pitch",
+          "Multi-language routing with next-intl",
+          "Glass-style hero and a growth-themed visual language",
+          "Contact form with email delivery, plus Google Analytics"
+        ],
+        "result": "A polished first impression for investor conversations, live at thetorgroup.com.",
+        "alt": {
+          "desktop": "TOR Group homepage on desktop",
+          "mobile": "TOR Group homepage on mobile",
+          "full": "Full-length capture of the TOR Group homepage"
+        }
+      },
+      "reports-manager": {
+        "title": "Reports Manager",
+        "client": "Private financial-services client",
+        "sector": "Financial services",
+        "tagline": "A Windows desktop app that automates complex Excel reporting for a financial-services firm.",
+        "summary": "An enterprise reporting tool that ingests large Excel workbooks, validates and reconciles the data, and produces finished reports — replacing hours of manual spreadsheet work. Bilingual Hebrew/English interface.",
+        "role": "Desktop application development",
+        "challenge": "Analysts were spending hours each cycle copying, checking and reformatting data across large Excel files, and errors were hard to trace.",
+        "solution": "We built a WPF application on .NET with EPPlus for Excel processing, JWT-secured access and a guided workflow that flags inconsistencies and helps resolve them before reports are generated.",
+        "highlights": [
+          "Batch processing of large Excel workbooks with EPPlus",
+          "Automatic error detection with guided resolution",
+          "Hebrew/English interface",
+          "Secured access with JWT"
+        ],
+        "result": "A repeatable, auditable reporting workflow in place of manual spreadsheet work — one that has saved the client more than $1M.",
+        "alt": {
+          "desktop": "Reports Manager main window",
+          "mobile": "Reports Manager",
+          "full": "Reports Manager"
         },
-        "liveDemo": "https://thetorgroup.com",
-        "github": "",
-        "isPrivate": "true",
-        "inProgress": ""
+        "outcome": "saved for the client"
       }
-    }
-  },
-  "experience": {
-    "title": "Professional Experience",
-    "companies": {
-      "freelance": {
-        "company": "Freelance",
-        "position": "Software Engineer",
-        "period": "2024 - Present",
-        "description": {
-          "desc1": "Designed and developed full-stack web applications using Next.js and modern React patterns.",
-          "desc2": "Built and maintained enterprise desktop applications using WPF and .NET framework.",
-          "desc3": "Implemented automated deployment workflows using GitHub Actions CI/CD pipelines.",
-          "desc4": "Drove project success through effective client communication and timely delivery."
-        }
-      },
-      "outbrain": {
-        "company": "Outbrain",
-        "position": "Software Engineer",
-        "period": "2022 - 2024",
-        "description": {
-          "desc1": "Developed and maintained high-traffic web applications using Angular and React.",
-          "desc2": "Led technical training sessions for 50+ developers on RxJS.",
-          "desc3": "Created complex components used by 10+ teams, reducing development time.",
-          "desc4": "Built scalable microservices using Node.js, NestJS, and Scala."
-        }
-      },
-      "nova": {
-        "company": "Nova",
-        "position": "QA Manual Test Engineer",
-        "period": "2018 - 2021",
-        "description": {
-          "desc1": "Built regression testing framework for embedded real-time systems.",
-          "desc2": "Led QA for 3+ major platform projects with zero critical production bugs."
-        }
-      },
-      "myThings": {
-        "company": "myThings",
-        "position": "QA & PM Team Leader",
-        "period": "2016 - 2018",
-        "description": {
-          "desc1": "Managed 5-person team delivering 50+ projects annually.",
-          "desc2": "Established and maintained company-wide QA standards and processes."
-        }
-      },
-      "bezeq": {
-        "company": "Bezeq",
-        "position": "Senior Technical Service Representative",
-        "period": "2010 - 2015",
-        "description": {
-          "desc1": "Acted as a consultant for complex technical challenges, enhancing team problem-solving capabilities."
-        }
-      }
+    },
+    "marketing": {
+      "eyebrow": "Marketing & SEO",
+      "title": "Beyond building: marketing that brings customers",
+      "description": "Campaign and SEO results from the accounts we run.",
+      "viewAll": "All marketing results"
     }
   },
   "articles": {
-    "title": "Recent Articles",
-    "followMe": "Follow me on Medium",
-    "forMore": "For more articles on software development and quality engineering",
-    "articles": {
-      "angularCache": {
+    "page": {
+      "eyebrow": "Articles",
+      "title": "Writing",
+      "description": "Notes on software development and quality engineering, from problems I’ve solved in production.",
+      "follow": "Follow on Medium"
+    },
+    "labels": {
+      "read": "Read on Medium",
+      "language": {
+        "en": "In English",
+        "he": "In Hebrew"
+      },
+      "newTab": "(opens in a new tab)"
+    },
+    "items": {
+      "angular-event-buffer": {
         "title": "Building an Efficient Event Buffer Service in Angular with RxJS",
-        "date": "May 13, 2025",
-        "excerpt": "How to reduce network overhead and improve performance by batching high-frequency events?"
+        "excerpt": "How to reduce network overhead and improve performance by batching high-frequency events."
       }
     }
   },
   "marketing": {
-    "title": "Marketing Performance",
-    "subtitle": "Campaign Performance Highlights",
-    "description": "Showcasing the growth metrics of a recent marketing campaign I managed, resulting in significant improvements across key performance indicators.",
-    "prevQuarter": "vs. prev. quarter",
-    "metrics": {
-      "purchases": "Purchases",
-      "firstPurchase": "New purchases",
-      "activity": "Site Activity",
-      "users": "Active Users"
+    "page": {
+      "eyebrow": "Marketing & SEO",
+      "title": "Marketing results, in real numbers",
+      "description": "We’re developers who run Google Ads, Meta campaigns and SEO — so the tracking, landing pages and site speed behind every campaign are ours too. Every number on this page comes straight from the ad platforms or Google Search Console."
     },
-    "chartCaption": "Performance metrics over a 3-month period showing consistent growth"
-  },
-  "contact": {
-    "title": "Get In Touch",
-    "info": "Contact Information",
-    "email": "Email",
-    "phone": "Phone",
-    "location": "Location",
-    "linkedin": "LinkedIn",
-    "sendMessage": "Send Me a Message",
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "namePlaceholder": "Your name",
-      "emailPlaceholder": "Your email",
-      "messagePlaceholder": "Your message",
-      "send": "Send Message"
+    "services": {
+      "eyebrow": "What we run",
+      "title": "Paid, organic and measured",
+      "description": "One team for the website, the campaigns that bring people to it, and the tracking that shows what worked.",
+      "items": {
+        "googleAds": {
+          "title": "Google Ads",
+          "description": "Search, Performance Max and product campaigns built around real conversions, not clicks."
+        },
+        "metaAds": {
+          "title": "Meta Ads",
+          "description": "Facebook and Instagram campaigns for online sales, lead forms and WhatsApp conversations."
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "Technical and local SEO, service-area pages and query-by-query monitoring in Search Console."
+        },
+        "tracking": {
+          "title": "Tracking & analytics",
+          "description": "GA4 and conversion actions set up so every lead and sale can be measured and compared."
+        }
+      }
+    },
+    "browser": {
+      "eyebrow": "Case studies",
+      "title": "Results by client",
+      "description": "Clients are anonymous, and budgets stay private: spend appears only as a percentage change."
+    },
+    "filter": {
+      "legend": "Filter by channel",
+      "all": "All"
+    },
+    "channels": {
+      "google-ads": "Google Ads",
+      "meta-ads": "Meta Ads",
+      "seo": "SEO"
+    },
+    "objectives": {
+      "sales": "E-commerce sales",
+      "leads": "Lead generation",
+      "messages": "WhatsApp conversations",
+      "traffic": "Traffic",
+      "visibility": "Search visibility"
+    },
+    "metrics": {
+      "purchaseValue": "Attributed purchase value",
+      "purchases": "Attributed purchases",
+      "roas": "Return on ad spend",
+      "adSpend": "Ad spend",
+      "videoPurchases": "Purchases, video campaign",
+      "costPerPurchase": "Cost per purchase, video campaign",
+      "productPurchases": "Purchases, product campaign",
+      "costPerClick": "Cost per click",
+      "clicks": "Ad clicks",
+      "formLeads": "Form leads",
+      "conversations": "WhatsApp conversations",
+      "impressions": "Impressions",
+      "averagePosition": "Average position"
+    },
+    "evidence": {
+      "googleCampaigns": {
+        "alt": "Google Ads campaign table with clicks and impressions for both periods; campaign names, budgets and costs blurred",
+        "caption": "Google Ads · campaign report"
+      },
+      "googleTrend": {
+        "alt": "Google Ads chart comparing the period with the previous one; cost and conversion totals blurred",
+        "caption": "Google Ads · performance over time"
+      },
+      "metaCampaigns": {
+        "alt": "Meta Ads Manager campaign table with results for both periods; campaign names blurred",
+        "caption": "Meta Ads Manager · campaign results"
+      }
+    },
+    "labels": {
+      "improved": "Improved",
+      "declined": "Declined",
+      "fromTo": "from {from} to {to}",
+      "vs": "vs. {previous}",
+      "viewProject": "View the {project} project",
+      "viewCase": "Read the case study",
+      "highlights": "Highlights",
+      "backToResults": "All results",
+      "results": "The numbers",
+      "story": "How we got there",
+      "challenge": "The challenge",
+      "approach": "What we did",
+      "result": "The result",
+      "rankings": "Search positions",
+      "queries": "Selected search terms · average Google position",
+      "pages": "Service and area pages · average Google position",
+      "query": "Search term",
+      "page": "Page",
+      "before": "Before",
+      "after": "After",
+      "gain": "Change",
+      "evidence": "From the ad accounts",
+      "evidenceNote": "Screenshots of the platform reports. Campaign names, budgets and costs are blurred to protect our clients.",
+      "openImage": "Open full size",
+      "source": "Source and notes",
+      "nextCase": "Next case study"
+    },
+    "cases": {
+      "ecommerce-growth": {
+        "client": "Laundry-rack manufacturer and online store",
+        "title": "49% more purchase value on 10% less ad spend",
+        "summary": "Google Ads and Meta for an Israeli e-commerce brand. In August–October, purchase value attributed to Google Ads rose 49% while ad spend fell 10%, and the Meta video campaign doubled its purchases at a 44% lower cost per purchase.",
+        "challenge": "The brand sells through its own online store and advertises on both Google and Meta. The goal: more online sales from the same budget or a smaller one.",
+        "approach": [
+          "Measured both periods against a single GA4 purchase action, so the comparison is like for like",
+          "Switched the product-sales campaigns to bid for new customers only",
+          "Rewrote the brand-search ads and expanded the Performance Max asset groups",
+          "Shifted budget toward brand search and Performance Max",
+          "Ran video and product sales campaigns on Meta, optimised for purchases"
+        ],
+        "result": "Compared with May–July, Google Ads brought 49% more attributed purchase value and 56% more attributed purchases on 10% less ad spend, and return on ad spend rose from 3.2× to 5.3×. On Meta, the video campaign went from 57 to 112 purchases and the product campaign from 41 to 117.",
+        "footnote": "Sources: Google Ads (one GA4-imported purchase action, 90-day click attribution) and Meta Ads Manager (individual campaigns; 7-day click, 1-day view or engagement), {period} vs. {previous}. These are conversions attributed by each platform, not audited orders, and Google and Meta results are reported separately — never added together."
+      },
+      "security-leads": {
+        "client": "Security-systems installer",
+        "title": "53% lower cost per click, 2.7× the clicks",
+        "summary": "Google Ads for a security-systems installer serving homes and businesses. In October we relaunched the account with separate business and private-customer campaigns: clicks rose from 451 to 1,236, the average cost per click fell 53%, and the website form brought in 12 leads.",
+        "challenge": "The installer needed more enquiries from both homeowners and businesses without paying more per click, and the account's lead tracking had to be rebuilt.",
+        "approach": [
+          "Rebuilt lead tracking around a dedicated website-form conversion",
+          "Launched separate campaigns for business and private customers",
+          "Added a shared negative-keyword list and excluded irrelevant regions",
+          "Refreshed ad assets and focused the account's goals on real enquiries"
+        ],
+        "result": "October brought 1,236 clicks against 451 in September, at an average cost per click 53% lower, plus 12 leads through the website form.",
+        "footnote": "Source: Google Ads, account totals, {period} vs. {previous}. The website-form conversion was created on 17 September, so September has no complete lead baseline and we don't claim a lead-growth figure."
+      },
+      "mirk-seo": {
+        "client": "Metal-processing plant, Western Galilee",
+        "title": "Local SEO for a metal-processing plant",
+        "summary": "SEO for mirk.co.il, the metal-processing website we built, with department and service-area pages structured for local search. Over consecutive 28-day periods, Google impressions rose 41%, the site reached #1 on Google and the Nahariya service-area page climbed from 17.4 to 8.3.",
+        "challenge": "A new website for a metal-processing plant in Akko had to show up for the company's name and for the services and towns it covers across the Western Galilee.",
+        "approach": [
+          "Department and service pages for each core service — cutting, bending, rolling and iron sales",
+          "Service-area landing pages for the Western Galilee, Haifa and the Krayot",
+          "Fast, statically rendered pages, Hebrew-first with an English version",
+          "Monitoring in Google Search Console, query by query and page by page"
+        ],
+        "result": "Search impressions grew from 1,150 to 1,623 and the average position improved from 16.9 to 15.5. ‘⁧כיפוף פח אלומיניום⁩’ (aluminium sheet bending) moved from position 20.1 to 11.7.",
+        "footnote": "Source: Google Search Console, web search, {period} compared with {previous}. Positions are averages for each period, not live rankings, and Search Console data for the site starts on 29 August 2026.",
+        "pages": {
+          "nahariya": "Nahariya service area",
+          "ironSales": "Iron sales department",
+          "areas": "Service areas overview"
+        }
+      },
+      "watch-coating-leads": {
+        "client": "Luxury-watch coating service",
+        "title": "62% more leads for a specialist service",
+        "summary": "Meta lead-form campaigns for a luxury-watch coating service. In August–October the campaign collected 377 form leads, up from 233 in May–July.",
+        "challenge": "A niche, premium service: the campaign has to bring a steady flow of enquiries from a small, specific audience.",
+        "approach": [
+          "Instant lead forms on Facebook and Instagram, so people enquire without leaving the app",
+          "A separate WhatsApp campaign alongside the lead-form campaign",
+          "Results tracked campaign by campaign in Meta Ads Manager"
+        ],
+        "result": "377 form leads in August–October, 62% more than the 233 in May–July.",
+        "footnote": "Source: Meta Ads Manager, lead-form campaign, {period} vs. {previous}; 7-day click or 1-day view attribution. Leads are submitted forms, not verified sales."
+      },
+      "dance-school-whatsapp": {
+        "client": "Dance school, Jerusalem",
+        "title": "3.4× more WhatsApp conversations",
+        "summary": "A click-to-WhatsApp campaign on Meta for a Jerusalem dance school. Conversations started rose from 140 in May–July to 473 in August–October.",
+        "challenge": "For a local studio, a WhatsApp chat is the shortest path from an ad to a conversation about classes.",
+        "approach": [
+          "Click-to-WhatsApp ads that open a chat straight with the studio",
+          "Results measured as conversations started, in Meta Ads Manager"
+        ],
+        "result": "473 conversations started in August–October, compared with 140 in May–July.",
+        "footnote": "Source: Meta Ads Manager, WhatsApp campaign, {period} vs. {previous}; 7-day click or 1-day view attribution. Conversations are not confirmed registrations, the cost per conversation rose 30%, and the comparison doesn't control for seasonality."
+      },
+      "family-law-traffic": {
+        "client": "Family-law practice, Central Israel",
+        "title": "2.5× the clicks on the same budget",
+        "summary": "We took over the Google Ads account of a family-law practice on 1 September. In the first month, clicks rose from 938 to 2,369 and impressions grew 4.2×, on the same budget.",
+        "challenge": "A competitive legal market where every click is expensive: the account had to reach more people for the same money.",
+        "approach": [
+          "Extended reach with Performance Max alongside the search campaigns",
+          "Kept total spend flat while bringing the cost per click down",
+          "Tracked qualifying phone calls (30 seconds or longer) as their own conversion"
+        ],
+        "result": "September brought 2,369 clicks against 938 in August, at a 60% lower cost per click, and 4.2× the impressions.",
+        "footnote": "Source: Google Ads, account totals, {period} vs. {previous}; cost per click is account spend divided by clicks. More traffic is not yet more clients: qualifying phone calls from ads were 6 in September against 8 in August."
+      },
+      "legal-leads": {
+        "client": "Law firm",
+        "title": "14% more form leads for a law firm",
+        "summary": "Meta lead-form campaigns for a law firm serving private clients. The main campaign collected 139 form leads in August–October, up from 122 in May–July.",
+        "challenge": "Legal help is a high-trust decision: the campaign has to bring steady enquiries from people ready to talk to a lawyer.",
+        "approach": [
+          "Instant lead forms aimed at private clients",
+          "Tested campaigns with and without Meta's Advantage+ audience expansion",
+          "Leads tracked campaign by campaign in Meta Ads Manager"
+        ],
+        "result": "139 form leads in August–October, 14% more than the 122 in May–July.",
+        "footnote": "Source: Meta Ads Manager, private-clients lead-form campaign, {period} vs. {previous}; 7-day click or 1-day view attribution. Leads are submitted forms, not signed clients."
+      }
     }
   },
-  "career": {
-    "metaTitle": "My Career Journey",
-    "metaDescription": "Follow my professional journey from technical support to QA leadership to software engineering",
-    "title": "My Professional Journey",
-    "subtitle": "Exploring my transition from technical support to QA leadership to full-stack software engineering",
-    "bezeq": {
-      "title": "Senior Technical Service Representative",
-      "company": "Bezeq",
-      "description": "Built a strong technical foundation while solving complex customer issues. Developed troubleshooting skills and learned to communicate technical concepts clearly to non-technical audiences."
+  "contact": {
+    "page": {
+      "eyebrow": "Contact",
+      "title": "Let’s talk about your project",
+      "description": "Tell us a bit about what you need — a new website, a web platform, campaigns or SEO — and we’ll get back to you with next steps."
     },
-    "myThings": {
-      "title": "QA & PM Team Leader",
-      "company": "myThings",
-      "description": "Led a team of 5 QA specialists delivering 50+ projects annually. Established company-wide quality standards and processes. Learned project management, team leadership, and strategic planning."
+    "details": {
+      "title": "Direct contact",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "locationValue": "Yasur, Western Galilee — working with clients across Israel and abroad",
+      "linkedin": "LinkedIn",
+      "newTab": "(opens in a new tab)"
     },
-    "nova": {
-      "title": "QA Manual Test Engineer",
-      "company": "Nova",
-      "description": "Built comprehensive regression testing frameworks for embedded real-time systems. Led QA for 3+ major platform projects with zero critical production bugs. Developed deeper technical expertise."
-    },
-    "outbrain": {
-      "title": "Software Engineer",
-      "company": "Outbrain",
-      "description": "Made the transition to full-time development, building high-traffic web applications using Angular and React. Created complex components used by 10+ teams. Led technical training sessions for 50+ developers."
-    },
-    "freelance": {
-      "title": "Freelance Software Engineer",
-      "company": "Self-employed",
-      "description": "Designing and developing full-stack web applications using Next.js and modern React patterns. Building enterprise desktop applications with .NET. Implementing automated deployment workflows with CI/CD."
-    },
-    "keyLearning": {
-      "title": "My Quality-First Approach",
-      "description": "My journey from QA to development has shaped my unique perspective on software engineering. I approach every project with quality as the primary focus, combining rigorous testing methodologies with modern development practices to create robust, maintainable software that exceeds both technical requirements and user expectations."
+    "form": {
+      "title": "Send a message",
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "optional": "optional",
+      "message": "What are you building?",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "you@company.com",
+      "companyPlaceholder": "Company or project name",
+      "messagePlaceholder": "A few lines about the project, timeline and anything else that helps.",
+      "send": "Send message",
+      "note": "This opens your email app with the message ready to send.",
+      "opened": "Your email app should open now. If it didn’t, email us directly at {email}.",
+      "subject": "New project inquiry — {name}",
+      "bodyName": "Name",
+      "bodyEmail": "Email",
+      "bodyCompany": "Company"
     }
   },
   "terms": {
     "title": "Terms of Use",
-    "metaDescription": "Terms of use for Nati Gurevich's portfolio website",
+    "metaDescription": "Terms of use for the New Generation SW website",
     "lastUpdated": "Last updated",
-    "lastUpdatedDate": "May 2025",
+    "lastUpdatedDate": "November 2026",
     "effectiveDate": "Effective date",
     "effectiveDateDate": "May 22, 2025",
     "acceptance": {
@@ -281,7 +759,7 @@
     },
     "description": {
       "title": "Website Description",
-      "content": "This website serves as a professional portfolio and resume for Nati Gurevich, showcasing software development projects, professional experience, and contact information for potential employers and collaborators."
+      "content": "This website presents New Generation SW, a software studio led by Nati Gurevich, and showcases its services, projects, professional experience and contact information for prospective clients and collaborators."
     },
     "usage": {
       "title": "Permitted Use",
@@ -300,23 +778,23 @@
     },
     "intellectual": {
       "title": "Intellectual Property Rights",
-      "content": "The website and its original content, features, and functionality are owned by Nati Gurevich and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws. All project code and implementations remain the intellectual property of their respective owners and clients."
+      "content": "The website and its original content, features, and functionality are owned by Nati Gurevich (New Generation SW) and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws. All project code and implementations remain the intellectual property of their respective owners and clients."
     },
     "links": {
       "title": "External Links",
-      "content": "This website may contain links to external websites that are not provided or maintained by Nati Gurevich. Please note that I do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites."
+      "content": "This website may contain links to external websites that are not provided or maintained by Nati Gurevich (New Generation SW). Please note that I do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites."
     },
     "disclaimer": {
       "title": "Disclaimer",
-      "content": "The information on this website is provided on an 'as is' basis. To the fullest extent permitted by law, Nati Gurevich excludes all representations, warranties, conditions, and terms whether express or implied, statutory or otherwise."
+      "content": "The information on this website is provided on an 'as is' basis. To the fullest extent permitted by law, Nati Gurevich (New Generation SW) excludes all representations, warranties, conditions, and terms whether express or implied, statutory or otherwise."
     },
     "limitation": {
       "title": "Limitation of Liability",
-      "content": "In no event shall Nati Gurevich, nor any of its officers, directors, and employees, be held liable for anything arising out of or in any way connected with your use of this website whether such liability is under contract, tort, or otherwise."
+      "content": "In no event shall Nati Gurevich (New Generation SW), nor any of its officers, directors, and employees, be held liable for anything arising out of or in any way connected with your use of this website whether such liability is under contract, tort, or otherwise."
     },
     "changes": {
       "title": "Changes to Terms",
-      "content": "Nati Gurevich reserves the right to revise these terms of use at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of use."
+      "content": "Nati Gurevich (New Generation SW) reserves the right to revise these terms of use at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of use."
     },
     "contact": {
       "title": "Contact Information",
@@ -325,14 +803,14 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "description": "Privacy policy for Nati Gurevich's portfolio website",
+    "description": "Privacy policy for the New Generation SW website",
     "lastUpdated": "Last updated",
-    "lastUpdatedDate": "May 2025",
+    "lastUpdatedDate": "November 2026",
     "effectiveDate": "Effective date",
     "effectiveDateDate": "May 22, 2025",
     "introduction": {
       "title": "Introduction",
-      "content": "This Privacy Policy describes how Nati Gurevich ('I', 'me', or 'my') collects, uses, and protects your information when you visit my portfolio website. I am committed to protecting your privacy and being transparent about my data practices."
+      "content": "This Privacy Policy describes how Nati Gurevich (New Generation SW) ('I', 'me', or 'my') collects, uses, and protects your information when you visit this website. I am committed to protecting your privacy and being transparent about my data practices."
     },
     "information": {
       "title": "Information I Collect",
@@ -443,7 +921,7 @@
   },
   "accessibility": {
     "title": "Accessibility Statement",
-    "company_name": "Nati Gurevich Portfolio",
+    "company_name": "New Generation SW",
     "intro_paragraph_1": "is committed to ensuring digital accessibility for people with disabilities. I am continually improving the user experience for everyone and applying the relevant accessibility standards.",
     "intro_paragraph_2": "This website aims to conform to Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards to ensure accessibility for users with disabilities.",
     "accessibility_initiative_1": "I take accessibility seriously and strive to adhere to the",
@@ -468,62 +946,43 @@
     "email_label": "Email: ",
     "accessibility_commitment": "I am committed to maintaining and improving the accessibility of this website. Regular accessibility audits are conducted, and updates are made to ensure ongoing compliance with accessibility standards. Your feedback helps me identify areas for improvement and ensure that all users can access and use this website effectively."
   },
-  "404": {
-    "header": "Page not found",
-    "secondary-header": "Looks like this page doesn't exist",
-    "link1": "Click ",
-    "cta": "here",
-    "link2": "to go back home"
-  },
   "error": {
-    "header": "Error",
-    "description": "It seems like we've encountered an error",
-    "link1": "Click ",
-    "cta": "here",
-    "link2": "to go back home"
+    "code": "Error",
+    "title": "Something went wrong",
+    "description": "An unexpected error interrupted this page. Try again, or head back home.",
+    "retry": "Try again",
+    "home": "Back to home"
   },
-  "common": {
-    "skills": {
-      "title": "Technical Skills",
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "database": "Database",
-      "devops": "DevOps"
+  "notFound": {
+    "title": "This page does not exist",
+    "description": "The link may be broken, or the page may have moved. Let's get you back on track.",
+    "home": "Back to home",
+    "work": "See the work"
+  },
+  "cta": {
+    "title": "One team for the code and the customers.",
+    "description": "Tell us what you need — a new website, a platform, or campaigns that bring in customers — and we’ll show you how we’d approach it.",
+    "primary": "Start a project",
+    "secondary": "See the results"
+  },
+  "profile": {
+    "label": "Two skill sets, one person",
+    "engineer": {
+      "title": "The engineer",
+      "items": [
+        "From QA lead to full-stack engineer",
+        "Leads development of the Digitengo AI marketing platform",
+        "Next.js, React and Node.js, built AI-first with Claude Code",
+        "Turns AI-generated code into maintainable, production-grade software"
+      ]
     },
-    "subtitles": {
-      "skills": "Showcasing modern technologies and development expertise",
-      "projects": "Showcasing innovative solutions built with modern technologies",
-      "experience": "My professional journey across development and quality assurance",
-      "articles": "Thoughts, insights, and tutorials from my experiences in the tech industry",
-      "contact": "Let's connect and discuss your next project or opportunity",
-      "moreProjects": "More projects coming soon! Follow my journey on"
-    },
-    "career": {
-      "journeyTitle": "From QA Leadership to Software Engineering",
-      "journeyDescription": "My journey from QA to development has shaped my unique perspective on software engineering. I approach every project with quality as the primary focus, combining rigorous testing methodologies with modern development practices to create robust, maintainable software that exceeds both technical requirements and user expectations.",
-      "detailedExperience": "Detailed Experience"
-    },
-    "cta": {
-      "defaultTitle": "Want to learn more about my professional background?",
-      "marketingTitle": "Looking to upscale your businesses as well?",
-      "projectsTitle": "Looking for a quality-focused developer for your next project?",
-      "experienceTitle": "Want to see my technical skills in action?",
-      "contactTitle": "Interested in seeing my work?",
-      "articlesTitle": "Interested in my background and technical skills?",
-      "aboutTitle": "Want to see my professional journey?"
-    },
-    "medium": {
-      "follow": "Follow on Medium"
-    },
-    "buttons": {
-      "viewProjects": "View Projects",
-      "viewExperience": "View Experience",
-      "contactMe": "Contact",
-      "getInTouch": "Get In Touch",
-      "learnAboutMe": "About Me",
-      "github": "GitHub",
-      "linkedin": "LinkedIn"
-    },
-    "readMore": "Read Full Article"
+    "marketer": {
+      "title": "The marketer",
+      "items": [
+        "Google Ads and Meta campaigns for e-commerce, legal and local businesses",
+        "Technical and local SEO",
+        "GA4, conversion tracking and Tag Manager"
+      ]
+    }
   }
 }

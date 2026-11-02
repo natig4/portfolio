@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# New Generation SW — nati-gurevich.com
 
-## Getting Started
+Company site and portfolio for New Generation SW (Nati Gurevich). Next.js 16 (App Router), next-intl (Hebrew default + English), Tailwind CSS v4, statically generated.
 
-First, run the development server:
+## Scripts
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+| Command                                      | What it does                                                                                                                   |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `npm run dev`                                | Typecheck, then start the dev server (HTTPS)                                                                                   |
+| `npm run build` / `npm start`                | Production build / serve it                                                                                                    |
+| `npm run typecheck`                          | `next typegen` + `tsc` (translation keys are type-checked against `messages/en.json`)                                          |
+| `npm run lint`                               | ESLint (flat config)                                                                                                           |
+| `npm run check:messages`                     | Verify `en.json` and `he.json` have the same keys, array lengths and placeholders (`-- --strict` also fails on `TODO`/`[TBD]`) |
+| `npm run screenshots`                        | Capture live client sites into `src/assets/projects/<slug>/` (`-- --only mirk` for one)                                        |
+| `npm run qa -- --base http://localhost:3000` | Full-page screenshots of every route × locale × theme × width into `.qa/` (`--quick` for a subset)                             |
+| `node scripts/generate-icons.mjs`            | Re-render PNG icons from `src/app/icon.svg`                                                                                    |
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Screenshot scripts use `playwright-core` with `$CHROME_PATH` or a locally installed Playwright Chromium.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Structured data lives in `src/data/*.ts`; all visible copy lives in `messages/{en,he}.json` under the same ids. Brand names and tech labels are never translated (`src/lib/tech.ts`).
 
-## Learn More
+### Add a project
 
-To learn more about Next.js, take a look at the following resources:
+1. Add an entry to `src/data/projects.ts` (array order is display order).
+2. Add `projects.items.<slug>` copy to **both** message files.
+3. Screenshots: for a live site, add it to `PROJECTS` in `scripts/capture-screenshots.mjs` and run `npm run screenshots -- --only <slug>`. Otherwise drop `desktop.jpg` (1440×900, optional `mobile.jpg` 390×844 and `full.jpg`) into `src/assets/projects/<slug>/`. Then import them in `src/data/project-images.ts`. Without screenshots the project shows a "coming soon" placeholder; set `confidential: true` in `projects.ts` for work whose screenshots can never be shared.
+4. Logged-in apps: capture with personal data blurred before adding images (never commit unblurred customer data).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Add a marketing case or article
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Marketing: add an entry to `src/data/marketing.ts` and its copy under `marketing.cases.<slug>` in both message files (client, title, summary, challenge, approach[], result, footnote with `{period}`/`{previous}`). Each case gets a static `/marketing/[slug]` page and share image.
+  - Metrics take raw `from`/`to` values and/or `change` (%); `show` picks the big number (change, ratio or value). Labels live in `marketing.metrics`.
+  - Never publish ad spend, CPC or CPA as amounts — only as % change — and keep clients anonymous unless they've approved being named.
+  - Report screenshots go in `src/assets/marketing/<slug>/` only after campaign names, budgets, costs and cursors are blurred; keep raw exports outside the repo (the handoff folders are git-ignored).
+  - `relatedProject` links a case and its project both ways; `featured` cases appear on the home and projects pages.
+- Articles: add an entry to `src/data/articles.ts` (URL, ISO date, language) and `articles.items.<slug>` copy.
 
-## Deploy on Vercel
+### Hebrew text tips
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Use ׳ and ״ rather than `'` and `"` (ICU treats apostrophes specially).
+- Wrap Latin tokens that start or end with punctuation (`.NET`, `C#`) in bidi isolates (`⁦…⁩`) so they don't flip inside RTL sentences.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Design system
+
+Tokens are CSS variables in `src/app/globals.css` (`@theme inline`), light and dark: zinc neutrals with the NG cyan accent (`--accent`: `#0E7490` light / `#22D3EE` dark). Fonts: IBM Plex Sans + Plex Sans Hebrew, Plex Mono for labels. Use logical utilities (`ms-`, `ps-`, `start-`, `border-s`) so layouts mirror in RTL.

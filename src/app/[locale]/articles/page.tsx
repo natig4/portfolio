@@ -1,71 +1,64 @@
-import { getTranslations } from "next-intl/server";
-import ArticlesSection from "@/components/sections/Articles";
-import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
-import CTASection from "@/components/CTASection/CTASection";
-import { cookies } from "next/headers";
-import { getTranslatedObject } from "@/lib/utils/translation-helpers";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { FaMedium } from "react-icons/fa";
+import type { AppLocale } from "@/i18n/routing";
+import { articles } from "@/data/articles";
+import { pageMetadata } from "@/lib/metadata";
+import { site } from "@/lib/site";
+import Container from "@/components/ui/Container";
+import PageHeader from "@/components/ui/PageHeader";
+import { buttonClass } from "@/components/ui/Button";
+import ArticleCard from "@/components/articles/ArticleCard";
+import CtaBanner from "@/components/shared/CtaBanner";
 
-interface ArticleData {
-  title: string;
-  date: string;
-  excerpt: string;
+type Props = { params: Promise<{ locale: AppLocale }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "articles.page" });
+
+  return {
+    title: t("eyebrow"),
+    ...pageMetadata({
+      locale,
+      href: "/articles",
+      title: t("eyebrow"),
+      description: t("description"),
+    }),
+  };
 }
 
-async function getArticles(): Promise<ArticleData[]> {
+export default async function ArticlesPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("articles");
-  const raw = await t.raw("articles");
-  const keys = Object.keys(raw);
-  const basePath = "articles";
-
-  const articles: ArticleData[] = await Promise.all(
-    keys.map(async (key) => {
-      const article = await getTranslatedObject<ArticleData>(
-        "articles",
-        `${basePath}.${key}`,
-        ["title", "date", "excerpt"]
-      );
-
-      return article;
-    })
-  );
-
-  return articles;
-}
-
-export default async function ArticlesPage() {
-  const t = await getTranslations("articles");
-  const commonT = await getTranslations("common");
-  const isMobile = (await cookies()).get("isMobile")?.value === "true";
-
-  const title = t("title");
-  const followMe = t("followMe");
-  const forMore = t("forMore");
-
-  const articles: ArticleData[] = await getArticles();
 
   return (
-    <div
-      className={`min-h-screen p-4 pt-pt-${
-        isMobile ? 16 : 0
-      } relative overflow-hidden`}
-    >
-      <BackgroundEffects />
-      <ArticlesSection
-        title={title}
-        articles={articles}
-        followMe={followMe}
-        forMore={forMore}
-      />
-
-      <div className='mt-16'>
-        <CTASection
-          linkedInLabel={commonT("buttons.learnAboutMe")}
-          contactLabel={commonT("buttons.getInTouch")}
-          primaryLink='/about'
-          secondaryLink='/contact'
-          titleKey='articlesTitle'
-        />
-      </div>
-    </div>
+    <>
+      <PageHeader
+        eyebrow={t("page.eyebrow")}
+        title={t("page.title")}
+        description={t("page.description")}
+      >
+        <a
+          href={site.socials.medium}
+          target='_blank'
+          rel='noopener noreferrer'
+          className={buttonClass({ variant: "secondary", className: "mt-8" })}
+        >
+          <FaMedium className='size-4' aria-hidden='true' />
+          {t("page.follow")}
+          <span className='sr-only'>{t("labels.newTab")}</span>
+        </a>
+      </PageHeader>
+      <Container className='py-14 sm:py-20'>
+        <div className='grid gap-6 md:grid-cols-2'>
+          {articles.map((article) => (
+            <ArticleCard key={article.slug} article={article} />
+          ))}
+        </div>
+      </Container>
+      <CtaBanner />
+    </>
   );
 }

@@ -1,91 +1,86 @@
-import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { AppLocale } from "@/i18n/routing";
+import { projects } from "@/data/projects";
+import { pageMetadata } from "@/lib/metadata";
+import PageHeader from "@/components/ui/PageHeader";
+import Container from "@/components/ui/Container";
+import ProjectCard from "@/components/work/ProjectCard";
+import Section from "@/components/ui/Section";
+import Reveal from "@/components/ui/Reveal";
+import { ButtonLink } from "@/components/ui/Button";
+import CaseCard from "@/components/marketing/CaseCard";
+import { getFeaturedMarketingCases } from "@/data/marketing";
+import CtaBanner from "@/components/shared/CtaBanner";
 
-import ProjectsSection from "@/components/sections/Projects";
-import BackgroundEffects from "@/components/BackgroundEffects/BackgroundEffects";
-import { cookies } from "next/headers";
-import { getTranslatedObject } from "@/lib/utils/translation-helpers";
+type Props = { params: Promise<{ locale: AppLocale }> };
 
-interface Project {
-  title: string;
-  description: string;
-  technologies: string[];
-  liveDemo?: string;
-  github?: string;
-  isPrivate?: string;
-  gradient: string;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "projects.page" });
+
+  return {
+    title: t("title"),
+    ...pageMetadata({
+      locale,
+      href: "/projects",
+      title: t("title"),
+      description: t("description"),
+    }),
+  };
 }
 
-const gradients = [
-  "from-blue-500 to-purple-600",
-  "from-green-500 to-blue-600",
-  "from-purple-500 to-pink-600",
-  "from-red-500 to-orange-600",
-  "from-cyan-500 to-blue-600",
-  "from-yellow-500 to-red-600",
-];
-
-async function getProjects(): Promise<Project[]> {
-  const t = await getTranslations("projects");
-  const raw = await t.raw("projects");
-  const keys = Object.keys(raw);
-  const basePath = "projects";
-
-  const projects: Project[] = await Promise.all(
-    keys.map(async (key, index) => {
-      const project = await getTranslatedObject<
-        Omit<Project, "technologies" | "gradient">
-      >("projects", `${basePath}.${key}`, [
-        "title",
-        "description",
-        "liveDemo",
-        "github",
-        "isPrivate",
-        "inProgress",
-      ]);
-
-      return {
-        ...project,
-        technologies: Object.values(raw[key]?.technologies),
-        isPrivate: project.isPrivate,
-        gradient: gradients[index % gradients.length],
-      };
-    })
-  );
-
-  return projects;
-}
-
-export default async function ProjectsPage() {
-  const t = await getTranslations("projects");
-
-  const isMobile = (await cookies()).get("isMobile")?.value === "true";
-
-  const projects = await getProjects();
-
-  const translatedTitle = t("title");
-  const translatedCodeLabel = t("code");
-  const translatedPrivateLabel = t("private");
-  const translatedLiveDemoLabel = t("liveDemo");
-  const translatedProgressLabel = t("inProgress");
+export default async function ProjectsPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("projects.page");
+  const marketing = await getTranslations("projects.marketing");
 
   return (
-    <div
-      className={`min-h-screen p-4 pt-${
-        isMobile ? 16 : 0
-      } relative overflow-hidden`}
-    >
-      <BackgroundEffects />
-
-      <ProjectsSection
-        title={translatedTitle}
-        projects={projects}
-        labels={{
-          inProgress: translatedProgressLabel,
-          code: translatedCodeLabel,
-          private: translatedPrivateLabel,
-          liveDemo: translatedLiveDemoLabel,
-        }}
+    <>
+      <PageHeader
+        eyebrow={t("eyebrow")}
+        title={t("title")}
+        description={t("description")}
       />
-    </div>
+      <Container className='py-14 sm:py-20'>
+        <div className='grid gap-x-10 gap-y-16 md:grid-cols-2'>
+          {projects.map((project, index) => (
+            <Reveal key={project.slug} index={index % 2}>
+              <ProjectCard
+                project={project}
+                headingLevel='h2'
+                preload={index < 2}
+              />
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+
+      <Section
+        id='marketing'
+        ink
+        eyebrow={marketing("eyebrow")}
+        title={marketing("title")}
+        description={marketing("description")}
+        actions={
+          <ButtonLink href='/marketing' variant='secondary'>
+            {marketing("viewAll")}
+          </ButtonLink>
+        }
+      >
+        <ul className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
+          {getFeaturedMarketingCases().map((data, index) => (
+            <li key={data.slug}>
+              <Reveal index={index} className='h-full'>
+                <CaseCard data={data} />
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <CtaBanner showWork={false} />
+    </>
   );
 }

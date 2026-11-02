@@ -1,93 +1,138 @@
 @import "tailwindcss";
-@config "../../tailwind.config";
+@plugin "@tailwindcss/typography";
 
-html[dir="rtl"] {
-  body {
-    --_access-icon-left: 1rem;
-    --_access-icon-right: auto;
+/* Toggle-driven dark mode (class on <html>), not the OS media query. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f7f7fb;
+  --foreground: #0b1020;
+  --surface: #ffffff;
+  --muted: #eef0f6;
+  --muted-foreground: #4b5563;
+  --border: #e4e6ef;
+  --accent: #6d28d9;
+  --accent-hover: #5b21b6;
+  --accent-foreground: #ffffff;
+  --accent-soft: #f1ecff;
+  /* Brand gradient (logo violet → cyan), dark enough for text on light surfaces. */
+  --brand-from: #6d28d9;
+  --brand-to: #0e7490;
+  --growth: #15803d;
+  --success: #15803d;
+  --warning: #b45309;
+  --ink: #0b0f1a;
+  --header-height: 4rem;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #070a12;
+  --foreground: #f5f7fb;
+  --surface: #0f1422;
+  --muted: #171d2e;
+  --muted-foreground: #9aa3b2;
+  --border: #1e2535;
+  --accent: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --accent-foreground: #0b0f1a;
+  --accent-soft: #1e1838;
+  --brand-from: #a78bfa;
+  --brand-to: #22d3ee;
+  --growth: #a3e635;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  color-scheme: dark;
+}
+
+/* Always-dark band (hero, results, CTA). Re-scopes the tokens so everything inside reads correctly in either theme. */
+.section-ink {
+  --background: #0b0f1a;
+  --foreground: #f5f7fb;
+  --surface: #121829;
+  --muted: #1a2133;
+  --muted-foreground: #a3adbf;
+  --border: #252d42;
+  --accent: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --accent-foreground: #0b0f1a;
+  --accent-soft: #241d45;
+  --brand-from: #a78bfa;
+  --brand-to: #22d3ee;
+  --growth: #a3e635;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  background-color: var(--background);
+  color: var(--foreground);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-ring: var(--accent);
+  --color-brand-from: var(--brand-from);
+  --color-brand-to: var(--brand-to);
+  --color-growth: var(--growth);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-ink: var(--ink);
+
+  --font-sans: var(--font-rubik), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@theme {
+  --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-fade-up: fade-up 500ms var(--ease-out-soft) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      translate: 0 14px;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
   }
 }
 
 @layer base {
-  :root {
-    --header-height: 5.5rem;
-    --footer-height: 6rem;
-    --footer-height-mobile: 9rem;
-    --theme-transition: color 150ms ease, background-color 150ms ease,
-      border-color 150ms ease;
-    --text: #0f1419;
-    --text-secondary: #4b5563;
-    --background: #fefefe;
-    --background-secondary: #f8fafc;
-    --surface: #ffffff;
-    --primary: #0ea5e9;
-    --primary-hover: #0284c7;
-    --secondary: #10b981;
-    --accent: #8b5cf6;
-    --accent-secondary: #f59e0b;
-    --border: #e5e7eb;
-    --muted: #f3f4f6;
-    --destructive: #ef4444;
-    --success: #10b981;
-    --warning: #f59e0b;
-
-    /* Toned down glow effects */
-    --glow-primary: rgba(14, 165, 233, 0.15);
-    --glow-secondary: rgba(16, 185, 129, 0.15);
-    --glow-accent: rgba(139, 92, 246, 0.15);
-    --glow-warm: rgba(245, 158, 11, 0.15);
-  }
-
-  .dark {
-    --text: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --background: #020617;
-    --background-secondary: #0f172a;
-    --surface: #1e293b;
-    --primary: #38bdf8;
-    --primary-hover: #0ea5e9;
-    --secondary: #34d399;
-    --accent: #a855f7;
-    --accent-secondary: #f472b6;
-    --border: #334155;
-    --muted: #1e293b;
-    --destructive: #f87171;
-    --success: #34d399;
-    --warning: #fbbf24;
-    --glow-primary: rgba(56, 189, 248, 0.2);
-    --glow-secondary: rgba(52, 211, 153, 0.2);
-    --glow-accent: rgba(168, 85, 247, 0.2);
-    --glow-warm: rgba(251, 191, 36, 0.2);
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border);
   }
 
   html {
-    scroll-behavior: smooth;
-    height: 100%;
-    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {
+    min-height: 100dvh;
+    overflow-x: clip;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    width: 100%;
-    overscroll-behavior: none;
-    background: var(--background);
-    color: var(--text);
-    transition: var(--theme-transition);
-
-    background-image: radial-gradient(
-        circle at 20% 80%,
-        var(--glow-primary) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 80% 20%,
-        var(--glow-secondary) 0%,
-        transparent 50%
-      );
-    background-size: 150% 150%;
   }
 
   h1,
@@ -98,55 +143,42 @@ html[dir="rtl"] {
   h6 {
     font-weight: 700;
     text-wrap: balance;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 200%;
-    position: relative;
+    color: var(--foreground);
   }
 
-  @keyframes textGradientShift {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
+  p {
+    text-wrap: pretty;
   }
 
-  body,
-  button,
-  a,
-  input,
-  textarea,
-  select,
-  [role="button"] {
-    transition: var(--theme-transition);
+  section[id],
+  article[id] {
+    scroll-margin-top: calc(var(--header-height) + 1rem);
   }
 
-  body {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    --_access-icon-border-radius: 50%;
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
   }
 
-  main {
-    flex: 1 0 auto;
-    position: relative;
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 
-  footer {
-    flex-shrink: 0;
-  }
-
-  button:hover,
-  a:hover,
-  [role="button"]:hover {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
     cursor: pointer;
+  }
+
+  /* Modal menu open → lock page scroll. */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  /* Suppress colour transitions for the frame in which the theme flips. */
+  .theme-switching,
+  .theme-switching * {
+    transition: none !important;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -156,112 +188,452 @@ html[dir="rtl"] {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
-      background-attachment: initial !important;
     }
-
-    body {
-      background-attachment: initial;
-      animation: none;
-    }
-  }
-
-  @media (max-width: 768px) {
-    body {
-      background-attachment: initial;
-      background-size: 300% 300%;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      animation: none;
-      background: var(--primary);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  }
-
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: var(--muted);
-    border-radius: 8px;
-  }
-
-  html.dark ::-webkit-scrollbar-track {
-    background-color: var(--border);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, var(--primary), var(--secondary));
-    border-radius: 8px;
-    border: 2px solid transparent;
-    background-clip: content-box;
-    transition: all 0.3s ease;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, var(--primary-hover), var(--accent));
-  }
-
-  ::-webkit-scrollbar-corner {
-    background-color: var(--background);
-  }
-
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary) var(--muted);
-  }
-
-  html.dark * {
-    scrollbar-color: var(--primary) var(--border);
   }
 }
 
-@layer utilities {
-  .will-change-transform {
-    will-change: auto;
+/* ── Brand surfaces ─────────────────────────────────────────────────────── */
+
+@utility text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--brand-from),
+    var(--brand-to) 50%,
+    var(--brand-from)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  @media (forced-colors: active) {
+    color: CanvasText;
+    background: none;
   }
-  .will-change-transform:hover {
-    will-change: transform;
+}
+
+@utility bg-brand {
+  background-image: linear-gradient(110deg, var(--brand-from), var(--brand-to));
+}
+
+/* Faint grid that fades out from the top; used behind hero and page headers. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black, transparent);
+}
+
+/* ── Motion ─────────────────────────────────────────────────────────────────
+   CSS only. Everything animates transform/opacity/filter, and everything is off
+   for visitors who prefer reduced motion (see the base layer and the
+   no-preference guards below). Scroll-driven effects are progressive: without
+   animation-timeline support the content is simply shown in its final state. */
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --n {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@keyframes drift-a {
+  to {
+    transform: translate(16vmax, 10vmax) scale(1.15);
+  }
+}
+@keyframes drift-b {
+  to {
+    transform: translate(-14vmax, -8vmax) scale(1.1);
+  }
+}
+@keyframes drift-c {
+  to {
+    transform: translate(-8vmax, 12vmax) scale(0.9);
+  }
+}
+@keyframes rise {
+  from {
+    translate: 0 0.6em;
+  }
+}
+@keyframes float {
+  to {
+    translate: 0 -10px;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes marquee-rtl {
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes spin-angle {
+  to {
+    --angle: 360deg;
+  }
+}
+@keyframes count-up {
+  from {
+    --n: 0;
+  }
+}
+@keyframes grow-x {
+  from {
+    scale: 0 1;
+  }
+}
+@keyframes grow-y {
+  from {
+    scale: 1 0;
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    translate: 0 24px;
+  }
+}
+@keyframes reveal-scale {
+  from {
+    opacity: 0;
+    scale: 0.94;
+  }
+}
+@keyframes reveal-start {
+  from {
+    opacity: 0;
+    translate: -32px 0;
+  }
+}
+@keyframes reveal-start-rtl {
+  from {
+    opacity: 0;
+    translate: 32px 0;
+  }
+}
+@keyframes reveal-end {
+  from {
+    opacity: 0;
+    translate: 32px 0;
+  }
+}
+@keyframes reveal-end-rtl {
+  from {
+    opacity: 0;
+    translate: -32px 0;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes progress {
+  from {
+    scale: 0 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Aurora: three soft radial glows drifting slowly behind ink sections. Radial
+   gradients, not filter: blur, so it stays cheap to paint. */
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aurora::before,
+.aurora::after,
+.aurora > span {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+.aurora::before {
+  width: 60vmax;
+  height: 60vmax;
+  top: -30vmax;
+  inset-inline-start: -12vmax;
+  background: radial-gradient(closest-side, rgb(124 58 237 / 0.5), transparent);
+}
+.aurora::after {
+  width: 55vmax;
+  height: 55vmax;
+  bottom: -32vmax;
+  inset-inline-end: -14vmax;
+  background: radial-gradient(closest-side, rgb(6 182 212 / 0.38), transparent);
+}
+.aurora > span {
+  width: 30vmax;
+  height: 30vmax;
+  top: 10%;
+  inset-inline-end: 18%;
+  background: radial-gradient(closest-side, rgb(163 230 53 / 0.12), transparent);
+}
+
+/* Infinite strip of logos/labels. The component renders the list twice; the copy is aria-hidden. */
+.marquee {
+  --gap: 3rem;
+  display: flex;
+  gap: var(--gap);
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+.marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+}
+
+/* Counts from 0 to --to as it scrolls into view. The visual is aria-hidden; the real value is screen-reader text. */
+.count-up {
+  view-timeline-name: --count;
+}
+.count-up::after {
+  --n: var(--to);
+  counter-reset: n var(--n);
+  content: counter(n);
+}
+
+/* Bars that grow from the inline start. */
+.grow-x {
+  transform-origin: left center;
+}
+[dir="rtl"] .grow-x {
+  transform-origin: right center;
+}
+
+/* Blinking text cursor after the hero headline — the developer half of the brand. */
+.caret {
+  display: inline-block;
+  width: 0.09em;
+  height: 0.82em;
+  margin-inline-start: 0.06em;
+  vertical-align: -0.04em;
+  border-radius: 2px;
+  background-color: var(--brand-to);
+}
+
+/* Bars that grow up from their baseline. */
+.grow-y {
+  transform-origin: center bottom;
+}
+
+/* Reading progress, pinned under the header. */
+.scroll-progress {
+  display: none;
+}
+
+/* Card hover: a conic gradient sweeps around the border. */
+.glow-card {
+  position: relative;
+  isolation: isolate;
+}
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 0 55%,
+    var(--brand-from),
+    var(--brand-to),
+    transparent 95%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+  opacity: 0;
+  transition: opacity 300ms var(--ease-out-soft);
+  pointer-events: none;
+}
+.glow-card:hover::before,
+.glow-card:focus-within::before {
+  opacity: 1;
+}
+
+/* Button shine sweep. */
+.shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgb(255 255 255 / 0.28) 50%,
+    transparent 70%
+  );
+  translate: -120% 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .aurora::before {
+    animation: drift-a 22s ease-in-out infinite alternate;
+  }
+  .aurora::after {
+    animation: drift-b 28s ease-in-out infinite alternate;
+  }
+  .aurora > span {
+    animation: drift-c 18s ease-in-out infinite alternate;
+  }
+  /* Hero words: translate only (compositor-friendly). Opacity stays 1 so the LCP text is painted at once. */
+  .rise {
+    display: inline-block;
+    animation: rise 700ms var(--ease-out-soft) both;
+    animation-delay: calc(var(--i, 0) * 60ms);
+  }
+  .caret {
+    animation: blink 1.1s steps(1) infinite;
+  }
+  .float {
+    animation: float 5s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i, 0) * -1.7s);
+  }
+  .marquee__track {
+    animation: marquee var(--duration, 40s) linear infinite;
+  }
+  [dir="rtl"] .marquee__track {
+    animation-name: marquee-rtl;
+  }
+  .marquee:hover .marquee__track {
+    animation-play-state: paused;
+  }
+  .glow-card:hover::before,
+  .glow-card:focus-within::before {
+    animation: spin-angle 3s linear infinite;
+  }
+  .shine::after {
+    transition: translate 700ms var(--ease-out-soft);
+  }
+  .shine:hover::after {
+    translate: 120% 0;
   }
 
-  .will-change-opacity {
-    will-change: auto;
+  @supports (animation-timeline: view()) {
+    .reveal,
+    .reveal-scale,
+    .reveal-start,
+    .reveal-end {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--i, 0) * 6%) entry
+        calc(70% + var(--i, 0) * 6%);
+    }
+    .reveal-scale {
+      animation-name: reveal-scale;
+    }
+    .reveal-start {
+      animation-name: reveal-start;
+    }
+    [dir="rtl"] .reveal-start {
+      animation-name: reveal-start-rtl;
+    }
+    .reveal-end {
+      animation-name: reveal-end;
+    }
+    [dir="rtl"] .reveal-end {
+      animation-name: reveal-end-rtl;
+    }
+    .count-up::after {
+      animation: count-up 1ms linear both;
+      animation-timeline: --count;
+      animation-range: entry 20% cover 45%;
+    }
+    .grow-x {
+      animation: grow-x linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 40%;
+    }
+    .grow-y {
+      animation: grow-y linear both;
+      animation-timeline: view();
+      animation-range: entry calc(10% + var(--i, 0) * 5%) cover
+        calc(35% + var(--i, 0) * 3%);
+    }
+    .scroll-progress {
+      display: block;
+      position: fixed;
+      inset-inline: 0;
+      top: 0;
+      z-index: 50;
+      height: 3px;
+      transform-origin: left center;
+      animation: progress linear both;
+      animation-timeline: scroll(root);
+    }
+    [dir="rtl"] .scroll-progress {
+      transform-origin: right center;
+    }
+    /* The shadow lives on a pseudo-element so only its opacity animates. */
+    .header-lift::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      box-shadow: 0 12px 32px -18px rgb(11 15 26 / 0.35);
+      animation: fade-in linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 160px;
+    }
   }
-  .will-change-opacity:hover {
-    will-change: opacity;
-  }
+}
 
-  .will-change-colors {
-    will-change: auto;
-  }
-  .will-change-colors:hover {
-    will-change: background-color, border-color, color, fill, stroke;
-  }
+/* Marketing case filter (components/marketing/CaseBrowser.tsx): a radio group hides non-matching cards. */
+.case-browser:has(input[value="google-ads"]:checked)
+  [data-channels]:not([data-channels~="google-ads"]),
+.case-browser:has(input[value="meta-ads"]:checked)
+  [data-channels]:not([data-channels~="meta-ads"]),
+.case-browser:has(input[value="seo"]:checked)
+  [data-channels]:not([data-channels~="seo"]) {
+  display: none;
+}
 
-  @keyframes blob-float-1 {
-    0%, 100% { transform: translateY(0); opacity: 0.3; }
-    50% { transform: translateY(-20px); opacity: 0.6; }
-  }
-
-  @keyframes blob-float-2 {
-    0%, 100% { transform: translateY(0); opacity: 0.3; }
-    50% { transform: translateY(20px); opacity: 0.5; }
-  }
-
-  .animate-blob-1 {
-    animation: blob-float-1 8s ease-in-out infinite;
-  }
-
-  .animate-blob-2 {
-    animation: blob-float-2 10s ease-in-out 1s infinite;
-  }
+/* Accessibility widget (npm "accessibility"): keep its button on the start edge in RTL. */
+html[dir="rtl"] body {
+  --_access-icon-left: 1rem;
+  --_access-icon-right: auto;
+}
+body {
+  --_access-icon-border-radius: 50%;
 }

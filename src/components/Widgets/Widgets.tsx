@@ -1,14 +1,6 @@
-import { Language } from "@/lib/model/language";
+import type { AppLocale } from "@/i18n/routing";
 import AccessibilityWidget from "../Accessibility/AccessibilityWidget/AccessibilityWidget";
 
-const Widgets: React.FC<{
-  lang: Language;
-}> = ({ lang }) => {
-  return (
-    <>
-      <AccessibilityWidget lang={lang} />
-    </>
-  );
-};
-
-export default Widgets;
+export default function Widgets({ lang }: { lang: AppLocale }) {
+  return <AccessibilityWidget lang={lang} />;
+}
