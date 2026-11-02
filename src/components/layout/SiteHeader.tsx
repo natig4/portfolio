@@ -19,7 +19,7 @@ export default async function SiteHeader() {
   ];
 
   return (
-    <header className='sticky top-0 z-40 h-(--header-height) border-b border-border bg-background/85 backdrop-blur-md supports-[backdrop-filter]:bg-background/70'>
+    <header className='header-lift sticky top-0 z-40 h-(--header-height) border-b border-border/60 bg-background/80 backdrop-blur-lg supports-[backdrop-filter]:bg-background/65'>
       <div className='mx-auto flex h-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6'>
         <Link
           href='/'
@@ -28,10 +28,10 @@ export default async function SiteHeader() {
         >
           <Logo className='h-7 w-auto text-foreground' />
           <span className='flex flex-col leading-tight'>
-            <span className='text-sm font-semibold text-foreground'>
+            <span className='text-sm font-bold text-foreground'>
               {site.name}
             </span>
-            <span className='font-mono text-[11px] text-muted-foreground ltr:tracking-wide'>
+            <span className='text-[11px] font-medium text-muted-foreground ltr:tracking-wide'>
               {site.company}
             </span>
           </span>
@@ -46,7 +46,7 @@ export default async function SiteHeader() {
           <ThemeToggle label={t("toggleTheme")} />
           <Link
             href='/contact'
-            className='ms-2 hidden h-10 items-center rounded-md bg-accent px-4 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover lg:inline-flex'
+            className='shine ms-2 hidden h-10 items-center rounded-full bg-[linear-gradient(110deg,#7c3aed,#0e7490)] px-5 text-sm font-medium text-white shadow-[0_8px_24px_-12px_#7c3aed] transition-transform hover:-translate-y-0.5 lg:inline-flex'
           >
             {t("startProject")}
           </Link>

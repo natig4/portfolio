@@ -24,7 +24,7 @@ export default function TechList({
         </li>
       ))}
       {hidden > 0 && moreLabel && (
-        <li className='inline-flex items-center px-1 font-mono text-xs text-muted-foreground'>
+        <li className='inline-flex items-center px-1 text-xs font-medium text-muted-foreground'>
           {moreLabel(hidden)}
         </li>
       )}

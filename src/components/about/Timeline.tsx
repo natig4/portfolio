@@ -19,7 +19,7 @@ export default function Timeline() {
               aria-hidden='true'
             />
             <div className='flex flex-wrap items-center gap-x-3 gap-y-1'>
-              <span className='font-mono text-sm text-muted-foreground'>
+              <span className='text-sm font-medium text-muted-foreground tabular-nums'>
                 {role.start} – {isCurrent ? t("present") : role.end}
               </span>
               {isCurrent && (

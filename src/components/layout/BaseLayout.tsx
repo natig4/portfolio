@@ -41,6 +41,7 @@ export default async function BaseLayout({
           >
             {t("skipToContent")}
           </a>
+          <div className='scroll-progress bg-brand' aria-hidden='true' />
           <SiteHeader />
           <main
             id='main-content'

@@ -22,7 +22,7 @@ for (const { file, size, inset } of targets) {
   const art = inset ? svg.replace(/rx="14"/, 'rx="0"') : svg;
   await page.setViewportSize({ width: size, height: size });
   await page.setContent(
-    `<html><body style="margin:0;background:${inset ? "#09090B" : "transparent"}">
+    `<html><body style="margin:0;background:${inset ? "#0B0F1A" : "transparent"}">
       <div style="padding:${pad}px;width:${size - pad * 2}px;height:${size - pad * 2}px">${art.replace("<svg ", '<svg width="100%" height="100%" ')}</div>
     </body></html>`,
   );

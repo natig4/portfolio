@@ -29,7 +29,7 @@ export default function LocaleSwitcher({
       lang={target}
       aria-label={name}
       title={name}
-      className={`inline-flex h-10 min-w-10 items-center justify-center rounded-md px-2 font-mono text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground ${className}`}
+      className={`inline-flex h-10 min-w-10 items-center justify-center rounded-full px-2 text-sm font-semibold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground ${className}`}
     >
       {short}
     </Link>

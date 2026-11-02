@@ -2,7 +2,7 @@ import type { TechId } from "@/lib/tech";
 import TechList from "@/components/ui/TechList";
 
 const termClass =
-  "font-mono text-xs text-muted-foreground ltr:uppercase ltr:tracking-wider";
+  "text-xs font-semibold text-muted-foreground ltr:uppercase ltr:tracking-wider";
 
 export default function CaseStudyMeta({
   items,

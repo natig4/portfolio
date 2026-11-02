@@ -2,15 +2,17 @@ import type { ComponentProps } from "react";
 import { Link, type Href } from "@/i18n/routing";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-lg font-medium whitespace-nowrap transition-colors disabled:pointer-events-none disabled:opacity-50";
+  "group/button inline-flex items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap transition-[background-color,color,box-shadow,translate] duration-200 disabled:pointer-events-none disabled:opacity-50";
 
 const variants = {
-  primary: "bg-accent text-accent-foreground hover:bg-accent-hover",
-  secondary: "border border-border bg-surface text-foreground hover:bg-muted",
+  primary:
+    "shine bg-accent text-accent-foreground shadow-[0_8px_24px_-10px_var(--accent)] hover:-translate-y-0.5 hover:bg-accent-hover",
+  secondary:
+    "border border-border bg-surface text-foreground hover:-translate-y-0.5 hover:bg-muted",
   ghost: "text-foreground hover:bg-muted",
-  /** For use on the always-dark CTA panel. */
-  onDark: "bg-brand-cyan text-zinc-950 hover:bg-cyan-300",
-  ghostOnDark: "text-zinc-50 hover:bg-white/10",
+  /** Gradient fill for the main call to action. Fixed stops keep white text at 5:1+ on any background. */
+  brand:
+    "shine bg-[linear-gradient(110deg,#7c3aed,#0e7490)] text-white shadow-[0_10px_30px_-12px_#7c3aed] hover:-translate-y-0.5",
 } as const;
 
 const sizes = {

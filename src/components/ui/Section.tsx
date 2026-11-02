@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Container from "./Container";
 import Eyebrow from "./Eyebrow";
+import Aurora from "./Aurora";
 
 export default function Section({
   id,
@@ -9,6 +10,7 @@ export default function Section({
   description,
   actions,
   children,
+  ink = false,
   className = "",
 }: {
   id: string;
@@ -17,6 +19,8 @@ export default function Section({
   description?: string;
   actions?: ReactNode;
   children: ReactNode;
+  /** Always-dark band with the aurora glow. */
+  ink?: boolean;
   className?: string;
 }) {
   const titleId = `${id}-title`;
@@ -25,20 +29,21 @@ export default function Section({
     <section
       id={id}
       aria-labelledby={titleId}
-      className={`py-16 sm:py-24 ${className}`}
+      className={`py-20 sm:py-28 ${ink ? "section-ink relative overflow-hidden" : ""} ${className}`}
     >
-      <Container>
-        <div className='mb-10 flex flex-wrap items-end justify-between gap-6 sm:mb-12'>
+      {ink && <Aurora />}
+      <Container className='relative'>
+        <div className='mb-12 flex flex-wrap items-end justify-between gap-6 sm:mb-14'>
           <div className='max-w-2xl'>
-            {eyebrow && <Eyebrow className='mb-3'>{eyebrow}</Eyebrow>}
+            {eyebrow && <Eyebrow className='mb-4'>{eyebrow}</Eyebrow>}
             <h2
               id={titleId}
-              className='text-3xl font-semibold tracking-tight sm:text-4xl'
+              className='text-3xl leading-[1.1] font-bold tracking-tight sm:text-4xl lg:text-[2.75rem]'
             >
               {title}
             </h2>
             {description && (
-              <p className='mt-4 text-lg leading-relaxed text-muted-foreground'>
+              <p className='mt-5 text-lg leading-relaxed text-muted-foreground'>
                 {description}
               </p>
             )}

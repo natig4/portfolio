@@ -18,7 +18,7 @@ export const site = {
   careerStartYear: 2016,
   /** First year as a full-time developer (Outbrain). */
   devStartYear: 2022,
-  themeColor: { light: "#FAFAFA", dark: "#09090B" },
+  themeColor: { light: "#F7F7FB", dark: "#0B0F1A" },
 } as const;
 
 export function yearsSince(year: number) {

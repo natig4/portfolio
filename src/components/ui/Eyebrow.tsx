@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-/** Small mono label above headings. Uppercase/tracking only in LTR — Hebrew has no case. */
+/** Small label above headings, led by a short gradient rule. Uppercase/tracking only in LTR — Hebrew has no case. */
 export default function Eyebrow({
   children,
   className = "",
@@ -10,8 +10,9 @@ export default function Eyebrow({
 }) {
   return (
     <p
-      className={`font-mono text-xs font-medium text-accent ltr:uppercase ltr:tracking-[0.16em] ${className}`}
+      className={`flex items-center gap-2.5 text-xs font-semibold text-accent ltr:uppercase ltr:tracking-[0.18em] ${className}`}
     >
+      <span className='h-0.5 w-6 shrink-0 rounded-full bg-brand' aria-hidden='true' />
       {children}
     </p>
   );

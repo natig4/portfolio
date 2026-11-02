@@ -9,7 +9,7 @@ export default function GlobalNotFound() {
     <html lang='en' dir='ltr' className={fontVariables}>
       <body className='flex min-h-dvh items-center justify-center bg-background p-6 text-foreground'>
         <main className='max-w-md text-center'>
-          <p className='font-mono text-xs font-medium tracking-[0.16em] text-accent uppercase'>
+          <p className='text-xs font-semibold tracking-[0.18em] text-accent uppercase'>
             404
           </p>
           <h1 className='mt-4 text-3xl font-semibold'>Page not found</h1>

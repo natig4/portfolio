@@ -5,37 +5,65 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #fafafa;
-  --foreground: #09090b;
+  --background: #f7f7fb;
+  --foreground: #0b1020;
   --surface: #ffffff;
-  --muted: #f0f2f4;
-  --muted-foreground: #52525b;
-  --border: #e4e4e7;
-  --accent: #0e7490;
-  --accent-hover: #155e75;
+  --muted: #eef0f6;
+  --muted-foreground: #4b5563;
+  --border: #e4e6ef;
+  --accent: #6d28d9;
+  --accent-hover: #5b21b6;
   --accent-foreground: #ffffff;
-  --accent-soft: #ecfeff;
+  --accent-soft: #f1ecff;
+  /* Brand gradient (logo violet → cyan), dark enough for text on light surfaces. */
+  --brand-from: #6d28d9;
+  --brand-to: #0e7490;
+  --growth: #15803d;
   --success: #15803d;
   --warning: #b45309;
-  --brand-cyan: #22d3ee;
-  --brand-violet: #a855f7;
+  --ink: #0b0f1a;
   --header-height: 4rem;
   color-scheme: light;
 }
 
 .dark {
-  --background: #09090b;
-  --foreground: #fafafa;
-  --surface: #18181b;
-  --muted: #27272a;
-  --muted-foreground: #a1a1aa;
-  --border: #27272a;
-  --accent: #22d3ee;
-  --accent-hover: #67e8f9;
-  --accent-foreground: #09090b;
-  --accent-soft: #083344;
+  --background: #070a12;
+  --foreground: #f5f7fb;
+  --surface: #0f1422;
+  --muted: #171d2e;
+  --muted-foreground: #9aa3b2;
+  --border: #1e2535;
+  --accent: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --accent-foreground: #0b0f1a;
+  --accent-soft: #1e1838;
+  --brand-from: #a78bfa;
+  --brand-to: #22d3ee;
+  --growth: #a3e635;
   --success: #4ade80;
   --warning: #fbbf24;
+  color-scheme: dark;
+}
+
+/* Always-dark band (hero, results, CTA). Re-scopes the tokens so everything inside reads correctly in either theme. */
+.section-ink {
+  --background: #0b0f1a;
+  --foreground: #f5f7fb;
+  --surface: #121829;
+  --muted: #1a2133;
+  --muted-foreground: #a3adbf;
+  --border: #252d42;
+  --accent: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --accent-foreground: #0b0f1a;
+  --accent-soft: #241d45;
+  --brand-from: #a78bfa;
+  --brand-to: #22d3ee;
+  --growth: #a3e635;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  background-color: var(--background);
+  color: var(--foreground);
   color-scheme: dark;
 }
 
@@ -51,25 +79,25 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-accent-soft: var(--accent-soft);
   --color-ring: var(--accent);
+  --color-brand-from: var(--brand-from);
+  --color-brand-to: var(--brand-to);
+  --color-growth: var(--growth);
   --color-success: var(--success);
   --color-warning: var(--warning);
-  --color-brand-cyan: var(--brand-cyan);
-  --color-brand-violet: var(--brand-violet);
+  --color-ink: var(--ink);
 
-  --font-sans: var(--font-plex-sans), var(--font-plex-hebrew), ui-sans-serif,
-    system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), var(--font-plex-hebrew), ui-monospace,
-    monospace;
+  --font-sans: var(--font-rubik), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 @theme {
   --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --animate-fade-up: fade-up 400ms var(--ease-out-soft) both;
+  --animate-fade-up: fade-up 500ms var(--ease-out-soft) both;
 
   @keyframes fade-up {
     from {
       opacity: 0;
-      translate: 0 12px;
+      translate: 0 14px;
     }
     to {
       opacity: 1;
@@ -113,7 +141,7 @@
   h4,
   h5,
   h6 {
-    font-weight: 600;
+    font-weight: 700;
     text-wrap: balance;
     color: var(--foreground);
   }
@@ -122,7 +150,8 @@
     text-wrap: pretty;
   }
 
-  section[id] {
+  section[id],
+  article[id] {
     scroll-margin-top: calc(var(--header-height) + 1rem);
   }
 
@@ -163,24 +192,379 @@
   }
 }
 
-/* Scroll-driven reveal (see components/ui/Reveal.tsx). Progressive enhancement:
-   unsupported browsers and reduced-motion users get static content. */
+/* ── Brand surfaces ─────────────────────────────────────────────────────── */
+
+@utility text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--brand-from),
+    var(--brand-to) 50%,
+    var(--brand-from)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  @media (forced-colors: active) {
+    color: CanvasText;
+    background: none;
+  }
+}
+
+@utility bg-brand {
+  background-image: linear-gradient(110deg, var(--brand-from), var(--brand-to));
+}
+
+/* Faint grid that fades out from the top; used behind hero and page headers. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black, transparent);
+}
+
+/* ── Motion ─────────────────────────────────────────────────────────────────
+   CSS only. Everything animates transform/opacity/filter, and everything is off
+   for visitors who prefer reduced motion (see the base layer and the
+   no-preference guards below). Scroll-driven effects are progressive: without
+   animation-timeline support the content is simply shown in its final state. */
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --n {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@keyframes gradient-pan {
+  to {
+    background-position: -200% center;
+  }
+}
+@keyframes drift-a {
+  to {
+    transform: translate(16vmax, 10vmax) scale(1.15);
+  }
+}
+@keyframes drift-b {
+  to {
+    transform: translate(-14vmax, -8vmax) scale(1.1);
+  }
+}
+@keyframes drift-c {
+  to {
+    transform: translate(-8vmax, 12vmax) scale(0.9);
+  }
+}
+@keyframes rise {
+  from {
+    translate: 0 0.5em;
+    filter: blur(6px);
+  }
+}
+@keyframes float {
+  to {
+    translate: 0 -10px;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes marquee-rtl {
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes spin-angle {
+  to {
+    --angle: 360deg;
+  }
+}
+@keyframes count-up {
+  from {
+    --n: 0;
+  }
+}
+@keyframes grow-x {
+  from {
+    scale: 0 1;
+  }
+}
 @keyframes reveal {
   from {
     opacity: 0;
-    translate: 0 16px;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
+    translate: 0 24px;
   }
 }
+@keyframes reveal-scale {
+  from {
+    opacity: 0;
+    scale: 0.94;
+  }
+}
+@keyframes reveal-start {
+  from {
+    opacity: 0;
+    translate: -32px 0;
+  }
+}
+@keyframes reveal-start-rtl {
+  from {
+    opacity: 0;
+    translate: 32px 0;
+  }
+}
+@keyframes progress {
+  from {
+    scale: 0 1;
+  }
+}
+@keyframes header-lift {
+  to {
+    box-shadow:
+      0 1px 0 var(--border),
+      0 12px 32px -18px rgb(11 15 26 / 0.35);
+  }
+}
+
+/* Aurora: three soft radial glows drifting slowly behind ink sections. Radial
+   gradients, not filter: blur, so it stays cheap to paint. */
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aurora::before,
+.aurora::after,
+.aurora > span {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+.aurora::before {
+  width: 60vmax;
+  height: 60vmax;
+  top: -30vmax;
+  inset-inline-start: -12vmax;
+  background: radial-gradient(closest-side, rgb(124 58 237 / 0.5), transparent);
+}
+.aurora::after {
+  width: 55vmax;
+  height: 55vmax;
+  bottom: -32vmax;
+  inset-inline-end: -14vmax;
+  background: radial-gradient(closest-side, rgb(6 182 212 / 0.38), transparent);
+}
+.aurora > span {
+  width: 30vmax;
+  height: 30vmax;
+  top: 10%;
+  inset-inline-end: 18%;
+  background: radial-gradient(closest-side, rgb(163 230 53 / 0.12), transparent);
+}
+
+/* Infinite strip of logos/labels. The component renders the list twice; the copy is aria-hidden. */
+.marquee {
+  --gap: 3rem;
+  display: flex;
+  gap: var(--gap);
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+.marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+}
+
+/* Counts from 0 to --to as it scrolls into view. The visual is aria-hidden; the real value is screen-reader text. */
+.count-up {
+  view-timeline-name: --count;
+}
+.count-up::after {
+  --n: var(--to);
+  counter-reset: n var(--n);
+  content: counter(n);
+}
+
+/* Bars that grow from the inline start. */
+.grow-x {
+  transform-origin: left center;
+}
+[dir="rtl"] .grow-x {
+  transform-origin: right center;
+}
+
+/* Reading progress, pinned under the header. */
+.scroll-progress {
+  display: none;
+}
+
+/* Card hover: a conic gradient sweeps around the border. */
+.glow-card {
+  position: relative;
+  isolation: isolate;
+}
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 0 55%,
+    var(--brand-from),
+    var(--brand-to),
+    transparent 95%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+  opacity: 0;
+  transition: opacity 300ms var(--ease-out-soft);
+  pointer-events: none;
+}
+.glow-card:hover::before,
+.glow-card:focus-within::before {
+  opacity: 1;
+}
+
+/* Button shine sweep. */
+.shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgb(255 255 255 / 0.28) 50%,
+    transparent 70%
+  );
+  translate: -120% 0;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
+  .text-gradient {
+    animation: gradient-pan 8s linear infinite;
+  }
+  .aurora::before {
+    animation: drift-a 22s ease-in-out infinite alternate;
+  }
+  .aurora::after {
+    animation: drift-b 28s ease-in-out infinite alternate;
+  }
+  .aurora > span {
+    animation: drift-c 18s ease-in-out infinite alternate;
+  }
+  /* Hero words: translate + blur only. Opacity stays 1 so the LCP text is painted at once. */
+  .rise {
+    display: inline-block;
+    animation: rise 700ms var(--ease-out-soft) both;
+    animation-delay: calc(var(--i, 0) * 60ms);
+  }
+  .float {
+    animation: float 5s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i, 0) * -1.7s);
+  }
+  .marquee__track {
+    animation: marquee var(--duration, 40s) linear infinite;
+  }
+  [dir="rtl"] .marquee__track {
+    animation-name: marquee-rtl;
+  }
+  .marquee:hover .marquee__track {
+    animation-play-state: paused;
+  }
+  .glow-card:hover::before,
+  .glow-card:focus-within::before {
+    animation: spin-angle 3s linear infinite;
+  }
+  .shine::after {
+    transition: translate 700ms var(--ease-out-soft);
+  }
+  .shine:hover::after {
+    translate: 120% 0;
+  }
+
   @supports (animation-timeline: view()) {
-    .reveal {
+    .reveal,
+    .reveal-scale,
+    .reveal-start {
       animation: reveal linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 60%;
+      animation-range: entry calc(var(--i, 0) * 6%) entry
+        calc(70% + var(--i, 0) * 6%);
+    }
+    .reveal-scale {
+      animation-name: reveal-scale;
+    }
+    .reveal-start {
+      animation-name: reveal-start;
+    }
+    [dir="rtl"] .reveal-start {
+      animation-name: reveal-start-rtl;
+    }
+    .count-up::after {
+      animation: count-up 1ms linear both;
+      animation-timeline: --count;
+      animation-range: entry 20% cover 45%;
+    }
+    .grow-x {
+      animation: grow-x linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 40%;
+    }
+    .scroll-progress {
+      display: block;
+      position: fixed;
+      inset-inline: 0;
+      top: 0;
+      z-index: 50;
+      height: 3px;
+      transform-origin: left center;
+      animation: progress linear both;
+      animation-timeline: scroll(root);
+    }
+    [dir="rtl"] .scroll-progress {
+      transform-origin: right center;
+    }
+    .header-lift {
+      animation: header-lift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 160px;
     }
   }
 }
