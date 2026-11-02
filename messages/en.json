@@ -381,20 +381,20 @@
         "title": "My North Food",
         "client": "Ma’akhalei HaTzafon",
         "sector": "Food manufacturing · Upper Galilee",
-        "tagline": "An online store and operations platform for a Galilee food manufacturer.",
+        "tagline": "An online store and operations platform for a Galilee food manufacturer — an AI-built codebase we took over and made production-grade.",
         "summary": "A food manufacturer operating since 1979 is moving its ordering, deliveries and back office online: a Hebrew storefront with a product catalog and cart, plus dedicated apps for drivers, production stations and management.",
-        "role": "Product design and full-stack development",
-        "challenge": "Orders, delivery routes, kitchen tasks and supplier purchasing were managed by phone and on paper. The business needed one system that customers, drivers, kitchen staff and management could each use from their own device.",
-        "solution": "We’re building a React and Express platform with role-based areas: the public storefront and customer accounts, an admin back office, a driver app, station screens for the kitchen and warehouse, and a management dashboard — all on one shared database.",
+        "role": "Codebase takeover, refactoring and full-stack development",
+        "challenge": "Orders, delivery routes, kitchen tasks and supplier purchasing were managed by phone and on paper. A first version had already been generated with an AI app builder: it worked in parts, but it was hard to change — React errors, a fragile media flow and manual database changes — and the business still needed one system that customers, drivers, kitchen staff and management could each use from their own device.",
+        "solution": "We took over the existing React and Express codebase and improved it end to end — frontend, backend and database — while the live system kept running. On that foundation we’re building role-based areas: the public storefront and customer accounts, an admin back office, a driver app, station screens for the kitchen and warehouse, and a management dashboard — all on one shared database.",
         "highlights": [
+          "Refactored an AI-generated codebase across frontend and backend, without taking the system down",
+          "Automated database migrations and seed data; fixed React errors, media uploads and startup scripts",
           "Product catalog, cart and order history, with service requests and inquiries",
           "Back office for products, inventory, weekly menus, kashrut certificates and banners",
           "Driver app with delivery lists and digital signatures on handover",
-          "Station screens for daily tasks, goods receipt and purchase orders",
-          "Management dashboard for orders and weekly planning",
-          "AI chat assistant for customer questions"
+          "Station screens for daily tasks, goods receipt and purchase orders"
         ],
-        "result": "In active development — the public site is live and the operational modules are rolling out in stages.",
+        "result": "The public site is live on the improved codebase, and the operational modules are rolling out in stages — everything that worked before still works.",
         "alt": {
           "desktop": "My North Food homepage on desktop",
           "mobile": "My North Food homepage on mobile",
@@ -970,7 +970,8 @@
       "items": [
         "From QA lead to full-stack engineer",
         "Leads development of the Digitengo AI marketing platform",
-        "Next.js, React and Node.js, built AI-first with Claude Code"
+        "Next.js, React and Node.js, built AI-first with Claude Code",
+        "Turns AI-generated code into maintainable, production-grade software"
       ]
     },
     "marketer": {

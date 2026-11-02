@@ -1,6 +1,7 @@
 // Screenshot tooling.
 //
-//   node scripts/capture-screenshots.mjs projects [--only <slug>]
+//   node scripts/capture-screenshots.mjs projects [--only <slug>] [--url <url>]
+//     --url captures a different address (e.g. a local build) for the --only project
 //     Captures live client sites into src/assets/projects/<slug>/{desktop,mobile,full}.jpg
 //
 //   node scripts/capture-screenshots.mjs qa [--base http://localhost:3000] [--quick]
@@ -82,9 +83,12 @@ async function hideOverlays(page) {
 
 async function captureProjects(browser) {
   const only = flag("only");
-  for (const { slug, url } of PROJECTS.filter(
+  const urlOverride = flag("url");
+  if (urlOverride && !only) throw new Error("--url needs --only <slug>");
+  for (const { slug, url: liveUrl } of PROJECTS.filter(
     (p) => !only || p.slug === only,
   )) {
+    const url = urlOverride ?? liveUrl;
     const dir = join("src", "assets", "projects", slug);
     await mkdir(dir, { recursive: true });
 
@@ -197,7 +201,7 @@ async function captureQa(browser) {
 
 if (mode !== "projects" && mode !== "qa") {
   console.error(
-    "Usage: capture-screenshots.mjs <projects|qa> [--only slug] [--base url] [--quick]",
+    "Usage: capture-screenshots.mjs <projects|qa> [--only slug [--url url]] [--base url] [--quick]",
   );
   process.exit(1);
 }
