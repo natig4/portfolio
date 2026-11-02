@@ -9,6 +9,10 @@ import {
   SiExpress,
   SiFramer,
   SiGithubactions,
+  SiGoogleads,
+  SiGoogleanalytics,
+  SiGooglesearchconsole,
+  SiGoogletagmanager,
   SiGitlab,
   SiGooglegemini,
   SiGraphql,
@@ -46,7 +50,13 @@ import {
 } from "react-icons/si";
 
 export type TechCategory =
-  "frontend" | "backend" | "data" | "infra" | "ai" | "desktop";
+  | "marketing"
+  | "frontend"
+  | "backend"
+  | "data"
+  | "infra"
+  | "ai"
+  | "desktop";
 
 type TechInfo = { label: string; icon?: IconType; category: TechCategory };
 
@@ -112,6 +122,20 @@ export const TECH = {
   openai: { label: "OpenAI", icon: SiOpenai, category: "ai" },
   gemini: { label: "Gemini", icon: SiGooglegemini, category: "ai" },
   meta: { label: "Meta Graph API", icon: SiMeta, category: "ai" },
+  googleads: { label: "Google Ads", icon: SiGoogleads, category: "marketing" },
+  metaads: { label: "Meta Ads", icon: SiMeta, category: "marketing" },
+  ga4: { label: "Google Analytics 4", icon: SiGoogleanalytics, category: "marketing" },
+  searchconsole: {
+    label: "Search Console",
+    icon: SiGooglesearchconsole,
+    category: "marketing",
+  },
+  tagmanager: {
+    label: "Tag Manager",
+    icon: SiGoogletagmanager,
+    category: "marketing",
+  },
+  seo: { label: "SEO", icon: TbWorld, category: "marketing" },
 } as const satisfies Record<string, TechInfo>;
 
 export type TechId = keyof typeof TECH;

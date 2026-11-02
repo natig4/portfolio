@@ -27,7 +27,7 @@ export default function ResultsStrip({
       className={`grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4 ${className}`}
     >
       {items.map(({ key, value, label: itemLabel, href }, index) => (
-        <li key={key} className='bg-surface/80 backdrop-blur'>
+        <li key={key} className='bg-surface/90'>
           <Reveal index={index} className='h-full'>
             <Link
               href={href}

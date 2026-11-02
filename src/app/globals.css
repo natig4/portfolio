@@ -243,11 +243,6 @@
   initial-value: 0;
 }
 
-@keyframes gradient-pan {
-  to {
-    background-position: -200% center;
-  }
-}
 @keyframes drift-a {
   to {
     transform: translate(16vmax, 10vmax) scale(1.15);
@@ -265,8 +260,7 @@
 }
 @keyframes rise {
   from {
-    translate: 0 0.5em;
-    filter: blur(6px);
+    translate: 0 0.6em;
   }
 }
 @keyframes float {
@@ -328,11 +322,9 @@
     scale: 0 1;
   }
 }
-@keyframes header-lift {
-  to {
-    box-shadow:
-      0 1px 0 var(--border),
-      0 12px 32px -18px rgb(11 15 26 / 0.35);
+@keyframes fade-in {
+  from {
+    opacity: 0;
   }
 }
 
@@ -477,9 +469,6 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .text-gradient {
-    animation: gradient-pan 8s linear infinite;
-  }
   .aurora::before {
     animation: drift-a 22s ease-in-out infinite alternate;
   }
@@ -489,7 +478,7 @@
   .aurora > span {
     animation: drift-c 18s ease-in-out infinite alternate;
   }
-  /* Hero words: translate + blur only. Opacity stays 1 so the LCP text is painted at once. */
+  /* Hero words: translate only (compositor-friendly). Opacity stays 1 so the LCP text is painted at once. */
   .rise {
     display: inline-block;
     animation: rise 700ms var(--ease-out-soft) both;
@@ -561,8 +550,15 @@
     [dir="rtl"] .scroll-progress {
       transform-origin: right center;
     }
-    .header-lift {
-      animation: header-lift linear both;
+    /* The shadow lives on a pseudo-element so only its opacity animates. */
+    .header-lift::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      box-shadow: 0 12px 32px -18px rgb(11 15 26 / 0.35);
+      animation: fade-in linear both;
       animation-timeline: scroll(root);
       animation-range: 0 160px;
     }

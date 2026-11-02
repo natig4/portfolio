@@ -2,6 +2,14 @@ import type { TechCategory, TechId } from "@/lib/tech";
 
 /** Technologies shown on the About page, grouped by category. */
 export const skills: Record<TechCategory, readonly TechId[]> = {
+  marketing: [
+    "googleads",
+    "metaads",
+    "ga4",
+    "searchconsole",
+    "tagmanager",
+    "seo",
+  ],
   frontend: [
     "nextjs",
     "react",

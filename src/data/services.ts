@@ -1,8 +1,17 @@
 import type { MarketingSlug } from "./marketing";
 import type { ProjectSlug } from "./projects";
 
-/** Copy lives in messages under `home.services.items.<id>`. Examples link to projects and marketing cases. */
+/**
+ * Copy lives in messages under `home.services.items.<id>`. Examples link to
+ * projects and marketing cases. The first entry is the large bento tile.
+ */
 export const services = [
+  {
+    id: "growth",
+    icon: "search",
+    examples: [],
+    cases: ["ecommerce-growth", "mirk-seo"],
+  },
   { id: "websites", icon: "globe", examples: ["mirk", "tor-group"] },
   {
     id: "platforms",
@@ -14,7 +23,6 @@ export const services = [
     icon: "dashboard",
     examples: ["galil-dashboard", "reports-manager"],
   },
-  { id: "growth", icon: "search", examples: [], cases: ["mirk-seo"] },
 ] as const satisfies readonly {
   id: string;
   icon: "globe" | "layers" | "dashboard" | "search";

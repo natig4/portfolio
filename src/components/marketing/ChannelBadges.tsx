@@ -17,7 +17,7 @@ export default function ChannelBadges({
         return (
           <li
             key={id}
-            className='inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/90 px-2.5 py-1 text-xs font-medium text-foreground backdrop-blur'
+            className='inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-2.5 py-1 text-xs font-medium text-foreground shadow-sm'
           >
             <Icon className='size-3.5' aria-hidden='true' />
             {t(id)}

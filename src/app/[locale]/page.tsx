@@ -10,7 +10,9 @@ import Reveal from "@/components/ui/Reveal";
 import Hero from "@/components/home/Hero";
 import Services from "@/components/home/Services";
 import Process from "@/components/home/Process";
-import Background from "@/components/home/Background";
+import ToolsMarquee from "@/components/home/ToolsMarquee";
+import Results from "@/components/home/Results";
+import Founder from "@/components/home/Founder";
 import ProjectCard from "@/components/work/ProjectCard";
 import CtaBanner from "@/components/shared/CtaBanner";
 import JsonLd from "@/components/shared/JsonLd";
@@ -75,9 +77,13 @@ export default async function HomePage({ params }: Props) {
       />
 
       <Hero />
+      <ToolsMarquee />
+      <Results />
+      <Services />
 
       <Section
         id='work'
+        className='border-t border-border bg-surface/60'
         eyebrow={t("eyebrow")}
         title={t("title")}
         description={t("description")}
@@ -88,8 +94,8 @@ export default async function HomePage({ params }: Props) {
         }
       >
         <div className='grid gap-x-10 gap-y-14 md:grid-cols-2'>
-          {getShowcaseProjects(4).map((project) => (
-            <Reveal key={project.slug}>
+          {getShowcaseProjects(4).map((project, index) => (
+            <Reveal key={project.slug} index={index % 2}>
               <ProjectCard project={project} />
             </Reveal>
           ))}
@@ -97,9 +103,8 @@ export default async function HomePage({ params }: Props) {
       </Section>
 
       <Process />
-      <Services />
-      <Background />
-      <CtaBanner showWork={false} />
+      <Founder />
+      <CtaBanner />
     </>
   );
 }

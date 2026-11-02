@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Nati Gurevich — New Generation SW",
-    "description": "New Generation SW builds fast, accessible websites, web apps and internal tools, and helps businesses get found on Google. Led by Nati Gurevich, full-stack engineer (ex-Outbrain) with a quality-first background."
+    "description": "New Generation SW is a software and growth studio: fast, accessible websites and web apps, plus Google Ads, Meta campaigns and SEO that bring customers in. Founded by Nati Gurevich."
   },
   "nav": {
     "work": "Work",
@@ -19,7 +19,7 @@
     "role": "Founder & Lead Engineer"
   },
   "footer": {
-    "tagline": "Websites, web apps and internal tools — built quality-first, in Hebrew and English.",
+    "tagline": "Websites, software and growth marketing — built quality-first, in Hebrew and English.",
     "explore": "Explore",
     "legal": "Legal",
     "connect": "Connect",
@@ -31,29 +31,35 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "New Generation SW · Founder & Lead Engineer",
-      "title": "Websites, web apps and internal tools — built right.",
-      "description": "I’m Nati Gurevich. Through New Generation SW I design and build software for businesses — from lead-generating websites to SaaS platforms — and help them get found through SEO and marketing, with a QA lead’s eye for quality and a full-stack engineer’s range.",
+      "eyebrow": "New Generation SW · Software & growth studio",
+      "description": "From fast, accessible websites and web platforms to Google Ads, Meta campaigns and SEO: one studio that builds the product and grows it, measured in real numbers.",
       "primary": "Start a project",
-      "secondary": "See the work",
+      "secondary": "See the results",
       "trust": {
-        "outbrain": "Ex-Outbrain engineer",
         "years": "{years}+ years in tech",
-        "bilingual": "Hebrew & English, RTL-native",
-        "stack": "Next.js · React · Node.js · .NET"
+        "saved": "$1M+ saved for a client",
+        "channels": "Google Ads · Meta · SEO",
+        "bilingual": "Hebrew & English, RTL-native"
       },
-      "shotsLabel": "Screenshots of recent client projects"
+      "shotsLabel": "Screenshots of recent client projects",
+      "titleStart": "We build websites and software —",
+      "titleHighlight": "and bring them customers.",
+      "chips": {
+        "purchaseValue": "purchase value",
+        "google": "on Google",
+        "cpc": "cost per click"
+      }
     },
     "work": {
       "eyebrow": "Selected work",
-      "title": "Recent projects",
-      "description": "A few of the businesses and products I’ve built for lately.",
+      "title": "Websites and software we’ve built",
+      "description": "A few of the businesses and products we’ve built for lately.",
       "viewAll": "All work"
     },
     "services": {
       "eyebrow": "Services",
-      "title": "What I do",
-      "description": "Build it, then get it found: fast, accessible, maintainable software, and the search and marketing work that brings customers to it.",
+      "title": "What we do",
+      "description": "Build it, then grow it: fast, accessible software, and the search and advertising work that brings customers to it.",
       "examples": "Examples",
       "items": {
         "websites": {
@@ -85,19 +91,19 @@
         },
         "growth": {
           "title": "SEO & digital marketing",
-          "description": "Getting found on Google and turning searches into inquiries — technical and local SEO alongside campaigns, measured in Search Console and analytics.",
+          "description": "Getting found on Google and turning clicks into customers — Google Ads, Meta campaigns and SEO, measured in Search Console and analytics.",
           "points": [
-            "Technical and on-page SEO",
-            "Local SEO and service-area pages",
-            "Campaigns, tracking and conversions"
+            "Google Ads and Meta campaigns",
+            "Technical and local SEO",
+            "Conversion tracking and GA4"
           ]
         }
       }
     },
     "process": {
-      "eyebrow": "How I work",
+      "eyebrow": "How we work",
       "title": "Quality built in from day one — not tested in at the end",
-      "description": "Before I wrote production code I spent five years in QA and project leadership. That shapes every project: clear scope, small releases and testing at every step.",
+      "description": "Before writing production code, Nati spent five years in QA and project leadership. That shapes every project: clear scope, small releases, testing at every step — and results measured from day one.",
       "steps": {
         "discover": {
           "title": "Discover",
@@ -117,34 +123,54 @@
         },
         "launch": {
           "title": "Launch & support",
-          "description": "Deployment, analytics and handover — and I stay available for improvements after go-live."
+          "description": "Deployment, analytics and handover — and we stay on for improvements, campaigns and SEO after go-live."
         }
       }
     },
-    "background": {
-      "eyebrow": "Background",
-      "title": "From quality lead to full-stack engineer",
-      "description": "{years} years in tech — leading QA teams, building high-traffic products at Outbrain, and now running New Generation SW.",
-      "cta": "More about me"
+    "marquee": {
+      "label": "Platforms and tools we work with"
+    },
+    "results": {
+      "eyebrow": "Proof",
+      "title": "Results, not promises",
+      "description": "A few numbers from sites and campaigns we run. Every figure links to the full story and its source.",
+      "viewAll": "All marketing results",
+      "items": {
+        "purchaseValue": "more purchase value for an e-commerce brand",
+        "cpc": "lower cost per click for a security installer",
+        "google": "average Google position for Mirk’s brand searches",
+        "saved": "saved for a financial-services client"
+      }
+    },
+    "founder": {
+      "eyebrow": "Who’s behind it",
+      "title": "Founded by Nati Gurevich",
+      "description": "Nati started in quality assurance, became a full-stack engineer and now leads New Generation SW — building the software and running the campaigns. {years} years in tech, Hebrew and English, and one standard: quality first.",
+      "cta": "More about Nati",
+      "stats": {
+        "years": "years in tech",
+        "saved": "saved for a client",
+        "cases": "published case studies"
+      }
     }
   },
   "about": {
     "page": {
       "eyebrow": "About",
       "title": "Hi, I’m Nati.",
-      "description": "Founder and lead engineer of New Generation SW — an independent software studio in the Western Galilee, working with businesses across Israel and abroad."
+      "description": "Founder of New Generation SW — a software and growth studio in the Western Galilee, working with businesses across Israel and abroad."
     },
     "intro": {
       "title": "My story",
       "p1": "I’m a self-taught full-stack engineer with {years} years in tech. I started on the quality side — leading QA and project management at myThings and building regression frameworks for real-time systems at Nova — before moving into development full time.",
-      "p2": "At Outbrain I built and maintained high-traffic web applications in Angular and React, created shared components used by more than ten teams, and trained over fifty developers in RxJS.",
-      "p3": "Today I run New Generation SW, where I design and build websites, web platforms and internal tools. Since 2025 I’ve also led full-stack development of the Digitengo AI marketing platform."
+      "p2": "After engineering roles that included two years building high-traffic web apps at Outbrain, I founded New Generation SW to work directly with businesses.",
+      "p3": "Today we build websites, web platforms and internal tools, and run the Google Ads, Meta and SEO work that brings them customers. Reports Manager, a reporting tool I built, has saved a financial-services client more than $1M, and since 2025 I’ve also led full-stack development of the Digitengo AI marketing platform."
     },
     "stats": {
       "years": "years in tech",
-      "users": "daily users on apps I’ve built and maintained",
-      "teams": "teams using components I built at Outbrain",
-      "trained": "developers trained in RxJS"
+      "saved": "saved for a financial-services client with Reports Manager",
+      "purchaseValue": "more e-commerce purchase value from Google Ads",
+      "google": "average Google position for Mirk’s brand searches"
     },
     "experience": {
       "eyebrow": "Experience",
@@ -155,12 +181,12 @@
         "ngsw": {
           "company": "New Generation SW",
           "role": "Founder & Lead Engineer",
-          "summary": "Independent software studio building websites, web platforms and internal tools for businesses in Israel and abroad.",
+          "summary": "Software and growth studio: websites, web platforms, internal tools and performance marketing for businesses in Israel and abroad.",
           "highlights": [
             "Lead full-stack engineer on the Digitengo AI marketing platform (2025–present)",
             "Designed and built client sites and platforms including Mirk, My North Food and TOR Group",
-            "Internal tools and .NET desktop apps that replace manual spreadsheet work",
-            "CI/CD with GitHub Actions and GitLab; hosting on Vercel and AWS"
+            "Google Ads, Meta Ads and SEO for clients in e-commerce, legal services, local services and education",
+            "Reports Manager, an Excel reporting tool that has saved a financial-services client more than $1M"
           ]
         },
         "outbrain": {
@@ -169,9 +195,7 @@
           "summary": "High-traffic web applications on one of the world’s largest content-recommendation platforms.",
           "highlights": [
             "Developed and maintained high-traffic web applications in Angular and React",
-            "Built complex shared components used by 10+ teams",
-            "Led RxJS training sessions for 50+ developers",
-            "Built scalable microservices with Node.js, NestJS and Scala"
+            "Built complex shared components used by 10+ teams"
           ]
         },
         "nova": {
@@ -206,6 +230,7 @@
       "eyebrow": "Toolbox",
       "title": "Technologies I work with",
       "categories": {
+        "marketing": "Marketing & SEO",
         "frontend": "Frontend",
         "backend": "Backend",
         "data": "Data",
@@ -213,13 +238,19 @@
         "ai": "AI & integrations",
         "desktop": "Desktop"
       }
+    },
+    "record": {
+      "eyebrow": "Track record",
+      "title": "Results from the accounts we run",
+      "description": "Marketing and SEO results from the last few months — each with its source and the full story.",
+      "viewAll": "All marketing results"
     }
   },
   "projects": {
     "page": {
       "eyebrow": "Work",
       "title": "Selected work",
-      "description": "Websites, web platforms and internal tools I’ve designed and built — for businesses in Israel and abroad."
+      "description": "Websites, web platforms and internal tools we’ve designed and built — for businesses in Israel and abroad."
     },
     "labels": {
       "client": "Client",
@@ -231,7 +262,7 @@
       "visitSite": "Visit site",
       "viewCase": "View case study",
       "challenge": "The challenge",
-      "solution": "What I built",
+      "solution": "What we built",
       "highlights": "Highlights",
       "result": "The result",
       "gallery": "Full page",
@@ -270,7 +301,7 @@
         "summary": "A ground-up rebuild of the company website for a metal supplier and processing plant in Akko — department pages, local-SEO service areas, a CMS-driven blog and case studies, and an admin panel that routes every inquiry to sales.",
         "role": "Design, full-stack development, CMS and SEO",
         "challenge": "The previous WordPress site was slow, hard to update and undersold the plant’s capabilities. Sales needed a reliable source of inbound leads, and the office team needed to publish content without calling a developer.",
-        "solution": "I rebuilt the site on Next.js with Sanity as the content studio, PostgreSQL (via Prisma and Supabase) for leads, newsletter and analytics, and SendGrid for transactional email. The visual design was developed together with the client — a light, industrial palette — and every page was built RTL-first and keyboard- and screen-reader-accessible.",
+        "solution": "We rebuilt the site on Next.js with Sanity as the content studio, PostgreSQL (via Prisma and Supabase) for leads, newsletter and analytics, and SendGrid for transactional email. The visual design was developed together with the client — a light, industrial palette — and every page was built RTL-first and keyboard- and screen-reader-accessible.",
         "highlights": [
           "Department and product pages for laser and plasma cutting, bending, rolling and iron sales",
           "Service-area landing pages for local search across the Western Galilee, Haifa and the Krayot",
@@ -284,17 +315,18 @@
           "desktop": "Mirk website homepage on desktop",
           "mobile": "Mirk website homepage on mobile",
           "full": "Full-length capture of the Mirk homepage"
-        }
+        },
+        "outcome": "on Google for branded searches"
       },
       "digitengo": {
         "title": "Digitengo",
         "client": "Digitengo",
         "sector": "AI marketing SaaS",
         "tagline": "Lead engineer on a multi-tenant AI platform that runs social-media marketing for small businesses.",
-        "summary": "Digitengo writes, schedules and publishes social posts with AI, reports on paid campaigns across Meta and Google Ads, and captures leads — for small businesses and six white-label partner brands. I’ve led its full-stack development since mid-2025.",
+        "summary": "Digitengo writes, schedules and publishes social posts with AI, reports on paid campaigns across Meta and Google Ads, and captures leads — for small businesses and six white-label partner brands. We’ve led its full-stack development since mid-2025.",
         "role": "Lead full-stack engineer — architecture, features, infrastructure",
         "challenge": "A fast-growing product originally built by an outside agency: around seventeen Node.js microservices, a Vue front end and Kubernetes infrastructure, with reliability issues and features that had to ship quickly for paying customers and partners.",
-        "solution": "I took over day-to-day engineering across the whole stack — from the Vue app to the services, queues and AWS infrastructure — shipping new product areas while hardening what was already running in production.",
+        "solution": "We took over day-to-day engineering across the whole stack — from the Vue app to the services, queues and AWS infrastructure — shipping new product areas while hardening what was already running in production.",
         "highlights": [
           "AI post generation and holiday-aware scheduling with OpenAI and Gemini",
           "Paid-campaigns dashboard combining Meta and Google Ads data with leads and revenue into ROI and ROAS",
@@ -318,7 +350,7 @@
         "summary": "A food manufacturer operating since 1979 is moving its ordering, deliveries and back office online: a Hebrew storefront with a product catalog and cart, plus dedicated apps for drivers, production stations and management.",
         "role": "Product design and full-stack development",
         "challenge": "Orders, delivery routes, kitchen tasks and supplier purchasing were managed by phone and on paper. The business needed one system that customers, drivers, kitchen staff and management could each use from their own device.",
-        "solution": "I’m building a React and Express platform with role-based areas: the public storefront and customer accounts, an admin back office, a driver app, station screens for the kitchen and warehouse, and a management dashboard — all on one shared database.",
+        "solution": "We’re building a React and Express platform with role-based areas: the public storefront and customer accounts, an admin back office, a driver app, station screens for the kitchen and warehouse, and a management dashboard — all on one shared database.",
         "highlights": [
           "Product catalog, cart and order history, with service requests and inquiries",
           "Back office for products, inventory, weekly menus, kashrut certificates and banners",
@@ -342,7 +374,7 @@
         "summary": "A Hebrew, sign-in-protected dashboard that tracks every community in the region — local coordinators, key figures and a history of field events — with Excel import and export so the team can keep working the way it’s used to.",
         "role": "Product design and full-stack development",
         "challenge": "Volunteers were coordinating dozens of communities across two regional councils and several cities from shared spreadsheets that were hard to search, easy to break and impossible to keep in sync.",
-        "solution": "I built a secure Next.js app on Supabase and Prisma that imports the existing spreadsheets, groups communities by council, and lets organizers search, sort and edit figures inline — then export any filtered view back to Excel.",
+        "solution": "We built a secure Next.js app on Supabase and Prisma that imports the existing spreadsheets, groups communities by council, and lets organizers search, sort and edit figures inline — then export any filtered view back to Excel.",
         "highlights": [
           "Communities grouped by regional council, with search across names, coordinators and phone numbers",
           "Inline editing of key figures, color-coded against regional averages",
@@ -366,7 +398,7 @@
         "summary": "A responsive, multi-language corporate site for a financial-services firm specializing in investment fundraising and international bond issuance — with a growth-themed design, service and team pages, and built-in accessibility features.",
         "role": "Design and front-end development",
         "challenge": "The firm needed a credible, modern presence to present its services, process and partners to international investors — in more than one language.",
-        "solution": "I designed and built a Next.js site with next-intl for localization, Framer Motion for restrained animation and a contact form wired to email, structured around the firm’s approach, timing and process.",
+        "solution": "We designed and built a Next.js site with next-intl for localization, Framer Motion for restrained animation and a contact form wired to email, structured around the firm’s approach, timing and process.",
         "highlights": [
           "Service, approach, timing and process sections built around the firm’s pitch",
           "Multi-language routing with next-intl",
@@ -388,20 +420,27 @@
         "summary": "An enterprise reporting tool that ingests large Excel workbooks, validates and reconciles the data, and produces finished reports — replacing hours of manual spreadsheet work. Bilingual Hebrew/English interface.",
         "role": "Desktop application development",
         "challenge": "Analysts were spending hours each cycle copying, checking and reformatting data across large Excel files, and errors were hard to trace.",
-        "solution": "I built a WPF application on .NET with EPPlus for Excel processing, JWT-secured access and a guided workflow that flags inconsistencies and helps resolve them before reports are generated.",
+        "solution": "We built a WPF application on .NET with EPPlus for Excel processing, JWT-secured access and a guided workflow that flags inconsistencies and helps resolve them before reports are generated.",
         "highlights": [
           "Batch processing of large Excel workbooks with EPPlus",
           "Automatic error detection with guided resolution",
           "Hebrew/English interface",
           "Secured access with JWT"
         ],
-        "result": "A repeatable, auditable reporting workflow in place of manual spreadsheet work.",
+        "result": "A repeatable, auditable reporting workflow in place of manual spreadsheet work — one that has saved the client more than $1M.",
         "alt": {
           "desktop": "Reports Manager main window",
           "mobile": "Reports Manager",
           "full": "Reports Manager"
-        }
+        },
+        "outcome": "saved for the client"
       }
+    },
+    "marketing": {
+      "eyebrow": "Marketing & SEO",
+      "title": "Beyond building: marketing that brings customers",
+      "description": "Campaign and SEO results from the accounts we run.",
+      "viewAll": "All marketing results"
     }
   },
   "articles": {
@@ -640,7 +679,7 @@
     "page": {
       "eyebrow": "Contact",
       "title": "Let’s talk about your project",
-      "description": "Tell me a bit about what you need — a new website, a web platform, or help with an existing product — and I’ll get back to you with next steps."
+      "description": "Tell us a bit about what you need — a new website, a web platform, campaigns or SEO — and we’ll get back to you with next steps."
     },
     "details": {
       "title": "Direct contact",
@@ -664,7 +703,7 @@
       "messagePlaceholder": "A few lines about the project, timeline and anything else that helps.",
       "send": "Send message",
       "note": "This opens your email app with the message ready to send.",
-      "opened": "Your email app should open now. If it didn’t, email me directly at {email}.",
+      "opened": "Your email app should open now. If it didn’t, email us directly at {email}.",
       "subject": "New project inquiry — {name}",
       "bodyName": "Name",
       "bodyEmail": "Email",
@@ -885,9 +924,9 @@
     "work": "See the work"
   },
   "cta": {
-    "title": "Have a project in mind?",
-    "description": "Tell me what you’re building — a new website, a web platform or a tool for your team — and let’s see how I can help.",
+    "title": "Let’s build something that sells.",
+    "description": "Tell us what you need — a new website, a platform, or campaigns that bring in customers — and we’ll show you how we’d approach it.",
     "primary": "Start a project",
-    "secondary": "See the work"
+    "secondary": "See the results"
   }
 }

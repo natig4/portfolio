@@ -17,6 +17,8 @@ type ProjectData = {
   stack: readonly TechId[];
   /** Screenshots can never be shown (client confidentiality) — renders a confidential cover. */
   confidential?: boolean;
+  /** A headline outcome shown on the card, e.g. "$1M+". Its label lives in `projects.items.<slug>.outcome`. */
+  outcome?: string;
 };
 
 /**
@@ -31,6 +33,7 @@ export const projects = [
     status: "live",
     kind: "website",
     url: "https://mirk.co.il",
+    outcome: "#1",
     stack: [
       "nextjs",
       "typescript",
@@ -124,6 +127,7 @@ export const projects = [
     status: "private",
     kind: "desktop",
     confidential: true,
+    outcome: "$1M+",
     stack: ["csharp", "dotnet", "wpf", "epplus"],
   },
 ] as const satisfies readonly ProjectData[];

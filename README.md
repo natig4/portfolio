@@ -30,7 +30,11 @@ Structured data lives in `src/data/*.ts`; all visible copy lives in `messages/{e
 
 ### Add a marketing case or article
 
-- Marketing: add an entry to `src/data/marketing.ts` and its `marketing.cases.<slug>` copy. Metrics take `change` (%) and/or raw `from`/`to` values, with labels in `marketing.metrics`. Show either a chart image per locale (`src/assets/marketing/`) or SEO `rankings` (queries and pages, before/after average position) with a `period` for the source footnote. `relatedProject` links the case and the project both ways.
+- Marketing: add an entry to `src/data/marketing.ts` and its copy under `marketing.cases.<slug>` in both message files (client, title, summary, challenge, approach[], result, footnote with `{period}`/`{previous}`). Each case gets a static `/marketing/[slug]` page and share image.
+  - Metrics take raw `from`/`to` values and/or `change` (%); `show` picks the big number (change, ratio or value). Labels live in `marketing.metrics`.
+  - Never publish ad spend, CPC or CPA as amounts — only as % change — and keep clients anonymous unless they've approved being named.
+  - Report screenshots go in `src/assets/marketing/<slug>/` only after campaign names, budgets, costs and cursors are blurred; keep raw exports outside the repo (the handoff folders are git-ignored).
+  - `relatedProject` links a case and its project both ways; `featured` cases appear on the home and projects pages.
 - Articles: add an entry to `src/data/articles.ts` (URL, ISO date, language) and `articles.items.<slug>` copy.
 
 ### Hebrew text tips

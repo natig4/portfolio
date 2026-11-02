@@ -145,7 +145,7 @@ export default async function MarketingCasePage({ params }: Props) {
               </div>
             </div>
 
-            <div className='rounded-3xl border border-border bg-surface/70 p-7 backdrop-blur sm:p-9 lg:min-w-72'>
+            <div className='rounded-3xl border border-border bg-surface/80 p-7 sm:p-9 lg:min-w-72'>
               <p className='text-6xl font-bold tracking-tight text-growth sm:text-7xl'>
                 <CountUp text={formatMetricHeadline(format, headline)} />
               </p>

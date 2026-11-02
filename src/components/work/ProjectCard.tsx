@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { LuArrowUpRight } from "react-icons/lu";
+import { LuArrowUpRight, LuTrendingUp } from "react-icons/lu";
 import { Link } from "@/i18n/routing";
 import type { Project } from "@/data/projects";
 import { projectHref } from "@/lib/routes";
@@ -47,7 +47,17 @@ export default function ProjectCard({
         </span>
       </div>
 
-      <Heading className='mt-3 text-xl font-semibold tracking-tight'>
+      {"outcome" in project && (
+        <p className='mt-4 inline-flex items-center gap-2 self-start rounded-full bg-growth/10 px-3 py-1.5 text-sm font-semibold text-growth'>
+          <LuTrendingUp className='size-4 shrink-0' aria-hidden='true' />
+          <bdi dir='ltr'>{project.outcome}</bdi>
+          <span className='font-medium'>
+            {t(`items.${project.slug}.outcome`)}
+          </span>
+        </p>
+      )}
+
+      <Heading className='mt-3 text-xl font-bold tracking-tight'>
         <Link
           href={projectHref(slug)}
           className='inline-flex items-center gap-1.5 after:absolute after:inset-0 after:rounded-xl focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-4 focus-visible:after:outline-accent'
