@@ -1,14 +1,36 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getFormatter, getTranslations, setRequestLocale } from "next-intl/server";
+import type { IconType } from "react-icons";
+import { LuChartLine } from "react-icons/lu";
 import type { AppLocale } from "@/i18n/routing";
-import { marketingCases } from "@/data/marketing";
+import { getHeadlineMetric, getMarketingCase } from "@/data/marketing";
+import { CHANNELS } from "@/lib/channels";
+import { formatMetricHeadline } from "@/lib/metrics";
 import { pageMetadata } from "@/lib/metadata";
-import Container from "@/components/ui/Container";
+import { marketingCaseHref } from "@/lib/routes";
 import PageHeader from "@/components/ui/PageHeader";
-import MarketingCase from "@/components/marketing/MarketingCase";
+import Section from "@/components/ui/Section";
+import Reveal from "@/components/ui/Reveal";
+import ResultsStrip from "@/components/marketing/ResultsStrip";
+import CaseBrowser from "@/components/marketing/CaseBrowser";
 import CtaBanner from "@/components/shared/CtaBanner";
 
 type Props = { params: Promise<{ locale: AppLocale }> };
+
+/** Headline result per case, in the order shown at the top of the page. */
+const highlights = [
+  "ecommerce-growth",
+  "security-leads",
+  "dance-school-whatsapp",
+  "mirk-seo",
+] as const;
+
+const services: { id: "googleAds" | "metaAds" | "seo" | "tracking"; icon: IconType }[] = [
+  { id: "googleAds", icon: CHANNELS["google-ads"].icon },
+  { id: "metaAds", icon: CHANNELS["meta-ads"].icon },
+  { id: "seo", icon: CHANNELS.seo.icon },
+  { id: "tracking", icon: LuChartLine },
+];
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -28,21 +50,71 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function MarketingPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("marketing.page");
+  const t = await getTranslations("marketing");
+  const format = await getFormatter();
+
+  const results = highlights.map((slug) => {
+    const metric = getHeadlineMetric(getMarketingCase(slug));
+    return {
+      key: slug,
+      value: formatMetricHeadline(format, metric),
+      label: `${t(`metrics.${metric.id}`)} · ${t(`cases.${slug}.client`)}`,
+      href: marketingCaseHref(slug),
+    };
+  });
 
   return (
     <>
       <PageHeader
-        eyebrow={t("eyebrow")}
-        title={t("title")}
-        description={t("description")}
-      />
-      <Container className='space-y-10 py-14 sm:py-20'>
-        {marketingCases.map((data) => (
-          <MarketingCase key={data.slug} data={data} />
-        ))}
-      </Container>
-      <CtaBanner />
+        eyebrow={t("page.eyebrow")}
+        title={t("page.title")}
+        description={t("page.description")}
+      >
+        <ResultsStrip
+          items={results}
+          label={t("labels.highlights")}
+          className='mt-12'
+        />
+      </PageHeader>
+
+      <Section
+        id='services'
+        eyebrow={t("services.eyebrow")}
+        title={t("services.title")}
+        description={t("services.description")}
+      >
+        <ul className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+          {services.map(({ id, icon: Icon }, index) => (
+            <li key={id}>
+              <Reveal index={index} className='h-full'>
+                <div className='glow-card h-full rounded-2xl border border-border bg-surface p-6'>
+                  <span className='inline-flex size-11 items-center justify-center rounded-xl bg-accent-soft text-accent'>
+                    <Icon className='size-5' aria-hidden='true' />
+                  </span>
+                  <h3 className='mt-5 text-lg font-bold'>
+                    {t(`services.items.${id}.title`)}
+                  </h3>
+                  <p className='mt-2 text-sm leading-relaxed text-muted-foreground'>
+                    {t(`services.items.${id}.description`)}
+                  </p>
+                </div>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section
+        id='cases'
+        eyebrow={t("browser.eyebrow")}
+        title={t("browser.title")}
+        description={t("browser.description")}
+        className='border-t border-border bg-surface/50'
+      >
+        <CaseBrowser />
+      </Section>
+
+      <CtaBanner showWork={false} />
     </>
   );
 }

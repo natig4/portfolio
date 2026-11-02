@@ -6,7 +6,7 @@
   "nav": {
     "work": "Work",
     "about": "About",
-    "marketing": "Marketing",
+    "marketing": "Marketing & SEO",
     "articles": "Articles",
     "contact": "Contact",
     "startProject": "Start a project",
@@ -246,7 +246,7 @@
       "overview": "Overview",
       "confidential": "Confidential client project",
       "confidentialNote": "Screenshots can’t be shared for this project.",
-      "marketingResults": "See the marketing results"
+      "marketingResults": "See the SEO results"
     },
     "status": {
       "live": "Live",
@@ -428,27 +428,98 @@
   },
   "marketing": {
     "page": {
-      "eyebrow": "Marketing",
-      "title": "Marketing & SEO results",
-      "description": "Beyond building the product, I help businesses get found and grow — search optimization, campaigns, tracking and optimization. Here are measured results from sites and campaigns I’ve worked on."
+      "eyebrow": "Marketing & SEO",
+      "title": "Marketing results, in real numbers",
+      "description": "We run Google Ads, Meta campaigns and SEO for businesses in Israel — and we measure everything. Every number on this page comes straight from the ad platforms or Google Search Console."
+    },
+    "services": {
+      "eyebrow": "What we run",
+      "title": "Paid, organic and measured",
+      "description": "One team for the website, the campaigns that bring people to it, and the tracking that shows what worked.",
+      "items": {
+        "googleAds": {
+          "title": "Google Ads",
+          "description": "Search, Performance Max and product campaigns built around real conversions, not clicks."
+        },
+        "metaAds": {
+          "title": "Meta Ads",
+          "description": "Facebook and Instagram campaigns for online sales, lead forms and WhatsApp conversations."
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "Technical and local SEO, service-area pages and query-by-query monitoring in Search Console."
+        },
+        "tracking": {
+          "title": "Tracking & analytics",
+          "description": "GA4 and conversion actions set up so every lead and sale can be measured and compared."
+        }
+      }
+    },
+    "browser": {
+      "eyebrow": "Case studies",
+      "title": "Results by client",
+      "description": "Clients are anonymous, and budgets stay private: spend appears only as a percentage change."
+    },
+    "filter": {
+      "legend": "Filter by channel",
+      "all": "All"
     },
     "channels": {
-      "seo": "SEO · Google Search",
-      "campaign": "Campaign"
+      "google-ads": "Google Ads",
+      "meta-ads": "Meta Ads",
+      "seo": "SEO"
+    },
+    "objectives": {
+      "sales": "E-commerce sales",
+      "leads": "Lead generation",
+      "messages": "WhatsApp conversations",
+      "traffic": "Traffic",
+      "visibility": "Search visibility"
     },
     "metrics": {
-      "impressions": "Search impressions",
-      "averagePosition": "Average position",
-      "users": "Active users",
-      "activity": "Site activity",
-      "newBuyers": "New buyers",
-      "purchases": "Purchases"
+      "purchaseValue": "Attributed purchase value",
+      "purchases": "Attributed purchases",
+      "roas": "Return on ad spend",
+      "adSpend": "Ad spend",
+      "videoPurchases": "Purchases, video campaign",
+      "costPerPurchase": "Cost per purchase, video campaign",
+      "productPurchases": "Purchases, product campaign",
+      "costPerClick": "Cost per click",
+      "clicks": "Ad clicks",
+      "formLeads": "Form leads",
+      "conversations": "WhatsApp conversations",
+      "impressions": "Impressions",
+      "averagePosition": "Average position"
+    },
+    "evidence": {
+      "googleCampaigns": {
+        "alt": "Google Ads campaign table with clicks and impressions for both periods; campaign names, budgets and costs blurred",
+        "caption": "Google Ads · campaign report"
+      },
+      "googleTrend": {
+        "alt": "Google Ads chart comparing the period with the previous one; cost and conversion totals blurred",
+        "caption": "Google Ads · performance over time"
+      },
+      "metaCampaigns": {
+        "alt": "Meta Ads Manager campaign table with results for both periods; campaign names blurred",
+        "caption": "Meta Ads Manager · campaign results"
+      }
     },
     "labels": {
       "improved": "Improved",
       "declined": "Declined",
       "fromTo": "from {from} to {to}",
+      "vs": "vs. {previous}",
       "viewProject": "View the {project} project",
+      "viewCase": "Read the case study",
+      "highlights": "Highlights",
+      "backToResults": "All results",
+      "results": "The numbers",
+      "story": "How we got there",
+      "challenge": "The challenge",
+      "approach": "What we did",
+      "result": "The result",
+      "rankings": "Search positions",
       "queries": "Selected search terms · average Google position",
       "pages": "Service and area pages · average Google position",
       "query": "Search term",
@@ -456,26 +527,112 @@
       "branded": "Branded",
       "before": "Before",
       "after": "After",
-      "gain": "Change"
+      "gain": "Change",
+      "evidence": "From the ad accounts",
+      "evidenceNote": "Screenshots of the platform reports. Campaign names, budgets and costs are blurred to protect our clients.",
+      "openImage": "Open full size",
+      "source": "Source and notes",
+      "nextCase": "Next case study"
     },
     "cases": {
+      "ecommerce-growth": {
+        "client": "Laundry-rack manufacturer and online store",
+        "title": "49% more purchase value on 10% less ad spend",
+        "summary": "Google Ads and Meta for an Israeli e-commerce brand. In August–October, purchase value attributed to Google Ads rose 49% while ad spend fell 10%, and the Meta video campaign doubled its purchases at a 44% lower cost per purchase.",
+        "challenge": "The brand sells through its own online store and advertises on both Google and Meta. The goal: more online sales from the same budget or a smaller one.",
+        "approach": [
+          "Measured both periods against a single GA4 purchase action, so the comparison is like for like",
+          "Switched the product-sales campaigns to bid for new customers only",
+          "Rewrote the brand-search ads and expanded the Performance Max asset groups",
+          "Shifted budget toward brand search and Performance Max",
+          "Ran video and product sales campaigns on Meta, optimised for purchases"
+        ],
+        "result": "Compared with May–July, Google Ads brought 49% more attributed purchase value and 56% more attributed purchases on 10% less ad spend, and return on ad spend rose from 3.2× to 5.3×. On Meta, the video campaign went from 57 to 112 purchases and the product campaign from 41 to 117.",
+        "footnote": "Sources: Google Ads (one GA4-imported purchase action, 90-day click attribution) and Meta Ads Manager (individual campaigns; 7-day click, 1-day view or engagement), {period} vs. {previous}. These are conversions attributed by each platform, not audited orders, and Google and Meta results are reported separately — never added together."
+      },
+      "security-leads": {
+        "client": "Security-systems installer",
+        "title": "53% lower cost per click, 2.7× the clicks",
+        "summary": "Google Ads for a security-systems installer serving homes and businesses. In October we relaunched the account with separate business and private-customer campaigns: clicks rose from 451 to 1,236, the average cost per click fell 53%, and the website form brought in 12 leads.",
+        "challenge": "The installer needed more enquiries from both homeowners and businesses without paying more per click, and the account's lead tracking had to be rebuilt.",
+        "approach": [
+          "Rebuilt lead tracking around a dedicated website-form conversion",
+          "Launched separate campaigns for business and private customers",
+          "Added a shared negative-keyword list and excluded irrelevant regions",
+          "Refreshed ad assets and focused the account's goals on real enquiries"
+        ],
+        "result": "October brought 1,236 clicks against 451 in September, at an average cost per click 53% lower, plus 12 leads through the website form.",
+        "footnote": "Source: Google Ads, account totals, {period} vs. {previous}. The website-form conversion was created on 17 September, so September has no complete lead baseline and we don't claim a lead-growth figure."
+      },
       "mirk-seo": {
+        "client": "Mirk — M.Y.R. Kirshenbaum Ltd.",
         "title": "Google search visibility for Mirk",
-        "summary": "Search optimization for mirk.co.il, the metal-processing website I built, with department and service-area pages structured for local search. Over consecutive 28-day periods, Google impressions rose 41%, two branded searches reached an average first position and the Nahariya service-area page climbed from 17.4 to 8.3.",
-        "comparison": "vs. the previous 28 days",
+        "summary": "SEO for mirk.co.il, the metal-processing website we built, with department and service-area pages structured for local search. Over consecutive 28-day periods, Google impressions rose 41%, two branded searches reached an average first position and the Nahariya service-area page climbed from 17.4 to 8.3.",
+        "challenge": "A new website for a metal-processing plant in Akko had to show up for the company's name and for the services and towns it covers across the Western Galilee.",
+        "approach": [
+          "Department and service pages for each core service — cutting, bending, rolling and iron sales",
+          "Service-area landing pages for the Western Galilee, Haifa and the Krayot",
+          "Fast, statically rendered pages, Hebrew-first with an English version",
+          "Monitoring in Google Search Console, query by query and page by page"
+        ],
+        "result": "Search impressions grew from 1,150 to 1,623 and the average position improved from 16.9 to 15.5. ‘⁧כיפוף פח אלומיניום⁩’ (aluminium sheet bending) moved from position 20.1 to 11.7.",
+        "footnote": "Source: Google Search Console, web search, {period} compared with {previous}. Positions are averages for each period, not live rankings, and Search Console data for the site starts on 29 August 2026.",
         "pages": {
           "nahariya": "Nahariya service area",
           "ironSales": "Iron sales department",
           "areas": "Service areas overview"
-        },
-        "footnote": "Source: Google Search Console, web search, {period} compared with {previous}. Positions are averages for each period, not live rankings."
+        }
       },
-      "quarterly-growth": {
-        "title": "Quarter-over-quarter campaign growth",
-        "summary": "Growth metrics from a recent marketing campaign I managed, with significant improvements across every key performance indicator.",
-        "comparison": "vs. previous quarter",
-        "chartAlt": "Line chart of active users, site activity, new buyers and purchases rising over three months",
-        "chartCaption": "Performance over a three-month period, showing consistent growth"
+      "watch-coating-leads": {
+        "client": "Luxury-watch coating service",
+        "title": "62% more leads for a specialist service",
+        "summary": "Meta lead-form campaigns for a luxury-watch coating service. In August–October the campaign collected 377 form leads, up from 233 in May–July.",
+        "challenge": "A niche, premium service: the campaign has to bring a steady flow of enquiries from a small, specific audience.",
+        "approach": [
+          "Instant lead forms on Facebook and Instagram, so people enquire without leaving the app",
+          "A separate WhatsApp campaign alongside the lead-form campaign",
+          "Results tracked campaign by campaign in Meta Ads Manager"
+        ],
+        "result": "377 form leads in August–October, 62% more than the 233 in May–July.",
+        "footnote": "Source: Meta Ads Manager, lead-form campaign, {period} vs. {previous}; 7-day click or 1-day view attribution. Leads are submitted forms, not verified sales."
+      },
+      "dance-school-whatsapp": {
+        "client": "Dance school, Jerusalem",
+        "title": "3.4× more WhatsApp conversations",
+        "summary": "A click-to-WhatsApp campaign on Meta for a Jerusalem dance school. Conversations started rose from 140 in May–July to 473 in August–October.",
+        "challenge": "For a local studio, a WhatsApp chat is the shortest path from an ad to a conversation about classes.",
+        "approach": [
+          "Click-to-WhatsApp ads that open a chat straight with the studio",
+          "Results measured as conversations started, in Meta Ads Manager"
+        ],
+        "result": "473 conversations started in August–October, compared with 140 in May–July.",
+        "footnote": "Source: Meta Ads Manager, WhatsApp campaign, {period} vs. {previous}; 7-day click or 1-day view attribution. Conversations are not confirmed registrations, the cost per conversation rose 30%, and the comparison doesn't control for seasonality."
+      },
+      "family-law-traffic": {
+        "client": "Family-law practice, Central Israel",
+        "title": "2.5× the clicks on the same budget",
+        "summary": "We took over the Google Ads account of a family-law practice on 1 September. In the first month, clicks rose from 938 to 2,369 and impressions grew 4.2×, on the same budget.",
+        "challenge": "A competitive legal market where every click is expensive: the account had to reach more people for the same money.",
+        "approach": [
+          "Extended reach with Performance Max alongside the search campaigns",
+          "Kept total spend flat while bringing the cost per click down",
+          "Tracked qualifying phone calls (30 seconds or longer) as their own conversion"
+        ],
+        "result": "September brought 2,369 clicks against 938 in August, at a 60% lower cost per click, and 4.2× the impressions.",
+        "footnote": "Source: Google Ads, account totals, {period} vs. {previous}; cost per click is account spend divided by clicks. More traffic is not yet more clients: qualifying phone calls from ads were 6 in September against 8 in August."
+      },
+      "legal-leads": {
+        "client": "Law firm",
+        "title": "14% more form leads for a law firm",
+        "summary": "Meta lead-form campaigns for a law firm serving private clients. The main campaign collected 139 form leads in August–October, up from 122 in May–July.",
+        "challenge": "Legal help is a high-trust decision: the campaign has to bring steady enquiries from people ready to talk to a lawyer.",
+        "approach": [
+          "Instant lead forms aimed at private clients",
+          "Tested campaigns with and without Meta's Advantage+ audience expansion",
+          "Leads tracked campaign by campaign in Meta Ads Manager"
+        ],
+        "result": "139 form leads in August–October, 14% more than the 122 in May–July.",
+        "footnote": "Source: Meta Ads Manager, private-clients lead-form campaign, {period} vs. {previous}; 7-day click or 1-day view attribution. Leads are submitted forms, not signed clients."
       }
     }
   },

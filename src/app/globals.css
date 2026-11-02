@@ -569,6 +569,16 @@
   }
 }
 
+/* Marketing case filter (components/marketing/CaseBrowser.tsx): a radio group hides non-matching cards. */
+.case-browser:has(input[value="google-ads"]:checked)
+  [data-channels]:not([data-channels~="google-ads"]),
+.case-browser:has(input[value="meta-ads"]:checked)
+  [data-channels]:not([data-channels~="meta-ads"]),
+.case-browser:has(input[value="seo"]:checked)
+  [data-channels]:not([data-channels~="seo"]) {
+  display: none;
+}
+
 /* Accessibility widget (npm "accessibility"): keep its button on the start edge in RTL. */
 html[dir="rtl"] body {
   --_access-icon-left: 1rem;
