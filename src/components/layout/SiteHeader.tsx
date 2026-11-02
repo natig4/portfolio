@@ -51,7 +51,7 @@ export default async function SiteHeader() {
             {t("startProject")}
           </Link>
           <MobileMenu
-            items={items}
+            items={[{ href: "/", label: t("home"), segment: "" }, ...items]}
             buttonClassName='lg:hidden'
             labels={{
               open: t("openMenu"),
