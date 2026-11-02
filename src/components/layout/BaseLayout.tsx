@@ -6,6 +6,7 @@ import { fontVariables } from "@/app/fonts";
 import Widgets from "@/components/Widgets/Widgets";
 import AnalyticsProvider from "@/components/Analytics/Analytics";
 import ThemeScript from "./ThemeScript";
+import ThemeSync from "./ThemeSync";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 
@@ -24,7 +25,8 @@ export default async function BaseLayout({
     <html
       lang={locale}
       dir={locale === "he" ? "rtl" : "ltr"}
-      className={fontVariables}
+      className={`${fontVariables} dark`}
+      style={{ colorScheme: "dark" }}
       data-scroll-behavior='smooth'
       suppressHydrationWarning
     >
@@ -34,6 +36,7 @@ export default async function BaseLayout({
         <ThemeScript />
       </head>
       <body className='flex min-h-dvh flex-col'>
+        <ThemeSync locale={locale} />
         <NextIntlClientProvider messages={{ error }}>
           <a
             href='#main-content'
