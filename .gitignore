@@ -43,3 +43,9 @@ next-env.d.ts
 certificates
 # visual QA output
 /.qa/
+
+# raw marketing handoffs: unblurred client data, never commit
+/portfolio-marketing-handoff/
+/meta-complete-handoff/
+/google-ads-screenshots/
+/*.zip
