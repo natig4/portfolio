@@ -392,7 +392,9 @@
           "Product catalog, cart and order history, with service requests and inquiries",
           "Back office for products, inventory, weekly menus, kashrut certificates and banners",
           "Driver app with delivery lists and digital signatures on handover",
-          "Station screens for daily tasks, goods receipt and purchase orders"
+          "Station screens for daily tasks, goods receipt and purchase orders",
+          "Management dashboard for orders and weekly planning",
+          "AI chat assistant for customer questions"
         ],
         "result": "The public site is live on the improved codebase, and the operational modules are rolling out in stages — everything that worked before still works.",
         "alt": {
