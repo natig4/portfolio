@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { LuArrowLeft, LuArrowUpRight, LuCheck } from "react-icons/lu";
+import {
+  LuArrowLeft,
+  LuArrowRight,
+  LuArrowUpRight,
+  LuCheck,
+} from "react-icons/lu";
 import { Link, type AppLocale } from "@/i18n/routing";
 import {
   getNextProject,
@@ -10,8 +15,9 @@ import {
   projects,
 } from "@/data/projects";
 import { getProjectShots } from "@/data/project-images";
+import { getProjectMarketingCase } from "@/data/marketing";
 import { localizedUrl, pageMetadata } from "@/lib/metadata";
-import { projectHref } from "@/lib/routes";
+import { marketingCaseHref, projectHref } from "@/lib/routes";
 import { site } from "@/lib/site";
 import { getTech } from "@/lib/tech";
 import Container from "@/components/ui/Container";
@@ -75,6 +81,7 @@ export default async function CaseStudyPage({ params }: Props) {
   const t = await getTranslations("projects");
   const project = getProject(slug);
   const shots = getProjectShots(slug);
+  const marketingCase = getProjectMarketingCase(slug);
   const item = (key: ProjectCopyKey) => t(`items.${slug}.${key}`);
   const highlights = t.raw(`items.${slug}.highlights`) as string[];
   const url = "url" in project ? project.url : undefined;
@@ -197,6 +204,18 @@ export default async function CaseStudyPage({ params }: Props) {
             <p className='mt-4 border-s-2 border-accent ps-5 text-lg leading-relaxed'>
               {item("result")}
             </p>
+            {marketingCase && (
+              <Link
+                href={marketingCaseHref(marketingCase.slug)}
+                className='group mt-5 inline-flex items-center gap-1.5 font-medium text-accent hover:text-accent-hover'
+              >
+                {t("labels.marketingResults")}
+                <LuArrowRight
+                  className='size-4 transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100 rtl:group-hover:-translate-x-0.5'
+                  aria-hidden='true'
+                />
+              </Link>
+            )}
           </section>
         </div>
 

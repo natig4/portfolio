@@ -1,9 +1,15 @@
 import { useTranslations } from "next-intl";
 import type { IconType } from "react-icons";
-import { LuCheck, LuGlobe, LuLayers, LuLayoutDashboard } from "react-icons/lu";
+import {
+  LuCheck,
+  LuGlobe,
+  LuLayers,
+  LuLayoutDashboard,
+  LuSearch,
+} from "react-icons/lu";
 import { Link } from "@/i18n/routing";
 import { services } from "@/data/services";
-import { projectHref } from "@/lib/routes";
+import { marketingCaseHref, projectHref } from "@/lib/routes";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 
@@ -11,11 +17,13 @@ const icons: Record<(typeof services)[number]["icon"], IconType> = {
   globe: LuGlobe,
   layers: LuLayers,
   dashboard: LuLayoutDashboard,
+  search: LuSearch,
 };
 
 export default function Services() {
   const t = useTranslations("home.services");
   const projects = useTranslations("projects.items");
+  const cases = useTranslations("marketing.cases");
 
   return (
     <Section
@@ -24,10 +32,23 @@ export default function Services() {
       title={t("title")}
       description={t("description")}
     >
-      <div className='grid gap-6 md:grid-cols-3'>
-        {services.map(({ id, icon, examples }) => {
+      <div className='grid gap-6 md:grid-cols-2'>
+        {services.map((service) => {
+          const { id, icon } = service;
           const Icon = icons[icon];
           const points = t.raw(`items.${id}.points`) as string[];
+          const examples = [
+            ...service.examples.map((slug) => ({
+              key: slug,
+              href: projectHref(slug),
+              label: projects(`${slug}.title`),
+            })),
+            ...("cases" in service ? service.cases : []).map((slug) => ({
+              key: slug,
+              href: marketingCaseHref(slug),
+              label: cases(`${slug}.title`),
+            })),
+          ];
           return (
             <Reveal key={id} className='h-full'>
               <article className='flex h-full flex-col rounded-2xl border border-border bg-surface p-6 sm:p-7'>
@@ -40,7 +61,7 @@ export default function Services() {
                 <p className='mt-3 leading-relaxed text-muted-foreground'>
                   {t(`items.${id}.description`)}
                 </p>
-                <ul className='mt-5 space-y-2 text-sm'>
+                <ul className='mt-5 mb-6 space-y-2 text-sm'>
                   {points.map((point) => (
                     <li key={point} className='flex gap-2.5'>
                       <LuCheck
@@ -53,14 +74,14 @@ export default function Services() {
                 </ul>
                 <p className='mt-auto border-t border-border pt-4 text-sm text-muted-foreground'>
                   <span className='me-1'>{t("examples")}:</span>
-                  {examples.map((slug, i) => (
-                    <span key={slug}>
+                  {examples.map(({ key, href, label }, i) => (
+                    <span key={key}>
                       {i > 0 && ", "}
                       <Link
-                        href={projectHref(slug)}
+                        href={href}
                         className='font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-accent'
                       >
-                        {projects(`${slug}.title`)}
+                        {label}
                       </Link>
                     </span>
                   ))}

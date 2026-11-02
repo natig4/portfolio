@@ -30,7 +30,7 @@ Structured data lives in `src/data/*.ts`; all visible copy lives in `messages/{e
 
 ### Add a marketing case or article
 
-- Marketing: add an entry to `src/data/marketing.ts` (metrics as % change, optional chart image per locale in `src/assets/marketing/`) and `marketing.cases.<slug>` copy.
+- Marketing: add an entry to `src/data/marketing.ts` and its `marketing.cases.<slug>` copy. Metrics take `change` (%) and/or raw `from`/`to` values, with labels in `marketing.metrics`. Show either a chart image per locale (`src/assets/marketing/`) or SEO `rankings` (queries and pages, before/after average position) with a `period` for the source footnote. `relatedProject` links the case and the project both ways.
 - Articles: add an entry to `src/data/articles.ts` (URL, ISO date, language) and `articles.items.<slug>` copy.
 
 ### Hebrew text tips

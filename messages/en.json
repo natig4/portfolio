@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Nati Gurevich — New Generation SW",
-    "description": "New Generation SW builds fast, accessible websites, web apps and internal tools. Led by Nati Gurevich, full-stack engineer (ex-Outbrain) with a quality-first background."
+    "description": "New Generation SW builds fast, accessible websites, web apps and internal tools, and helps businesses get found on Google. Led by Nati Gurevich, full-stack engineer (ex-Outbrain) with a quality-first background."
   },
   "nav": {
     "work": "Work",
@@ -33,7 +33,7 @@
     "hero": {
       "eyebrow": "New Generation SW · Founder & Lead Engineer",
       "title": "Websites, web apps and internal tools — built right.",
-      "description": "I’m Nati Gurevich. Through New Generation SW I design and build software for businesses — from lead-generating websites to SaaS platforms — with a QA lead’s eye for quality and a full-stack engineer’s range.",
+      "description": "I’m Nati Gurevich. Through New Generation SW I design and build software for businesses — from lead-generating websites to SaaS platforms — and help them get found through SEO and marketing, with a QA lead’s eye for quality and a full-stack engineer’s range.",
       "primary": "Start a project",
       "secondary": "See the work",
       "trust": {
@@ -52,8 +52,8 @@
     },
     "services": {
       "eyebrow": "Services",
-      "title": "What I build",
-      "description": "Three kinds of projects, one standard: fast, accessible, maintainable software your team can actually run.",
+      "title": "What I do",
+      "description": "Build it, then get it found: fast, accessible, maintainable software, and the search and marketing work that brings customers to it.",
       "examples": "Examples",
       "items": {
         "websites": {
@@ -81,6 +81,15 @@
             "Admin panels and dashboards",
             "Excel import, export and reporting",
             ".NET desktop applications"
+          ]
+        },
+        "growth": {
+          "title": "SEO & digital marketing",
+          "description": "Getting found on Google and turning searches into inquiries — technical and local SEO alongside campaigns, measured in Search Console and analytics.",
+          "points": [
+            "Technical and on-page SEO",
+            "Local SEO and service-area pages",
+            "Campaigns, tracking and conversions"
           ]
         }
       }
@@ -236,7 +245,8 @@
       "newTab": "(opens in a new tab)",
       "overview": "Overview",
       "confidential": "Confidential client project",
-      "confidentialNote": "Screenshots can’t be shared for this project."
+      "confidentialNote": "Screenshots can’t be shared for this project.",
+      "marketingResults": "See the marketing results"
     },
     "status": {
       "live": "Live",
@@ -269,7 +279,7 @@
           "WhatsApp, Waze and click-to-call shortcuts, with email alerts to the sales team",
           "Full accessibility statement; Hebrew-first with an English version"
         ],
-        "result": "A fast, statically rendered site the client’s team updates on its own, with every inquiry landing in one place.",
+        "result": "A fast, statically rendered site the client’s team updates on its own, with every inquiry landing in one place. In Google search, impressions grew 41% across consecutive 28-day periods and two branded searches reached an average first position.",
         "alt": {
           "desktop": "Mirk website homepage on desktop",
           "mobile": "Mirk website homepage on mobile",
@@ -341,7 +351,7 @@
           "Supabase Auth with server-side checks on every page and API route",
           "Import scripts that seeded the database from the organization’s existing spreadsheets"
         ],
-        "result": "One source of truth for the field team, built and shipped in under a month.",
+        "result": "One source of truth for the field team, built in a few days.",
         "alt": {
           "desktop": "Field organizing dashboard, personal details blurred",
           "mobile": "Field organizing dashboard on mobile, personal details blurred",
@@ -419,24 +429,53 @@
   "marketing": {
     "page": {
       "eyebrow": "Marketing",
-      "title": "Campaign results",
-      "description": "Beyond building the product, I help businesses grow it — campaign setup, tracking and optimization. Here are results from campaigns I’ve managed."
+      "title": "Marketing & SEO results",
+      "description": "Beyond building the product, I help businesses get found and grow — search optimization, campaigns, tracking and optimization. Here are measured results from sites and campaigns I’ve worked on."
+    },
+    "channels": {
+      "seo": "SEO · Google Search",
+      "campaign": "Campaign"
+    },
+    "metrics": {
+      "impressions": "Search impressions",
+      "averagePosition": "Average position",
+      "users": "Active users",
+      "activity": "Site activity",
+      "newBuyers": "New buyers",
+      "purchases": "Purchases"
     },
     "labels": {
-      "comparison": "vs. previous quarter"
+      "improved": "Improved",
+      "declined": "Declined",
+      "fromTo": "from {from} to {to}",
+      "viewProject": "View the {project} project",
+      "queries": "Selected search terms · average Google position",
+      "pages": "Service and area pages · average Google position",
+      "query": "Search term",
+      "page": "Page",
+      "branded": "Branded",
+      "before": "Before",
+      "after": "After",
+      "gain": "Change"
     },
     "cases": {
+      "mirk-seo": {
+        "title": "Google search visibility for Mirk",
+        "summary": "Search optimization for mirk.co.il, the metal-processing website I built, with department and service-area pages structured for local search. Over consecutive 28-day periods, Google impressions rose 41%, two branded searches reached an average first position and the Nahariya service-area page climbed from 17.4 to 8.3.",
+        "comparison": "vs. the previous 28 days",
+        "pages": {
+          "nahariya": "Nahariya service area",
+          "ironSales": "Iron sales department",
+          "areas": "Service areas overview"
+        },
+        "footnote": "Source: Google Search Console, web search, {period} compared with {previous}. Positions are averages for each period, not live rankings."
+      },
       "quarterly-growth": {
         "title": "Quarter-over-quarter campaign growth",
         "summary": "Growth metrics from a recent marketing campaign I managed, with significant improvements across every key performance indicator.",
+        "comparison": "vs. previous quarter",
         "chartAlt": "Line chart of active users, site activity, new buyers and purchases rising over three months",
-        "chartCaption": "Performance over a three-month period, showing consistent growth",
-        "metrics": {
-          "users": "Active users",
-          "activity": "Site activity",
-          "newBuyers": "New buyers",
-          "purchases": "Purchases"
-        }
+        "chartCaption": "Performance over a three-month period, showing consistent growth"
       }
     }
   },
