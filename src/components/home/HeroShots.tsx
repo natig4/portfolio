@@ -1,12 +1,14 @@
 import type { CSSProperties } from "react";
+import type { IconType } from "react-icons";
 import Image from "next/image";
 import { getProjectShots, getShowcaseProjects } from "@/data/project-images";
 import { BrowserFrame, PhoneFrame } from "@/components/ui/DeviceFrame";
 
+/** Corners and edges where a chip doesn't cover the phone or the front site's content. */
 const chipPositions = [
-  "start-[-4%] top-[6%]",
-  "end-[-3%] top-[40%]",
-  "start-[8%] bottom-[-2%]",
+  "start-[-3%] top-[3%]",
+  "end-[-5%] top-[22%]",
+  "start-[6%] bottom-[-3%]",
 ];
 
 /**
@@ -19,7 +21,7 @@ export default function HeroShots({
   chips = [],
 }: {
   label: string;
-  chips?: { key: string; value: string; label: string }[];
+  chips?: { key: string; value: string; label: string; icon?: IconType }[];
 }) {
   const [front, back] = getShowcaseProjects(2)
     .map((p) => ({ project: p, shots: getProjectShots(p.slug) }))
@@ -27,6 +29,7 @@ export default function HeroShots({
   if (!front?.shots) return null;
 
   return (
+    <>
     <div
       role='img'
       aria-label={label}
@@ -73,13 +76,16 @@ export default function HeroShots({
           />
         </PhoneFrame>
       )}
-      {chips.map(({ key, value, label: chipLabel }, index) => (
+      {chips.map(({ key, value, label: chipLabel, icon: Icon }, index) => (
         <div
           key={key}
           className={`float absolute z-10 hidden rounded-2xl border border-border bg-surface/95 px-4 py-3 shadow-[0_20px_40px_-20px_rgb(0_0_0/0.6)] sm:block ${chipPositions[index % chipPositions.length]}`}
           style={{ "--i": index } as CSSProperties}
         >
-          <span className='block text-2xl leading-none font-bold text-growth'>
+          <span className='flex items-center gap-2 text-2xl leading-none font-bold text-growth'>
+            {Icon && (
+              <Icon className='size-5 shrink-0 text-accent' aria-hidden='true' />
+            )}
             <bdi dir='ltr'>{value}</bdi>
           </span>
           <span className='mt-1 block text-xs font-medium text-muted-foreground'>
@@ -88,5 +94,22 @@ export default function HeroShots({
         </div>
       ))}
     </div>
+    {/* Phones: the same results as a row under the screenshots instead of floating over them. */}
+    <ul className='mx-auto mt-6 grid max-w-xl grid-cols-3 gap-2 sm:hidden' aria-hidden='true'>
+      {chips.map(({ key, value, label: chipLabel }) => (
+        <li
+          key={key}
+          className='rounded-2xl border border-border bg-surface/95 px-3 py-2.5 text-center'
+        >
+          <span className='block text-xl leading-none font-bold text-growth'>
+            <bdi dir='ltr'>{value}</bdi>
+          </span>
+          <span className='mt-1 block text-[11px] font-medium text-muted-foreground'>
+            {chipLabel}
+          </span>
+        </li>
+      ))}
+    </ul>
+    </>
   );
 }

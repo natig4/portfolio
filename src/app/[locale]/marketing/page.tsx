@@ -21,8 +21,8 @@ type Props = { params: Promise<{ locale: AppLocale }> };
 const highlights = [
   "ecommerce-growth",
   "security-leads",
+  "watch-coating-leads",
   "dance-school-whatsapp",
-  "mirk-seo",
 ] as const;
 
 const services: { id: "googleAds" | "metaAds" | "seo" | "tracking"; icon: IconType }[] = [

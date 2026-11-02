@@ -4,6 +4,7 @@ const variants = {
   up: "reveal",
   scale: "reveal-scale",
   start: "reveal-start",
+  end: "reveal-end",
 } as const;
 
 /**

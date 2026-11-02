@@ -46,7 +46,7 @@ export default async function BaseLayout({
           <main
             id='main-content'
             tabIndex={-1}
-            className='flex w-full flex-1 flex-col outline-none'
+            className='flex w-full flex-1 flex-col overflow-x-clip outline-none'
           >
             {children}
           </main>

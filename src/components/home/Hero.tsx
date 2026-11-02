@@ -1,7 +1,11 @@
 import type { CSSProperties } from "react";
 import { useFormatter, useTranslations } from "next-intl";
 import { LuArrowRight, LuCheck } from "react-icons/lu";
-import { getHeadlineMetric, getMarketingCase } from "@/data/marketing";
+import {
+  getHeadlineMetric,
+  getMarketingCase,
+  type MarketingSlug,
+} from "@/data/marketing";
 import { formatMetricHeadline } from "@/lib/metrics";
 import { site, yearsSince } from "@/lib/site";
 import Container from "@/components/ui/Container";
@@ -20,14 +24,17 @@ function Words({
   offset?: number;
   className?: string;
 }) {
-  return text.split(" ").map((word, index) => (
+  const words = text.split(" ");
+  return words.map((word, index) => (
     <span key={index}>
       <span
         className={`rise ${className}`}
         style={{ "--i": offset + index } as CSSProperties}
       >
         {word}
-      </span>{" "}
+      </span>
+      {/* No space after the last word, so the caret sits right after the full stop. */}
+      {index < words.length - 1 && " "}
     </span>
   ));
 }
@@ -44,22 +51,19 @@ export default function Hero() {
     t("trust.bilingual"),
   ];
 
+  const headline = (slug: MarketingSlug) =>
+    formatMetricHeadline(format, getHeadlineMetric(getMarketingCase(slug)));
+
   const chips = [
     {
       key: "purchaseValue",
-      value: formatMetricHeadline(
-        format,
-        getHeadlineMetric(getMarketingCase("ecommerce-growth")),
-      ),
+      value: headline("ecommerce-growth"),
       label: t("chips.purchaseValue"),
     },
     { key: "google", value: "#1", label: t("chips.google") },
     {
       key: "cpc",
-      value: formatMetricHeadline(
-        format,
-        getHeadlineMetric(getMarketingCase("security-leads")),
-      ),
+      value: headline("security-leads"),
       label: t("chips.cpc"),
     },
   ];
@@ -81,15 +85,16 @@ export default function Hero() {
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h1
             id='hero-title'
-            className='mt-6 text-[2.6rem] leading-[1.04] font-extrabold tracking-tight sm:text-6xl lg:text-[3.75rem]'
+            className='mt-6 text-[2.6rem] leading-[1.04] font-extrabold tracking-tight sm:text-6xl lg:text-[4.75rem]'
           >
-            <Words text={start} />
+            <Words text={start} />{" "}
             {/* Gradient per word: a clipped background on a parent wouldn't cover the animating words. */}
             <Words
               text={t("titleHighlight")}
               offset={start.split(" ").length}
               className='text-gradient'
             />
+            <span className='caret' aria-hidden='true' />
           </h1>
           <p className='mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl'>
             {t("description")}

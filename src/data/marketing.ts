@@ -59,11 +59,7 @@ type MarketingCase = {
   relatedProject?: ProjectSlug;
   rankings?: {
     /** `term` is the query exactly as searched; `gloss` is shown on non-Hebrew pages. */
-    queries: readonly (RankingRow & {
-      term: string;
-      gloss: string;
-      branded?: boolean;
-    })[];
+    queries: readonly (RankingRow & { term: string; gloss: string })[];
     /** Labels live in `marketing.cases.<slug>.pages.<id>`. */
     pages: readonly (RankingRow & { path: string })[];
   };
@@ -147,22 +143,6 @@ export const marketingCases = [
     evidence: [],
     rankings: {
       queries: [
-        {
-          id: "brandCity",
-          term: "קירשנבאום עכו",
-          gloss: "Kirshenbaum Akko",
-          branded: true,
-          from: 4.6,
-          to: 1.0,
-        },
-        {
-          id: "brandIron",
-          term: "קירשנבאום ברזל",
-          gloss: "Kirshenbaum iron",
-          branded: true,
-          from: 15.5,
-          to: 1.0,
-        },
         {
           id: "aluminumBending",
           term: "כיפוף פח אלומיניום",

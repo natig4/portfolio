@@ -30,6 +30,6 @@ export const skills: Record<TechCategory, readonly TechId[]> = {
   ],
   data: ["postgresql", "mongodb", "redis", "prisma", "supabase", "sanity"],
   infra: ["aws", "kubernetes", "docker", "vercel", "githubactions", "gitlab"],
-  ai: ["openai", "gemini", "meta"],
+  ai: ["claudecode", "openai", "gemini", "meta"],
   desktop: ["dotnet", "csharp", "wpf"],
 };

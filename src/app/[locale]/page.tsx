@@ -11,6 +11,7 @@ import Hero from "@/components/home/Hero";
 import Services from "@/components/home/Services";
 import Process from "@/components/home/Process";
 import ToolsMarquee from "@/components/home/ToolsMarquee";
+import Edge from "@/components/home/Edge";
 import Results from "@/components/home/Results";
 import Founder from "@/components/home/Founder";
 import ProjectCard from "@/components/work/ProjectCard";
@@ -78,6 +79,7 @@ export default async function HomePage({ params }: Props) {
 
       <Hero />
       <ToolsMarquee />
+      <Edge />
       <Results />
       <Services />
 

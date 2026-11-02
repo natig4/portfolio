@@ -10,7 +10,7 @@ import { site, yearsSince } from "@/lib/site";
 import Container from "@/components/ui/Container";
 import PageHeader from "@/components/ui/PageHeader";
 import Section from "@/components/ui/Section";
-import Stats from "@/components/about/Stats";
+import DualProfile from "@/components/shared/DualProfile";
 import Timeline from "@/components/about/Timeline";
 import SkillGroups from "@/components/about/SkillGroups";
 import { ButtonLink } from "@/components/ui/Button";
@@ -70,7 +70,7 @@ export default async function AboutPage({ params }: Props) {
         description={t("page.description")}
       />
 
-      <Container className='grid gap-12 py-14 sm:py-20 lg:grid-cols-[1.2fr_1fr] lg:gap-16'>
+      <Container className='grid gap-12 py-14 sm:py-20 lg:grid-cols-[1fr_1.1fr] lg:gap-16'>
         <section aria-labelledby='story-title' className='max-w-2xl'>
           <h2
             id='story-title'
@@ -85,7 +85,7 @@ export default async function AboutPage({ params }: Props) {
           </div>
         </section>
         <div className='lg:pt-12'>
-          <Stats />
+          <DualProfile />
         </div>
       </Container>
 

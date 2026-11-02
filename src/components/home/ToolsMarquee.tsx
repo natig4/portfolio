@@ -9,6 +9,7 @@ const tools: TechId[] = [
   "searchconsole",
   "tagmanager",
   "nextjs",
+  "claudecode",
   "react",
   "vue",
   "nodejs",

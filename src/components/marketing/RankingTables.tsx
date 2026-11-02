@@ -21,16 +21,9 @@ export default function RankingTables({ data }: { data: RankedCase }) {
         rows={queries.map((row) => ({
           ...row,
           label: (
-            <>
-              <bdi lang='he' dir='rtl'>
-                {row.term}
-              </bdi>
-              {"branded" in row && (
-                <span className='ms-2 inline-block rounded-full border border-border px-2 py-0.5 align-middle text-[11px] font-medium text-muted-foreground'>
-                  {t("labels.branded")}
-                </span>
-              )}
-            </>
+            <bdi lang='he' dir='rtl'>
+              {row.term}
+            </bdi>
           ),
           detail: locale === "he" ? undefined : row.gloss,
         }))}

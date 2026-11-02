@@ -3,6 +3,7 @@ import { FaAws, FaWindows } from "react-icons/fa";
 import { TbBrandCSharp, TbFileSpreadsheet, TbWorld } from "react-icons/tb";
 import {
   SiAngular,
+  SiClaude,
   SiDocker,
   SiDotnet,
   SiDrizzle,
@@ -119,6 +120,7 @@ export const TECH = {
   },
   vercel: { label: "Vercel", icon: SiVercel, category: "infra" },
   jest: { label: "Jest", icon: SiJest, category: "infra" },
+  claudecode: { label: "Claude Code", icon: SiClaude, category: "ai" },
   openai: { label: "OpenAI", icon: SiOpenai, category: "ai" },
   gemini: { label: "Gemini", icon: SiGooglegemini, category: "ai" },
   meta: { label: "Meta Graph API", icon: SiMeta, category: "ai" },

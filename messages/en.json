@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Nati Gurevich — New Generation SW",
-    "description": "New Generation SW is a software and growth studio: fast, accessible websites and web apps, plus Google Ads, Meta campaigns and SEO that bring customers in. Founded by Nati Gurevich."
+    "description": "Developers who live marketing. New Generation SW builds fast websites and software and runs the Google Ads, Meta campaigns and SEO that bring customers in. Founded by Nati Gurevich."
   },
   "nav": {
     "work": "Work",
@@ -19,7 +19,7 @@
     "role": "Founder & Lead Engineer"
   },
   "footer": {
-    "tagline": "Websites, software and growth marketing — built quality-first, in Hebrew and English.",
+    "tagline": "Developers who live marketing — websites, software and growth, in Hebrew and English.",
     "explore": "Explore",
     "legal": "Legal",
     "connect": "Connect",
@@ -32,18 +32,18 @@
   "home": {
     "hero": {
       "eyebrow": "New Generation SW · Software & growth studio",
-      "description": "From fast, accessible websites and web platforms to Google Ads, Meta campaigns and SEO: one studio that builds the product and grows it, measured in real numbers.",
+      "description": "Most businesses hire one company to build the website and another to market it — and results fall through the gap. We do both: fast websites and software, plus the Google Ads, Meta campaigns and SEO that bring customers in, measured in real numbers.",
       "primary": "Start a project",
       "secondary": "See the results",
       "trust": {
         "years": "{years}+ years in tech",
         "saved": "$1M+ saved for a client",
-        "channels": "Google Ads · Meta · SEO",
+        "channels": "Google Ads · Meta · SEO",
         "bilingual": "Hebrew & English, RTL-native"
       },
       "shotsLabel": "Screenshots of recent client projects",
-      "titleStart": "We build websites and software —",
-      "titleHighlight": "and bring them customers.",
+      "titleStart": "Developers who",
+      "titleHighlight": "live marketing.",
       "chips": {
         "purchaseValue": "purchase value",
         "google": "on Google",
@@ -91,9 +91,9 @@
         },
         "growth": {
           "title": "SEO & digital marketing",
-          "description": "Getting found on Google and turning clicks into customers — Google Ads, Meta campaigns and SEO, measured in Search Console and analytics.",
+          "description": "Getting found on Google and turning clicks into customers — Google Ads, Meta campaigns and SEO, measured in Search Console and analytics.",
           "points": [
-            "Google Ads and Meta campaigns",
+            "Google Ads and Meta campaigns",
             "Technical and local SEO",
             "Conversion tracking and GA4"
           ]
@@ -115,7 +115,7 @@
         },
         "build": {
           "title": "Build",
-          "description": "Weekly progress on a live preview link, so you see the product take shape and can steer early."
+          "description": "Weekly progress on a live preview link, built with an AI-first workflow in Claude Code — so you see the product take shape fast and can steer early."
         },
         "test": {
           "title": "Test",
@@ -136,21 +136,62 @@
       "description": "A few numbers from sites and campaigns we run. Every figure links to the full story and its source.",
       "viewAll": "All marketing results",
       "items": {
-        "purchaseValue": "more purchase value for an e-commerce brand",
-        "cpc": "lower cost per click for a security installer",
-        "google": "average Google position for Mirk’s brand searches",
+        "leads": "more form leads for a luxury-watch service",
+        "conversations": "the WhatsApp conversations for a dance school",
+        "google": "on Google — local SEO for a manufacturer",
         "saved": "saved for a financial-services client"
       }
     },
     "founder": {
       "eyebrow": "Who’s behind it",
-      "title": "Founded by Nati Gurevich",
-      "description": "Nati started in quality assurance, became a full-stack engineer and now leads New Generation SW — building the software and running the campaigns. {years} years in tech, Hebrew and English, and one standard: quality first.",
-      "cta": "More about Nati",
-      "stats": {
-        "years": "years in tech",
-        "saved": "saved for a client",
-        "cases": "published case studies"
+      "title": "A developer who lives marketing",
+      "description": "Nati Gurevich founded New Generation SW after years in quality assurance and full-stack engineering. Today he leads development of Digitengo, an AI marketing platform, and runs Google Ads, Meta and SEO for clients — so the person writing your code is the same one running your campaigns.",
+      "cta": "More about Nati"
+    },
+    "edge": {
+      "eyebrow": "Our edge",
+      "title": "Code and marketing, one team",
+      "description": "Agencies don’t touch the code and developers don’t run campaigns — so tracking breaks, pages load slowly and nobody owns the result. We sit on both sides.",
+      "dev": {
+        "title": "Development",
+        "file": "site.tsx",
+        "items": [
+          "Fast, accessible websites and web apps",
+          "SEO-ready structure from the first commit",
+          "Tracking and GA4 wired into the code"
+        ]
+      },
+      "marketing": {
+        "title": "Marketing",
+        "file": "campaigns",
+        "items": [
+          "Google Ads and Meta campaigns",
+          "Technical and local SEO",
+          "Landing pages built for conversions"
+        ]
+      },
+      "result": {
+        "title": "Customers",
+        "description": "Leads and sales you can measure — not just clicks.",
+        "cta": "See the results"
+      },
+      "points": {
+        "tracking": {
+          "title": "Tracking that counts",
+          "description": "We set up GA4, conversion actions and Tag Manager ourselves, so campaigns optimise for real leads and sales."
+        },
+        "seo": {
+          "title": "SEO in the code",
+          "description": "Page structure, speed and metadata are built in from day one — not patched in later by a plugin."
+        },
+        "landing": {
+          "title": "Pages at campaign speed",
+          "description": "When an ad needs a new landing page or a test, we build it ourselves — fast, with an AI-first workflow in Claude Code — no waiting on another team."
+        },
+        "owner": {
+          "title": "One team owns the result",
+          "description": "No finger-pointing between agency and developer: the site, the campaigns and the numbers are ours."
+        }
       }
     }
   },
@@ -158,19 +199,13 @@
     "page": {
       "eyebrow": "About",
       "title": "Hi, I’m Nati.",
-      "description": "Founder of New Generation SW — a software and growth studio in the Western Galilee, working with businesses across Israel and abroad."
+      "description": "A developer who lives marketing — and the founder of New Generation SW, a software and growth studio in the Western Galilee working with businesses across Israel and abroad."
     },
     "intro": {
       "title": "My story",
       "p1": "I’m a self-taught full-stack engineer with {years} years in tech. I started on the quality side — leading QA and project management at myThings and building regression frameworks for real-time systems at Nova — before moving into development full time.",
       "p2": "After engineering roles that included two years building high-traffic web apps at Outbrain, I founded New Generation SW to work directly with businesses.",
-      "p3": "Today we build websites, web platforms and internal tools, and run the Google Ads, Meta and SEO work that brings them customers. Reports Manager, a reporting tool I built, has saved a financial-services client more than $1M, and since 2025 I’ve also led full-stack development of the Digitengo AI marketing platform."
-    },
-    "stats": {
-      "years": "years in tech",
-      "saved": "saved for a financial-services client with Reports Manager",
-      "purchaseValue": "more e-commerce purchase value from Google Ads",
-      "google": "average Google position for Mirk’s brand searches"
+      "p3": "Today we build websites, web platforms and internal tools, and run the Google Ads, Meta and SEO work that brings them customers. Reports Manager, a reporting tool I built, has saved a financial-services client more than $1M, and since 2025 I’ve also led full-stack development of the Digitengo AI marketing platform."
     },
     "experience": {
       "eyebrow": "Experience",
@@ -185,7 +220,7 @@
           "highlights": [
             "Lead full-stack engineer on the Digitengo AI marketing platform (2025–present)",
             "Designed and built client sites and platforms including Mirk, My North Food and TOR Group",
-            "Google Ads, Meta Ads and SEO for clients in e-commerce, legal services, local services and education",
+            "Google Ads, Meta Ads and SEO for clients in e-commerce, legal services, local services and education",
             "Reports Manager, an Excel reporting tool that has saved a financial-services client more than $1M"
           ]
         },
@@ -310,26 +345,26 @@
           "WhatsApp, Waze and click-to-call shortcuts, with email alerts to the sales team",
           "Full accessibility statement; Hebrew-first with an English version"
         ],
-        "result": "A fast, statically rendered site the client’s team updates on its own, with every inquiry landing in one place. In Google search, impressions grew 41% across consecutive 28-day periods and two branded searches reached an average first position.",
+        "result": "A fast, statically rendered site the client’s team updates on its own, with every inquiry landing in one place. In Google search, impressions grew 41% across consecutive 28-day periods and the site reached #1 on Google.",
         "alt": {
           "desktop": "Mirk website homepage on desktop",
           "mobile": "Mirk website homepage on mobile",
           "full": "Full-length capture of the Mirk homepage"
         },
-        "outcome": "on Google for branded searches"
+        "outcome": "on Google"
       },
       "digitengo": {
         "title": "Digitengo",
         "client": "Digitengo",
         "sector": "AI marketing SaaS",
         "tagline": "Lead engineer on a multi-tenant AI platform that runs social-media marketing for small businesses.",
-        "summary": "Digitengo writes, schedules and publishes social posts with AI, reports on paid campaigns across Meta and Google Ads, and captures leads — for small businesses and six white-label partner brands. We’ve led its full-stack development since mid-2025.",
+        "summary": "Digitengo writes, schedules and publishes social posts with AI, reports on paid campaigns across Meta and Google Ads, and captures leads — for small businesses and six white-label partner brands. We’ve led its full-stack development since mid-2025.",
         "role": "Lead full-stack engineer — architecture, features, infrastructure",
         "challenge": "A fast-growing product originally built by an outside agency: around seventeen Node.js microservices, a Vue front end and Kubernetes infrastructure, with reliability issues and features that had to ship quickly for paying customers and partners.",
         "solution": "We took over day-to-day engineering across the whole stack — from the Vue app to the services, queues and AWS infrastructure — shipping new product areas while hardening what was already running in production.",
         "highlights": [
           "AI post generation and holiday-aware scheduling with OpenAI and Gemini",
-          "Paid-campaigns dashboard combining Meta and Google Ads data with leads and revenue into ROI and ROAS",
+          "Paid-campaigns dashboard combining Meta and Google Ads data with leads and revenue into ROI and ROAS",
           "Publishing to Facebook, Instagram and TikTok, plus Meta lead-form capture",
           "White-label tenants on their own subdomains and a public partner API",
           "Cut the onboarding bundle from 2.27 MB to about 0.55 MB gzipped",
@@ -469,7 +504,7 @@
     "page": {
       "eyebrow": "Marketing & SEO",
       "title": "Marketing results, in real numbers",
-      "description": "We run Google Ads, Meta campaigns and SEO for businesses in Israel — and we measure everything. Every number on this page comes straight from the ad platforms or Google Search Console."
+      "description": "We’re developers who run Google Ads, Meta campaigns and SEO — so the tracking, landing pages and site speed behind every campaign are ours too. Every number on this page comes straight from the ad platforms or Google Search Console."
     },
     "services": {
       "eyebrow": "What we run",
@@ -477,16 +512,16 @@
       "description": "One team for the website, the campaigns that bring people to it, and the tracking that shows what worked.",
       "items": {
         "googleAds": {
-          "title": "Google Ads",
-          "description": "Search, Performance Max and product campaigns built around real conversions, not clicks."
+          "title": "Google Ads",
+          "description": "Search, Performance Max and product campaigns built around real conversions, not clicks."
         },
         "metaAds": {
-          "title": "Meta Ads",
+          "title": "Meta Ads",
           "description": "Facebook and Instagram campaigns for online sales, lead forms and WhatsApp conversations."
         },
         "seo": {
           "title": "SEO",
-          "description": "Technical and local SEO, service-area pages and query-by-query monitoring in Search Console."
+          "description": "Technical and local SEO, service-area pages and query-by-query monitoring in Search Console."
         },
         "tracking": {
           "title": "Tracking & analytics",
@@ -504,8 +539,8 @@
       "all": "All"
     },
     "channels": {
-      "google-ads": "Google Ads",
-      "meta-ads": "Meta Ads",
+      "google-ads": "Google Ads",
+      "meta-ads": "Meta Ads",
       "seo": "SEO"
     },
     "objectives": {
@@ -532,16 +567,16 @@
     },
     "evidence": {
       "googleCampaigns": {
-        "alt": "Google Ads campaign table with clicks and impressions for both periods; campaign names, budgets and costs blurred",
-        "caption": "Google Ads · campaign report"
+        "alt": "Google Ads campaign table with clicks and impressions for both periods; campaign names, budgets and costs blurred",
+        "caption": "Google Ads · campaign report"
       },
       "googleTrend": {
-        "alt": "Google Ads chart comparing the period with the previous one; cost and conversion totals blurred",
-        "caption": "Google Ads · performance over time"
+        "alt": "Google Ads chart comparing the period with the previous one; cost and conversion totals blurred",
+        "caption": "Google Ads · performance over time"
       },
       "metaCampaigns": {
-        "alt": "Meta Ads Manager campaign table with results for both periods; campaign names blurred",
-        "caption": "Meta Ads Manager · campaign results"
+        "alt": "Meta Ads Manager campaign table with results for both periods; campaign names blurred",
+        "caption": "Meta Ads Manager · campaign results"
       }
     },
     "labels": {
@@ -563,7 +598,6 @@
       "pages": "Service and area pages · average Google position",
       "query": "Search term",
       "page": "Page",
-      "branded": "Branded",
       "before": "Before",
       "after": "After",
       "gain": "Change",
@@ -577,22 +611,22 @@
       "ecommerce-growth": {
         "client": "Laundry-rack manufacturer and online store",
         "title": "49% more purchase value on 10% less ad spend",
-        "summary": "Google Ads and Meta for an Israeli e-commerce brand. In August–October, purchase value attributed to Google Ads rose 49% while ad spend fell 10%, and the Meta video campaign doubled its purchases at a 44% lower cost per purchase.",
+        "summary": "Google Ads and Meta for an Israeli e-commerce brand. In August–October, purchase value attributed to Google Ads rose 49% while ad spend fell 10%, and the Meta video campaign doubled its purchases at a 44% lower cost per purchase.",
         "challenge": "The brand sells through its own online store and advertises on both Google and Meta. The goal: more online sales from the same budget or a smaller one.",
         "approach": [
           "Measured both periods against a single GA4 purchase action, so the comparison is like for like",
           "Switched the product-sales campaigns to bid for new customers only",
-          "Rewrote the brand-search ads and expanded the Performance Max asset groups",
-          "Shifted budget toward brand search and Performance Max",
+          "Rewrote the brand-search ads and expanded the Performance Max asset groups",
+          "Shifted budget toward brand search and Performance Max",
           "Ran video and product sales campaigns on Meta, optimised for purchases"
         ],
-        "result": "Compared with May–July, Google Ads brought 49% more attributed purchase value and 56% more attributed purchases on 10% less ad spend, and return on ad spend rose from 3.2× to 5.3×. On Meta, the video campaign went from 57 to 112 purchases and the product campaign from 41 to 117.",
-        "footnote": "Sources: Google Ads (one GA4-imported purchase action, 90-day click attribution) and Meta Ads Manager (individual campaigns; 7-day click, 1-day view or engagement), {period} vs. {previous}. These are conversions attributed by each platform, not audited orders, and Google and Meta results are reported separately — never added together."
+        "result": "Compared with May–July, Google Ads brought 49% more attributed purchase value and 56% more attributed purchases on 10% less ad spend, and return on ad spend rose from 3.2× to 5.3×. On Meta, the video campaign went from 57 to 112 purchases and the product campaign from 41 to 117.",
+        "footnote": "Sources: Google Ads (one GA4-imported purchase action, 90-day click attribution) and Meta Ads Manager (individual campaigns; 7-day click, 1-day view or engagement), {period} vs. {previous}. These are conversions attributed by each platform, not audited orders, and Google and Meta results are reported separately — never added together."
       },
       "security-leads": {
         "client": "Security-systems installer",
         "title": "53% lower cost per click, 2.7× the clicks",
-        "summary": "Google Ads for a security-systems installer serving homes and businesses. In October we relaunched the account with separate business and private-customer campaigns: clicks rose from 451 to 1,236, the average cost per click fell 53%, and the website form brought in 12 leads.",
+        "summary": "Google Ads for a security-systems installer serving homes and businesses. In October we relaunched the account with separate business and private-customer campaigns: clicks rose from 451 to 1,236, the average cost per click fell 53%, and the website form brought in 12 leads.",
         "challenge": "The installer needed more enquiries from both homeowners and businesses without paying more per click, and the account's lead tracking had to be rebuilt.",
         "approach": [
           "Rebuilt lead tracking around a dedicated website-form conversion",
@@ -601,21 +635,21 @@
           "Refreshed ad assets and focused the account's goals on real enquiries"
         ],
         "result": "October brought 1,236 clicks against 451 in September, at an average cost per click 53% lower, plus 12 leads through the website form.",
-        "footnote": "Source: Google Ads, account totals, {period} vs. {previous}. The website-form conversion was created on 17 September, so September has no complete lead baseline and we don't claim a lead-growth figure."
+        "footnote": "Source: Google Ads, account totals, {period} vs. {previous}. The website-form conversion was created on 17 September, so September has no complete lead baseline and we don't claim a lead-growth figure."
       },
       "mirk-seo": {
-        "client": "Mirk — M.Y.R. Kirshenbaum Ltd.",
-        "title": "Google search visibility for Mirk",
-        "summary": "SEO for mirk.co.il, the metal-processing website we built, with department and service-area pages structured for local search. Over consecutive 28-day periods, Google impressions rose 41%, two branded searches reached an average first position and the Nahariya service-area page climbed from 17.4 to 8.3.",
+        "client": "Metal-processing plant, Western Galilee",
+        "title": "Local SEO for a metal-processing plant",
+        "summary": "SEO for mirk.co.il, the metal-processing website we built, with department and service-area pages structured for local search. Over consecutive 28-day periods, Google impressions rose 41%, the site reached #1 on Google and the Nahariya service-area page climbed from 17.4 to 8.3.",
         "challenge": "A new website for a metal-processing plant in Akko had to show up for the company's name and for the services and towns it covers across the Western Galilee.",
         "approach": [
           "Department and service pages for each core service — cutting, bending, rolling and iron sales",
           "Service-area landing pages for the Western Galilee, Haifa and the Krayot",
           "Fast, statically rendered pages, Hebrew-first with an English version",
-          "Monitoring in Google Search Console, query by query and page by page"
+          "Monitoring in Google Search Console, query by query and page by page"
         ],
         "result": "Search impressions grew from 1,150 to 1,623 and the average position improved from 16.9 to 15.5. ‘⁧כיפוף פח אלומיניום⁩’ (aluminium sheet bending) moved from position 20.1 to 11.7.",
-        "footnote": "Source: Google Search Console, web search, {period} compared with {previous}. Positions are averages for each period, not live rankings, and Search Console data for the site starts on 29 August 2026.",
+        "footnote": "Source: Google Search Console, web search, {period} compared with {previous}. Positions are averages for each period, not live rankings, and Search Console data for the site starts on 29 August 2026.",
         "pages": {
           "nahariya": "Nahariya service area",
           "ironSales": "Iron sales department",
@@ -630,10 +664,10 @@
         "approach": [
           "Instant lead forms on Facebook and Instagram, so people enquire without leaving the app",
           "A separate WhatsApp campaign alongside the lead-form campaign",
-          "Results tracked campaign by campaign in Meta Ads Manager"
+          "Results tracked campaign by campaign in Meta Ads Manager"
         ],
         "result": "377 form leads in August–October, 62% more than the 233 in May–July.",
-        "footnote": "Source: Meta Ads Manager, lead-form campaign, {period} vs. {previous}; 7-day click or 1-day view attribution. Leads are submitted forms, not verified sales."
+        "footnote": "Source: Meta Ads Manager, lead-form campaign, {period} vs. {previous}; 7-day click or 1-day view attribution. Leads are submitted forms, not verified sales."
       },
       "dance-school-whatsapp": {
         "client": "Dance school, Jerusalem",
@@ -642,23 +676,23 @@
         "challenge": "For a local studio, a WhatsApp chat is the shortest path from an ad to a conversation about classes.",
         "approach": [
           "Click-to-WhatsApp ads that open a chat straight with the studio",
-          "Results measured as conversations started, in Meta Ads Manager"
+          "Results measured as conversations started, in Meta Ads Manager"
         ],
         "result": "473 conversations started in August–October, compared with 140 in May–July.",
-        "footnote": "Source: Meta Ads Manager, WhatsApp campaign, {period} vs. {previous}; 7-day click or 1-day view attribution. Conversations are not confirmed registrations, the cost per conversation rose 30%, and the comparison doesn't control for seasonality."
+        "footnote": "Source: Meta Ads Manager, WhatsApp campaign, {period} vs. {previous}; 7-day click or 1-day view attribution. Conversations are not confirmed registrations, the cost per conversation rose 30%, and the comparison doesn't control for seasonality."
       },
       "family-law-traffic": {
         "client": "Family-law practice, Central Israel",
         "title": "2.5× the clicks on the same budget",
-        "summary": "We took over the Google Ads account of a family-law practice on 1 September. In the first month, clicks rose from 938 to 2,369 and impressions grew 4.2×, on the same budget.",
+        "summary": "We took over the Google Ads account of a family-law practice on 1 September. In the first month, clicks rose from 938 to 2,369 and impressions grew 4.2×, on the same budget.",
         "challenge": "A competitive legal market where every click is expensive: the account had to reach more people for the same money.",
         "approach": [
-          "Extended reach with Performance Max alongside the search campaigns",
+          "Extended reach with Performance Max alongside the search campaigns",
           "Kept total spend flat while bringing the cost per click down",
           "Tracked qualifying phone calls (30 seconds or longer) as their own conversion"
         ],
         "result": "September brought 2,369 clicks against 938 in August, at a 60% lower cost per click, and 4.2× the impressions.",
-        "footnote": "Source: Google Ads, account totals, {period} vs. {previous}; cost per click is account spend divided by clicks. More traffic is not yet more clients: qualifying phone calls from ads were 6 in September against 8 in August."
+        "footnote": "Source: Google Ads, account totals, {period} vs. {previous}; cost per click is account spend divided by clicks. More traffic is not yet more clients: qualifying phone calls from ads were 6 in September against 8 in August."
       },
       "legal-leads": {
         "client": "Law firm",
@@ -668,10 +702,10 @@
         "approach": [
           "Instant lead forms aimed at private clients",
           "Tested campaigns with and without Meta's Advantage+ audience expansion",
-          "Leads tracked campaign by campaign in Meta Ads Manager"
+          "Leads tracked campaign by campaign in Meta Ads Manager"
         ],
         "result": "139 form leads in August–October, 14% more than the 122 in May–July.",
-        "footnote": "Source: Meta Ads Manager, private-clients lead-form campaign, {period} vs. {previous}; 7-day click or 1-day view attribution. Leads are submitted forms, not signed clients."
+        "footnote": "Source: Meta Ads Manager, private-clients lead-form campaign, {period} vs. {previous}; 7-day click or 1-day view attribution. Leads are submitted forms, not signed clients."
       }
     }
   },
@@ -924,9 +958,28 @@
     "work": "See the work"
   },
   "cta": {
-    "title": "Let’s build something that sells.",
+    "title": "One team for the code and the customers.",
     "description": "Tell us what you need — a new website, a platform, or campaigns that bring in customers — and we’ll show you how we’d approach it.",
     "primary": "Start a project",
     "secondary": "See the results"
+  },
+  "profile": {
+    "label": "Two skill sets, one person",
+    "engineer": {
+      "title": "The engineer",
+      "items": [
+        "From QA lead to full-stack engineer",
+        "Leads development of the Digitengo AI marketing platform",
+        "Next.js, React and Node.js, built AI-first with Claude Code"
+      ]
+    },
+    "marketer": {
+      "title": "The marketer",
+      "items": [
+        "Google Ads and Meta campaigns for e-commerce, legal and local businesses",
+        "Technical and local SEO",
+        "GA4, conversion tracking and Tag Manager"
+      ]
+    }
   }
 }

@@ -3,6 +3,7 @@ import {
   getFeaturedMarketingCases,
   getHeadlineMetric,
   getMarketingCase,
+  type MarketingSlug,
 } from "@/data/marketing";
 import { formatMetricHeadline } from "@/lib/metrics";
 import { marketingCaseHref, projectHref } from "@/lib/routes";
@@ -16,21 +17,22 @@ import CaseCard from "@/components/marketing/CaseCard";
 export default function Results() {
   const t = useTranslations("home.results");
   const format = useFormatter();
-  const headline = (slug: "ecommerce-growth" | "security-leads") =>
+  const headline = (slug: MarketingSlug) =>
     formatMetricHeadline(format, getHeadlineMetric(getMarketingCase(slug)));
 
+  // The featured cards below carry their own numbers, so the strip shows the other cases.
   const items = [
     {
-      key: "purchaseValue",
-      value: headline("ecommerce-growth"),
-      label: t("items.purchaseValue"),
-      href: marketingCaseHref("ecommerce-growth"),
+      key: "leads",
+      value: headline("watch-coating-leads"),
+      label: t("items.leads"),
+      href: marketingCaseHref("watch-coating-leads"),
     },
     {
-      key: "cpc",
-      value: headline("security-leads"),
-      label: t("items.cpc"),
-      href: marketingCaseHref("security-leads"),
+      key: "conversations",
+      value: headline("dance-school-whatsapp"),
+      label: t("items.conversations"),
+      href: marketingCaseHref("dance-school-whatsapp"),
     },
     {
       key: "google",
