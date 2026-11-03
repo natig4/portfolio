@@ -237,12 +237,6 @@
   initial-value: 0deg;
 }
 
-@property --n {
-  syntax: "<integer>";
-  inherits: false;
-  initial-value: 0;
-}
-
 @keyframes drift-a {
   to {
     transform: translate(16vmax, 10vmax) scale(1.15);
@@ -281,11 +275,6 @@
 @keyframes spin-angle {
   to {
     --angle: 360deg;
-  }
-}
-@keyframes count-up {
-  from {
-    --n: 0;
   }
 }
 @keyframes grow-x {
@@ -409,14 +398,6 @@
   justify-content: space-around;
   gap: var(--gap);
   min-width: 100%;
-}
-
-/* Counts from 0 to --to once, the first time it is seen (RevealScript sets data-seen). The visual is aria-hidden; the real value is screen-reader text.
-   Note for scroll-driven effects: wrap them in overflow: clip, not hidden — a hidden box is a scroll container and captures view() timelines. */
-.count-up::after {
-  --n: var(--to);
-  counter-reset: n var(--n);
-  content: counter(n);
 }
 
 /* Bars that grow from the inline start. */
@@ -573,9 +554,6 @@
     [dir="rtl"] .reveal-end {
       animation-name: reveal-end-rtl;
     }
-    .count-up::after {
-      animation: count-up 1200ms var(--ease-out-soft) both;
-    }
     .grow-x {
       animation: grow-x 900ms var(--ease-out-soft) both;
     }
@@ -583,8 +561,7 @@
       animation: grow-y 800ms var(--ease-out-soft) both;
       animation-delay: calc(var(--i, 0) * 70ms);
     }
-    :is(.reveal, .reveal-scale, .reveal-start, .reveal-end, .grow-x, .grow-y):not([data-seen]),
-    .count-up:not([data-seen])::after {
+    :is(.reveal, .reveal-scale, .reveal-start, .reveal-end, .grow-x, .grow-y):not([data-seen]) {
       animation-play-state: paused;
     }
   }

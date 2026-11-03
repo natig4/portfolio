@@ -1,5 +1,5 @@
 const SELECTOR =
-  ".reveal,.reveal-scale,.reveal-start,.reveal-end,.grow-x,.grow-y,.count-up";
+  ".reveal,.reveal-scale,.reveal-start,.reveal-end,.grow-x,.grow-y";
 
 // Marks entrance-animated elements data-seen the first time they come into view, then stops
 // watching them, so each animation plays exactly once (paused until then in globals.css).
