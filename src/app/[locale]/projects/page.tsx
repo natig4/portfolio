@@ -69,10 +69,10 @@ export default async function ProjectsPage({ params }: Props) {
           </ButtonLink>
         }
       >
-        <ul className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
+        <ul className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
           {getFeaturedMarketingCases().map((data, index) => (
-            <li key={data.slug}>
-              <Reveal index={index} className='h-full'>
+            <li key={data.slug} className='min-w-0'>
+              <Reveal index={index} className='h-full min-w-0'>
                 <CaseCard data={data} />
               </Reveal>
             </li>

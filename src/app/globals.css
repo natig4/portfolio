@@ -528,30 +528,29 @@
     translate: 120% 0;
   }
 
-  /* Play-once entrances: held at their first frame until RevealScript marks the
-     element data-seen on first view, then never replayed. Without JS
-     (scripting: none) content is simply shown. */
+  /* Reveal content stays visible until observation starts its one-time entrance.
+     A missing or delayed observer must never leave a blank section. */
   @media (scripting: enabled) {
-    .reveal,
-    .reveal-scale,
-    .reveal-start,
-    .reveal-end {
+    .reveal[data-seen],
+    .reveal-scale[data-seen],
+    .reveal-start[data-seen],
+    .reveal-end[data-seen] {
       animation: reveal 700ms var(--ease-out-soft) both;
       animation-delay: calc(var(--i, 0) * 90ms);
     }
-    .reveal-scale {
+    .reveal-scale[data-seen] {
       animation-name: reveal-scale;
     }
-    .reveal-start {
+    .reveal-start[data-seen] {
       animation-name: reveal-start;
     }
-    [dir="rtl"] .reveal-start {
+    [dir="rtl"] .reveal-start[data-seen] {
       animation-name: reveal-start-rtl;
     }
-    .reveal-end {
+    .reveal-end[data-seen] {
       animation-name: reveal-end;
     }
-    [dir="rtl"] .reveal-end {
+    [dir="rtl"] .reveal-end[data-seen] {
       animation-name: reveal-end-rtl;
     }
     .grow-x {
@@ -561,7 +560,7 @@
       animation: grow-y 800ms var(--ease-out-soft) both;
       animation-delay: calc(var(--i, 0) * 70ms);
     }
-    :is(.reveal, .reveal-scale, .reveal-start, .reveal-end, .grow-x, .grow-y):not([data-seen]) {
+    :is(.grow-x, .grow-y):not([data-seen]) {
       animation-play-state: paused;
     }
   }

@@ -46,10 +46,10 @@ export default function CaseBrowser() {
         ))}
       </fieldset>
 
-      <ul className='mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
+      <ul className='mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
         {marketingCases.map((data, index) => (
-          <li key={data.slug} data-channels={data.channels.join(" ")}>
-            <Reveal index={index % 3} className='h-full'>
+          <li key={data.slug} data-channels={data.channels.join(" ")} className='min-w-0'>
+            <Reveal index={index % 3} className='h-full min-w-0'>
               <CaseCard data={data} />
             </Reveal>
           </li>
