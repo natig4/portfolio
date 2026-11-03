@@ -36,7 +36,7 @@ export default function ProjectCover({
   return (
     <BrowserFrame url={url} className={className}>
       {shots ? (
-        <div className='overflow-hidden'>
+        <div className='overflow-clip'>
           <Image
             src={shots.desktop}
             alt={alt}

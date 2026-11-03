@@ -8,10 +8,10 @@ const variants = {
 } as const;
 
 /**
- * Animates content in as it scrolls into view using a CSS scroll-driven
- * animation (`.reveal*` in globals.css) — no JavaScript. `index` staggers
- * siblings. Browsers without `animation-timeline: view()`, and visitors who
- * prefer reduced motion, see the content immediately.
+ * Animates content in the first time it scrolls into view (`.reveal*` in
+ * globals.css, started once by RevealScript), then leaves it in place. `index`
+ * staggers siblings. Without JS, and for visitors who prefer reduced motion,
+ * the content is shown immediately.
  */
 export default function Reveal({
   children,

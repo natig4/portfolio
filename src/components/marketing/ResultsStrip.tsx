@@ -24,7 +24,7 @@ export default function ResultsStrip({
   return (
     <ul
       aria-label={label}
-      className={`grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4 ${className}`}
+      className={`grid gap-px overflow-clip rounded-3xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4 ${className}`}
     >
       {items.map(({ key, value, label: itemLabel, href }, index) => (
         <li key={key} className='bg-surface/90'>

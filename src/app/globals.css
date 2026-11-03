@@ -411,10 +411,8 @@
   min-width: 100%;
 }
 
-/* Counts from 0 to --to as it scrolls into view. The visual is aria-hidden; the real value is screen-reader text. */
-.count-up {
-  view-timeline-name: --count;
-}
+/* Counts from 0 to --to once, the first time it is seen (RevealScript sets data-seen). The visual is aria-hidden; the real value is screen-reader text.
+   Note for scroll-driven effects: wrap them in overflow: clip, not hidden — a hidden box is a scroll container and captures view() timelines. */
 .count-up::after {
   --n: var(--to);
   counter-reset: n var(--n);
@@ -549,15 +547,16 @@
     translate: 120% 0;
   }
 
-  @supports (animation-timeline: view()) {
+  /* Play-once entrances: held at their first frame until RevealScript marks the
+     element data-seen on first view, then never replayed. Without JS
+     (scripting: none) content is simply shown. */
+  @media (scripting: enabled) {
     .reveal,
     .reveal-scale,
     .reveal-start,
     .reveal-end {
-      animation: reveal linear both;
-      animation-timeline: view();
-      animation-range: entry calc(var(--i, 0) * 6%) entry
-        calc(70% + var(--i, 0) * 6%);
+      animation: reveal 700ms var(--ease-out-soft) both;
+      animation-delay: calc(var(--i, 0) * 90ms);
     }
     .reveal-scale {
       animation-name: reveal-scale;
@@ -575,21 +574,22 @@
       animation-name: reveal-end-rtl;
     }
     .count-up::after {
-      animation: count-up 1ms linear both;
-      animation-timeline: --count;
-      animation-range: entry 20% cover 45%;
+      animation: count-up 1200ms var(--ease-out-soft) both;
     }
     .grow-x {
-      animation: grow-x linear both;
-      animation-timeline: view();
-      animation-range: entry 20% cover 40%;
+      animation: grow-x 900ms var(--ease-out-soft) both;
     }
     .grow-y {
-      animation: grow-y linear both;
-      animation-timeline: view();
-      animation-range: entry calc(10% + var(--i, 0) * 5%) cover
-        calc(35% + var(--i, 0) * 3%);
+      animation: grow-y 800ms var(--ease-out-soft) both;
+      animation-delay: calc(var(--i, 0) * 70ms);
     }
+    :is(.reveal, .reveal-scale, .reveal-start, .reveal-end, .grow-x, .grow-y):not([data-seen]),
+    .count-up:not([data-seen])::after {
+      animation-play-state: paused;
+    }
+  }
+
+  @supports (animation-timeline: scroll()) {
     .scroll-progress {
       display: block;
       position: fixed;

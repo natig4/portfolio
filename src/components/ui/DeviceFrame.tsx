@@ -12,7 +12,7 @@ export function BrowserFrame({
 }) {
   return (
     <div
-      className={`overflow-hidden rounded-xl border border-border bg-surface shadow-[0_1px_2px_rgb(0_0_0/0.04),0_8px_24px_-12px_rgb(0_0_0/0.18)] ${className}`}
+      className={`overflow-clip rounded-xl border border-border bg-surface shadow-[0_1px_2px_rgb(0_0_0/0.04),0_8px_24px_-12px_rgb(0_0_0/0.18)] ${className}`}
     >
       <div
         dir='ltr'
@@ -42,9 +42,9 @@ export function PhoneFrame({
 }) {
   return (
     <div
-      className={`overflow-hidden rounded-[2rem] border-[6px] border-zinc-900 bg-zinc-900 shadow-[0_12px_32px_-12px_rgb(0_0_0/0.35)] dark:border-zinc-700 ${className}`}
+      className={`overflow-clip rounded-[2rem] border-[6px] border-zinc-900 bg-zinc-900 shadow-[0_12px_32px_-12px_rgb(0_0_0/0.35)] dark:border-zinc-700 ${className}`}
     >
-      <div className='overflow-hidden rounded-[1.6rem]'>{children}</div>
+      <div className='overflow-clip rounded-[1.6rem]'>{children}</div>
     </div>
   );
 }

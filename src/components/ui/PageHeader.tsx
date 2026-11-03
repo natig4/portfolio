@@ -16,7 +16,7 @@ export default function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <header className='section-ink relative overflow-hidden'>
+    <header className='section-ink relative overflow-clip'>
       <Aurora />
       <div className='bg-grid pointer-events-none absolute inset-0 opacity-50' aria-hidden='true' />
       <Container className='relative py-16 sm:py-24'>

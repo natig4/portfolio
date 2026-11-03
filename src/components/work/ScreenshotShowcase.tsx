@@ -30,7 +30,7 @@ export default function ScreenshotShowcase({
       <figure>
         <BrowserFrame url={url}>
           <div
-            className='group relative overflow-hidden'
+            className='group relative overflow-clip'
             style={{ height: FRAME_HEIGHT }}
           >
             <Image

@@ -18,7 +18,7 @@ export default function ConfidentialCover({
   description: string;
 }) {
   return (
-    <div className='relative aspect-[16/10] overflow-hidden bg-muted/40'>
+    <div className='relative aspect-[16/10] overflow-clip bg-muted/40'>
       <div
         className='absolute inset-0 flex gap-3 p-4 opacity-80 blur-[1px]'
         aria-hidden='true'
@@ -43,7 +43,7 @@ export default function ConfidentialCover({
             ))}
           </div>
           <div
-            className='grid flex-1 overflow-hidden rounded-md border border-border bg-surface'
+            className='grid flex-1 overflow-clip rounded-md border border-border bg-surface'
             style={{
               gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
               gridTemplateRows: `repeat(${rows}, minmax(0, 1fr))`,

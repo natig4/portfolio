@@ -20,7 +20,7 @@ export default function EvidenceGallery({
               href={image.src}
               target='_blank'
               rel='noopener'
-              className='group relative block overflow-hidden rounded-2xl border border-border bg-white shadow-[0_24px_48px_-28px_rgb(11_15_26/0.4)]'
+              className='group relative block overflow-clip rounded-2xl border border-border bg-white shadow-[0_24px_48px_-28px_rgb(11_15_26/0.4)]'
             >
               <Image
                 src={image}

@@ -29,7 +29,7 @@ export default function Section({
     <section
       id={id}
       aria-labelledby={titleId}
-      className={`py-20 sm:py-28 ${ink ? "section-ink relative overflow-hidden" : ""} ${className}`}
+      className={`py-20 sm:py-28 ${ink ? "section-ink relative overflow-clip" : ""} ${className}`}
     >
       {ink && <Aurora />}
       <Container className='relative'>

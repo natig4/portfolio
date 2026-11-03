@@ -67,7 +67,7 @@ export default function Services() {
               className={`h-full ${layout[index] ?? ""}`}
             >
               <article
-                className={`glow-card relative flex h-full flex-col overflow-hidden rounded-3xl border border-border p-7 transition-transform duration-300 hover:-translate-y-1 sm:p-8 ${featured ? "section-ink lg:p-10" : "bg-surface"}`}
+                className={`glow-card relative flex h-full flex-col overflow-clip rounded-3xl border border-border p-7 transition-transform duration-300 hover:-translate-y-1 sm:p-8 ${featured ? "section-ink lg:p-10" : "bg-surface"}`}
               >
                 {featured && <Aurora />}
                 <span

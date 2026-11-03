@@ -30,8 +30,8 @@ export default function CaseCard({
       : undefined);
 
   return (
-    <article className='glow-card group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface shadow-[0_1px_0_var(--border)] transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-24px_rgb(11_15_26/0.35)]'>
-      <div className='relative aspect-[16/9] overflow-hidden border-b border-border bg-white'>
+    <article className='glow-card group relative flex h-full flex-col overflow-clip rounded-3xl border border-border bg-surface shadow-[0_1px_0_var(--border)] transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-24px_rgb(11_15_26/0.35)]'>
+      <div className='relative aspect-[16/9] overflow-clip border-b border-border bg-white'>
         {image && (
           <Image
             src={image}

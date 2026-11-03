@@ -107,7 +107,7 @@ export default async function MarketingCasePage({ params }: Props) {
         }}
       />
 
-      <header className='section-ink relative overflow-hidden'>
+      <header className='section-ink relative overflow-clip'>
         <Aurora />
         <div
           className='bg-grid pointer-events-none absolute inset-0 opacity-40'

@@ -58,7 +58,7 @@ export default function Edge() {
       <div className='grid items-stretch gap-4 lg:grid-cols-[1fr_auto_1fr_auto_0.9fr]'>
         {/* Development: drawn as a code editor. */}
         <Reveal variant='start' className='h-full'>
-          <div className='h-full overflow-hidden rounded-3xl border border-border bg-surface shadow-[0_24px_48px_-32px_rgb(11_15_26/0.45)]'>
+          <div className='h-full overflow-clip rounded-3xl border border-border bg-surface shadow-[0_24px_48px_-32px_rgb(11_15_26/0.45)]'>
             <div
               className='flex items-center gap-2 border-b border-border bg-muted/60 px-5 py-3'
               dir='ltr'
@@ -97,7 +97,7 @@ export default function Edge() {
 
         {/* Marketing: drawn as a campaign dashboard. */}
         <Reveal variant='end' className='h-full'>
-          <div className='h-full overflow-hidden rounded-3xl border border-border bg-surface shadow-[0_24px_48px_-32px_rgb(11_15_26/0.45)]'>
+          <div className='h-full overflow-clip rounded-3xl border border-border bg-surface shadow-[0_24px_48px_-32px_rgb(11_15_26/0.45)]'>
             <div className='flex items-center justify-between border-b border-border bg-muted/60 px-5 py-3'>
               <span className='font-mono text-xs text-muted-foreground'>
                 {t("marketing.file")}
@@ -145,7 +145,7 @@ export default function Edge() {
 
         {/* The sum. */}
         <Reveal variant='scale' className='h-full'>
-          <div className='section-ink relative flex h-full flex-col justify-between overflow-hidden rounded-3xl p-7 sm:p-8'>
+          <div className='section-ink relative flex h-full flex-col justify-between overflow-clip rounded-3xl p-7 sm:p-8'>
             <Aurora />
             <div className='relative'>
               <h3 className='text-gradient text-5xl font-extrabold tracking-tight sm:text-6xl'>

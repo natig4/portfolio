@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 /**
  * Two bars, previous period and current, scaled to the larger value. The
  * numbers are already written next to the tile's headline, so the bars are
- * decorative; they grow in from the inline start on scroll (`.grow-x`).
+ * decorative; they grow in from the inline start the first time they are seen (`.grow-x`).
  */
 export default function BeforeAfterBars({
   from,
@@ -26,7 +26,7 @@ export default function BeforeAfterBars({
           <span className='w-12 shrink-0 text-xs text-muted-foreground'>
             {label}
           </span>
-          <span className='h-2 flex-1 overflow-hidden rounded-full bg-muted'>
+          <span className='h-2 flex-1 overflow-clip rounded-full bg-muted'>
             <span
               className={`grow-x block h-full rounded-full ${bar}`}
               style={{ width: `${(value / max) * 100}%` }}

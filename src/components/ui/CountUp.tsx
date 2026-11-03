@@ -2,9 +2,10 @@ import type { CSSProperties } from "react";
 
 /**
  * Renders a formatted number such as "+49%" so that its digits count up from 0
- * as it scrolls into view (`.count-up` in globals.css). Only whole numbers from
- * 10 to 999 animate — CSS counters can't group digits or show decimals — and
- * anything else renders as plain text. Screen readers always get the text.
+ * the first time it comes into view (`.count-up` in globals.css, started by
+ * RevealScript) and then stay put. Only whole numbers from 10 to 999 animate —
+ * CSS counters can't group digits or show decimals — and anything else renders
+ * as plain text. Screen readers always get the text.
  */
 export default function CountUp({ text }: { text: string }) {
   const match = /^(\D*)(\d+)(\D*)$/.exec(text);

@@ -71,7 +71,7 @@ export default function Hero() {
   return (
     <section
       aria-labelledby='hero-title'
-      className='section-ink relative overflow-hidden'
+      className='section-ink relative overflow-clip'
     >
       <Aurora />
       <div

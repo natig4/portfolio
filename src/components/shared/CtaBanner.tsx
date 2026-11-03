@@ -10,7 +10,7 @@ export default function CtaBanner({ showWork = true }: { showWork?: boolean }) {
   return (
     <section aria-labelledby='cta-title' className='py-20 sm:py-28'>
       <Container>
-        <div className='section-ink relative overflow-hidden rounded-3xl px-6 py-14 sm:px-14 sm:py-20'>
+        <div className='section-ink relative overflow-clip rounded-3xl px-6 py-14 sm:px-14 sm:py-20'>
           <Aurora />
           <div
             className='bg-grid pointer-events-none absolute inset-0 opacity-40'

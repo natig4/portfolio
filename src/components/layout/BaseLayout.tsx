@@ -7,6 +7,7 @@ import Widgets from "@/components/Widgets/Widgets";
 import AnalyticsProvider from "@/components/Analytics/Analytics";
 import ThemeScript from "./ThemeScript";
 import ThemeSync from "./ThemeSync";
+import RevealScript from "./RevealScript";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 
@@ -56,6 +57,7 @@ export default async function BaseLayout({
           <SiteFooter />
           <Widgets lang={locale} />
           <AnalyticsProvider />
+          <RevealScript />
         </NextIntlClientProvider>
       </body>
     </html>
