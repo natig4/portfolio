@@ -74,7 +74,6 @@ export default async function MarketingCasePage({ params }: Props) {
   const metrics = data.metrics as readonly (Metric & { id: MetricId })[];
   const period = formatPeriod(format, data.period);
   const previous = formatPeriod(format, data.comparisonPeriod);
-  const comparison = t("labels.vs", { previous });
   const approach = t.raw(`cases.${slug}.approach`) as string[];
   const next = getNextMarketingCase(slug);
 
@@ -139,9 +138,6 @@ export default async function MarketingCasePage({ params }: Props) {
                   {t(`cases.${slug}.client`)}
                 </span>
                 <ChannelBadges channels={data.channels} />
-                <span>
-                  {period} · {comparison}
-                </span>
               </div>
             </div>
 
@@ -151,9 +147,6 @@ export default async function MarketingCasePage({ params }: Props) {
               </p>
               <p className='mt-3 font-medium'>
                 {t(`metrics.${headline.id}`)}
-              </p>
-              <p className='mt-1 text-sm text-muted-foreground'>
-                {comparison}
               </p>
             </div>
           </div>
@@ -175,12 +168,7 @@ export default async function MarketingCasePage({ params }: Props) {
                 )}
                 <dl className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
                   {items.map((metric) => (
-                    <MetricTile
-                      key={metric.id}
-                      metric={metric}
-                      comparison={comparison}
-                      period={period}
-                    />
+                    <MetricTile key={metric.id} metric={metric} />
                   ))}
                 </dl>
               </div>

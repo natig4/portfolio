@@ -53,15 +53,24 @@ export default async function MarketingPage({ params }: Props) {
   const t = await getTranslations("marketing");
   const format = await getFormatter();
 
-  const results = highlights.map((slug) => {
-    const metric = getHeadlineMetric(getMarketingCase(slug));
-    return {
-      key: slug,
-      value: formatMetricHeadline(format, metric),
-      label: `${t(`metrics.${metric.id}`)} · ${t(`cases.${slug}.client`)}`,
-      href: marketingCaseHref(slug),
-    };
-  });
+  const results = [
+    // Not a period-over-period metric, so it isn't in the case data.
+    {
+      key: "mirk-seo",
+      value: "#1",
+      label: `${t("labels.firstOnGoogle")} · ${t("cases.mirk-seo.client")}`,
+      href: marketingCaseHref("mirk-seo"),
+    },
+    ...highlights.map((slug) => {
+      const metric = getHeadlineMetric(getMarketingCase(slug));
+      return {
+        key: slug,
+        value: formatMetricHeadline(format, metric),
+        label: `${t(`metrics.${metric.id}`)} · ${t(`cases.${slug}.client`)}`,
+        href: marketingCaseHref(slug),
+      };
+    }),
+  ];
 
   return (
     <>

@@ -21,13 +21,19 @@ export default function ResultsStrip({
   label: string;
   className?: string;
 }) {
+  // Five fit one row on desktop; on two columns the first spans both so no cell is left empty.
+  const five = items.length === 5;
+
   return (
     <ul
       aria-label={label}
-      className={`grid gap-px overflow-clip rounded-3xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4 ${className}`}
+      className={`grid gap-px overflow-clip rounded-3xl border border-border bg-border sm:grid-cols-2 ${five ? "lg:grid-cols-5" : "lg:grid-cols-4"} ${className}`}
     >
       {items.map(({ key, value, label: itemLabel, href }, index) => (
-        <li key={key} className='bg-surface/90'>
+        <li
+          key={key}
+          className={`bg-surface/90 ${five && index === 0 ? "sm:col-span-2 lg:col-span-1" : ""}`}
+        >
           <Reveal index={index} className='h-full'>
             <Link
               href={href}

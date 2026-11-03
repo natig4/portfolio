@@ -8,23 +8,16 @@ import {
   metricChange,
 } from "@/lib/metrics";
 import CountUp from "@/components/ui/CountUp";
-import BeforeAfterBars from "./BeforeAfterBars";
 
 /**
  * One result inside a `<dl>`: label, big number with direction (icon + text,
- * never colour alone), the two period values and, for counts, bars that grow
- * in on scroll.
+ * never colour alone) and the two period values. The periods themselves are
+ * stated once in the page's source note.
  */
 export default function MetricTile({
   metric,
-  comparison,
-  period,
 }: {
   metric: Metric & { id: MetricId };
-  /** "vs. 1 May – 31 Jul 2026" */
-  comparison: string;
-  /** "1 Aug – 31 Oct 2026", shown when there's nothing to compare with. */
-  period: string;
 }) {
   const t = useTranslations("marketing");
   const format = useFormatter();
@@ -71,12 +64,6 @@ export default function MetricTile({
           </span>
         </dd>
       )}
-      {hasValues && (unit ?? "count") === "count" && !metric.lowerIsBetter && (
-        <BeforeAfterBars from={from} to={to} />
-      )}
-      <dd className='mt-auto pt-4 text-xs text-muted-foreground'>
-        {change !== undefined ? comparison : period}
-      </dd>
     </div>
   );
 }
