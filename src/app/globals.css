@@ -528,29 +528,29 @@
     translate: 120% 0;
   }
 
-  /* Reveal content stays visible until observation starts its one-time entrance.
-     A missing or delayed observer must never leave a blank section. */
+  /* RevealScript starts entrances only while content is still offscreen.
+     Seen content and missed/late triggers stay visible without an animation. */
   @media (scripting: enabled) {
-    .reveal[data-seen],
-    .reveal-scale[data-seen],
-    .reveal-start[data-seen],
-    .reveal-end[data-seen] {
+    .reveal[data-reveal-motion],
+    .reveal-scale[data-reveal-motion],
+    .reveal-start[data-reveal-motion],
+    .reveal-end[data-reveal-motion] {
       animation: reveal 700ms var(--ease-out-soft) both;
       animation-delay: calc(var(--i, 0) * 90ms);
     }
-    .reveal-scale[data-seen] {
+    .reveal-scale[data-reveal-motion] {
       animation-name: reveal-scale;
     }
-    .reveal-start[data-seen] {
+    .reveal-start[data-reveal-motion] {
       animation-name: reveal-start;
     }
-    [dir="rtl"] .reveal-start[data-seen] {
+    [dir="rtl"] .reveal-start[data-reveal-motion] {
       animation-name: reveal-start-rtl;
     }
-    .reveal-end[data-seen] {
+    .reveal-end[data-reveal-motion] {
       animation-name: reveal-end;
     }
-    [dir="rtl"] .reveal-end[data-seen] {
+    [dir="rtl"] .reveal-end[data-reveal-motion] {
       animation-name: reveal-end-rtl;
     }
     .grow-x {
